@@ -10,48 +10,60 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 
+from gui.plagiarism_window import *
+
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
-        MainWindow.setObjectName("Fake Texts Detector Program")
+        MainWindow.setObjectName("MainWindow")
         MainWindow.resize(861, 598)
+
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
-        self.label = QtWidgets.QLabel(self.centralwidget)
-        self.label.setGeometry(QtCore.QRect(0, 0, 860, 600))
-        self.label.setText("")
-        self.label.setPixmap(QtGui.QPixmap("background.jpg"))
-        self.label.setScaledContents(True)
-        self.label.setObjectName("label")
+
+        self.backgroundImg = QtWidgets.QLabel(self.centralwidget)
+        self.backgroundImg.setGeometry(QtCore.QRect(0, 0, 860, 600))
+        self.backgroundImg.setText("")
+        self.backgroundImg.setPixmap(QtGui.QPixmap("resources/background.jpg"))
+        self.backgroundImg.setScaledContents(True)
+        self.backgroundImg.setObjectName("backgroundImg")
+
         self.groupBox = QtWidgets.QGroupBox(self.centralwidget)
         self.groupBox.setEnabled(True)
         self.groupBox.setGeometry(QtCore.QRect(30, 0, 800, 570))
+
         palette = QtGui.QPalette()
         brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.WindowText, brush)
         self.groupBox.setPalette(palette)
+
         font = QtGui.QFont()
-        font.setFamily("Tw Cen MT Condensed Extra Bold")
+        font.setFamily("Sitka Heading")
         font.setPointSize(36)
+        font.setBold(True)
+        font.setUnderline(False)
+        font.setWeight(75)
         self.groupBox.setFont(font)
+
         self.groupBox.setAlignment(QtCore.Qt.AlignCenter)
         self.groupBox.setObjectName("groupBox")
+
         self.plagiarismBtn = QtWidgets.QPushButton(self.groupBox)
         self.plagiarismBtn.setEnabled(True)
         self.plagiarismBtn.setGeometry(QtCore.QRect(90, 190, 260, 111))
         font = QtGui.QFont()
-        font.setFamily("Tw Cen MT Condensed Extra Bold")
+        font.setFamily("Sitka Small")
         font.setPointSize(18)
         font.setBold(False)
         font.setItalic(False)
-        font.setWeight(50)
+        font.setWeight(9)
         self.plagiarismBtn.setFont(font)
         self.plagiarismBtn.setAcceptDrops(False)
         self.plagiarismBtn.setAutoFillBackground(False)
         self.plagiarismBtn.setStyleSheet("\n"
                                          "background-color: rgb(0, 0, 20);\n"
-                                         "font: 18pt \"Tw Cen MT Condensed Extra Bold\";\n"
+                                         "font: 75 18pt \"Sitka Small\";\n"
                                          "color: rgb(255, 255, 255);\n"
                                          "border-width: 3px;\n"
                                          "border-radius: 30px;\n"
@@ -62,20 +74,21 @@ class Ui_MainWindow(object):
         self.plagiarismBtn.setDefault(False)
         self.plagiarismBtn.setFlat(False)
         self.plagiarismBtn.setObjectName("plagiarismBtn")
+
         self.fakeNewsBtn = QtWidgets.QPushButton(self.groupBox)
         self.fakeNewsBtn.setEnabled(True)
         self.fakeNewsBtn.setGeometry(QtCore.QRect(450, 190, 260, 111))
         font = QtGui.QFont()
-        font.setFamily("Tw Cen MT Condensed Extra Bold")
+        font.setFamily("Sitka Small")
         font.setPointSize(18)
         font.setBold(False)
         font.setItalic(False)
-        font.setWeight(50)
+        font.setWeight(9)
         self.fakeNewsBtn.setFont(font)
         self.fakeNewsBtn.setAcceptDrops(False)
         self.fakeNewsBtn.setAutoFillBackground(False)
         self.fakeNewsBtn.setStyleSheet("background-color: rgb(0, 0, 20);\n"
-                                       "font: 18pt \"Tw Cen MT Condensed Extra Bold\";\n"
+                                       "font: 75 18pt \"Sitka Small\";\n"
                                        "color: rgb(255, 255, 255);\n"
                                        "border-width: 3px;\n"
                                        "border-radius: 30px;\n"
@@ -86,20 +99,21 @@ class Ui_MainWindow(object):
         self.fakeNewsBtn.setDefault(False)
         self.fakeNewsBtn.setFlat(False)
         self.fakeNewsBtn.setObjectName("fakeNewsBtn")
+
         self.historyBtn = QtWidgets.QPushButton(self.groupBox)
         self.historyBtn.setEnabled(True)
         self.historyBtn.setGeometry(QtCore.QRect(270, 460, 260, 71))
         font = QtGui.QFont()
-        font.setFamily("Tw Cen MT Condensed Extra Bold")
+        font.setFamily("Sitka Small")
         font.setPointSize(18)
         font.setBold(False)
         font.setItalic(False)
-        font.setWeight(50)
+        font.setWeight(9)
         self.historyBtn.setFont(font)
         self.historyBtn.setAcceptDrops(False)
         self.historyBtn.setAutoFillBackground(False)
         self.historyBtn.setStyleSheet("background-color: rgb(0, 0, 20);\n"
-                                      "font: 18pt \"Tw Cen MT Condensed Extra Bold\";\n"
+                                      "font: 75 18pt \"Sitka Small\";\n"
                                       "color: rgb(255, 255, 255);\n"
                                       "border-width: 3px;\n"
                                       "border-radius: 30px;\n"
@@ -110,21 +124,22 @@ class Ui_MainWindow(object):
         self.historyBtn.setDefault(False)
         self.historyBtn.setFlat(False)
         self.historyBtn.setObjectName("historyBtn")
+
         self.helpBtn = QtWidgets.QPushButton(self.groupBox)
         self.helpBtn.setEnabled(True)
         self.helpBtn.setGeometry(QtCore.QRect(30, 479, 61, 61))
         font = QtGui.QFont()
-        font.setFamily("Tw Cen MT Condensed Extra Bold")
+        font.setFamily("Sitka Small")
         font.setPointSize(18)
         font.setBold(False)
         font.setItalic(False)
-        font.setWeight(50)
+        font.setWeight(9)
         self.helpBtn.setFont(font)
         self.helpBtn.setAcceptDrops(False)
         self.helpBtn.setAutoFillBackground(False)
         self.helpBtn.setStyleSheet("\n"
                                    "background-color: rgb(0, 53, 159);\n"
-                                   "font: 18pt \"Tw Cen MT Condensed Extra Bold\";\n"
+                                   "font: 75 18pt \"Sitka Small\";\n"
                                    "color: rgb(255, 255, 255);\n"
                                    "border-width: 3px;\n"
                                    "border-radius: 30px;\n"
@@ -135,29 +150,30 @@ class Ui_MainWindow(object):
         self.helpBtn.setDefault(False)
         self.helpBtn.setFlat(False)
         self.helpBtn.setObjectName("helpBtn")
+
         MainWindow.setCentralWidget(self.centralwidget)
 
-        # self.plagiarismBtn.clicked.connect(self.openPlagiarisWin)
         # self.fakeNewsBtn.clicked.connect(self.fakeNewsBtn)
         # self.historyBtn.clicked.connect(self.historyBtn)
+
 
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
-    # def openPlagiarisWin(self):
-    #
-    # def openFakeNewsWin(self):
-    #
-    # def openHisoryWin(self):
-
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "Fake Texts Detector"))
         self.groupBox.setTitle(_translate("MainWindow", "Fake Texts Detector"))
         self.plagiarismBtn.setText(_translate("MainWindow", "Plagiarism"))
         self.fakeNewsBtn.setText(_translate("MainWindow", "Fake News"))
         self.historyBtn.setText(_translate("MainWindow", "History"))
         self.helpBtn.setText(_translate("MainWindow", "?"))
+
+
+
+    #def openFakeNewsWin(self):
+
+    #def openHisoryWin(self):
 
 
 if __name__ == "__main__":
