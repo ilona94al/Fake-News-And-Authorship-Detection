@@ -8,6 +8,7 @@ class MainWinController(QMainWindow):
         from gui.main_window import Ui_MainWindow
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
+
         self.ui.plagiarismBtn.clicked.connect(self.openPlagiarisWin)
 
     def openPlagiarisWin(self):

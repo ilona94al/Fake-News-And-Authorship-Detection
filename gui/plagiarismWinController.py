@@ -6,6 +6,7 @@ class PlagiarismWinController(QMainWindow):
     def __init__(self, parent=None):
         super(PlagiarismWinController, self).__init__(parent)
         from gui.plagiarism_window import Ui_PlagiarismWindow
+
         self.ui = Ui_PlagiarismWindow()
         self.ui.setupUi(self)
 
@@ -17,6 +18,7 @@ class PlagiarismWinController(QMainWindow):
         self.ui.errorMsg.setHidden(True)
 
         # todo: upload writers name into a combo box.
+
         self.ui.authorComboBox.addItem("")
         self.ui.authorComboBox.addItem("Vlad")
 
