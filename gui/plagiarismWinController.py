@@ -1,25 +1,20 @@
-
 from PyQt5 import QtWidgets
 from PyQt5.QtWidgets import QMainWindow
-
-from gui.mainWinController import MainWinController
-from gui.plagiarism_window import Ui_PlagiarismWindow
-from gui.trainModelWinController import TrainModelWinController
 
 
 class PlagiarismWinController(QMainWindow):
     def __init__(self, parent=None):
         super(PlagiarismWinController, self).__init__(parent)
+        from gui.plagiarism_window import Ui_PlagiarismWindow
         self.ui = Ui_PlagiarismWindow()
         self.ui.setupUi(self)
+
         self.ui.backBtn.clicked.connect(self.back_pressed)
         self.ui.uploadBtn.clicked.connect(self.upload_pressed)
         self.ui.trainBtn.clicked.connect(self.train_pressed)
         self.ui.startBtn.clicked.connect(self.start_pressed)
 
-
         self.ui.errorMsg.setHidden(True)
-
 
         # todo: upload writers name into a combo box.
         self.ui.authorComboBox.addItem("")
@@ -27,6 +22,7 @@ class PlagiarismWinController(QMainWindow):
 
     def back_pressed(self):
         self.close()
+        from gui.mainWinController import MainWinController
         self.window = MainWinController()
         self.window.show()
 
@@ -34,7 +30,7 @@ class PlagiarismWinController(QMainWindow):
         import tkinter as tk
         from tkinter import filedialog
 
-        root=tk.Tk()
+        root = tk.Tk()
         root.withdraw()
 
         file_path = filedialog.askopenfilename()
@@ -43,6 +39,7 @@ class PlagiarismWinController(QMainWindow):
 
     def train_pressed(self):
         self.close()
+        from gui.trainModelWinController import TrainModelWinController
         self.window = TrainModelWinController()
         self.window.show()
 
@@ -55,29 +52,36 @@ class PlagiarismWinController(QMainWindow):
             self.book_not_uploaded()
         if str(author_name) == "":
             self.author_not_chosen()
-        # self.close()
-        # self.window = DetectionResultsWinController()
-        # self.window.show()
+        if self.allOk:
+            self.close()
+            from gui.detectionResultsWinController import DetectionResultsWinController
+            self.window = DetectionResultsWinController(author_name, book_path)
+            self.window.show()
 
     def clear_feedback(self):
+        self.allOk = True
         self.ui.errorMsg.setHidden(True)
         self.ui.errorMsg.setText("")
         self.ui.horizontalGroupBox.setStyleSheet("")
         self.ui.verticalGroupBox.setStyleSheet("")
 
     def book_not_uploaded(self):
-        self.ui.errorMsg.setText("Empty path, please upload a book.")
-        self.ui.errorMsg.setHidden(False)
-        self.ui.errorMsg.adjustSize()
-        self.ui.horizontalGroupBox.setStyleSheet("border-color: rgb(170, 0, 0);")
-        self.ui.horizontalGroupBox.update()
+        msg = "Empty path, please upload a book."
+        widget = self.ui.horizontalGroupBox
+        self.setFeedback(msg, widget)
 
     def author_not_chosen(self):
-        self.ui.errorMsg.setText(self.ui.errorMsg.text() + "\n" + "Author not chosen")
-        self.ui.errorMsg.setHidden(False)
+        msg = self.ui.errorMsg.text() + "\n" + "Author not chosen"
+        widget = self.ui.verticalGroupBox
+        self.setFeedback(msg, widget)
+
+    def setFeedback(self, msg, widget):
+        self.allOk = False
+        self.ui.errorMsg.setText(msg)
         self.ui.errorMsg.adjustSize()
-        self.ui.verticalGroupBox.setStyleSheet("border-color: rgb(170, 0, 0);")
-        self.ui.verticalGroupBox.update()
+        self.ui.errorMsg.setHidden(False)
+        widget.setStyleSheet("border-color: rgb(170, 0, 0);")
+        widget.update()
 
 
 if __name__ == "__main__":

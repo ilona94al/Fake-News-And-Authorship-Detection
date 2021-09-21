@@ -1,7 +1,5 @@
-from PyQt5.QtWidgets import QMainWindow
 from PyQt5 import QtWidgets
-
-
+from PyQt5.QtWidgets import QMainWindow
 
 
 class MainWinController(QMainWindow):
@@ -17,11 +15,6 @@ class MainWinController(QMainWindow):
         from gui.plagiarismWinController import PlagiarismWinController
         self.window = PlagiarismWinController()
         self.window.show()
-        # self.window = QtWidgets.QMainWindow()
-        # self.ui = Ui_PlagiarismWindow()
-        # self.ui.setupUi(self.window)
-        # self.window.show()
-        # MainWindow.hide()
 
 
 if __name__ == "__main__":
