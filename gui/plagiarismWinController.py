@@ -1,8 +1,7 @@
 
-from PyQt5.QtWidgets import QMainWindow, QApplication
 from PyQt5 import QtWidgets
+from PyQt5.QtWidgets import QMainWindow
 
-from gui.detectionResultsWinController import DetectionResultsWinController
 from gui.mainWinController import MainWinController
 from gui.plagiarism_window import Ui_PlagiarismWindow
 from gui.trainModelWinController import TrainModelWinController
@@ -38,7 +37,7 @@ class PlagiarismWinController(QMainWindow):
         root=tk.Tk()
         root.withdraw()
 
-        file_path=filedialog.askopenfilename()
+        file_path = filedialog.askopenfilename()
 
         self.ui.path.setText(file_path)
 
@@ -48,33 +47,37 @@ class PlagiarismWinController(QMainWindow):
         self.window.show()
 
     def start_pressed(self):
-        self.ui.errorMsg.setHidden(True)
-        self.ui.errorMsg.setText("")
+        self.clear_feedback()
 
-        mytext = self.ui.path.text()
-        selection=self.ui.authorComboBox.currentText()
-        if str(mytext) == "":
-            self.ui.errorMsg.setText("Empty path, please choose a book.")
-            self.ui.errorMsg.setHidden(False)
-            self.ui.errorMsg.adjustSize()
-            self.ui.horizontalGroupBox.setStyleSheet("border-color: rgb(170, 0, 0);")
-            self.ui.horizontalGroupBox.update()
-        else:
-            self.ui.horizontalGroupBox.setStyleSheet("")
-        if str(selection) == "":
-            self.ui.errorMsg.setText(self.ui.errorMsg.text()+"\n"+"Author not selected")
-            self.ui.errorMsg.setHidden(False)
-            self.ui.errorMsg.adjustSize()
-            self.ui.verticalGroupBox.setStyleSheet("border-color: rgb(170, 0, 0);")
-            self.ui.verticalGroupBox.update()
-        else:
-            self.ui.verticalGroupBox.setStyleSheet("")
-
-
+        book_path = self.ui.path.text()
+        author_name = self.ui.authorComboBox.currentText()
+        if str(book_path) == "":
+            self.book_not_uploaded()
+        if str(author_name) == "":
+            self.author_not_chosen()
         # self.close()
         # self.window = DetectionResultsWinController()
         # self.window.show()
 
+    def clear_feedback(self):
+        self.ui.errorMsg.setHidden(True)
+        self.ui.errorMsg.setText("")
+        self.ui.horizontalGroupBox.setStyleSheet("")
+        self.ui.verticalGroupBox.setStyleSheet("")
+
+    def book_not_uploaded(self):
+        self.ui.errorMsg.setText("Empty path, please upload a book.")
+        self.ui.errorMsg.setHidden(False)
+        self.ui.errorMsg.adjustSize()
+        self.ui.horizontalGroupBox.setStyleSheet("border-color: rgb(170, 0, 0);")
+        self.ui.horizontalGroupBox.update()
+
+    def author_not_chosen(self):
+        self.ui.errorMsg.setText(self.ui.errorMsg.text() + "\n" + "Author not chosen")
+        self.ui.errorMsg.setHidden(False)
+        self.ui.errorMsg.adjustSize()
+        self.ui.verticalGroupBox.setStyleSheet("border-color: rgb(170, 0, 0);")
+        self.ui.verticalGroupBox.update()
 
 
 if __name__ == "__main__":

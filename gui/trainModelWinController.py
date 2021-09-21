@@ -8,7 +8,6 @@ class TrainModelWinController(QMainWindow):
         # self.ui = Ui_TrainModelWindow()
         # self.ui.setupUi(self)
 
-
 if __name__ == "__main__":
     import sys
 
