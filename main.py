@@ -1,4 +1,5 @@
 import re
+
 import numpy as np
 
 
@@ -19,7 +20,7 @@ def preProcess(string):
     return string
 
 
-def Text_processing(name):
+def Text_processing():
     import csv
     fake_news = []
     real_news = []
@@ -53,11 +54,11 @@ def Text_processing(name):
     tz = BertTokenizer.from_pretrained("bert-base-cased")
     encodedText_IDs = []
     attn_maskForBertInput = []
-    i = 0
-    for x in texts_:
+
+    for text in texts_:
         # Encode the sentence
         encoded = tz.encode_plus(
-            text=texts_[i],  # the sentence to be encoded
+            text=text,  # the sentence to be encoded
             add_special_tokens=True,  # Add [CLS] and [SEP]
             max_length=512,  # maximum length of a sentence
             pad_to_max_length=True,  # Add [PAD]s
@@ -70,7 +71,7 @@ def Text_processing(name):
         encodedText_IDs.append(input_ids)
         attn_mask = encoded['attention_mask']
         attn_maskForBertInput.append(attn_mask)
-        i = i + 1
+
     print(encodedText_IDs)
     print(attn_maskForBertInput)
 
@@ -80,4 +81,4 @@ def Text_processing(name):
 # https://huggingface.co/transformers/preprocessing.html
 
 if __name__ == '__main__':
-    Text_processing('Lets go')
+    Text_processing()
