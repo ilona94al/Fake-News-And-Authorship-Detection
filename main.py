@@ -56,14 +56,16 @@ def Text_processing():
     attn_maskForBertInput = []
 
     for text in texts_:
+        text_ = tz.tokenize(text)
         # Encode the sentence
         encoded = tz.encode_plus(
-            text=text,  # the sentence to be encoded
+            text=text_,  # the sentence to be encoded
             add_special_tokens=True,  # Add [CLS] and [SEP]
             max_length=512,  # maximum length of a sentence
             pad_to_max_length=True,  # Add [PAD]s
             return_attention_mask=True,  # Generate the attention mask
             return_tensors='pt',  # ask the function to return PyTorch tensors
+
         )
 
         # Get the input IDs and attention mask in tensor format
