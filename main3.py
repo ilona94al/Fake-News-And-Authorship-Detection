@@ -115,7 +115,7 @@ def build_model():
 
 def fit_model(model, x_train, y_train_prob, x_test, y_test_prob):
     # Train the model
-    history = model.fit(x_train, y_train_prob, validation_data=(x_test, y_test_prob), batch_size=128, epochs=10)
+    history = model.fit(x_train, y_train_prob, validation_data=(x_test, y_test_prob), batch_size=10, epochs=10)
     _, accuracy = model.evaluate(x_test, y_test_prob, verbose=0)
     print("Accuracy of test groups:", accuracy)
     return model, history
