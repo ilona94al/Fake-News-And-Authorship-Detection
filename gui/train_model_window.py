@@ -21,7 +21,7 @@ class Ui_TrainModelWindow(object):
         self.backgroundImg.setGeometry(QtCore.QRect(0, 0, 860, 600))
         self.backgroundImg.setText("")
         self.backgroundImg.setPixmap(QtGui.QPixmap(
-            "D:/My Documents/Studies/Semester_9/פרויקט מסכם - שלב ב/backgrounds/f16d58dc1eb441fed4adb4435f532ad0.jpg"))
+            "resources/background.jpg"))
         self.backgroundImg.setScaledContents(True)
         self.backgroundImg.setObjectName("backgroundImg")
         self.groupBox = QtWidgets.QGroupBox(self.centralwidget)
@@ -141,7 +141,7 @@ class Ui_TrainModelWindow(object):
                                    "border-style: solid;")
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap(
-            "D:/My Documents/Studies/Semester_9/פרויקט מסכם - שלב ב/icons/pnghut_arrow-icon-direction-left-logo-text.png"),
+            "resources/left_arrow_icon.png"),
                        QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.backBtn.setIcon(icon)
         self.backBtn.setIconSize(QtCore.QSize(24, 24))
