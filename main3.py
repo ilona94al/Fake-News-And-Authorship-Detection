@@ -21,12 +21,14 @@ def define_expected_classification(fake_num, all_n):
     expected_classification[fake_num:all_n] = 1
     return expected_classification
 
+
 def text_preprocessing(string):
     string = re.sub(" +", " ", string)
     string = re.sub("'", "", string)
     string = re.sub("[^a-zA-Z ]", " ", string)
     string = string.lower()
     return string
+
 
 def read_file_into_array(file_name):
     import csv
@@ -39,40 +41,43 @@ def read_file_into_array(file_name):
             i = i + 1
     return arr
 
-def build_model():
 
+def build_model():
     # https://www.tensorflow.org/text/tutorials/classify_text_with_bert
     # https://tfhub.dev/tensorflow/bert_en_cased_preprocess/3
     # https://www.tensorflow.org/hub/common_saved_model_apis/text
     # https://www.kaggle.com/giovanimachado/hate-speech-bert-cnn-and-bert-mlp-in-tensorflow
 
+    # seq_length = 128 by default
     input_layer = tf.keras.layers.Input(shape=(), dtype=tf.string, name='text')
-    # preprocessing_layer = hub.KerasLayer(tfhub_handle_preprocess, name='preprocessing')
-    # bert_encoder_inputs = preprocessing_layer(input_layer)
-    preprocessor = hub.load('https://tfhub.dev/tensorflow/bert_en_cased_preprocess/3')
-    tokenize = hub.KerasLayer(preprocessor.tokenize)
-    tokenized = tokenize(input_layer)
-    bert_pack_inputs = hub.KerasLayer \
-        (preprocessor.bert_pack_inputs, arguments=dict(seq_length=maxTextLen))  # Optional argument.
+    preprocessing_layer = hub.KerasLayer(tfhub_handle_preprocess, name='preprocessing')
+    bert_encoder_inputs = preprocessing_layer(input_layer)
 
-    bert_encoder_inputs = bert_pack_inputs([tokenized])
+    # For changing seq_length to maxTextLen...
+    # preprocessor = hub.load('https://tfhub.dev/tensorflow/bert_en_cased_preprocess/3')
+    # tokenize = hub.KerasLayer(preprocessor.tokenize)
+    # tokenized = tokenize(input_layer)
+    # bert_pack_inputs = hub.KerasLayer \
+    #     (preprocessor.bert_pack_inputs, arguments=dict(seq_length=maxTextLen))  # Optional argument.
+
+    # bert_encoder_inputs = bert_pack_inputs([tokenized])
 
     bert_encoder = hub.KerasLayer(tfhub_handle_encoder, trainable=True, name='BERT_encoder')
     bert_outputs = bert_encoder(bert_encoder_inputs)
     embeddings = bert_outputs["sequence_output"]  # [batch_size, seq_length, 768]
 
     cnn_parallel_block_1 = tf.keras.layers.Conv1D \
-        (filters=128, kernel_size=3, activation='relu', input_shape=(maxTextLen, 768))(embeddings)
+        (filters=128, kernel_size=3, activation='relu', input_shape=(config['max_seq_len'], 768))(embeddings)
     cnn_parallel_block_1 = tf.keras.layers.MaxPooling1D \
         (pool_size=5, strides=5)(cnn_parallel_block_1)
 
     cnn_parallel_block_2 = tf.keras.layers.Conv1D \
-        (filters=128, kernel_size=4, activation='relu', input_shape=(maxTextLen, 768))(embeddings)
+        (filters=128, kernel_size=4, activation='relu', input_shape=(config['max_seq_len'], 768))(embeddings)
     cnn_parallel_block_2 = tf.keras.layers.MaxPooling1D \
         (pool_size=5, strides=5)(cnn_parallel_block_2)
 
     cnn_parallel_block_3 = tf.keras.layers.Conv1D \
-        (filters=128, kernel_size=5, activation='relu', input_shape=(maxTextLen, 768))(embeddings)
+        (filters=128, kernel_size=5, activation='relu', input_shape=(config['max_seq_len'], 768))(embeddings)
     cnn_parallel_block_3 = tf.keras.layers.MaxPooling1D \
         (pool_size=5, strides=5)(cnn_parallel_block_3)
 
@@ -80,12 +85,12 @@ def build_model():
         ([cnn_parallel_block_1, cnn_parallel_block_2, cnn_parallel_block_3], axis=1)
 
     cnn_block_4 = tf.keras.layers.Conv1D \
-        (filters=128, kernel_size=5, activation='relu', input_shape=(304, 128))(concatenated_layer)
+        (filters=128, kernel_size=5, activation='relu', input_shape=(config['seq_len_cnnb_4'], 128))(concatenated_layer)
     cnn_block_4 = tf.keras.layers.MaxPooling1D \
         (pool_size=5, strides=5)(cnn_block_4)
 
     cnn_block_5 = tf.keras.layers.Conv1D \
-        (filters=128, kernel_size=5, activation='relu', input_shape=(60, 128))(cnn_block_4)
+        (filters=128, kernel_size=5, activation='relu', input_shape=(config['seq_len_cnnb_5'], 128))(cnn_block_4)
     cnn_block_5 = tf.keras.layers.MaxPooling1D \
         (pool_size=5, strides=5)(cnn_block_5)
 
@@ -94,8 +99,9 @@ def build_model():
     dense_layer = tf.keras.layers.Dense \
         (128, activation='relu')(flatten_layer)
 
+    dropped= tf.keras.layers.Dropout(0.2)(dense_layer)
     output_layer = tf.keras.layers.Dense \
-        (num_classes, activation='relu')(dense_layer)
+        (num_classes, activation='relu')(dropped)
 
     model = tf.keras.models.Model(input_layer, output_layer)
 
@@ -106,12 +112,28 @@ def build_model():
 
     return model
 
+
 def fit_model(model, x_train, y_train_prob, x_test, y_test_prob):
     # Train the model
-    history = model.fit(x_train, y_train_prob, validation_data=(x_test, y_test_prob), batch_size=10, epochs=10)
+    history = model.fit(x_train, y_train_prob, validation_data=(x_test, y_test_prob), batch_size=128, epochs=10)
     _, accuracy = model.evaluate(x_test, y_test_prob, verbose=0)
     print("Accuracy of test groups:", accuracy)
     return model, history
+
+
+config_128tokens = {
+    'max_seq_len': 128,
+    'seq_len_cnnb_4': 74,
+    'seq_len_cnnb_5': 14
+}
+
+config_512tokens = {
+    'max_seq_len': 512,
+    'seq_len_cnnb_4': 304,
+    'seq_len_cnnb_5': 60
+}
+
+config = config_128tokens
 
 bert_model_name = 'bert_en_cased_L-12_H-768_A-12'
 
@@ -270,7 +292,7 @@ texts = []
 for text in news:
     texts.append(text_preprocessing(text))
 
-maxTextLen = 512
+maxTextLen = 128
 
 x_train, x_test, y_train, y_test = train_test_split(texts, y_expected, train_size=0.7)
 
