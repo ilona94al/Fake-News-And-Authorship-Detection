@@ -48,7 +48,7 @@ class PlagiarismWinController(QMainWindow):
     def start_pressed(self):
         self.clear_feedback()
 
-        book_path = self.ui.path.text()
+        book_path = self.ui.path.tweet()
         author_name = self.ui.authorComboBox.currentText()
         if str(book_path) == "":
             self.book_not_uploaded()
@@ -73,7 +73,7 @@ class PlagiarismWinController(QMainWindow):
         self.setFeedback(msg, widget)
 
     def author_not_chosen(self):
-        msg = self.ui.errorMsg.text() + "\n" + "Author not chosen"
+        msg = self.ui.errorMsg.tweet() + "\n" + "Author not chosen"
         widget = self.ui.verticalGroupBox
         self.setFeedback(msg, widget)
 
