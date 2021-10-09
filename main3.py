@@ -123,10 +123,10 @@ def build_model():
     return model
 
 
-def fit_model(model, x_train, y_train_prob, x_test, y_test_prob):
+def fit_model(model, x_train, y_train_prob, x_valid, y_valid_prob):
     # Train the model
-    history = model.fit(x_train, y_train_prob, validation_data=(x_test, y_test_prob), batch_size=10, epochs=5)
-    _, accuracy = model.evaluate(x_test, y_test_prob, verbose=0)
+    history = model.fit(x_train, y_train_prob, validation_data=(x_valid, y_valid_prob), batch_size=10, epochs=5)
+    _, accuracy = model.evaluate(x_valid, y_valid_prob, verbose=0)
     print("Accuracy of test groups:", accuracy)
     return model, history
 
@@ -316,15 +316,20 @@ for tweet in news:
 
 texts_clean = texts
 
-x_train, x_test, y_train, y_test = train_test_split(texts_clean, y_expected, train_size=0.7)
+x_train, x, y_train, y = train_test_split(texts_clean, y_expected, train_size=0.7)
+x_test, x_valid, y_test, y_valid = train_test_split(x, y, train_size=0.5)
 
 y_train_prob = np_utils.to_categorical(y_train)
 y_test_prob = np_utils.to_categorical(y_test)
+y_valid_prob = np_utils.to_categorical(y_valid)
 num_classes = y_train_prob.shape[1]
 
 model = build_model()
-model, history = fit_model(model, tf.constant(x_train), y_train_prob, tf.constant(x_test), y_test_prob)
+model, history = fit_model(model, tf.constant(x_train), y_train_prob, tf.constant(x_valid), y_valid_prob)
 
+# model.evaluate()
+
+# ------------------------------------
 import os
 import re
 
@@ -369,7 +374,6 @@ root_books_dir_path = 'DB/books'
 
 author_books = read_books_of_specific_author(author_name='shakespeare')
 different_books = read_books_of_various_authors(name_to_ignore='shakespeare')
-
 
 books = author_books + different_books
 
