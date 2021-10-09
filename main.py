@@ -11,8 +11,6 @@ def define_expected_classification(fake_num, all_n):
     return expected_classification
 
 
-
-
 # cleaner of the text
 def preProcess(string):
     string = re.sub(" +", " ", string)
