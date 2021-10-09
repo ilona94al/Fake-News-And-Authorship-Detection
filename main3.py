@@ -389,5 +389,5 @@ y_test_prob = np_utils.to_categorical(y_test)
 num_classes = y_train_prob.shape[1]
 
 model = build_model()
-config=config_512tokens
+config = config_512tokens
 model, history = fit_model(model, tf.constant(x_train), y_train_prob, tf.constant(x_test), y_test_prob)

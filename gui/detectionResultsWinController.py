@@ -7,7 +7,7 @@ class DetectionResultsWinController(QMainWindow):
         super(DetectionResultsWinController, self).__init__(parent)
         # todo: find the relevant trained model(according to the author name)
         # todo: insert book path as input to the model and get detection results (graphs and etc.)
-        # todo: show reaultson ui
+        # todo: show results on ui
         from gui.detection_results_window import Ui_DetectionResultsWindow
         self.ui = Ui_DetectionResultsWindow()
         self.ui.setupUi(self)
