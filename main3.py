@@ -3,7 +3,7 @@ import shutil
 
 import tensorflow as tf
 import tensorflow_hub as hub
-import tensorflow_text as tweet
+import tensorflow_text as text
 
 from official.nlp import optimization  # to create AdamW optimizer
 
@@ -302,8 +302,8 @@ tfhub_handle_preprocess = map_model_to_preprocess[bert_model_name]
 print(f'BERT model selected           : {tfhub_handle_encoder}')
 print(f'Preprocess model auto-selected: {tfhub_handle_preprocess}')
 
-fake_news = read_file_into_array('DB/Fake.csv')
-real_news = read_file_into_array('DB/True.csv')
+fake_news = read_file_into_array('DB/fake50.csv')
+real_news = read_file_into_array('DB/true50.csv')
 
 news = real_news + fake_news
 
