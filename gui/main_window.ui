@@ -33,7 +33,7 @@
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>D:/My Documents/Studies/Semester_9/פרויקט מסכם - שלב ב/backgrounds/f16d58dc1eb441fed4adb4435f532ad0.jpg</pixmap>
+     <pixmap>resources/background.jpg</pixmap>
     </property>
     <property name="scaledContents">
      <bool>true</bool>

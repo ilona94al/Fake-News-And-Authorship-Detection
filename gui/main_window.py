@@ -25,8 +25,7 @@ class Ui_MainWindow(object):
         self.backgroundImg = QtWidgets.QLabel(self.centralwidget)
         self.backgroundImg.setGeometry(QtCore.QRect(0, 0, 860, 600))
         self.backgroundImg.setText("")
-        self.backgroundImg.setPixmap(QtGui.QPixmap(
-            "D:/My Documents/Studies/Semester_9/פרויקט מסכם - שלב ב/backgrounds/f16d58dc1eb441fed4adb4435f532ad0.jpg"))
+        self.backgroundImg.setPixmap(QtGui.QPixmap("resources/background.jpg"))
         self.backgroundImg.setScaledContents(True)
         self.backgroundImg.setObjectName("backgroundImg")
         self.groupBox = QtWidgets.QGroupBox(self.centralwidget)
@@ -110,13 +109,13 @@ class Ui_MainWindow(object):
         self.plagiarismBtn.setAcceptDrops(False)
         self.plagiarismBtn.setAutoFillBackground(False)
         self.plagiarismBtn.setStyleSheet("\n"
-                                         "background-color: rgb(0, 0, 20);\n"
-                                         "font: 75 18pt \"Sitka Small\";\n"
-                                         "color: rgb(255, 255, 255);\n"
-                                         "border-width: 3px;\n"
-                                         "border-radius: 30px;\n"
-                                         "border-color: rgb(255, 255, 255);\n"
-                                         "border-style: solid;")
+"background-color: rgb(0, 0, 20);\n"
+"font: 75 18pt \"Sitka Small\";\n"
+"color: rgb(255, 255, 255);\n"
+"border-width: 3px;\n"
+"border-radius: 30px;\n"
+"border-color: rgb(255, 255, 255);\n"
+"border-style: solid;")
         self.plagiarismBtn.setCheckable(False)
         self.plagiarismBtn.setAutoDefault(False)
         self.plagiarismBtn.setDefault(False)
@@ -135,12 +134,12 @@ class Ui_MainWindow(object):
         self.fakeNewsBtn.setAcceptDrops(False)
         self.fakeNewsBtn.setAutoFillBackground(False)
         self.fakeNewsBtn.setStyleSheet("background-color: rgb(0, 0, 20);\n"
-                                       "font: 75 18pt \"Sitka Small\";\n"
-                                       "color: rgb(255, 255, 255);\n"
-                                       "border-width: 3px;\n"
-                                       "border-radius: 30px;\n"
-                                       "border-color: rgb(255, 255, 255);\n"
-                                       "border-style: solid;")
+"font: 75 18pt \"Sitka Small\";\n"
+"color: rgb(255, 255, 255);\n"
+"border-width: 3px;\n"
+"border-radius: 30px;\n"
+"border-color: rgb(255, 255, 255);\n"
+"border-style: solid;")
         self.fakeNewsBtn.setCheckable(False)
         self.fakeNewsBtn.setAutoDefault(False)
         self.fakeNewsBtn.setDefault(False)
@@ -159,12 +158,12 @@ class Ui_MainWindow(object):
         self.historyBtn.setAcceptDrops(False)
         self.historyBtn.setAutoFillBackground(False)
         self.historyBtn.setStyleSheet("background-color: rgb(0, 0, 20);\n"
-                                      "font: 75 14pt \"Sitka Small\";\n"
-                                      "color: rgb(255, 255, 255);\n"
-                                      "border-width: 3px;\n"
-                                      "border-radius: 30px;\n"
-                                      "border-color: rgb(255, 255, 255);\n"
-                                      "border-style: solid;")
+"font: 75 14pt \"Sitka Small\";\n"
+"color: rgb(255, 255, 255);\n"
+"border-width: 3px;\n"
+"border-radius: 30px;\n"
+"border-color: rgb(255, 255, 255);\n"
+"border-style: solid;")
         self.historyBtn.setCheckable(False)
         self.historyBtn.setAutoDefault(False)
         self.historyBtn.setDefault(False)
@@ -183,13 +182,13 @@ class Ui_MainWindow(object):
         self.helpBtn.setAcceptDrops(False)
         self.helpBtn.setAutoFillBackground(False)
         self.helpBtn.setStyleSheet("\n"
-                                   "background-color: rgb(0, 53, 159);\n"
-                                   "font: 75 18pt \"Sitka Small\";\n"
-                                   "color: rgb(255, 255, 255);\n"
-                                   "border-width: 3px;\n"
-                                   "border-radius: 30px;\n"
-                                   "border-color: rgb(255, 255, 255);\n"
-                                   "border-style: solid;")
+"background-color: rgb(0, 53, 159);\n"
+"font: 75 18pt \"Sitka Small\";\n"
+"color: rgb(255, 255, 255);\n"
+"border-width: 3px;\n"
+"border-radius: 30px;\n"
+"border-color: rgb(255, 255, 255);\n"
+"border-style: solid;")
         self.helpBtn.setCheckable(False)
         self.helpBtn.setAutoDefault(False)
         self.helpBtn.setDefault(False)
@@ -208,12 +207,12 @@ class Ui_MainWindow(object):
         self.trainBtn.setAcceptDrops(False)
         self.trainBtn.setAutoFillBackground(False)
         self.trainBtn.setStyleSheet("background-color: rgb(0, 0, 20);\n"
-                                    "font: 75 14pt \"Sitka Small\";\n"
-                                    "color: rgb(255, 255, 255);\n"
-                                    "border-width: 3px;\n"
-                                    "border-radius: 30px;\n"
-                                    "border-color: rgb(255, 255, 255);\n"
-                                    "border-style: solid;")
+"font: 75 14pt \"Sitka Small\";\n"
+"color: rgb(255, 255, 255);\n"
+"border-width: 3px;\n"
+"border-radius: 30px;\n"
+"border-color: rgb(255, 255, 255);\n"
+"border-style: solid;")
         self.trainBtn.setCheckable(False)
         self.trainBtn.setAutoDefault(False)
         self.trainBtn.setDefault(False)
@@ -237,7 +236,6 @@ class Ui_MainWindow(object):
 
 if __name__ == "__main__":
     import sys
-
     app = QtWidgets.QApplication(sys.argv)
     MainWindow = QtWidgets.QMainWindow()
     ui = Ui_MainWindow()
