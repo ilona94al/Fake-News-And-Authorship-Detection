@@ -1,7 +1,11 @@
 # Fake-News-And-Authorship-Detection
 
 # tenser flow with gpu installation in terminal:
-pip install tensorflow-gpu 
+pip install tensorflow-gpu
+
+
+pip install -q -U tensorflow-text
+pip install -q tf-models-official
 
 #Keras for fine-tuning
 pip install keras
@@ -13,3 +17,4 @@ pip install keras-bert
 
 #install stopwords
 pip install stop-words
+
