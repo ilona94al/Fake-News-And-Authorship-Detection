@@ -302,8 +302,8 @@ tfhub_handle_preprocess = map_model_to_preprocess[bert_model_name]
 print(f'BERT model selected           : {tfhub_handle_encoder}')
 print(f'Preprocess model auto-selected: {tfhub_handle_preprocess}')
 
-fake_news = read_file_into_array('DB/Fake.csv')
-real_news = read_file_into_array('DB/True.csv')
+fake_news = read_file_into_array('DB/fake50.csv')
+real_news = read_file_into_array('DB/true50.csv')
 
 news = real_news + fake_news
 
@@ -368,8 +368,19 @@ from nltk.corpus import stopwords
 
 
 def seperate_to_blocks(book):
-    pass
-
+    words = iter(book.split())
+    lines, current = [], next(words)
+    tokens=0
+    for word in words:
+        if tokens > 510:
+            lines.append(current)
+            current = word
+            tokens=0
+        else:
+            current += " " + word
+            tokens+=1
+    lines.append(current)
+    return lines
 
 def read_books_of_specific_author(author_name):
     res = []
@@ -378,7 +389,7 @@ def read_books_of_specific_author(author_name):
         if book_name.split('.')[1] == 'txt':
             book = read_book(author_name, book_name)
             book_blocks = seperate_to_blocks(book)
-            res.append(book_blocks) #may not work
+            res.extend(block for block in book_blocks)
 
     return res
 
@@ -422,12 +433,48 @@ y_expected = define_expected_classification(len(author_books), len(books))
 
 texts_clean = texts
 
-x_train, x_test, y_train, y_test = train_test_split(texts_clean, y_expected, train_size=0.7)
+
+x_train, x, y_train, y = train_test_split(texts_clean, y_expected, train_size=0.7)
+x_test, x_valid, y_test, y_valid = train_test_split(x, y, train_size=0.5)
 
 y_train_prob = np_utils.to_categorical(y_train)
 y_test_prob = np_utils.to_categorical(y_test)
+y_valid_prob = np_utils.to_categorical(y_valid)
 num_classes = y_train_prob.shape[1]
 
+config=config_512tokens
 model = build_model()
-config = config_512tokens
-model, history = fit_model(model, tf.constant(x_train), y_train_prob, tf.constant(x_test), y_test_prob)
+model, history = fit_model(model, tf.constant(x_train), y_train_prob, tf.constant(x_valid), y_valid_prob)
+
+
+_, accuracy = model.evaluate(x_test, y_test_prob, verbose=0)
+print("Accuracy of evaluate new test groups:", accuracy)
+
+Y_predicted_prob = model.predict(x_test)
+Y_predicted = model.predict_classes(x_test, verbose=0)
+count_well_predicted = np.count_nonzero([y_test == Y_predicted])
+
+print("Number of true predicts:", count_well_predicted)
+print("Number of false predicts:", Y_predicted.shape[0] - count_well_predicted)
+
+# -------- Showing results of model training and validation---------------#
+
+import matplotlib.pyplot as plt
+
+plt.plot(history.history['accuracy'])
+plt.plot(history.history['val_accuracy'])
+plt.plot(accuracy)
+plt.title('Model accuracy in epoch')
+plt.ylabel('Accuracy')
+plt.xlabel('Epoch')
+plt.legend(['Train', 'Validation'], loc='upper left')
+plt.show()
+
+plt.plot(history.history['loss'])
+plt.plot(history.history['val_loss'])
+plt.plot(accuracy)
+plt.title('Model loss in epoch')
+plt.ylabel('Loss')
+plt.xlabel('Epoch')
+plt.legend(['Train', 'Validation'], loc='upper left')
+plt.show()
