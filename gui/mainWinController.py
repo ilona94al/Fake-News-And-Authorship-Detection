@@ -10,6 +10,7 @@ class MainWinController(QMainWindow):
         self.ui.setupUi(self)
 
         self.ui.plagiarismBtn.clicked.connect(self.openPlagiarismWin)
+        self.ui.trainBtn.clicked.connect(self.train_pressed)
 
     def openPlagiarismWin(self):
         self.close()
@@ -17,6 +18,11 @@ class MainWinController(QMainWindow):
         self.window = PlagiarismWinController()
         self.window.show()
 
+    def train_pressed(self):
+        self.close()
+        from gui.trainModelWinController import TrainModelWinController
+        self.window = TrainModelWinController()
+        self.window.show()
 
 if __name__ == "__main__":
     import sys

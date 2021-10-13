@@ -12,7 +12,6 @@ class PlagiarismWinController(QMainWindow):
 
         self.ui.backBtn.clicked.connect(self.back_pressed)
         self.ui.uploadBtn.clicked.connect(self.upload_pressed)
-        self.ui.trainBtn.clicked.connect(self.train_pressed)
         self.ui.startBtn.clicked.connect(self.start_pressed)
 
         self.ui.errorMsg.setHidden(True)
@@ -38,12 +37,6 @@ class PlagiarismWinController(QMainWindow):
         file_path = filedialog.askopenfilename()
 
         self.ui.path.setText(file_path)
-
-    def train_pressed(self):
-        self.close()
-        from gui.trainModelWinController import TrainModelWinController
-        self.window = TrainModelWinController()
-        self.window.show()
 
     def start_pressed(self):
         self.clear_feedback()

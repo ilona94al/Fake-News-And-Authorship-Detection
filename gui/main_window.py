@@ -10,34 +10,84 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 
-from gui.plagiarism_window import *
-
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(861, 598)
-
         self.centralwidget = QtWidgets.QWidget(MainWindow)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Maximum, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.centralwidget.sizePolicy().hasHeightForWidth())
+        self.centralwidget.setSizePolicy(sizePolicy)
         self.centralwidget.setObjectName("centralwidget")
-
         self.backgroundImg = QtWidgets.QLabel(self.centralwidget)
         self.backgroundImg.setGeometry(QtCore.QRect(0, 0, 860, 600))
         self.backgroundImg.setText("")
-        self.backgroundImg.setPixmap(QtGui.QPixmap("resources/background.jpg"))
+        self.backgroundImg.setPixmap(QtGui.QPixmap(
+            "D:/My Documents/Studies/Semester_9/פרויקט מסכם - שלב ב/backgrounds/f16d58dc1eb441fed4adb4435f532ad0.jpg"))
         self.backgroundImg.setScaledContents(True)
         self.backgroundImg.setObjectName("backgroundImg")
-
         self.groupBox = QtWidgets.QGroupBox(self.centralwidget)
         self.groupBox.setEnabled(True)
         self.groupBox.setGeometry(QtCore.QRect(30, 0, 800, 570))
-
         palette = QtGui.QPalette()
         brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.WindowText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 127))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Button, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Text, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.ButtonText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Base, brush)
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.ToolTipText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.WindowText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 127))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Button, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Text, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.ButtonText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Base, brush)
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.ToolTipText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(120, 120, 120))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.WindowText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 127))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Button, brush)
+        brush = QtGui.QBrush(QtGui.QColor(120, 120, 120))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Text, brush)
+        brush = QtGui.QBrush(QtGui.QColor(120, 120, 120))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.ButtonText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(240, 240, 240))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Base, brush)
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.ToolTipText, brush)
         self.groupBox.setPalette(palette)
-
         font = QtGui.QFont()
         font.setFamily("Sitka Heading")
         font.setPointSize(36)
@@ -45,10 +95,8 @@ class Ui_MainWindow(object):
         font.setUnderline(False)
         font.setWeight(75)
         self.groupBox.setFont(font)
-
         self.groupBox.setAlignment(QtCore.Qt.AlignCenter)
         self.groupBox.setObjectName("groupBox")
-
         self.plagiarismBtn = QtWidgets.QPushButton(self.groupBox)
         self.plagiarismBtn.setEnabled(True)
         self.plagiarismBtn.setGeometry(QtCore.QRect(90, 190, 260, 111))
@@ -74,10 +122,9 @@ class Ui_MainWindow(object):
         self.plagiarismBtn.setDefault(False)
         self.plagiarismBtn.setFlat(False)
         self.plagiarismBtn.setObjectName("plagiarismBtn")
-
         self.fakeNewsBtn = QtWidgets.QPushButton(self.groupBox)
         self.fakeNewsBtn.setEnabled(True)
-        self.fakeNewsBtn.setGeometry(QtCore.QRect(450, 190, 260, 111))
+        self.fakeNewsBtn.setGeometry(QtCore.QRect(450, 190, 260, 110))
         font = QtGui.QFont()
         font.setFamily("Sitka Small")
         font.setPointSize(18)
@@ -99,13 +146,12 @@ class Ui_MainWindow(object):
         self.fakeNewsBtn.setDefault(False)
         self.fakeNewsBtn.setFlat(False)
         self.fakeNewsBtn.setObjectName("fakeNewsBtn")
-
         self.historyBtn = QtWidgets.QPushButton(self.groupBox)
         self.historyBtn.setEnabled(True)
-        self.historyBtn.setGeometry(QtCore.QRect(270, 460, 260, 71))
+        self.historyBtn.setGeometry(QtCore.QRect(250, 460, 280, 70))
         font = QtGui.QFont()
         font.setFamily("Sitka Small")
-        font.setPointSize(18)
+        font.setPointSize(14)
         font.setBold(False)
         font.setItalic(False)
         font.setWeight(9)
@@ -113,7 +159,7 @@ class Ui_MainWindow(object):
         self.historyBtn.setAcceptDrops(False)
         self.historyBtn.setAutoFillBackground(False)
         self.historyBtn.setStyleSheet("background-color: rgb(0, 0, 20);\n"
-                                      "font: 75 18pt \"Sitka Small\";\n"
+                                      "font: 75 14pt \"Sitka Small\";\n"
                                       "color: rgb(255, 255, 255);\n"
                                       "border-width: 3px;\n"
                                       "border-radius: 30px;\n"
@@ -124,7 +170,6 @@ class Ui_MainWindow(object):
         self.historyBtn.setDefault(False)
         self.historyBtn.setFlat(False)
         self.historyBtn.setObjectName("historyBtn")
-
         self.helpBtn = QtWidgets.QPushButton(self.groupBox)
         self.helpBtn.setEnabled(True)
         self.helpBtn.setGeometry(QtCore.QRect(30, 479, 61, 61))
@@ -150,12 +195,31 @@ class Ui_MainWindow(object):
         self.helpBtn.setDefault(False)
         self.helpBtn.setFlat(False)
         self.helpBtn.setObjectName("helpBtn")
-
+        self.trainBtn = QtWidgets.QPushButton(self.groupBox)
+        self.trainBtn.setEnabled(True)
+        self.trainBtn.setGeometry(QtCore.QRect(250, 370, 280, 70))
+        font = QtGui.QFont()
+        font.setFamily("Sitka Small")
+        font.setPointSize(14)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setWeight(9)
+        self.trainBtn.setFont(font)
+        self.trainBtn.setAcceptDrops(False)
+        self.trainBtn.setAutoFillBackground(False)
+        self.trainBtn.setStyleSheet("background-color: rgb(0, 0, 20);\n"
+                                    "font: 75 14pt \"Sitka Small\";\n"
+                                    "color: rgb(255, 255, 255);\n"
+                                    "border-width: 3px;\n"
+                                    "border-radius: 30px;\n"
+                                    "border-color: rgb(255, 255, 255);\n"
+                                    "border-style: solid;")
+        self.trainBtn.setCheckable(False)
+        self.trainBtn.setAutoDefault(False)
+        self.trainBtn.setDefault(False)
+        self.trainBtn.setFlat(False)
+        self.trainBtn.setObjectName("trainBtn")
         MainWindow.setCentralWidget(self.centralwidget)
-
-        # self.fakeNewsBtn.clicked.connect(self.fakeNewsBtn)
-        # self.historyBtn.clicked.connect(self.historyBtn)
-
 
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
@@ -168,12 +232,7 @@ class Ui_MainWindow(object):
         self.fakeNewsBtn.setText(_translate("MainWindow", "Fake News"))
         self.historyBtn.setText(_translate("MainWindow", "History"))
         self.helpBtn.setText(_translate("MainWindow", "?"))
-
-
-
-    #def openFakeNewsWin(self):
-
-    #def openHisoryWin(self):
+        self.trainBtn.setText(_translate("MainWindow", "Train Model"))
 
 
 if __name__ == "__main__":
