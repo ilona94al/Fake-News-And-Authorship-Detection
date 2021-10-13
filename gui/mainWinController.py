@@ -20,8 +20,8 @@ class MainWinController(QMainWindow):
 
     def train_pressed(self):
         self.close()
-        from gui.trainModelWinController import TrainModelWinController
-        self.window = TrainModelWinController()
+        from gui.chooseTrainWinController import ChooseTrainWinController
+        self.window = ChooseTrainWinController()
         self.window.show()
 
 if __name__ == "__main__":
