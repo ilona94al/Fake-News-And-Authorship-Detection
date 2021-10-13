@@ -22,8 +22,8 @@ class TrainModelWinController(QMainWindow):
         self.ui.uploadBtn_1.clicked.connect(lambda: self.upload_pressed(widget=self.ui.path_1))
         self.ui.uploadBtn1_2.clicked.connect(lambda: self.upload_pressed(widget=self.ui.path1_2))
         self.ui.uploadBtn2_2.clicked.connect(lambda: self.upload_pressed(widget=self.ui.path2_2))
-        self.ui.uploadBtn1_3.clicked.connect(lambda: self.upload_pressed(widget=self.ui.path1_3))
-        self.ui.uploadBtn2_3.clicked.connect(lambda: self.upload_pressed(widget=self.ui.path2_3))
+        self.ui.uploadBtn1_3.clicked.connect(lambda: self.upload_folder_pressed(widget=self.ui.path1_3))
+        self.ui.uploadBtn2_3.clicked.connect(lambda: self.upload_folder_pressed(widget=self.ui.path2_3))
 
         self.ui.backBtn.clicked.connect(self.back_pressed)
 
@@ -48,10 +48,18 @@ class TrainModelWinController(QMainWindow):
 
         root = tk.Tk()
         root.withdraw()
-
         file_path = filedialog.askopenfilename()
-
         widget.setText(file_path)
+
+    def upload_folder_pressed(self, widget):
+        import tkinter as tk
+        from tkinter import filedialog
+
+        root = tk.Tk()
+        root.withdraw()
+        root.attributes('-topmost', True)
+        dir_path = filedialog.askdirectory()  # Returns opened path as str
+        widget.setText(dir_path)
 
     def back_pressed(self):
         self.close()
