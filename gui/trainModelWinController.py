@@ -51,7 +51,7 @@ class TrainModelWinController(QMainWindow):
         file_path = filedialog.askopenfilename()
         widget.setText(file_path)
 
-    def upload_folder_pressed(self, widget):
+    def upload_folder_pressed(self, widget):     # Folder uploader
         import tkinter as tk
         from tkinter import filedialog
 
@@ -59,7 +59,7 @@ class TrainModelWinController(QMainWindow):
         root.withdraw()
         root.attributes('-topmost', True)
         dir_path = filedialog.askdirectory()  # Returns opened path as str
-        widget.setText(dir_path)
+        widget.setText(dir_path)              # Read path to field
 
     def back_pressed(self):
         self.close()
