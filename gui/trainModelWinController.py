@@ -9,9 +9,9 @@ class TrainModelWinController(QMainWindow):
         self.ui = Ui_TrainModelWindow()
         self.ui.setupUi(self)
 
-        self.ui.verticalGroupBox12_1.setHidden(False)
-        self.ui.verticalGroupBox12_2.setHidden(True)
-        self.ui.verticalGroupBox12_3.setHidden(True)
+        self.ui.verticalGroupBox12.setHidden(False)
+        self.ui.verticalGroupBox13.setHidden(True)
+        self.ui.verticalGroupBox14.setHidden(True)
 
         self.ui.radioButton1112.clicked.connect(self.show_scv_form)
         self.ui.radioButton1122.clicked.connect(self.show_files_form)
@@ -19,30 +19,30 @@ class TrainModelWinController(QMainWindow):
 
         self.ui.errorMsg.setHidden(True)
 
-        self.ui.uploadBtn_1.clicked.connect(lambda: self.upload_pressed(widget=self.ui.path_1))
-        self.ui.uploadBtn1_2.clicked.connect(lambda: self.upload_pressed(widget=self.ui.path1_2))
-        self.ui.uploadBtn2_2.clicked.connect(lambda: self.upload_pressed(widget=self.ui.path2_2))
-        self.ui.uploadBtn1_3.clicked.connect(lambda: self.upload_folder_pressed(widget=self.ui.path1_3))
-        self.ui.uploadBtn2_3.clicked.connect(lambda: self.upload_folder_pressed(widget=self.ui.path2_3))
+        self.ui.uploadBtn1212.clicked.connect(lambda: self.upload_file_pressed(widget=self.ui.path1211))
+        self.ui.uploadBtn1313.clicked.connect(lambda: self.upload_file_pressed(widget=self.ui.path1312))
+        self.ui.uploadBtn1323.clicked.connect(lambda: self.upload_file_pressed(widget=self.ui.path1322))
+        self.ui.uploadBtn1413.clicked.connect(lambda: self.upload_folder_pressed(widget=self.ui.path1412))
+        self.ui.uploadBtn1423.clicked.connect(lambda: self.upload_folder_pressed(widget=self.ui.path1422))
 
         self.ui.backBtn.clicked.connect(self.back_pressed)
 
     def show_scv_form(self):
-        self.ui.verticalGroupBox12_1.setHidden(False)
-        self.ui.verticalGroupBox12_2.setHidden(True)
-        self.ui.verticalGroupBox12_3.setHidden(True)
+        self.ui.verticalGroupBox12.setHidden(False)
+        self.ui.verticalGroupBox13.setHidden(True)
+        self.ui.verticalGroupBox14.setHidden(True)
 
     def show_files_form(self):
-        self.ui.verticalGroupBox12_1.setHidden(True)
-        self.ui.verticalGroupBox12_2.setHidden(False)
-        self.ui.verticalGroupBox12_3.setHidden(True)
+        self.ui.verticalGroupBox12.setHidden(True)
+        self.ui.verticalGroupBox13.setHidden(False)
+        self.ui.verticalGroupBox14.setHidden(True)
 
     def show_folders_form(self):
-        self.ui.verticalGroupBox12_1.setHidden(True)
-        self.ui.verticalGroupBox12_2.setHidden(True)
-        self.ui.verticalGroupBox12_3.setHidden(False)
+        self.ui.verticalGroupBox12.setHidden(True)
+        self.ui.verticalGroupBox13.setHidden(True)
+        self.ui.verticalGroupBox14.setHidden(False)
 
-    def upload_pressed(self, widget):
+    def upload_file_pressed(self, widget):
         import tkinter as tk
         from tkinter import filedialog
 
@@ -63,8 +63,8 @@ class TrainModelWinController(QMainWindow):
 
     def back_pressed(self):
         self.close()
-        from gui.plagiarismWinController import PlagiarismWinController
-        self.window = PlagiarismWinController()
+        from gui.mainWinController import MainWinController
+        self.window = MainWinController()
         self.window.show()
 
 

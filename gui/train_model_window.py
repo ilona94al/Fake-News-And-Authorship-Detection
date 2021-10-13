@@ -20,8 +20,7 @@ class Ui_TrainModelWindow(object):
         self.backgroundImg = QtWidgets.QLabel(self.centralwidget)
         self.backgroundImg.setGeometry(QtCore.QRect(0, 0, 860, 600))
         self.backgroundImg.setText("")
-        self.backgroundImg.setPixmap(QtGui.QPixmap(
-            "resources/background.jpg"))
+        self.backgroundImg.setPixmap(QtGui.QPixmap("resources/background.jpg"))
         self.backgroundImg.setScaledContents(True)
         self.backgroundImg.setObjectName("backgroundImg")
         self.groupBox = QtWidgets.QGroupBox(self.centralwidget)
@@ -91,7 +90,7 @@ class Ui_TrainModelWindow(object):
         font.setWeight(75)
         self.groupBox.setFont(font)
         self.groupBox.setStyleSheet("color: rgb(255, 255, 255);\n"
-                                    "")
+"                    ")
         self.groupBox.setAlignment(QtCore.Qt.AlignCenter)
         self.groupBox.setObjectName("groupBox")
         self.trainBtn = QtWidgets.QPushButton(self.groupBox)
@@ -107,13 +106,14 @@ class Ui_TrainModelWindow(object):
         self.trainBtn.setAcceptDrops(False)
         self.trainBtn.setAutoFillBackground(False)
         self.trainBtn.setStyleSheet("\n"
-                                    "background-color: rgb(0, 0, 20);\n"
-                                    "font: 75 16pt \"Sitka Small\";\n"
-                                    "color: rgb(255, 255, 255);\n"
-                                    "border-width: 3px;\n"
-                                    "border-radius: 30px;\n"
-                                    "border-color: rgb(255, 255, 255);\n"
-                                    "border-style: solid;")
+"                            background-color: rgb(0, 0, 20);\n"
+"                            font: 75 16pt \"Sitka Small\";\n"
+"                            color: rgb(255, 255, 255);\n"
+"                            border-width: 3px;\n"
+"                            border-radius: 30px;\n"
+"                            border-color: rgb(255, 255, 255);\n"
+"                            border-style: solid;\n"
+"                        ")
         self.trainBtn.setCheckable(False)
         self.trainBtn.setAutoDefault(False)
         self.trainBtn.setDefault(False)
@@ -132,17 +132,17 @@ class Ui_TrainModelWindow(object):
         self.backBtn.setAcceptDrops(False)
         self.backBtn.setAutoFillBackground(False)
         self.backBtn.setStyleSheet("\n"
-                                   "background-color: rgb(159, 0, 0);\n"
-                                   "font: 75 16pt \"Sitka Small\";\n"
-                                   "color: rgb(255, 255, 255);\n"
-                                   "border-width: 3px;\n"
-                                   "border-radius: 30px;\n"
-                                   "border-color: rgb(255, 255, 255);\n"
-                                   "border-style: solid;")
+"                            background-color: rgb(159, 0, 0);\n"
+"                            font: 75 16pt \"Sitka Small\";\n"
+"                            color: rgb(255, 255, 255);\n"
+"                            border-width: 3px;\n"
+"                            border-radius: 30px;\n"
+"                            border-color: rgb(255, 255, 255);\n"
+"                            border-style: solid;\n"
+"                        ")
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap(
-            "resources/left_arrow_icon.png"),
-                       QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap("D:/My Documents/Studies/Semester_9/פרויקט מסכם - שלב\n"
+"                                ב/icons/pnghut_arrow-icon-direction-left-logo-text.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.backBtn.setIcon(icon)
         self.backBtn.setIconSize(QtCore.QSize(24, 24))
         self.backBtn.setCheckable(False)
@@ -161,12 +161,14 @@ class Ui_TrainModelWindow(object):
         self.verticalFrame1.setFont(font)
         self.verticalFrame1.setAutoFillBackground(False)
         self.verticalFrame1.setStyleSheet("border-width: 3px;\n"
-                                          "border-radius: 15px;\n"
-                                          "border-color: rgb(0, 0, 0);\n"
-                                          "border-style: solid;\n"
-                                          "font: 8pt \"Sitka Small\";\n"
-                                          "color: rgb(255, 255, 255);\n"
-                                          "background-color: qlineargradient(spread:pad, x1:0.996, y1:0.0340909, x2:1, y2:0, stop:1 rgba(0, 0, 32, 170));")
+"                            border-radius: 15px;\n"
+"                            border-color: rgb(0, 0, 0);\n"
+"                            border-style: solid;\n"
+"                            font: 8pt \"Sitka Small\";\n"
+"                            color: rgb(255, 255, 255);\n"
+"                            background-color: qlineargradient(spread:pad, x1:0.996, y1:0.0340909, x2:1, y2:0, stop:1\n"
+"                            rgba(0, 0, 32, 170));\n"
+"                        ")
         self.verticalFrame1.setObjectName("verticalFrame1")
         self.verticalLayout = QtWidgets.QVBoxLayout(self.verticalFrame1)
         self.verticalLayout.setContentsMargins(18, 18, 18, 18)
@@ -190,11 +192,12 @@ class Ui_TrainModelWindow(object):
         self.questionBtn1111.setMouseTracking(False)
         self.questionBtn1111.setAutoFillBackground(False)
         self.questionBtn1111.setStyleSheet("background-color: rgb(0, 0, 127);\n"
-                                           "background-color: rgb(0, 0, 50);\n"
-                                           "border-width: 1px;\n"
-                                           "border-radius: 14px;\n"
-                                           "border-color: rgb(255, 255, 255);\n"
-                                           "border-style: solid;")
+"                                                            background-color: rgb(0, 0, 50);\n"
+"                                                            border-width: 1px;\n"
+"                                                            border-radius: 14px;\n"
+"                                                            border-color: rgb(255, 255, 255);\n"
+"                                                            border-style: solid;\n"
+"                                                        ")
         self.questionBtn1111.setText("")
         icon1 = QtGui.QIcon()
         icon1.addPixmap(QtGui.QPixmap("resources/question_icon2.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
@@ -212,11 +215,12 @@ class Ui_TrainModelWindow(object):
         self.questionBtn1121.setMouseTracking(False)
         self.questionBtn1121.setAutoFillBackground(False)
         self.questionBtn1121.setStyleSheet("background-color: rgb(0, 0, 127);\n"
-                                           "background-color: rgb(0, 0, 50);\n"
-                                           "border-width: 1px;\n"
-                                           "border-radius: 14px;\n"
-                                           "border-color: rgb(255, 255, 255);\n"
-                                           "border-style: solid;")
+"                                                            background-color: rgb(0, 0, 50);\n"
+"                                                            border-width: 1px;\n"
+"                                                            border-radius: 14px;\n"
+"                                                            border-color: rgb(255, 255, 255);\n"
+"                                                            border-style: solid;\n"
+"                                                        ")
         self.questionBtn1121.setText("")
         self.questionBtn1121.setIcon(icon1)
         self.questionBtn1121.setObjectName("questionBtn1121")
@@ -232,251 +236,266 @@ class Ui_TrainModelWindow(object):
         self.questionBtn1131.setMouseTracking(False)
         self.questionBtn1131.setAutoFillBackground(False)
         self.questionBtn1131.setStyleSheet("background-color: rgb(0, 0, 127);\n"
-                                           "background-color: rgb(0, 0, 50);\n"
-                                           "border-width: 1px;\n"
-                                           "border-radius: 14px;\n"
-                                           "border-color: rgb(255, 255, 255);\n"
-                                           "border-style: solid;")
+"                                                            background-color: rgb(0, 0, 50);\n"
+"                                                            border-width: 1px;\n"
+"                                                            border-radius: 14px;\n"
+"                                                            border-color: rgb(255, 255, 255);\n"
+"                                                            border-style: solid;\n"
+"                                                        ")
         self.questionBtn1131.setText("")
         self.questionBtn1131.setIcon(icon1)
         self.questionBtn1131.setObjectName("questionBtn1131")
         self.horizontalLayout113.addWidget(self.questionBtn1131)
         self.verticalLayout_2.addLayout(self.horizontalLayout113)
         self.verticalLayout.addWidget(self.verticalGroupBox11)
-        self.verticalGroupBox12_1 = QtWidgets.QGroupBox(self.verticalFrame1)
-        self.verticalGroupBox12_1.setObjectName("verticalGroupBox12_1")
-        self.verticalLayout_5 = QtWidgets.QVBoxLayout(self.verticalGroupBox12_1)
+        self.verticalGroupBox12 = QtWidgets.QGroupBox(self.verticalFrame1)
+        self.verticalGroupBox12.setObjectName("verticalGroupBox12")
+        self.verticalLayout_5 = QtWidgets.QVBoxLayout(self.verticalGroupBox12)
         self.verticalLayout_5.setContentsMargins(10, 24, 10, 12)
         self.verticalLayout_5.setSpacing(10)
         self.verticalLayout_5.setObjectName("verticalLayout_5")
-        self.horizontalLayout121_1 = QtWidgets.QHBoxLayout()
-        self.horizontalLayout121_1.setObjectName("horizontalLayout121_1")
-        self.path_1 = QtWidgets.QLineEdit(self.verticalGroupBox12_1)
-        self.path_1.setStyleSheet("border-width: 3px;\n"
-                                  "border-radius: 5px;\n"
-                                  "border-color: rgb(0, 0, 0);\n"
-                                  "border-style: solid;\n"
-                                  "background-color: rgb(188, 188, 188);\n"
-                                  "color: rgb(0, 0, 0);")
-        self.path_1.setObjectName("path_1")
-        self.horizontalLayout121_1.addWidget(self.path_1)
-        self.uploadBtn_1 = QtWidgets.QToolButton(self.verticalGroupBox12_1)
-        self.uploadBtn_1.setMinimumSize(QtCore.QSize(0, 0))
-        self.uploadBtn_1.setMouseTracking(False)
-        self.uploadBtn_1.setAutoFillBackground(False)
-        self.uploadBtn_1.setStyleSheet("background-color: rgb(212, 212, 212);\n"
-                                       "border-width: 3px;\n"
-                                       "border-radius: 5px;\n"
-                                       "border-color: rgb(0, 0, 0);\n"
-                                       "border-style: solid;")
-        self.uploadBtn_1.setText("")
+        self.horizontalLayout121 = QtWidgets.QHBoxLayout()
+        self.horizontalLayout121.setObjectName("horizontalLayout121")
+        self.path1211 = QtWidgets.QLineEdit(self.verticalGroupBox12)
+        self.path1211.setStyleSheet("border-width: 3px;\n"
+"                                                            border-radius: 5px;\n"
+"                                                            border-color: rgb(0, 0, 0);\n"
+"                                                            border-style: solid;\n"
+"                                                            background-color: rgb(188, 188, 188);\n"
+"                                                            color: rgb(0, 0, 0);\n"
+"                                                        ")
+        self.path1211.setObjectName("path1211")
+        self.horizontalLayout121.addWidget(self.path1211)
+        self.uploadBtn1212 = QtWidgets.QToolButton(self.verticalGroupBox12)
+        self.uploadBtn1212.setMinimumSize(QtCore.QSize(0, 0))
+        self.uploadBtn1212.setMouseTracking(False)
+        self.uploadBtn1212.setAutoFillBackground(False)
+        self.uploadBtn1212.setStyleSheet("background-color: rgb(212, 212, 212);\n"
+"                                                            border-width: 3px;\n"
+"                                                            border-radius: 5px;\n"
+"                                                            border-color: rgb(0, 0, 0);\n"
+"                                                            border-style: solid;\n"
+"                                                        ")
+        self.uploadBtn1212.setText("")
         icon2 = QtGui.QIcon()
         icon2.addPixmap(QtGui.QPixmap("resources/upload_icon.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.uploadBtn_1.setIcon(icon2)
-        self.uploadBtn_1.setObjectName("uploadBtn_1")
-        self.horizontalLayout121_1.addWidget(self.uploadBtn_1)
-        self.verticalLayout_5.addLayout(self.horizontalLayout121_1)
-        self.horizontalLayout122_1 = QtWidgets.QHBoxLayout()
-        self.horizontalLayout122_1.setContentsMargins(-1, 16, -1, 16)
-        self.horizontalLayout122_1.setObjectName("horizontalLayout122_1")
-        self.label1_1 = QtWidgets.QLabel(self.verticalGroupBox12_1)
-        self.label1_1.setObjectName("label1_1")
-        self.horizontalLayout122_1.addWidget(self.label1_1)
-        self.columnName_1 = QtWidgets.QTextEdit(self.verticalGroupBox12_1)
-        self.columnName_1.setStyleSheet("border-width: 3px;\n"
-                                        "border-radius: 5px;\n"
-                                        "border-color: rgb(0, 0, 0);\n"
-                                        "border-style: solid;\n"
-                                        "background-color: rgb(188, 188, 188);\n"
-                                        "color: rgb(0, 0, 0);")
-        self.columnName_1.setObjectName("columnName_1")
-        self.horizontalLayout122_1.addWidget(self.columnName_1)
-        self.questionBtn1221_1 = QtWidgets.QToolButton(self.verticalGroupBox12_1)
-        self.questionBtn1221_1.setMinimumSize(QtCore.QSize(0, 0))
-        self.questionBtn1221_1.setMouseTracking(False)
-        self.questionBtn1221_1.setAutoFillBackground(False)
-        self.questionBtn1221_1.setStyleSheet("background-color: rgb(0, 0, 127);\n"
-                                             "background-color: rgb(0, 0, 50);\n"
-                                             "border-width: 1px;\n"
-                                             "border-radius: 14px;\n"
-                                             "border-color: rgb(255, 255, 255);\n"
-                                             "border-style: solid;")
-        self.questionBtn1221_1.setText("")
-        self.questionBtn1221_1.setIcon(icon1)
-        self.questionBtn1221_1.setObjectName("questionBtn1221_1")
-        self.horizontalLayout122_1.addWidget(self.questionBtn1221_1)
-        self.verticalLayout_5.addLayout(self.horizontalLayout122_1)
-        self.verticalLayout.addWidget(self.verticalGroupBox12_1)
-        self.verticalGroupBox12_2 = QtWidgets.QGroupBox(self.verticalFrame1)
-        self.verticalGroupBox12_2.setObjectName("verticalGroupBox12_2")
-        self.verticalLayout_6 = QtWidgets.QVBoxLayout(self.verticalGroupBox12_2)
+        self.uploadBtn1212.setIcon(icon2)
+        self.uploadBtn1212.setObjectName("uploadBtn1212")
+        self.horizontalLayout121.addWidget(self.uploadBtn1212)
+        self.verticalLayout_5.addLayout(self.horizontalLayout121)
+        self.horizontalLayout122 = QtWidgets.QHBoxLayout()
+        self.horizontalLayout122.setContentsMargins(-1, 16, -1, 16)
+        self.horizontalLayout122.setObjectName("horizontalLayout122")
+        self.label1222 = QtWidgets.QLabel(self.verticalGroupBox12)
+        self.label1222.setObjectName("label1222")
+        self.horizontalLayout122.addWidget(self.label1222)
+        self.columnName1221 = QtWidgets.QTextEdit(self.verticalGroupBox12)
+        self.columnName1221.setStyleSheet("border-width: 3px;\n"
+"                                                            border-radius: 5px;\n"
+"                                                            border-color: rgb(0, 0, 0);\n"
+"                                                            border-style: solid;\n"
+"                                                            background-color: rgb(188, 188, 188);\n"
+"                                                            color: rgb(0, 0, 0);\n"
+"                                                        ")
+        self.columnName1221.setObjectName("columnName1221")
+        self.horizontalLayout122.addWidget(self.columnName1221)
+        self.questionBtn1223 = QtWidgets.QToolButton(self.verticalGroupBox12)
+        self.questionBtn1223.setMinimumSize(QtCore.QSize(0, 0))
+        self.questionBtn1223.setMouseTracking(False)
+        self.questionBtn1223.setAutoFillBackground(False)
+        self.questionBtn1223.setStyleSheet("background-color: rgb(0, 0, 127);\n"
+"                                                            background-color: rgb(0, 0, 50);\n"
+"                                                            border-width: 1px;\n"
+"                                                            border-radius: 14px;\n"
+"                                                            border-color: rgb(255, 255, 255);\n"
+"                                                            border-style: solid;\n"
+"                                                        ")
+        self.questionBtn1223.setText("")
+        self.questionBtn1223.setIcon(icon1)
+        self.questionBtn1223.setObjectName("questionBtn1223")
+        self.horizontalLayout122.addWidget(self.questionBtn1223)
+        self.verticalLayout_5.addLayout(self.horizontalLayout122)
+        self.verticalLayout.addWidget(self.verticalGroupBox12)
+        self.verticalGroupBox13 = QtWidgets.QGroupBox(self.verticalFrame1)
+        self.verticalGroupBox13.setObjectName("verticalGroupBox13")
+        self.verticalLayout_6 = QtWidgets.QVBoxLayout(self.verticalGroupBox13)
         self.verticalLayout_6.setContentsMargins(10, 24, 10, 12)
         self.verticalLayout_6.setSpacing(4)
         self.verticalLayout_6.setObjectName("verticalLayout_6")
-        self.horizontalLayout121_2 = QtWidgets.QHBoxLayout()
-        self.horizontalLayout121_2.setObjectName("horizontalLayout121_2")
-        self.label1_2 = QtWidgets.QLabel(self.verticalGroupBox12_2)
-        self.label1_2.setObjectName("label1_2")
-        self.horizontalLayout121_2.addWidget(self.label1_2)
-        self.path1_2 = QtWidgets.QLineEdit(self.verticalGroupBox12_2)
-        self.path1_2.setStyleSheet("border-width: 3px;\n"
-                                   "border-radius: 5px;\n"
-                                   "border-color: rgb(0, 0, 0);\n"
-                                   "border-style: solid;\n"
-                                   "background-color: rgb(188, 188, 188);\n"
-                                   "color: rgb(0, 0, 0);")
-        self.path1_2.setObjectName("path1_2")
-        self.horizontalLayout121_2.addWidget(self.path1_2)
-        self.uploadBtn1_2 = QtWidgets.QToolButton(self.verticalGroupBox12_2)
-        self.uploadBtn1_2.setMinimumSize(QtCore.QSize(0, 0))
-        self.uploadBtn1_2.setMouseTracking(False)
-        self.uploadBtn1_2.setAutoFillBackground(False)
-        self.uploadBtn1_2.setStyleSheet("background-color: rgb(212, 212, 212);\n"
-                                        "border-width: 3px;\n"
-                                        "border-radius: 5px;\n"
-                                        "border-color: rgb(0, 0, 0);\n"
-                                        "border-style: solid;")
-        self.uploadBtn1_2.setText("")
-        self.uploadBtn1_2.setIcon(icon2)
-        self.uploadBtn1_2.setObjectName("uploadBtn1_2")
-        self.horizontalLayout121_2.addWidget(self.uploadBtn1_2)
-        self.verticalLayout_6.addLayout(self.horizontalLayout121_2)
-        self.horizontalLayout122_2 = QtWidgets.QHBoxLayout()
-        self.horizontalLayout122_2.setObjectName("horizontalLayout122_2")
-        self.label2_2 = QtWidgets.QLabel(self.verticalGroupBox12_2)
-        self.label2_2.setObjectName("label2_2")
-        self.horizontalLayout122_2.addWidget(self.label2_2)
-        self.path2_2 = QtWidgets.QLineEdit(self.verticalGroupBox12_2)
-        self.path2_2.setStyleSheet("border-width: 3px;\n"
-                                   "border-radius: 5px;\n"
-                                   "border-color: rgb(0, 0, 0);\n"
-                                   "border-style: solid;\n"
-                                   "background-color: rgb(188, 188, 188);\n"
-                                   "color: rgb(0, 0, 0);")
-        self.path2_2.setObjectName("path2_2")
-        self.horizontalLayout122_2.addWidget(self.path2_2)
-        self.uploadBtn2_2 = QtWidgets.QToolButton(self.verticalGroupBox12_2)
-        self.uploadBtn2_2.setMinimumSize(QtCore.QSize(0, 0))
-        self.uploadBtn2_2.setMouseTracking(False)
-        self.uploadBtn2_2.setAutoFillBackground(False)
-        self.uploadBtn2_2.setStyleSheet("background-color: rgb(212, 212, 212);\n"
-                                        "border-width: 3px;\n"
-                                        "border-radius: 5px;\n"
-                                        "border-color: rgb(0, 0, 0);\n"
-                                        "border-style: solid;")
-        self.uploadBtn2_2.setText("")
-        self.uploadBtn2_2.setIcon(icon2)
-        self.uploadBtn2_2.setObjectName("uploadBtn2_2")
-        self.horizontalLayout122_2.addWidget(self.uploadBtn2_2)
-        self.verticalLayout_6.addLayout(self.horizontalLayout122_2)
-        self.horizontalLayout123_2 = QtWidgets.QHBoxLayout()
-        self.horizontalLayout123_2.setObjectName("horizontalLayout123_2")
-        self.label3_2 = QtWidgets.QLabel(self.verticalGroupBox12_2)
-        self.label3_2.setObjectName("label3_2")
-        self.horizontalLayout123_2.addWidget(self.label3_2)
-        self.seperator = QtWidgets.QTextEdit(self.verticalGroupBox12_2)
-        self.seperator.setStyleSheet("border-width: 3px;\n"
-                                     "border-radius: 5px;\n"
-                                     "border-color: rgb(0, 0, 0);\n"
-                                     "border-style: solid;\n"
-                                     "background-color: rgb(188, 188, 188);\n"
-                                     "color: rgb(0, 0, 0);")
-        self.seperator.setObjectName("seperator")
-        self.horizontalLayout123_2.addWidget(self.seperator)
-        self.questionBtn1231_2 = QtWidgets.QToolButton(self.verticalGroupBox12_2)
-        self.questionBtn1231_2.setMinimumSize(QtCore.QSize(0, 0))
-        self.questionBtn1231_2.setMouseTracking(False)
-        self.questionBtn1231_2.setAutoFillBackground(False)
-        self.questionBtn1231_2.setStyleSheet("background-color: rgb(0, 0, 127);\n"
-                                             "background-color: rgb(0, 0, 50);\n"
-                                             "border-width: 1px;\n"
-                                             "border-radius: 14px;\n"
-                                             "border-color: rgb(255, 255, 255);\n"
-                                             "border-style: solid;")
-        self.questionBtn1231_2.setText("")
-        self.questionBtn1231_2.setIcon(icon1)
-        self.questionBtn1231_2.setObjectName("questionBtn1231_2")
-        self.horizontalLayout123_2.addWidget(self.questionBtn1231_2)
-        self.verticalLayout_6.addLayout(self.horizontalLayout123_2)
-        self.verticalLayout.addWidget(self.verticalGroupBox12_2)
-        self.verticalGroupBox12_3 = QtWidgets.QGroupBox(self.verticalFrame1)
-        self.verticalGroupBox12_3.setObjectName("verticalGroupBox12_3")
-        self.verticalLayout_7 = QtWidgets.QVBoxLayout(self.verticalGroupBox12_3)
+        self.horizontalLayout131 = QtWidgets.QHBoxLayout()
+        self.horizontalLayout131.setObjectName("horizontalLayout131")
+        self.label1311 = QtWidgets.QLabel(self.verticalGroupBox13)
+        self.label1311.setObjectName("label1311")
+        self.horizontalLayout131.addWidget(self.label1311)
+        self.path1312 = QtWidgets.QLineEdit(self.verticalGroupBox13)
+        self.path1312.setStyleSheet("border-width: 3px;\n"
+"                                                            border-radius: 5px;\n"
+"                                                            border-color: rgb(0, 0, 0);\n"
+"                                                            border-style: solid;\n"
+"                                                            background-color: rgb(188, 188, 188);\n"
+"                                                            color: rgb(0, 0, 0);\n"
+"                                                        ")
+        self.path1312.setObjectName("path1312")
+        self.horizontalLayout131.addWidget(self.path1312)
+        self.uploadBtn1313 = QtWidgets.QToolButton(self.verticalGroupBox13)
+        self.uploadBtn1313.setMinimumSize(QtCore.QSize(0, 0))
+        self.uploadBtn1313.setMouseTracking(False)
+        self.uploadBtn1313.setAutoFillBackground(False)
+        self.uploadBtn1313.setStyleSheet("background-color: rgb(212, 212, 212);\n"
+"                                                            border-width: 3px;\n"
+"                                                            border-radius: 5px;\n"
+"                                                            border-color: rgb(0, 0, 0);\n"
+"                                                            border-style: solid;\n"
+"                                                        ")
+        self.uploadBtn1313.setText("")
+        self.uploadBtn1313.setIcon(icon2)
+        self.uploadBtn1313.setObjectName("uploadBtn1313")
+        self.horizontalLayout131.addWidget(self.uploadBtn1313)
+        self.verticalLayout_6.addLayout(self.horizontalLayout131)
+        self.horizontalLayout132 = QtWidgets.QHBoxLayout()
+        self.horizontalLayout132.setObjectName("horizontalLayout132")
+        self.label1321 = QtWidgets.QLabel(self.verticalGroupBox13)
+        self.label1321.setObjectName("label1321")
+        self.horizontalLayout132.addWidget(self.label1321)
+        self.path1322 = QtWidgets.QLineEdit(self.verticalGroupBox13)
+        self.path1322.setStyleSheet("border-width: 3px;\n"
+"                                                            border-radius: 5px;\n"
+"                                                            border-color: rgb(0, 0, 0);\n"
+"                                                            border-style: solid;\n"
+"                                                            background-color: rgb(188, 188, 188);\n"
+"                                                            color: rgb(0, 0, 0);\n"
+"                                                        ")
+        self.path1322.setObjectName("path1322")
+        self.horizontalLayout132.addWidget(self.path1322)
+        self.uploadBtn1323 = QtWidgets.QToolButton(self.verticalGroupBox13)
+        self.uploadBtn1323.setMinimumSize(QtCore.QSize(0, 0))
+        self.uploadBtn1323.setMouseTracking(False)
+        self.uploadBtn1323.setAutoFillBackground(False)
+        self.uploadBtn1323.setStyleSheet("background-color: rgb(212, 212, 212);\n"
+"                                                            border-width: 3px;\n"
+"                                                            border-radius: 5px;\n"
+"                                                            border-color: rgb(0, 0, 0);\n"
+"                                                            border-style: solid;\n"
+"                                                        ")
+        self.uploadBtn1323.setText("")
+        self.uploadBtn1323.setIcon(icon2)
+        self.uploadBtn1323.setObjectName("uploadBtn1323")
+        self.horizontalLayout132.addWidget(self.uploadBtn1323)
+        self.verticalLayout_6.addLayout(self.horizontalLayout132)
+        self.horizontalLayout133 = QtWidgets.QHBoxLayout()
+        self.horizontalLayout133.setObjectName("horizontalLayout133")
+        self.label1331 = QtWidgets.QLabel(self.verticalGroupBox13)
+        self.label1331.setObjectName("label1331")
+        self.horizontalLayout133.addWidget(self.label1331)
+        self.seperator1333 = QtWidgets.QTextEdit(self.verticalGroupBox13)
+        self.seperator1333.setStyleSheet("border-width: 3px;\n"
+"                                                            border-radius: 5px;\n"
+"                                                            border-color: rgb(0, 0, 0);\n"
+"                                                            border-style: solid;\n"
+"                                                            background-color: rgb(188, 188, 188);\n"
+"                                                            color: rgb(0, 0, 0);\n"
+"                                                        ")
+        self.seperator1333.setObjectName("seperator1333")
+        self.horizontalLayout133.addWidget(self.seperator1333)
+        self.questionBtn1332 = QtWidgets.QToolButton(self.verticalGroupBox13)
+        self.questionBtn1332.setMinimumSize(QtCore.QSize(0, 0))
+        self.questionBtn1332.setMouseTracking(False)
+        self.questionBtn1332.setAutoFillBackground(False)
+        self.questionBtn1332.setStyleSheet("background-color: rgb(0, 0, 127);\n"
+"                                                            background-color: rgb(0, 0, 50);\n"
+"                                                            border-width: 1px;\n"
+"                                                            border-radius: 14px;\n"
+"                                                            border-color: rgb(255, 255, 255);\n"
+"                                                            border-style: solid;\n"
+"                                                        ")
+        self.questionBtn1332.setText("")
+        self.questionBtn1332.setIcon(icon1)
+        self.questionBtn1332.setObjectName("questionBtn1332")
+        self.horizontalLayout133.addWidget(self.questionBtn1332)
+        self.verticalLayout_6.addLayout(self.horizontalLayout133)
+        self.verticalLayout.addWidget(self.verticalGroupBox13)
+        self.verticalGroupBox14 = QtWidgets.QGroupBox(self.verticalFrame1)
+        self.verticalGroupBox14.setObjectName("verticalGroupBox14")
+        self.verticalLayout_7 = QtWidgets.QVBoxLayout(self.verticalGroupBox14)
         self.verticalLayout_7.setContentsMargins(10, 24, 10, 12)
         self.verticalLayout_7.setSpacing(10)
         self.verticalLayout_7.setObjectName("verticalLayout_7")
-        self.horizontalLayout121_3 = QtWidgets.QHBoxLayout()
-        self.horizontalLayout121_3.setContentsMargins(-1, 8, -1, 8)
-        self.horizontalLayout121_3.setSpacing(10)
-        self.horizontalLayout121_3.setObjectName("horizontalLayout121_3")
-        self.label1_3 = QtWidgets.QLabel(self.verticalGroupBox12_3)
-        self.label1_3.setObjectName("label1_3")
-        self.horizontalLayout121_3.addWidget(self.label1_3)
-        self.path1_3 = QtWidgets.QLineEdit(self.verticalGroupBox12_3)
-        self.path1_3.setStyleSheet("border-width: 3px;\n"
-                                   "border-radius: 5px;\n"
-                                   "border-color: rgb(0, 0, 0);\n"
-                                   "border-style: solid;\n"
-                                   "background-color: rgb(188, 188, 188);\n"
-                                   "color: rgb(0, 0, 0);")
-        self.path1_3.setObjectName("path1_3")
-        self.horizontalLayout121_3.addWidget(self.path1_3)
-        self.uploadBtn1_3 = QtWidgets.QToolButton(self.verticalGroupBox12_3)
-        self.uploadBtn1_3.setMinimumSize(QtCore.QSize(0, 0))
-        self.uploadBtn1_3.setMouseTracking(False)
-        self.uploadBtn1_3.setAutoFillBackground(False)
-        self.uploadBtn1_3.setStyleSheet("background-color: rgb(212, 212, 212);\n"
-                                        "border-width: 3px;\n"
-                                        "border-radius: 5px;\n"
-                                        "border-color: rgb(0, 0, 0);\n"
-                                        "border-style: solid;")
-        self.uploadBtn1_3.setText("")
-        self.uploadBtn1_3.setIcon(icon2)
-        self.uploadBtn1_3.setObjectName("uploadBtn1_3")
-        self.horizontalLayout121_3.addWidget(self.uploadBtn1_3)
-        self.verticalLayout_7.addLayout(self.horizontalLayout121_3)
-        self.horizontalLayout122_3 = QtWidgets.QHBoxLayout()
-        self.horizontalLayout122_3.setContentsMargins(-1, 8, -1, 8)
-        self.horizontalLayout122_3.setSpacing(10)
-        self.horizontalLayout122_3.setObjectName("horizontalLayout122_3")
-        self.label2_3 = QtWidgets.QLabel(self.verticalGroupBox12_3)
-        self.label2_3.setObjectName("label2_3")
-        self.horizontalLayout122_3.addWidget(self.label2_3)
-        self.path2_3 = QtWidgets.QLineEdit(self.verticalGroupBox12_3)
-        self.path2_3.setStyleSheet("border-width: 3px;\n"
-                                   "border-radius: 5px;\n"
-                                   "border-color: rgb(0, 0, 0);\n"
-                                   "border-style: solid;\n"
-                                   "background-color: rgb(188, 188, 188);\n"
-                                   "color: rgb(0, 0, 0);")
-        self.path2_3.setObjectName("path2_3")
-        self.horizontalLayout122_3.addWidget(self.path2_3)
-        self.uploadBtn2_3 = QtWidgets.QToolButton(self.verticalGroupBox12_3)
-        self.uploadBtn2_3.setMinimumSize(QtCore.QSize(0, 0))
-        self.uploadBtn2_3.setMouseTracking(False)
-        self.uploadBtn2_3.setAutoFillBackground(False)
-        self.uploadBtn2_3.setStyleSheet("background-color: rgb(212, 212, 212);\n"
-                                        "border-width: 3px;\n"
-                                        "border-radius: 5px;\n"
-                                        "border-color: rgb(0, 0, 0);\n"
-                                        "border-style: solid;")
-        self.uploadBtn2_3.setText("")
-        self.uploadBtn2_3.setIcon(icon2)
-        self.uploadBtn2_3.setObjectName("uploadBtn2_3")
-        self.horizontalLayout122_3.addWidget(self.uploadBtn2_3)
-        self.verticalLayout_7.addLayout(self.horizontalLayout122_3)
-        self.verticalLayout.addWidget(self.verticalGroupBox12_3)
+        self.horizontalLayout141 = QtWidgets.QHBoxLayout()
+        self.horizontalLayout141.setContentsMargins(-1, 8, -1, 8)
+        self.horizontalLayout141.setSpacing(10)
+        self.horizontalLayout141.setObjectName("horizontalLayout141")
+        self.label1411 = QtWidgets.QLabel(self.verticalGroupBox14)
+        self.label1411.setObjectName("label1411")
+        self.horizontalLayout141.addWidget(self.label1411)
+        self.path1412 = QtWidgets.QLineEdit(self.verticalGroupBox14)
+        self.path1412.setStyleSheet("border-width: 3px;\n"
+"                                                            border-radius: 5px;\n"
+"                                                            border-color: rgb(0, 0, 0);\n"
+"                                                            border-style: solid;\n"
+"                                                            background-color: rgb(188, 188, 188);\n"
+"                                                            color: rgb(0, 0, 0);\n"
+"                                                        ")
+        self.path1412.setObjectName("path1412")
+        self.horizontalLayout141.addWidget(self.path1412)
+        self.uploadBtn1413 = QtWidgets.QToolButton(self.verticalGroupBox14)
+        self.uploadBtn1413.setMinimumSize(QtCore.QSize(0, 0))
+        self.uploadBtn1413.setMouseTracking(False)
+        self.uploadBtn1413.setAutoFillBackground(False)
+        self.uploadBtn1413.setStyleSheet("background-color: rgb(212, 212, 212);\n"
+"                                                            border-width: 3px;\n"
+"                                                            border-radius: 5px;\n"
+"                                                            border-color: rgb(0, 0, 0);\n"
+"                                                            border-style: solid;\n"
+"                                                        ")
+        self.uploadBtn1413.setText("")
+        self.uploadBtn1413.setIcon(icon2)
+        self.uploadBtn1413.setObjectName("uploadBtn1413")
+        self.horizontalLayout141.addWidget(self.uploadBtn1413)
+        self.verticalLayout_7.addLayout(self.horizontalLayout141)
+        self.horizontalLayout142 = QtWidgets.QHBoxLayout()
+        self.horizontalLayout142.setContentsMargins(-1, 8, -1, 8)
+        self.horizontalLayout142.setSpacing(10)
+        self.horizontalLayout142.setObjectName("horizontalLayout142")
+        self.label1421 = QtWidgets.QLabel(self.verticalGroupBox14)
+        self.label1421.setObjectName("label1421")
+        self.horizontalLayout142.addWidget(self.label1421)
+        self.path1422 = QtWidgets.QLineEdit(self.verticalGroupBox14)
+        self.path1422.setStyleSheet("border-width: 3px;\n"
+"                                                            border-radius: 5px;\n"
+"                                                            border-color: rgb(0, 0, 0);\n"
+"                                                            border-style: solid;\n"
+"                                                            background-color: rgb(188, 188, 188);\n"
+"                                                            color: rgb(0, 0, 0);\n"
+"                                                        ")
+        self.path1422.setObjectName("path1422")
+        self.horizontalLayout142.addWidget(self.path1422)
+        self.uploadBtn1423 = QtWidgets.QToolButton(self.verticalGroupBox14)
+        self.uploadBtn1423.setMinimumSize(QtCore.QSize(0, 0))
+        self.uploadBtn1423.setMouseTracking(False)
+        self.uploadBtn1423.setAutoFillBackground(False)
+        self.uploadBtn1423.setStyleSheet("background-color: rgb(212, 212, 212);\n"
+"                                                            border-width: 3px;\n"
+"                                                            border-radius: 5px;\n"
+"                                                            border-color: rgb(0, 0, 0);\n"
+"                                                            border-style: solid;\n"
+"                                                        ")
+        self.uploadBtn1423.setText("")
+        self.uploadBtn1423.setIcon(icon2)
+        self.uploadBtn1423.setObjectName("uploadBtn1423")
+        self.horizontalLayout142.addWidget(self.uploadBtn1423)
+        self.verticalLayout_7.addLayout(self.horizontalLayout142)
+        self.verticalLayout.addWidget(self.verticalGroupBox14)
         self.errorMsg = QtWidgets.QLabel(self.groupBox)
         self.errorMsg.setGeometry(QtCore.QRect(20, 425, 81, 41))
         self.errorMsg.setLayoutDirection(QtCore.Qt.RightToLeft)
-        self.errorMsg.setStyleSheet(
-            "background-color: qlineargradient(spread:pad, x1:0.983, y1:0.00568182, x2:0.996, y2:0, stop:1 rgba(48, 48, 48, 143));\n"
-            "color: rgb(170, 0, 0);\n"
-            "font: 75 8pt \"System\";\n"
-            "border-radius: 10px;\n"
-            "border-style: solid;\n"
-            "border-width: 0px\n"
-            "")
+        self.errorMsg.setStyleSheet("background-color: qlineargradient(spread:pad, x1:0.983, y1:0.00568182,\n"
+"                            x2:0.996, y2:0, stop:1 rgba(48, 48, 48, 143));\n"
+"                            color: rgb(170, 0, 0);\n"
+"                            font: 75 8pt \"System\";\n"
+"                            border-radius: 10px;\n"
+"                            border-style: solid;\n"
+"                            border-width: 0px\n"
+"                        ")
         self.errorMsg.setObjectName("errorMsg")
         self.verticalFrame2 = QtWidgets.QFrame(self.groupBox)
         self.verticalFrame2.setGeometry(QtCore.QRect(20, 100, 310, 320))
@@ -489,12 +508,14 @@ class Ui_TrainModelWindow(object):
         self.verticalFrame2.setFont(font)
         self.verticalFrame2.setAutoFillBackground(False)
         self.verticalFrame2.setStyleSheet("border-width: 3px;\n"
-                                          "border-radius: 15px;\n"
-                                          "border-color: rgb(0, 0, 0);\n"
-                                          "border-style: solid;\n"
-                                          "font: 8pt \"Sitka Small\";\n"
-                                          "color: rgb(255, 255, 255);\n"
-                                          "background-color: qlineargradient(spread:pad, x1:0.996, y1:0.0340909, x2:1, y2:0, stop:1 rgba(0, 0, 32, 170));")
+"                            border-radius: 15px;\n"
+"                            border-color: rgb(0, 0, 0);\n"
+"                            border-style: solid;\n"
+"                            font: 8pt \"Sitka Small\";\n"
+"                            color: rgb(255, 255, 255);\n"
+"                            background-color: qlineargradient(spread:pad, x1:0.996, y1:0.0340909, x2:1, y2:0, stop:1\n"
+"                            rgba(0, 0, 32, 170));\n"
+"                        ")
         self.verticalFrame2.setObjectName("verticalFrame2")
         self.verticalLayout_3 = QtWidgets.QVBoxLayout(self.verticalFrame2)
         self.verticalLayout_3.setContentsMargins(18, 18, 18, 18)
@@ -513,29 +534,31 @@ class Ui_TrainModelWindow(object):
         self.horizontalLayout_3.setContentsMargins(10, 36, 10, 48)
         self.horizontalLayout_3.setSpacing(10)
         self.horizontalLayout_3.setObjectName("horizontalLayout_3")
-        self.authorName = QtWidgets.QTextEdit(self.horizontalGroupBox21)
-        self.authorName.setStyleSheet("border-width: 3px;\n"
-                                      "border-radius: 5px;\n"
-                                      "border-color: rgb(0, 0, 0);\n"
-                                      "border-style: solid;\n"
-                                      "background-color: rgb(188, 188, 188);\n"
-                                      "color: rgb(0, 0, 0);")
-        self.authorName.setObjectName("authorName")
-        self.horizontalLayout_3.addWidget(self.authorName)
-        self.questionBtn211 = QtWidgets.QToolButton(self.horizontalGroupBox21)
-        self.questionBtn211.setMinimumSize(QtCore.QSize(0, 0))
-        self.questionBtn211.setMouseTracking(False)
-        self.questionBtn211.setAutoFillBackground(False)
-        self.questionBtn211.setStyleSheet("background-color: rgb(0, 0, 127);\n"
-                                          "background-color: rgb(0, 0, 50);\n"
-                                          "border-width: 1px;\n"
-                                          "border-radius: 14px;\n"
-                                          "border-color: rgb(255, 255, 255);\n"
-                                          "border-style: solid;")
-        self.questionBtn211.setText("")
-        self.questionBtn211.setIcon(icon1)
-        self.questionBtn211.setObjectName("questionBtn211")
-        self.horizontalLayout_3.addWidget(self.questionBtn211)
+        self.authorName211 = QtWidgets.QTextEdit(self.horizontalGroupBox21)
+        self.authorName211.setStyleSheet("border-width: 3px;\n"
+"                                                    border-radius: 5px;\n"
+"                                                    border-color: rgb(0, 0, 0);\n"
+"                                                    border-style: solid;\n"
+"                                                    background-color: rgb(188, 188, 188);\n"
+"                                                    color: rgb(0, 0, 0);\n"
+"                                                ")
+        self.authorName211.setObjectName("authorName211")
+        self.horizontalLayout_3.addWidget(self.authorName211)
+        self.questionBtn212 = QtWidgets.QToolButton(self.horizontalGroupBox21)
+        self.questionBtn212.setMinimumSize(QtCore.QSize(0, 0))
+        self.questionBtn212.setMouseTracking(False)
+        self.questionBtn212.setAutoFillBackground(False)
+        self.questionBtn212.setStyleSheet("background-color: rgb(0, 0, 127);\n"
+"                                                    background-color: rgb(0, 0, 50);\n"
+"                                                    border-width: 1px;\n"
+"                                                    border-radius: 14px;\n"
+"                                                    border-color: rgb(255, 255, 255);\n"
+"                                                    border-style: solid;\n"
+"                                                ")
+        self.questionBtn212.setText("")
+        self.questionBtn212.setIcon(icon1)
+        self.questionBtn212.setObjectName("questionBtn212")
+        self.horizontalLayout_3.addWidget(self.questionBtn212)
         self.verticalLayout_3.addWidget(self.horizontalGroupBox21)
         self.verticalGroupBox22 = QtWidgets.QGroupBox(self.verticalFrame2)
         self.verticalGroupBox22.setObjectName("verticalGroupBox22")
@@ -545,63 +568,67 @@ class Ui_TrainModelWindow(object):
         self.verticalLayout_4.setObjectName("verticalLayout_4")
         self.horizontalLayout221 = QtWidgets.QHBoxLayout()
         self.horizontalLayout221.setObjectName("horizontalLayout221")
-        self.label2 = QtWidgets.QLabel(self.verticalGroupBox22)
-        self.label2.setStyleSheet("font: 6pt \"Sitka Small\";")
-        self.label2.setObjectName("label2")
-        self.horizontalLayout221.addWidget(self.label2)
-        self.trueLavel = QtWidgets.QTextEdit(self.verticalGroupBox22)
-        self.trueLavel.setStyleSheet("border-width: 3px;\n"
-                                     "border-radius: 5px;\n"
-                                     "border-color: rgb(0, 0, 0);\n"
-                                     "border-style: solid;\n"
-                                     "background-color: rgb(188, 188, 188);\n"
-                                     "color: rgb(0, 0, 0);")
-        self.trueLavel.setObjectName("trueLavel")
-        self.horizontalLayout221.addWidget(self.trueLavel)
-        self.questionBtn2211 = QtWidgets.QToolButton(self.verticalGroupBox22)
-        self.questionBtn2211.setMinimumSize(QtCore.QSize(0, 0))
-        self.questionBtn2211.setMouseTracking(False)
-        self.questionBtn2211.setAutoFillBackground(False)
-        self.questionBtn2211.setStyleSheet("background-color: rgb(0, 0, 127);\n"
-                                           "background-color: rgb(0, 0, 50);\n"
-                                           "border-width: 1px;\n"
-                                           "border-radius: 14px;\n"
-                                           "border-color: rgb(255, 255, 255);\n"
-                                           "border-style: solid;")
-        self.questionBtn2211.setText("")
-        self.questionBtn2211.setIcon(icon1)
-        self.questionBtn2211.setObjectName("questionBtn2211")
-        self.horizontalLayout221.addWidget(self.questionBtn2211)
+        self.label2211 = QtWidgets.QLabel(self.verticalGroupBox22)
+        self.label2211.setStyleSheet("font: 6pt \"Sitka Small\";")
+        self.label2211.setObjectName("label2211")
+        self.horizontalLayout221.addWidget(self.label2211)
+        self.trueLavel2213 = QtWidgets.QTextEdit(self.verticalGroupBox22)
+        self.trueLavel2213.setStyleSheet("border-width: 3px;\n"
+"                                                            border-radius: 5px;\n"
+"                                                            border-color: rgb(0, 0, 0);\n"
+"                                                            border-style: solid;\n"
+"                                                            background-color: rgb(188, 188, 188);\n"
+"                                                            color: rgb(0, 0, 0);\n"
+"                                                        ")
+        self.trueLavel2213.setObjectName("trueLavel2213")
+        self.horizontalLayout221.addWidget(self.trueLavel2213)
+        self.questionBtn2212 = QtWidgets.QToolButton(self.verticalGroupBox22)
+        self.questionBtn2212.setMinimumSize(QtCore.QSize(0, 0))
+        self.questionBtn2212.setMouseTracking(False)
+        self.questionBtn2212.setAutoFillBackground(False)
+        self.questionBtn2212.setStyleSheet("background-color: rgb(0, 0, 127);\n"
+"                                                            background-color: rgb(0, 0, 50);\n"
+"                                                            border-width: 1px;\n"
+"                                                            border-radius: 14px;\n"
+"                                                            border-color: rgb(255, 255, 255);\n"
+"                                                            border-style: solid;\n"
+"                                                        ")
+        self.questionBtn2212.setText("")
+        self.questionBtn2212.setIcon(icon1)
+        self.questionBtn2212.setObjectName("questionBtn2212")
+        self.horizontalLayout221.addWidget(self.questionBtn2212)
         self.verticalLayout_4.addLayout(self.horizontalLayout221)
         self.horizontalLayout222 = QtWidgets.QHBoxLayout()
         self.horizontalLayout222.setObjectName("horizontalLayout222")
-        self.label3 = QtWidgets.QLabel(self.verticalGroupBox22)
-        self.label3.setStyleSheet("font: 6pt \"Sitka Small\";")
-        self.label3.setObjectName("label3")
-        self.horizontalLayout222.addWidget(self.label3)
-        self.fakeLabel = QtWidgets.QTextEdit(self.verticalGroupBox22)
-        self.fakeLabel.setStyleSheet("border-width: 3px;\n"
-                                     "border-radius: 5px;\n"
-                                     "border-color: rgb(0, 0, 0);\n"
-                                     "border-style: solid;\n"
-                                     "background-color: rgb(188, 188, 188);\n"
-                                     "color: rgb(0, 0, 0);")
-        self.fakeLabel.setObjectName("fakeLabel")
-        self.horizontalLayout222.addWidget(self.fakeLabel)
-        self.questionBtn2221 = QtWidgets.QToolButton(self.verticalGroupBox22)
-        self.questionBtn2221.setMinimumSize(QtCore.QSize(0, 0))
-        self.questionBtn2221.setMouseTracking(False)
-        self.questionBtn2221.setAutoFillBackground(False)
-        self.questionBtn2221.setStyleSheet("background-color: rgb(0, 0, 127);\n"
-                                           "background-color: rgb(0, 0, 50);\n"
-                                           "border-width: 1px;\n"
-                                           "border-radius: 14px;\n"
-                                           "border-color: rgb(255, 255, 255);\n"
-                                           "border-style: solid;")
-        self.questionBtn2221.setText("")
-        self.questionBtn2221.setIcon(icon1)
-        self.questionBtn2221.setObjectName("questionBtn2221")
-        self.horizontalLayout222.addWidget(self.questionBtn2221)
+        self.label2222 = QtWidgets.QLabel(self.verticalGroupBox22)
+        self.label2222.setStyleSheet("font: 6pt \"Sitka Small\";")
+        self.label2222.setObjectName("label2222")
+        self.horizontalLayout222.addWidget(self.label2222)
+        self.fakeLabel2221 = QtWidgets.QTextEdit(self.verticalGroupBox22)
+        self.fakeLabel2221.setStyleSheet("border-width: 3px;\n"
+"                                                            border-radius: 5px;\n"
+"                                                            border-color: rgb(0, 0, 0);\n"
+"                                                            border-style: solid;\n"
+"                                                            background-color: rgb(188, 188, 188);\n"
+"                                                            color: rgb(0, 0, 0);\n"
+"                                                        ")
+        self.fakeLabel2221.setObjectName("fakeLabel2221")
+        self.horizontalLayout222.addWidget(self.fakeLabel2221)
+        self.questionBtn2223 = QtWidgets.QToolButton(self.verticalGroupBox22)
+        self.questionBtn2223.setMinimumSize(QtCore.QSize(0, 0))
+        self.questionBtn2223.setMouseTracking(False)
+        self.questionBtn2223.setAutoFillBackground(False)
+        self.questionBtn2223.setStyleSheet("background-color: rgb(0, 0, 127);\n"
+"                                                            background-color: rgb(0, 0, 50);\n"
+"                                                            border-width: 1px;\n"
+"                                                            border-radius: 14px;\n"
+"                                                            border-color: rgb(255, 255, 255);\n"
+"                                                            border-style: solid;\n"
+"                                                        ")
+        self.questionBtn2223.setText("")
+        self.questionBtn2223.setIcon(icon1)
+        self.questionBtn2223.setObjectName("questionBtn2223")
+        self.horizontalLayout222.addWidget(self.questionBtn2223)
         self.verticalLayout_4.addLayout(self.horizontalLayout222)
         self.verticalLayout_3.addWidget(self.verticalGroupBox22)
         TrainModelWindow.setCentralWidget(self.centralwidget)
@@ -619,25 +646,24 @@ class Ui_TrainModelWindow(object):
         self.radioButton1112.setText(_translate("TrainModelWindow", "CSV File with column for label"))
         self.radioButton1122.setText(_translate("TrainModelWindow", "Two seperated files for each label"))
         self.radioButton1132.setText(_translate("TrainModelWindow", "Two seperated folders for each label"))
-        self.verticalGroupBox12_1.setTitle(_translate("TrainModelWindow", "Upload CSV file:"))
-        self.label1_1.setText(_translate("TrainModelWindow", "Column name:"))
-        self.verticalGroupBox12_2.setTitle(_translate("TrainModelWindow", "Upload two files:"))
-        self.label1_2.setText(_translate("TrainModelWindow", "File1:"))
-        self.label2_2.setText(_translate("TrainModelWindow", "File1:"))
-        self.label3_2.setText(_translate("TrainModelWindow", "seperator:"))
-        self.verticalGroupBox12_3.setTitle(_translate("TrainModelWindow", "Upload two folders:"))
-        self.label1_3.setText(_translate("TrainModelWindow", "Folder 1:"))
-        self.label2_3.setText(_translate("TrainModelWindow", "Folder 2:"))
+        self.verticalGroupBox12.setTitle(_translate("TrainModelWindow", "Upload CSV file:"))
+        self.label1222.setText(_translate("TrainModelWindow", "Column name:"))
+        self.verticalGroupBox13.setTitle(_translate("TrainModelWindow", "Upload two files:"))
+        self.label1311.setText(_translate("TrainModelWindow", "File1:"))
+        self.label1321.setText(_translate("TrainModelWindow", "File1:"))
+        self.label1331.setText(_translate("TrainModelWindow", "seperator:"))
+        self.verticalGroupBox14.setTitle(_translate("TrainModelWindow", "Upload two folders:"))
+        self.label1411.setText(_translate("TrainModelWindow", "Folder 1:"))
+        self.label1421.setText(_translate("TrainModelWindow", "Folder 2:"))
         self.errorMsg.setText(_translate("TrainModelWindow", "warning"))
         self.horizontalGroupBox21.setTitle(_translate("TrainModelWindow", "Author name:"))
         self.verticalGroupBox22.setTitle(_translate("TrainModelWindow", "Labels names:"))
-        self.label2.setText(_translate("TrainModelWindow", "Label 1 (+):"))
-        self.label3.setText(_translate("TrainModelWindow", "Label 2 (-):"))
+        self.label2211.setText(_translate("TrainModelWindow", "Label 1 (+):"))
+        self.label2222.setText(_translate("TrainModelWindow", "Label 2 (-):"))
 
 
 if __name__ == "__main__":
     import sys
-
     app = QtWidgets.QApplication(sys.argv)
     TrainModelWindow = QtWidgets.QMainWindow()
     ui = Ui_TrainModelWindow()
