@@ -42,13 +42,19 @@ def remove_stop_words(words_arr):
 
 def read_file_into_array(file_name):
     import csv
-    arr = []
-    i = 0
-    with open(file_name, 'r', encoding='utf-8') as file:
-        reader = csv.reader(file)
-        for row in reader:
-            arr[i:] = row[1:2]
-            i = i + 1
+    # arr = []
+    # i = 0
+    import pandas as pd
+    col_list = ["text"]
+    df = pd.read_csv(file_name, usecols=col_list)
+    arr = df['text'].values.tolist()
+
+    # with open(file_name, 'r', encoding='utf-8') as file:
+    #     reader = csv.reader(file)
+    #     for row in reader:
+    #         arr[i:] = row[1:2]
+    #         i = i + 1
+
     return arr
 
 
@@ -330,8 +336,8 @@ model, history = fit_model(model, tf.constant(x_train), y_train_prob, tf.constan
 _, accuracy = model.evaluate(x_test, y_test_prob, verbose=0)
 print("Accuracy of evaluate new test groups:", accuracy)
 
-Y_predicted_prob = model.predict(x_test)
-Y_predicted = model.predict_classes(x_test, verbose=0)
+Y_predicted_prob = model.predict(tf.constant(x_test))
+Y_predicted = np.argmax(Y_predicted_prob, -1)
 count_well_predicted = np.count_nonzero([y_test == Y_predicted])
 
 print("Number of true predicts:", count_well_predicted)
@@ -367,37 +373,21 @@ from nltk import word_tokenize
 from nltk.corpus import stopwords
 
 
-def seperate_to_blocks(book):
-    words = iter(book.split())
-    lines, current = [], next(words)
-    tokens=0
-    for word in words:
-        if tokens > 510:
-            lines.append(current)
-            current = word
-            tokens=0
-        else:
-            current += " " + word
-            tokens+=1
-    lines.append(current)
-    return lines
-
-def read_books_of_specific_author(author_name):
+def read_books_of_specific_author(books_dir_path,author_name):
     res = []
 
-    for book_name in os.listdir(root_books_dir_path + '/' + author_name):
+    for book_name in os.listdir(books_dir_path + '/' + author_name):
         if book_name.split('.')[1] == 'txt':
-            book = read_book(author_name, book_name)
-            book_blocks = seperate_to_blocks(book)
-            res.extend(block for block in book_blocks)
+            book = read_book(books_dir_path,author_name, book_name)
+            res.append(book)
 
     return res
 
 
-def read_books_of_various_authors(name_to_ignore):
+def read_books_of_various_authors(books_dir_path,name_to_ignore):
     res = []
 
-    for author_name in os.listdir(root_books_dir_path):
+    for author_name in os.listdir(books_dir_path):
         if author_name != name_to_ignore:
             author_books = read_books_of_specific_author(author_name)
             res.extend(book for book in author_books)
@@ -405,36 +395,41 @@ def read_books_of_various_authors(name_to_ignore):
     return res
 
 
-def read_book(writer_name, book_name):
-    with open(root_books_dir_path + '/' + writer_name + '/' + book_name, 'r', encoding='UTF-8') as book_file:
+def read_book(books_dir_path, writer_name, book_name):
+    with open(books_dir_path + '/' + writer_name + '/' + book_name, 'r', encoding='UTF-8') as book_file:
         book_string = book_file.read()
         return book_string
 
 
-def remove_stop_words(word_tokens):
-    stop_words = set(stopwords.words('english'))
-    filtered_text = [w for w in word_tokens if not w in stop_words]
-    return filtered_text
+def read_books_from_file(books_dir_path, file_name):
+    with open(books_dir_path + '/' +  file_name, 'r', encoding='UTF-8') as books_file:
+        books_string = books_file.read()
+        books_list=books_string.split('************************')
+        return books_list
 
 
-root_books_dir_path = 'DB/books'
+books_dir_path = 'database/books'
 
-author_books = read_books_of_specific_author(author_name='shakespeare')
-different_books = read_books_of_various_authors(name_to_ignore='shakespeare')
+author_books = read_books_of_specific_author(books_dir_path,author_name='shakespeare')
+different_books = read_books_of_various_authors(books_dir_path,name_to_ignore='shakespeare')
 
-books = author_books + different_books
+author_texts = []
+for book in author_books:
+    preprocessed_text = text_preprocessing(book)
+    book_blocks = seperate_to_blocks(preprocessed_text)
+    author_texts.extend(block for block in book_blocks)
+diff_texts = []
+for book in different_books:
+    preprocessed_text = text_preprocessing(book)
+    book_blocks = seperate_to_blocks(preprocessed_text)
+    diff_texts.extend(block for block in book_blocks)
 
-texts = []
-for book in books:
-    texts.append(text_preprocessing(book))
+texts = author_texts + diff_texts
 
 # define original classification
 y_expected = define_expected_classification(len(author_books), len(books))
 
-texts_clean = texts
-
-
-x_train, x, y_train, y = train_test_split(texts_clean, y_expected, train_size=0.7)
+x_train, x, y_train, y = train_test_split(texts, y_expected, train_size=0.7)
 x_test, x_valid, y_test, y_valid = train_test_split(x, y, train_size=0.5)
 
 y_train_prob = np_utils.to_categorical(y_train)
@@ -442,16 +437,25 @@ y_test_prob = np_utils.to_categorical(y_test)
 y_valid_prob = np_utils.to_categorical(y_valid)
 num_classes = y_train_prob.shape[1]
 
-config=config_512tokens
-model = build_model()
-model, history = fit_model(model, tf.constant(x_train), y_train_prob, tf.constant(x_valid), y_valid_prob)
+config = config_512tokens
+
+new_model = True
+model_name = 'FakeBERTModelPlagiarism.h5'
+trained_model_name = 'TrainedFakeBERTModelPlagiarism.h5'
+if new_model == True:
+    model = build_model()
+    model.save(model_name)
+    model, history = fit_model(model, tf.constant(x_train), y_train_prob, tf.constant(x_valid), y_valid_prob)
+    model.save(trained_model_name)
+else:
+    model = tf.keras.models.load_model(trained_model_name, custom_objects={'KerasLayer': hub.KerasLayer})
 
 
 _, accuracy = model.evaluate(x_test, y_test_prob, verbose=0)
 print("Accuracy of evaluate new test groups:", accuracy)
 
-Y_predicted_prob = model.predict(x_test)
-Y_predicted = model.predict_classes(x_test, verbose=0)
+Y_predicted_prob = model.predict(tf.constant(x_test))
+Y_predicted = np.argmax(Y_predicted_prob, -1)
 count_well_predicted = np.count_nonzero([y_test == Y_predicted])
 
 print("Number of true predicts:", count_well_predicted)

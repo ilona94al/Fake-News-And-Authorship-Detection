@@ -49,7 +49,7 @@ def remove_stop_words(word_tokens):
     return filtered_text
 
 
-root_books_dir_path = 'DB/books'
+root_books_dir_path = 'database/books'
 
 author_books = read_books_of_specific_author(author_name='shakespeare')
 different_books = read_books_of_various_authors(name_to_ignore='shakespeare')

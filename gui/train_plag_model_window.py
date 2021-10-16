@@ -426,7 +426,7 @@ class Ui_TrainPlagModelWindow(object):
         self.verticalGroupBox14.setTitle(_translate("TrainPlagModelWindow", "Upload folder:"))
         self.label1411.setText(_translate("TrainPlagModelWindow", "Path to directory with books (.txt files):"))
         self.errorMsg.setText(_translate("TrainPlagModelWindow", "warning"))
-        self.verticalGroupBox11.setTitle(_translate("TrainPlagModelWindow", "Choose a relevant format of your DB:"))
+        self.verticalGroupBox11.setTitle(_translate("TrainPlagModelWindow", "Choose a relevant format of your database:"))
         self.radioButton1122.setText(_translate("TrainPlagModelWindow", "A text file containing books or excerpts of books"))
         self.radioButton1132.setText(_translate("TrainPlagModelWindow", "A folder containing books in text file format"))
         self.horizontalGroupBox21.setTitle(_translate("TrainPlagModelWindow", "Author name:"))

@@ -586,7 +586,7 @@ class Ui_TrainNewsModelWindow(object):
         self.label1411.setText(_translate("TrainNewsModelWindow", "Folder path with real news:"))
         self.label1421.setText(_translate("TrainNewsModelWindow", "Folder path with fake news:"))
         self.errorMsg.setText(_translate("TrainNewsModelWindow", "warning"))
-        self.verticalGroupBox11.setTitle(_translate("TrainNewsModelWindow", "Choose a relevant format of your DB:"))
+        self.verticalGroupBox11.setTitle(_translate("TrainNewsModelWindow", "Choose a relevant format of your database:"))
         self.radioButton1112.setText(_translate("TrainNewsModelWindow", "CSV File with column for label"))
         self.radioButton1122.setText(_translate("TrainNewsModelWindow", "Two seperated files for each label"))
         self.radioButton1132.setText(_translate("TrainNewsModelWindow", "Two seperated folders for each label"))

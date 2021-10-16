@@ -642,7 +642,7 @@ class Ui_TrainModelWindow(object):
         self.groupBox.setTitle(_translate("TrainModelWindow", "Train a new Model"))
         self.trainBtn.setText(_translate("TrainModelWindow", "Train"))
         self.backBtn.setText(_translate("TrainModelWindow", "Back"))
-        self.verticalGroupBox11.setTitle(_translate("TrainModelWindow", "Choose a relevant format of your DB:"))
+        self.verticalGroupBox11.setTitle(_translate("TrainModelWindow", "Choose a relevant format of your database:"))
         self.radioButton1112.setText(_translate("TrainModelWindow", "CSV File with column for label"))
         self.radioButton1122.setText(_translate("TrainModelWindow", "Two seperated files for each label"))
         self.radioButton1132.setText(_translate("TrainModelWindow", "Two seperated folders for each label"))
