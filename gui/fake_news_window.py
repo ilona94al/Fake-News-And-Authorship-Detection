@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'plagiarism_window.ui'
+# Form implementation generated from reading ui file 'fake_news_window.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.4
 #
@@ -11,11 +11,11 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
-class Ui_PlagiarismWindow(object):
-    def setupUi(self, PlagiarismWindow):
-        PlagiarismWindow.setObjectName("PlagiarismWindow")
-        PlagiarismWindow.resize(860, 598)
-        self.centralwidget = QtWidgets.QWidget(PlagiarismWindow)
+class Ui_FakeNewsWindow(object):
+    def setupUi(self, FakeNewsWindow):
+        FakeNewsWindow.setObjectName("FakeNewsWindow")
+        FakeNewsWindow.resize(860, 598)
+        self.centralwidget = QtWidgets.QWidget(FakeNewsWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.backgroundImg = QtWidgets.QLabel(self.centralwidget)
         self.backgroundImg.setGeometry(QtCore.QRect(0, 0, 860, 600))
@@ -176,13 +176,13 @@ class Ui_PlagiarismWindow(object):
         self.verticalLayout_2.setContentsMargins(10, 48, 10, 24)
         self.verticalLayout_2.setSpacing(10)
         self.verticalLayout_2.setObjectName("verticalLayout_2")
-        self.authorComboBox = QtWidgets.QComboBox(self.verticalGroupBox)
-        self.authorComboBox.setStyleSheet("border-width: 2px;\n"
+        self.trainedModelsComboBox = QtWidgets.QComboBox(self.verticalGroupBox)
+        self.trainedModelsComboBox.setStyleSheet("border-width: 2px;\n"
 "border-radius: 5px;\n"
 "border-color: rgb(0, 0, 0);\n"
 "border-style: solid;")
-        self.authorComboBox.setObjectName("authorComboBox")
-        self.verticalLayout_2.addWidget(self.authorComboBox)
+        self.trainedModelsComboBox.setObjectName("trainedModelsComboBox")
+        self.verticalLayout_2.addWidget(self.trainedModelsComboBox)
         self.verticalLayout.addWidget(self.verticalGroupBox)
         self.horizontalGroupBox = QtWidgets.QGroupBox(self.verticalFrame)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
@@ -197,30 +197,22 @@ class Ui_PlagiarismWindow(object):
         self.horizontalLayout.setContentsMargins(10, 48, 10, 24)
         self.horizontalLayout.setSpacing(10)
         self.horizontalLayout.setObjectName("horizontalLayout")
-        self.inputPath = QtWidgets.QLineEdit(self.horizontalGroupBox)
-        self.inputPath.setStyleSheet("border-width: 2px;\n"
+        self.inputTweet = QtWidgets.QPlainTextEdit(self.horizontalGroupBox)
+        self.inputTweet.setToolTip("")
+        self.inputTweet.setAccessibleDescription("")
+        self.inputTweet.setStyleSheet("border-width: 2px;\n"
 "border-radius: 5px;\n"
 "border-color: rgb(0, 0, 0);\n"
 "border-style: solid;\n"
 "background-color: rgb(181, 181, 181);\n"
 "color: rgb(0, 0, 0);")
-        self.inputPath.setObjectName("inputPath")
-        self.horizontalLayout.addWidget(self.inputPath)
-        self.uploadBtn = QtWidgets.QToolButton(self.horizontalGroupBox)
-        self.uploadBtn.setMinimumSize(QtCore.QSize(0, 0))
-        self.uploadBtn.setMouseTracking(False)
-        self.uploadBtn.setAutoFillBackground(False)
-        self.uploadBtn.setStyleSheet("background-color: rgb(212, 212, 212);\n"
-"border-width: 2px;\n"
-"border-radius: 5px;\n"
-"border-color: rgb(0, 0, 0);\n"
-"border-style: solid;")
-        self.uploadBtn.setText("")
-        icon1 = QtGui.QIcon()
-        icon1.addPixmap(QtGui.QPixmap("resources/upload_icon.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.uploadBtn.setIcon(icon1)
-        self.uploadBtn.setObjectName("uploadBtn")
-        self.horizontalLayout.addWidget(self.uploadBtn)
+        self.inputTweet.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.inputTweet.setTabChangesFocus(False)
+        self.inputTweet.setDocumentTitle("")
+        self.inputTweet.setPlainText("")
+        self.inputTweet.setOverwriteMode(False)
+        self.inputTweet.setObjectName("inputTweet")
+        self.horizontalLayout.addWidget(self.inputTweet)
         self.verticalLayout.addWidget(self.horizontalGroupBox)
         self.errorMsg = QtWidgets.QLabel(self.groupBox)
         self.errorMsg.setGeometry(QtCore.QRect(280, 490, 81, 41))
@@ -233,28 +225,28 @@ class Ui_PlagiarismWindow(object):
 "border-width: 0px\n"
 "")
         self.errorMsg.setObjectName("errorMsg")
-        PlagiarismWindow.setCentralWidget(self.centralwidget)
+        FakeNewsWindow.setCentralWidget(self.centralwidget)
 
-        self.retranslateUi(PlagiarismWindow)
-        QtCore.QMetaObject.connectSlotsByName(PlagiarismWindow)
+        self.retranslateUi(FakeNewsWindow)
+        QtCore.QMetaObject.connectSlotsByName(FakeNewsWindow)
 
-    def retranslateUi(self, PlagiarismWindow):
+    def retranslateUi(self, FakeNewsWindow):
         _translate = QtCore.QCoreApplication.translate
-        PlagiarismWindow.setWindowTitle(_translate("PlagiarismWindow", "Plagiarism Detection"))
-        self.groupBox.setTitle(_translate("PlagiarismWindow", "Plagiarism Detetion"))
-        self.startBtn.setText(_translate("PlagiarismWindow", "Start"))
-        self.backBtn.setText(_translate("PlagiarismWindow", "Back"))
-        self.verticalGroupBox.setTitle(_translate("PlagiarismWindow", "Choose a suspected author:"))
-        self.horizontalGroupBox.setTitle(_translate("PlagiarismWindow", "Upload book:"))
-        self.inputPath.setPlaceholderText(_translate("PlagiarismWindow", "/.../..."))
-        self.errorMsg.setText(_translate("PlagiarismWindow", "warning"))
+        FakeNewsWindow.setWindowTitle(_translate("FakeNewsWindow", "Fake News Detection"))
+        self.groupBox.setTitle(_translate("FakeNewsWindow", "Fake News Detetion"))
+        self.startBtn.setText(_translate("FakeNewsWindow", "Start"))
+        self.backBtn.setText(_translate("FakeNewsWindow", "Back"))
+        self.verticalGroupBox.setTitle(_translate("FakeNewsWindow", "Choose a trained model:"))
+        self.horizontalGroupBox.setTitle(_translate("FakeNewsWindow", " Tweet for detection:"))
+        self.inputTweet.setPlaceholderText(_translate("FakeNewsWindow", "Paste your tweet here..."))
+        self.errorMsg.setText(_translate("FakeNewsWindow", "warning"))
 
 
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
-    PlagiarismWindow = QtWidgets.QMainWindow()
-    ui = Ui_PlagiarismWindow()
-    ui.setupUi(PlagiarismWindow)
-    PlagiarismWindow.show()
+    FakeNewsWindow = QtWidgets.QMainWindow()
+    ui = Ui_FakeNewsWindow()
+    ui.setupUi(FakeNewsWindow)
+    FakeNewsWindow.show()
     sys.exit(app.exec_())

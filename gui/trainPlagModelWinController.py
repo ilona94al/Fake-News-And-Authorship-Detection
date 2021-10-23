@@ -9,33 +9,12 @@ class TrainPlagModelWinController(QMainWindow):
         self.ui = Ui_TrainPlagModelWindow()
         self.ui.setupUi(self)
 
-        self.ui.radioButton1122.setChecked(True)
-        self.ui.verticalGroupBox13.setHidden(False)
-        self.ui.verticalGroupBox14.setHidden(True)
-
-
-        self.ui.radioButton1122.clicked.connect(self.show_files_form)
-        self.ui.radioButton1132.clicked.connect(self.show_folders_form)
-
         self.ui.errorMsg.setHidden(True)
 
-        self.ui.uploadBtn1313.clicked.connect(lambda: self.upload_file_pressed(widget=self.ui.path1312))
-        self.ui.uploadBtn1413.clicked.connect(lambda: self.upload_folder_pressed(widget=self.ui.path1412))
+        self.ui.uploadBtn1112.clicked.connect(lambda: self.upload_file_pressed(widget=self.ui.inputPath1111))
 
         self.ui.backBtn.clicked.connect(self.back_pressed)
 
-    def show_scv_form(self):
-        self.ui.verticalGroupBox13.setHidden(True)
-        self.ui.verticalGroupBox14.setHidden(True)
-
-    def show_files_form(self):
-
-        self.ui.verticalGroupBox13.setHidden(False)
-        self.ui.verticalGroupBox14.setHidden(True)
-
-    def show_folders_form(self):
-        self.ui.verticalGroupBox13.setHidden(True)
-        self.ui.verticalGroupBox14.setHidden(False)
 
     def upload_file_pressed(self, widget):
         import tkinter as tk

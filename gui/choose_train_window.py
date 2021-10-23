@@ -114,7 +114,8 @@ class Ui_ChooseTrainWindow(object):
         self.modelTypeComboBox.setStyleSheet("border-width: 2px;\n"
 "border-radius: 5px;\n"
 "background-color: rgb(195, 195, 195);\n"
-"border-style: solid;")
+"border-style: solid;\n"
+"color: rgb(0, 0, 0);")
         self.modelTypeComboBox.setObjectName("modelTypeComboBox")
         self.verticalLayout_2.addWidget(self.modelTypeComboBox)
         self.nextBtn = QtWidgets.QPushButton(self.groupBox)

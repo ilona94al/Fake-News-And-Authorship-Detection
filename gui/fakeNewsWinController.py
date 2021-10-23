@@ -2,23 +2,23 @@ from PyQt5 import QtWidgets
 from PyQt5.QtWidgets import QMainWindow
 
 
-class PlagiarismWinController(QMainWindow):
+class FakeNewsWinController(QMainWindow):
     def __init__(self, parent=None):
-        super(PlagiarismWinController, self).__init__(parent)
-        from gui.plagiarism_window import Ui_PlagiarismWindow
+        super(FakeNewsWinController, self).__init__(parent)
+        from gui.fake_news_window import Ui_FakeNewsWindow
 
-        self.ui = Ui_PlagiarismWindow()
+        self.ui = Ui_FakeNewsWindow()
         self.ui.setupUi(self)
 
         self.ui.backBtn.clicked.connect(self.back_pressed)
-        self.ui.uploadBtn.clicked.connect(self.upload_pressed)
+
         self.ui.startBtn.clicked.connect(self.start_pressed)
 
         self.ui.errorMsg.setHidden(True)
 
         # todo: upload writers name into a combo box.
 
-        self.ui.authorComboBox.addItem("Vlad")
+        self.ui.trainedModelsComboBox.addItem("tm")
 
     def back_pressed(self):
         self.close()
@@ -26,28 +26,19 @@ class PlagiarismWinController(QMainWindow):
         self.window = MainWinController()
         self.window.show()
 
-    def upload_pressed(self):
-        import tkinter as tk
-        from tkinter import filedialog
 
-        root = tk.Tk()
-        root.withdraw()
-
-        file_path = filedialog.askopenfilename()
-
-        self.ui.inputPath.setText(file_path)
 
     def start_pressed(self):
         self.clear_feedback()
 
-        book_path = self.ui.inputPath.text()
-        author_name = self.ui.authorComboBox.currentText()
-        if str(book_path) == "":
-            self.book_not_uploaded()
+        tweet=str(self.ui.inputTweet.toPlainText());
+        model_name = self.ui.trainedModelsComboBox.currentText()
+        if tweet == "":
+            self.empty_tweet()
         else:
             self.close()
             from gui.detectionResultsWinController import DetectionResultsWinController
-            self.window = DetectionResultsWinController(author_name, book_path)
+            self.window = DetectionResultsWinController(model_name, tweet)
             self.window.show()
 
     def clear_feedback(self):
@@ -55,10 +46,11 @@ class PlagiarismWinController(QMainWindow):
         self.ui.errorMsg.setText("")
         self.ui.horizontalGroupBox.setStyleSheet("")
 
-    def book_not_uploaded(self):
-        msg = "Empty path!\n please upload a book"
+    def empty_tweet(self):
+        msg = "Empty tweet box!\n please paste a tweet"
         widget = self.ui.horizontalGroupBox
         self.setFeedback(msg, widget)
+
 
     def setFeedback(self, msg, widget):
         self.ui.errorMsg.setText(msg)
@@ -72,6 +64,6 @@ if __name__ == "__main__":
     import sys
 
     app = QtWidgets.QApplication(sys.argv)
-    MainWindow = PlagiarismWinController()
+    MainWindow = FakeNewsWinController()
     MainWindow.show()
     sys.exit(app.exec_())

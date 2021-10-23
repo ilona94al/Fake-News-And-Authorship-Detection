@@ -9,39 +9,29 @@ class TrainNewsModelWinController(QMainWindow):
         self.ui = Ui_TrainNewsModelWindow()
         self.ui.setupUi(self)
 
-        self.ui.radioButton1112.setChecked(True)
-        self.ui.verticalGroupBox12.setHidden(False)
-        self.ui.verticalGroupBox13.setHidden(True)
-        self.ui.verticalGroupBox14.setHidden(True)
+        self.ui.radioButton2111.setChecked(True)
+        self.ui.verticalGroupBox11.setHidden(False)
+        self.ui.verticalGroupBox12.setHidden(True)
 
-        self.ui.radioButton1112.clicked.connect(self.show_scv_form)
-        self.ui.radioButton1122.clicked.connect(self.show_files_form)
-        self.ui.radioButton1132.clicked.connect(self.show_folders_form)
+
+        self.ui.radioButton2111.clicked.connect(self.show_one_file_form)
+        self.ui.radioButton2121.clicked.connect(self.show_two_files_form)
 
         self.ui.errorMsg.setHidden(True)
 
-        self.ui.uploadBtn1212.clicked.connect(lambda: self.upload_file_pressed(widget=self.ui.path1211))
-        self.ui.uploadBtn1313.clicked.connect(lambda: self.upload_file_pressed(widget=self.ui.path1312))
-        self.ui.uploadBtn1323.clicked.connect(lambda: self.upload_file_pressed(widget=self.ui.path1322))
-        self.ui.uploadBtn1413.clicked.connect(lambda: self.upload_folder_pressed(widget=self.ui.path1412))
-        self.ui.uploadBtn1423.clicked.connect(lambda: self.upload_folder_pressed(widget=self.ui.path1422))
+        self.ui.uploadBtn1212.clicked.connect(lambda: self.upload_file_pressed(widget=self.ui.inputPath1211))
+        self.ui.uploadBtn1112.clicked.connect(lambda: self.upload_file_pressed(widget=self.ui.inputPath1111))
+        self.ui.uploadBtn1122.clicked.connect(lambda: self.upload_file_pressed(widget=self.ui.inputPath1121))
 
         self.ui.backBtn.clicked.connect(self.back_pressed)
 
-    def show_scv_form(self):
+    def show_one_file_form(self):
+        self.ui.verticalGroupBox11.setHidden(False)
+        self.ui.verticalGroupBox12.setHidden(True)
+
+    def show_two_files_form(self):
+        self.ui.verticalGroupBox11.setHidden(True)
         self.ui.verticalGroupBox12.setHidden(False)
-        self.ui.verticalGroupBox13.setHidden(True)
-        self.ui.verticalGroupBox14.setHidden(True)
-
-    def show_files_form(self):
-        self.ui.verticalGroupBox12.setHidden(True)
-        self.ui.verticalGroupBox13.setHidden(False)
-        self.ui.verticalGroupBox14.setHidden(True)
-
-    def show_folders_form(self):
-        self.ui.verticalGroupBox12.setHidden(True)
-        self.ui.verticalGroupBox13.setHidden(True)
-        self.ui.verticalGroupBox14.setHidden(False)
 
     def upload_file_pressed(self, widget):
         import tkinter as tk

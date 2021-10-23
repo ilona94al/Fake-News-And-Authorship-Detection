@@ -6,12 +6,12 @@ import tensorflow_hub as hub
 import tensorflow_text as text
 
 from official.nlp import optimization  # to create AdamW optimizer
-
 import re
 
 import numpy as np
 
 from sklearn.model_selection import train_test_split
+
 from tensorflow.python.keras.utils import np_utils
 from nltk import word_tokenize
 from nltk.corpus import stopwords
@@ -58,6 +58,42 @@ def read_file_into_array(file_name):
     return arr
 
 
+def read_file_into_array2(file_name):
+    import csv
+    # arr = []
+    # i = 0
+    import pandas as pd
+    col_list = ["text", "label"]
+    df = pd.read_csv(file_name, usecols=col_list)
+    arr = df['text'].values.tolist()
+    arr2 = df['label'].values.tolist()
+
+    # with open(file_name, 'r', encoding='utf-8') as file:
+    #     reader = csv.reader(file)
+    #     for row in reader:
+    #         arr[i:] = row[1:2]
+    #         i = i + 1
+
+    return arr, arr2
+
+
+def seperate_to_blocks(text):
+    words = text.split()
+    lines = []
+    current = ""
+    tokens = 0
+    for word in words:
+        if tokens > config['max_seq_len'] - 3:
+            lines.append(current)
+            current = word
+            tokens = 0
+        else:
+            current += " " + word
+            tokens += 1
+    lines.append(current)
+    return lines
+
+
 def build_model():
     # https://www.tensorflow.org/text/tutorials/classify_text_with_bert
     # https://tfhub.dev/tensorflow/bert_en_cased_preprocess/3
@@ -65,8 +101,9 @@ def build_model():
     # https://www.kaggle.com/giovanimachado/hate-speech-bert-cnn-and-bert-mlp-in-tensorflow
 
     # seq_length = 128 by default
+
     input_layer = tf.keras.layers.Input(shape=(), dtype=tf.string, name='text')
-    preprocessing_layer = hub.KerasLayer(tfhub_handle_preprocess, name='preprocessing')
+    preprocessing_layer = hub.KerasLayer('BERT/preprocessor', name='preprocessing')
     bert_encoder_inputs = preprocessing_layer(input_layer)
 
     # For changing seq_length to maxTextLen...
@@ -78,7 +115,7 @@ def build_model():
 
     # bert_encoder_inputs = bert_pack_inputs([tokenized])
 
-    bert_encoder = hub.KerasLayer(tfhub_handle_encoder, trainable=True, name='BERT_encoder')
+    bert_encoder = hub.KerasLayer('BERT/encoder', trainable=True, name='BERT_encoder')
     bert_outputs = bert_encoder(bert_encoder_inputs)
     embeddings = bert_outputs["sequence_output"]  # [batch_size, seq_length, 768]
 
@@ -112,12 +149,14 @@ def build_model():
 
     flatten_layer = tf.keras.layers.Flatten()(cnn_block_5)
 
+    dropped = tf.keras.layers.Dropout(0.2)(flatten_layer)
+
     dense_layer = tf.keras.layers.Dense \
-        (128, activation='relu')(flatten_layer)
+        (128, activation='relu')(dropped)
 
     dropped = tf.keras.layers.Dropout(0.2)(dense_layer)
     output_layer = tf.keras.layers.Dense \
-        (num_classes, activation='relu')(dropped)
+        (num_classes, activation='softmax')(dropped)
 
     model = tf.keras.models.Model(input_layer, output_layer)
 
@@ -131,23 +170,11 @@ def build_model():
 
 def fit_model(model, x_train, y_train_prob, x_valid, y_valid_prob):
     # Train the model
-    history = model.fit(x_train, y_train_prob, validation_data=(x_valid, y_valid_prob), batch_size=10, epochs=5)
+    history = model.fit(x_train, y_train_prob, validation_data=(x_valid, y_valid_prob), batch_size=10, epochs=10)
     _, accuracy = model.evaluate(x_valid, y_valid_prob, verbose=0)
     print("Accuracy of test groups:", accuracy)
     return model, history
 
-
-#
-# def remove_stop_words(texts):
-#     stop_words = set(stopwords.words('english'))
-#     new_texts=[]
-#     for text in texts:
-#         word_tokens = word_tokenize(text)
-#         filtered_text = [w for w in word_tokens if not w in stop_words]
-#         filtered_text_str=" ".join(word for word in filtered_text)
-#         new_texts.append(filtered_text_str)
-#
-#     return new_texts
 
 config_128tokens = {
     'max_seq_len': 128,
@@ -162,167 +189,219 @@ config_512tokens = {
 }
 
 config = config_128tokens
+#
+# fake_news = read_file_into_array('database/fakenews/fake50.csv')
+# real_news = read_file_into_array('database/fakenews/true50.csv')
+#
+# real_texts = []
+# for tweet in real_news:
+#     preprocessed_text = text_preprocessing(tweet)
+#     tweet_blocks = seperate_to_blocks(preprocessed_text)
+#     real_texts.extend((block for block in tweet_blocks))
+#
+# fake_texts = []
+# for tweet in fake_news:
+#     preprocessed_text = text_preprocessing(tweet)
+#     tweet_blocks = seperate_to_blocks(preprocessed_text)
+#     fake_texts.extend((block for block in tweet_blocks))
+#
+# texts = real_texts + fake_texts
+#
+# # define original classification
+# y_expected = define_expected_classification(len(real_texts), len(texts))
+#
+# x_train, x, y_train, y = train_test_split(texts, y_expected, train_size=0.7)
+# x_test, x_valid, y_test, y_valid = train_test_split(x, y, train_size=0.5)
+#
+# y_train_prob = np_utils.to_categorical(y_train)
+# y_test_prob = np_utils.to_categorical(y_test)
+# y_valid_prob = np_utils.to_categorical(y_valid)
+# num_classes = y_train_prob.shape[1]
+#
+# new_model = True
+# model_name = 'FakeBERTModel.h5'
+# trained_model_name = 'TrainedFakeBERTModel.h5'
+# if new_model == True:
+#     model = build_model()
+#     model.save(model_name)
+#     model, history = fit_model(model, tf.constant(x_train), y_train_prob, tf.constant(x_valid), y_valid_prob)
+#     model.save(trained_model_name)
+# else:
+#     model = tf.keras.models.load_model(trained_model_name, custom_objects={'KerasLayer': hub.KerasLayer})
+#
+# _, accuracy = model.evaluate(tf.constant(x_test), y_test_prob, verbose=0)
+# print("Accuracy of evaluate new test groups:", accuracy)
+#
+# Y_predicted_prob = model.predict(tf.constant(x_test))
+# Y_predicted = np.argmax(Y_predicted_prob, -1)
+# count_well_predicted = np.count_nonzero([y_test == Y_predicted])
+#
+# print("Number of true predicts:", count_well_predicted)
+# print("Number of false predicts:", Y_predicted.shape[0] - count_well_predicted)
+#
+# #-------- Showing results of model training and validation---------------#
+#
+# import matplotlib.pyplot as plt
+#
+# plt.plot(history.history['accuracy'])
+# plt.plot(history.history['val_accuracy'])
+# plt.plot(accuracy)
+# plt.title('Model accuracy in epoch')
+# plt.ylabel('Accuracy')
+# plt.xlabel('Epoch')
+# plt.legend(['Train', 'Validation'], loc='upper left')
+# plt.show()
+# plt.savefig('ModelAcc.png')
+# plt.savefig('products\ModelAcc.png')
+#
+# plt.plot(history.history['loss'])
+# plt.plot(history.history['val_loss'])
+# plt.plot(accuracy)
+# plt.title('Model loss in epoch')
+# plt.ylabel('Loss')
+# plt.xlabel('Epoch')
+# plt.legend(['Train', 'Validation'], loc='upper left')
+# plt.show()
+#
+# # ------------------------------------
+# import os
+# import re
+#
+# from nltk import word_tokenize
+# from nltk.corpus import stopwords
+#
+#
+# def read_books_of_specific_author(books_dir_path,author_name):
+#     res = []
+#
+#     for book_name in os.listdir(books_dir_path + '/' + author_name):
+#         if book_name.split('.')[1] == 'txt':
+#             book = read_book(books_dir_path,author_name, book_name)
+#             res.append(book)
+#
+#     return res
+#
+#
+# def read_books_of_various_authors(books_dir_path,name_to_ignore):
+#     res = []
+#
+#     for author_name in os.listdir(books_dir_path):
+#         if author_name != name_to_ignore:
+#             author_books = read_books_of_specific_author(books_dir_path,author_name)
+#             res.extend(book for book in author_books)
+#
+#     return res
+#
+#
+# def read_book(books_dir_path, writer_name, book_name):
+#     with open(books_dir_path + '/' + writer_name + '/' + book_name, 'r', encoding='UTF-8') as book_file:
+#         book_string = book_file.read()
+#         return book_string
+#
+#
+#
+#
+#
+# books_dir_path = 'database/books'
+#
+# author_books = read_books_of_specific_author(books_dir_path,author_name='shakespeare')
+# different_books = read_books_of_various_authors(books_dir_path,name_to_ignore='shakespeare')
+#
+# author_texts = []
+# for book in author_books:
+#     preprocessed_text = text_preprocessing(book)
+#     book_blocks = seperate_to_blocks(preprocessed_text)
+#     author_texts.extend(block for block in book_blocks)
+# diff_texts = []
+# for book in different_books:
+#     preprocessed_text = text_preprocessing(book)
+#     book_blocks = seperate_to_blocks(preprocessed_text)
+#     diff_texts.extend(block for block in book_blocks)
+#
+# texts = author_texts + diff_texts
+#
+# # define original classification
+# y_expected = define_expected_classification(len(author_texts), len(texts))
+#
+# x_train, x, y_train, y = train_test_split(texts, y_expected, train_size=0.7)
+# x_test, x_valid, y_test, y_valid = train_test_split(x, y, train_size=0.5)
+#
+# y_train_prob = np_utils.to_categorical(y_train)
+# y_test_prob = np_utils.to_categorical(y_test)
+# y_valid_prob = np_utils.to_categorical(y_valid)
+# num_classes = y_train_prob.shape[1]
+#
+# # config = config_512tokens
+#
+# new_model = True
+# model_name = 'FakeBERTModelShakespeare.h5'
+# trained_model_name = 'TrainedFakeBERTModelShakespeare.h5'
+# if new_model == True:
+#     model = build_model()
+#     model.save(model_name)
+#     model, history = fit_model(model, tf.constant(x_train), y_train_prob, tf.constant(x_valid), y_valid_prob)
+#     model.save(trained_model_name)
+# else:
+#     model = tf.keras.models.load_model(trained_model_name, custom_objects={'KerasLayer': hub.KerasLayer})
+#
+# _, accuracy = model.evaluate(tf.constant(x_test), y_test_prob, verbose=0)
+# print("Accuracy of evaluate new test groups:", accuracy)
+#
+# Y_predicted_prob = model.predict(tf.constant(x_test))
+# Y_predicted = np.argmax(Y_predicted_prob, -1)
+# count_well_predicted = np.count_nonzero([y_test == Y_predicted])
+#
+# print("Number of true predicts:", count_well_predicted)
+# print("Number of false predicts:", Y_predicted.shape[0] - count_well_predicted)
+#
+# # -------- Showing results of model training and validation---------------#
+#
+# import matplotlib.pyplot as plt
+#
+# plt.plot(history.history['accuracy'])
+# plt.plot(history.history['val_accuracy'])
+# plt.plot(accuracy)
+# plt.title('Model accuracy in epoch')
+# plt.ylabel('Accuracy')
+# plt.xlabel('Epoch')
+# plt.legend(['Train', 'Validation'], loc='upper left')
+# plt.show()
+#
+# plt.plot(history.history['loss'])
+# plt.plot(history.history['val_loss'])
+# plt.plot(accuracy)
+# plt.title('Model loss in epoch')
+# plt.ylabel('Loss')
+# plt.xlabel('Epoch')
+# plt.legend(['Train', 'Validation'], loc='upper left')
+# plt.show()
+# plt.savefig('shekapereModelLoss.png')
+# plt.savefig('products\shkModellLoss.png')
+#
+# #---------------------
 
-bert_model_name = 'bert_en_cased_L-12_H-768_A-12'
+config = config_128tokens
 
-map_name_to_handle = {
-    'bert_en_uncased_L-12_H-768_A-12':
-        'https://tfhub.dev/tensorflow/bert_en_uncased_L-12_H-768_A-12/3',
-    'bert_en_cased_L-12_H-768_A-12':
-        'https://tfhub.dev/tensorflow/bert_en_cased_L-12_H-768_A-12/3',
-    'bert_multi_cased_L-12_H-768_A-12':
-        'https://tfhub.dev/tensorflow/bert_multi_cased_L-12_H-768_A-12/3',
-    'small_bert/bert_en_uncased_L-2_H-128_A-2':
-        'https://tfhub.dev/tensorflow/small_bert/bert_en_uncased_L-2_H-128_A-2/1',
-    'small_bert/bert_en_uncased_L-2_H-256_A-4':
-        'https://tfhub.dev/tensorflow/small_bert/bert_en_uncased_L-2_H-256_A-4/1',
-    'small_bert/bert_en_uncased_L-2_H-512_A-8':
-        'https://tfhub.dev/tensorflow/small_bert/bert_en_uncased_L-2_H-512_A-8/1',
-    'small_bert/bert_en_uncased_L-2_H-768_A-12':
-        'https://tfhub.dev/tensorflow/small_bert/bert_en_uncased_L-2_H-768_A-12/1',
-    'small_bert/bert_en_uncased_L-4_H-128_A-2':
-        'https://tfhub.dev/tensorflow/small_bert/bert_en_uncased_L-4_H-128_A-2/1',
-    'small_bert/bert_en_uncased_L-4_H-256_A-4':
-        'https://tfhub.dev/tensorflow/small_bert/bert_en_uncased_L-4_H-256_A-4/1',
-    'small_bert/bert_en_uncased_L-4_H-512_A-8':
-        'https://tfhub.dev/tensorflow/small_bert/bert_en_uncased_L-4_H-512_A-8/1',
-    'small_bert/bert_en_uncased_L-4_H-768_A-12':
-        'https://tfhub.dev/tensorflow/small_bert/bert_en_uncased_L-4_H-768_A-12/1',
-    'small_bert/bert_en_uncased_L-6_H-128_A-2':
-        'https://tfhub.dev/tensorflow/small_bert/bert_en_uncased_L-6_H-128_A-2/1',
-    'small_bert/bert_en_uncased_L-6_H-256_A-4':
-        'https://tfhub.dev/tensorflow/small_bert/bert_en_uncased_L-6_H-256_A-4/1',
-    'small_bert/bert_en_uncased_L-6_H-512_A-8':
-        'https://tfhub.dev/tensorflow/small_bert/bert_en_uncased_L-6_H-512_A-8/1',
-    'small_bert/bert_en_uncased_L-6_H-768_A-12':
-        'https://tfhub.dev/tensorflow/small_bert/bert_en_uncased_L-6_H-768_A-12/1',
-    'small_bert/bert_en_uncased_L-8_H-128_A-2':
-        'https://tfhub.dev/tensorflow/small_bert/bert_en_uncased_L-8_H-128_A-2/1',
-    'small_bert/bert_en_uncased_L-8_H-256_A-4':
-        'https://tfhub.dev/tensorflow/small_bert/bert_en_uncased_L-8_H-256_A-4/1',
-    'small_bert/bert_en_uncased_L-8_H-512_A-8':
-        'https://tfhub.dev/tensorflow/small_bert/bert_en_uncased_L-8_H-512_A-8/1',
-    'small_bert/bert_en_uncased_L-8_H-768_A-12':
-        'https://tfhub.dev/tensorflow/small_bert/bert_en_uncased_L-8_H-768_A-12/1',
-    'small_bert/bert_en_uncased_L-10_H-128_A-2':
-        'https://tfhub.dev/tensorflow/small_bert/bert_en_uncased_L-10_H-128_A-2/1',
-    'small_bert/bert_en_uncased_L-10_H-256_A-4':
-        'https://tfhub.dev/tensorflow/small_bert/bert_en_uncased_L-10_H-256_A-4/1',
-    'small_bert/bert_en_uncased_L-10_H-512_A-8':
-        'https://tfhub.dev/tensorflow/small_bert/bert_en_uncased_L-10_H-512_A-8/1',
-    'small_bert/bert_en_uncased_L-10_H-768_A-12':
-        'https://tfhub.dev/tensorflow/small_bert/bert_en_uncased_L-10_H-768_A-12/1',
-    'small_bert/bert_en_uncased_L-12_H-128_A-2':
-        'https://tfhub.dev/tensorflow/small_bert/bert_en_uncased_L-12_H-128_A-2/1',
-    'small_bert/bert_en_uncased_L-12_H-256_A-4':
-        'https://tfhub.dev/tensorflow/small_bert/bert_en_uncased_L-12_H-256_A-4/1',
-    'small_bert/bert_en_uncased_L-12_H-512_A-8':
-        'https://tfhub.dev/tensorflow/small_bert/bert_en_uncased_L-12_H-512_A-8/1',
-    'small_bert/bert_en_uncased_L-12_H-768_A-12':
-        'https://tfhub.dev/tensorflow/small_bert/bert_en_uncased_L-12_H-768_A-12/1',
-    'albert_en_base':
-        'https://tfhub.dev/tensorflow/albert_en_base/2',
-    'electra_small':
-        'https://tfhub.dev/google/electra_small/2',
-    'electra_base':
-        'https://tfhub.dev/google/electra_base/2',
-    'experts_pubmed':
-        'https://tfhub.dev/google/experts/bert/pubmed/2',
-    'experts_wiki_books':
-        'https://tfhub.dev/google/experts/bert/wiki_books/2',
-    'talking-heads_base':
-        'https://tfhub.dev/tensorflow/talkheads_ggelu_bert_en_base/1',
-}
-map_model_to_preprocess = {
-    'bert_en_uncased_L-12_H-768_A-12':
-        'https://tfhub.dev/tensorflow/bert_en_uncased_preprocess/3',
-    'bert_en_cased_L-12_H-768_A-12':
-        'https://tfhub.dev/tensorflow/bert_en_cased_preprocess/3',
-    'small_bert/bert_en_uncased_L-2_H-128_A-2':
-        'https://tfhub.dev/tensorflow/bert_en_uncased_preprocess/3',
-    'small_bert/bert_en_uncased_L-2_H-256_A-4':
-        'https://tfhub.dev/tensorflow/bert_en_uncased_preprocess/3',
-    'small_bert/bert_en_uncased_L-2_H-512_A-8':
-        'https://tfhub.dev/tensorflow/bert_en_uncased_preprocess/3',
-    'small_bert/bert_en_uncased_L-2_H-768_A-12':
-        'https://tfhub.dev/tensorflow/bert_en_uncased_preprocess/3',
-    'small_bert/bert_en_uncased_L-4_H-128_A-2':
-        'https://tfhub.dev/tensorflow/bert_en_uncased_preprocess/3',
-    'small_bert/bert_en_uncased_L-4_H-256_A-4':
-        'https://tfhub.dev/tensorflow/bert_en_uncased_preprocess/3',
-    'small_bert/bert_en_uncased_L-4_H-512_A-8':
-        'https://tfhub.dev/tensorflow/bert_en_uncased_preprocess/3',
-    'small_bert/bert_en_uncased_L-4_H-768_A-12':
-        'https://tfhub.dev/tensorflow/bert_en_uncased_preprocess/3',
-    'small_bert/bert_en_uncased_L-6_H-128_A-2':
-        'https://tfhub.dev/tensorflow/bert_en_uncased_preprocess/3',
-    'small_bert/bert_en_uncased_L-6_H-256_A-4':
-        'https://tfhub.dev/tensorflow/bert_en_uncased_preprocess/3',
-    'small_bert/bert_en_uncased_L-6_H-512_A-8':
-        'https://tfhub.dev/tensorflow/bert_en_uncased_preprocess/3',
-    'small_bert/bert_en_uncased_L-6_H-768_A-12':
-        'https://tfhub.dev/tensorflow/bert_en_uncased_preprocess/3',
-    'small_bert/bert_en_uncased_L-8_H-128_A-2':
-        'https://tfhub.dev/tensorflow/bert_en_uncased_preprocess/3',
-    'small_bert/bert_en_uncased_L-8_H-256_A-4':
-        'https://tfhub.dev/tensorflow/bert_en_uncased_preprocess/3',
-    'small_bert/bert_en_uncased_L-8_H-512_A-8':
-        'https://tfhub.dev/tensorflow/bert_en_uncased_preprocess/3',
-    'small_bert/bert_en_uncased_L-8_H-768_A-12':
-        'https://tfhub.dev/tensorflow/bert_en_uncased_preprocess/3',
-    'small_bert/bert_en_uncased_L-10_H-128_A-2':
-        'https://tfhub.dev/tensorflow/bert_en_uncased_preprocess/3',
-    'small_bert/bert_en_uncased_L-10_H-256_A-4':
-        'https://tfhub.dev/tensorflow/bert_en_uncased_preprocess/3',
-    'small_bert/bert_en_uncased_L-10_H-512_A-8':
-        'https://tfhub.dev/tensorflow/bert_en_uncased_preprocess/3',
-    'small_bert/bert_en_uncased_L-10_H-768_A-12':
-        'https://tfhub.dev/tensorflow/bert_en_uncased_preprocess/3',
-    'small_bert/bert_en_uncased_L-12_H-128_A-2':
-        'https://tfhub.dev/tensorflow/bert_en_uncased_preprocess/3',
-    'small_bert/bert_en_uncased_L-12_H-256_A-4':
-        'https://tfhub.dev/tensorflow/bert_en_uncased_preprocess/3',
-    'small_bert/bert_en_uncased_L-12_H-512_A-8':
-        'https://tfhub.dev/tensorflow/bert_en_uncased_preprocess/3',
-    'small_bert/bert_en_uncased_L-12_H-768_A-12':
-        'https://tfhub.dev/tensorflow/bert_en_uncased_preprocess/3',
-    'bert_multi_cased_L-12_H-768_A-12':
-        'https://tfhub.dev/tensorflow/bert_multi_cased_preprocess/3',
-    'albert_en_base':
-        'https://tfhub.dev/tensorflow/albert_en_preprocess/3',
-    'electra_small':
-        'https://tfhub.dev/tensorflow/bert_en_uncased_preprocess/3',
-    'electra_base':
-        'https://tfhub.dev/tensorflow/bert_en_uncased_preprocess/3',
-    'experts_pubmed':
-        'https://tfhub.dev/tensorflow/bert_en_uncased_preprocess/3',
-    'experts_wiki_books':
-        'https://tfhub.dev/tensorflow/bert_en_uncased_preprocess/3',
-    'talking-heads_base':
-        'https://tfhub.dev/tensorflow/bert_en_uncased_preprocess/3',
-}
-
-tfhub_handle_encoder = map_name_to_handle[bert_model_name]
-tfhub_handle_preprocess = map_model_to_preprocess[bert_model_name]
-
-print(f'BERT model selected           : {tfhub_handle_encoder}')
-print(f'Preprocess model auto-selected: {tfhub_handle_preprocess}')
-
-fake_news = read_file_into_array('DB/fake50.csv')
-real_news = read_file_into_array('DB/true50.csv')
-
-news = real_news + fake_news
-
-# define original classification
-y_expected = define_expected_classification(len(real_news), len(news))
-
+news, labels = read_file_into_array2('database/fakenews/db2/train2000.csv')
+_labels = []
 texts = []
-for tweet in news:
-    texts.append(text_preprocessing(tweet))
+j = 0
+REAL = 0
+FAKE = 1
 
-texts_clean = texts
+for i, tweet in enumerate(news):
+    if isinstance(tweet, str):
+        if labels[i] == FAKE or labels[i] == REAL:
+            preprocessed_text = text_preprocessing("" + tweet)
+            tweet_blocks = seperate_to_blocks(preprocessed_text)
+            _labels.extend([labels[i] for x in range(j, j + len(tweet_blocks))])
+            j = j + len(tweet_blocks)
+            texts.extend(block for block in tweet_blocks)
 
-x_train, x, y_train, y = train_test_split(texts_clean, y_expected, train_size=0.7)
+y_expected = np.empty(len(_labels), int)
+y_expected[0:len(_labels)]= _labels[0:len(_labels)]
+
+x_train, x, y_train, y = train_test_split(texts, y_expected, train_size=0.7)
 x_test, x_valid, y_test, y_valid = train_test_split(x, y, train_size=0.5)
 
 y_train_prob = np_utils.to_categorical(y_train)
@@ -330,10 +409,18 @@ y_test_prob = np_utils.to_categorical(y_test)
 y_valid_prob = np_utils.to_categorical(y_valid)
 num_classes = y_train_prob.shape[1]
 
-model = build_model()
-model, history = fit_model(model, tf.constant(x_train), y_train_prob, tf.constant(x_valid), y_valid_prob)
+new_model = False
+model_name = 'FakeBERTModel.h5'
+trained_model_name = 'model1/TrainedFakeBERTModel.h5'
+if new_model == True:
+    model = build_model()
+    model.save(model_name)
+    model, history = fit_model(model, tf.constant(x_train), y_train_prob, tf.constant(x_valid), y_valid_prob)
+    model.save(trained_model_name)
+else:
+    model = tf.keras.models.load_model(trained_model_name, custom_objects={'KerasLayer': hub.KerasLayer})
 
-_, accuracy = model.evaluate(x_test, y_test_prob, verbose=0)
+_, accuracy = model.evaluate(tf.constant(x_test), y_test_prob, verbose=0)
 print("Accuracy of evaluate new test groups:", accuracy)
 
 Y_predicted_prob = model.predict(tf.constant(x_test))
@@ -355,6 +442,8 @@ plt.ylabel('Accuracy')
 plt.xlabel('Epoch')
 plt.legend(['Train', 'Validation'], loc='upper left')
 plt.show()
+plt.savefig('ModelAcc.png')
+plt.savefig('products\ModelAcc.png')
 
 plt.plot(history.history['loss'])
 plt.plot(history.history['val_loss'])
@@ -366,119 +455,3 @@ plt.legend(['Train', 'Validation'], loc='upper left')
 plt.show()
 
 # ------------------------------------
-import os
-import re
-
-from nltk import word_tokenize
-from nltk.corpus import stopwords
-
-
-def read_books_of_specific_author(books_dir_path,author_name):
-    res = []
-
-    for book_name in os.listdir(books_dir_path + '/' + author_name):
-        if book_name.split('.')[1] == 'txt':
-            book = read_book(books_dir_path,author_name, book_name)
-            res.append(book)
-
-    return res
-
-
-def read_books_of_various_authors(books_dir_path,name_to_ignore):
-    res = []
-
-    for author_name in os.listdir(books_dir_path):
-        if author_name != name_to_ignore:
-            author_books = read_books_of_specific_author(author_name)
-            res.extend(book for book in author_books)
-
-    return res
-
-
-def read_book(books_dir_path, writer_name, book_name):
-    with open(books_dir_path + '/' + writer_name + '/' + book_name, 'r', encoding='UTF-8') as book_file:
-        book_string = book_file.read()
-        return book_string
-
-
-def read_books_from_file(books_dir_path, file_name):
-    with open(books_dir_path + '/' +  file_name, 'r', encoding='UTF-8') as books_file:
-        books_string = books_file.read()
-        books_list=books_string.split('************************')
-        return books_list
-
-
-books_dir_path = 'database/books'
-
-author_books = read_books_of_specific_author(books_dir_path,author_name='shakespeare')
-different_books = read_books_of_various_authors(books_dir_path,name_to_ignore='shakespeare')
-
-author_texts = []
-for book in author_books:
-    preprocessed_text = text_preprocessing(book)
-    book_blocks = seperate_to_blocks(preprocessed_text)
-    author_texts.extend(block for block in book_blocks)
-diff_texts = []
-for book in different_books:
-    preprocessed_text = text_preprocessing(book)
-    book_blocks = seperate_to_blocks(preprocessed_text)
-    diff_texts.extend(block for block in book_blocks)
-
-texts = author_texts + diff_texts
-
-# define original classification
-y_expected = define_expected_classification(len(author_books), len(books))
-
-x_train, x, y_train, y = train_test_split(texts, y_expected, train_size=0.7)
-x_test, x_valid, y_test, y_valid = train_test_split(x, y, train_size=0.5)
-
-y_train_prob = np_utils.to_categorical(y_train)
-y_test_prob = np_utils.to_categorical(y_test)
-y_valid_prob = np_utils.to_categorical(y_valid)
-num_classes = y_train_prob.shape[1]
-
-config = config_512tokens
-
-new_model = True
-model_name = 'FakeBERTModelPlagiarism.h5'
-trained_model_name = 'TrainedFakeBERTModelPlagiarism.h5'
-if new_model == True:
-    model = build_model()
-    model.save(model_name)
-    model, history = fit_model(model, tf.constant(x_train), y_train_prob, tf.constant(x_valid), y_valid_prob)
-    model.save(trained_model_name)
-else:
-    model = tf.keras.models.load_model(trained_model_name, custom_objects={'KerasLayer': hub.KerasLayer})
-
-
-_, accuracy = model.evaluate(x_test, y_test_prob, verbose=0)
-print("Accuracy of evaluate new test groups:", accuracy)
-
-Y_predicted_prob = model.predict(tf.constant(x_test))
-Y_predicted = np.argmax(Y_predicted_prob, -1)
-count_well_predicted = np.count_nonzero([y_test == Y_predicted])
-
-print("Number of true predicts:", count_well_predicted)
-print("Number of false predicts:", Y_predicted.shape[0] - count_well_predicted)
-
-# -------- Showing results of model training and validation---------------#
-
-import matplotlib.pyplot as plt
-
-plt.plot(history.history['accuracy'])
-plt.plot(history.history['val_accuracy'])
-plt.plot(accuracy)
-plt.title('Model accuracy in epoch')
-plt.ylabel('Accuracy')
-plt.xlabel('Epoch')
-plt.legend(['Train', 'Validation'], loc='upper left')
-plt.show()
-
-plt.plot(history.history['loss'])
-plt.plot(history.history['val_loss'])
-plt.plot(accuracy)
-plt.title('Model loss in epoch')
-plt.ylabel('Loss')
-plt.xlabel('Epoch')
-plt.legend(['Train', 'Validation'], loc='upper left')
-plt.show()

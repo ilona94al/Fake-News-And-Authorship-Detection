@@ -362,7 +362,7 @@
        <x>395</x>
        <y>100</y>
        <width>391</width>
-       <height>291</height>
+       <height>321</height>
       </rect>
      </property>
      <property name="font">
@@ -405,6 +405,183 @@
        <number>10</number>
       </property>
       <item>
+       <widget class="QGroupBox" name="verticalGroupBox11">
+        <property name="styleSheet">
+         <string notr="true">border-width: 2px;
+font: 10pt &quot;Sitka Small&quot;;</string>
+        </property>
+        <property name="title">
+         <string>Upload two SCV files:</string>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout_6" stretch="0,0,0,0,0,0">
+         <property name="spacing">
+          <number>2</number>
+         </property>
+         <property name="leftMargin">
+          <number>5</number>
+         </property>
+         <property name="topMargin">
+          <number>36</number>
+         </property>
+         <property name="rightMargin">
+          <number>5</number>
+         </property>
+         <property name="bottomMargin">
+          <number>18</number>
+         </property>
+         <item>
+          <widget class="QLabel" name="label114">
+           <property name="styleSheet">
+            <string notr="true">border-width: 0px;
+font: 8pt &quot;Sitka Small&quot;;</string>
+           </property>
+           <property name="text">
+            <string>Real news file path:</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout111">
+           <item>
+            <widget class="QLineEdit" name="inputPath1111">
+             <property name="styleSheet">
+              <string notr="true">border-width: 3px;
+                                                            border-radius: 5px;
+                                                            border-color: rgb(0, 0, 0);
+                                                            border-style: solid;
+                                                            background-color: rgb(188, 188, 188);
+                                                            color: rgb(0, 0, 0);
+                                                        </string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QToolButton" name="uploadBtn1112">
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="mouseTracking">
+              <bool>false</bool>
+             </property>
+             <property name="autoFillBackground">
+              <bool>false</bool>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">background-color: rgb(212, 212, 212);
+                                                            border-width: 3px;
+                                                            border-radius: 5px;
+                                                            border-color: rgb(0, 0, 0);
+                                                            border-style: solid;
+                                                        </string>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="icon">
+              <iconset>
+               <normaloff>resources/upload_icon.png</normaloff>resources/upload_icon.png</iconset>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <widget class="QLabel" name="label115">
+           <property name="styleSheet">
+            <string notr="true">border-width: 0px;
+font: 8pt &quot;Sitka Small&quot;;</string>
+           </property>
+           <property name="text">
+            <string>Fake news file path:</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout112">
+           <item>
+            <widget class="QLineEdit" name="inputPath1121">
+             <property name="styleSheet">
+              <string notr="true">border-width: 3px;
+                                                            border-radius: 5px;
+                                                            border-color: rgb(0, 0, 0);
+                                                            border-style: solid;
+                                                            background-color: rgb(188, 188, 188);
+                                                            color: rgb(0, 0, 0);
+                                                        </string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QToolButton" name="uploadBtn1122">
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="mouseTracking">
+              <bool>false</bool>
+             </property>
+             <property name="autoFillBackground">
+              <bool>false</bool>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">background-color: rgb(212, 212, 212);
+                                                            border-width: 3px;
+                                                            border-radius: 5px;
+                                                            border-color: rgb(0, 0, 0);
+                                                            border-style: solid;
+                                                        </string>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="icon">
+              <iconset>
+               <normaloff>resources/upload_icon.png</normaloff>resources/upload_icon.png</iconset>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <widget class="QLabel" name="label116">
+           <property name="styleSheet">
+            <string notr="true">border-width: 0px;
+font: 8pt &quot;Sitka Small&quot;;</string>
+           </property>
+           <property name="text">
+            <string>Text's column name:</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="inputTextColumnName113">
+           <property name="enabled">
+            <bool>true</bool>
+           </property>
+           <property name="autoFillBackground">
+            <bool>false</bool>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">border-width: 3px;
+                                                            border-radius: 5px;
+                                                            border-color: rgb(0, 0, 0);
+                                                            border-style: solid;
+                                                            background-color: rgb(188, 188, 188);
+                                                            color: rgb(0, 0, 0);
+                                                        
+</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item>
        <widget class="QGroupBox" name="verticalGroupBox12">
         <property name="styleSheet">
          <string notr="true">
@@ -432,7 +609,7 @@ font: 10pt &quot;Sitka Small&quot;;</string>
          <item>
           <layout class="QHBoxLayout" name="horizontalLayout121">
            <item>
-            <widget class="QLineEdit" name="path1211">
+            <widget class="QLineEdit" name="inputPath1211">
              <property name="styleSheet">
               <string notr="true">border-width: 3px;
                                                             border-radius: 5px;
@@ -478,13 +655,13 @@ font: 10pt &quot;Sitka Small&quot;;</string>
           </layout>
          </item>
          <item>
-          <widget class="QLabel" name="label1222">
+          <widget class="QLabel" name="text126">
            <property name="styleSheet">
             <string notr="true">border-width: 0px;
 font: 8pt &quot;Sitka Small&quot;;</string>
            </property>
            <property name="text">
-            <string>Column name:</string>
+            <string>Text's column name:</string>
            </property>
           </widget>
          </item>
@@ -497,7 +674,7 @@ font: 8pt &quot;Sitka Small&quot;;</string>
             <number>0</number>
            </property>
            <item>
-            <widget class="QLineEdit" name="columnName1221">
+            <widget class="QLineEdit" name="inputTextColumnName1221">
              <property name="styleSheet">
               <string notr="true">border-width: 3px;
                                                             border-radius: 5px;
@@ -510,7 +687,7 @@ font: 8pt &quot;Sitka Small&quot;;</string>
             </widget>
            </item>
            <item>
-            <widget class="QToolButton" name="questionBtn1223">
+            <widget class="QToolButton" name="questionBtn1222">
              <property name="minimumSize">
               <size>
                <width>0</width>
@@ -544,81 +721,139 @@ font: 8pt &quot;Sitka Small&quot;;</string>
           </layout>
          </item>
          <item>
-          <widget class="QLabel" name="label2211">
-           <property name="styleSheet">
-            <string notr="true">border-width: 0px;
-font: 8pt &quot;Sitka Small&quot;;
-</string>
-           </property>
-           <property name="text">
-            <string>Label for real:</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <layout class="QHBoxLayout" name="horizontalLayout221">
-           <item>
-            <widget class="QLineEdit" name="trueLavel2213">
-             <property name="styleSheet">
-              <string notr="true">border-width: 3px;
-                                                            border-radius: 5px;
-                                                            border-color: rgb(0, 0, 0);
-                                                            border-style: solid;
-                                                            background-color: rgb(188, 188, 188);
-                                                            color: rgb(0, 0, 0);
-                                                        </string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QToolButton" name="questionBtn2212">
-             <property name="minimumSize">
-              <size>
-               <width>0</width>
-               <height>0</height>
-              </size>
-             </property>
-             <property name="mouseTracking">
-              <bool>false</bool>
-             </property>
-             <property name="autoFillBackground">
-              <bool>false</bool>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">background-color: rgb(0, 0, 127);
-                                                            background-color: rgb(0, 0, 50);
-                                                            border-width: 1px;
-                                                            border-radius: 14px;
-                                                            border-color: rgb(255, 255, 255);
-                                                            border-style: solid;
-                                                        </string>
-             </property>
-             <property name="text">
-              <string/>
-             </property>
-             <property name="icon">
-              <iconset>
-               <normaloff>resources/question_icon2.png</normaloff>resources/question_icon2.png</iconset>
-             </property>
-            </widget>
-           </item>
-          </layout>
-         </item>
-         <item>
-          <widget class="QLabel" name="label2222">
+          <widget class="QLabel" name="label127">
            <property name="styleSheet">
             <string notr="true">border-width: 0px;
 font: 8pt &quot;Sitka Small&quot;;</string>
            </property>
            <property name="text">
-            <string>Label for true:</string>
+            <string>Label's column name:</string>
            </property>
           </widget>
          </item>
          <item>
-          <layout class="QHBoxLayout" name="horizontalLayout222">
+          <layout class="QHBoxLayout" name="horizontalLayout123">
+           <property name="topMargin">
+            <number>0</number>
+           </property>
+           <property name="bottomMargin">
+            <number>0</number>
+           </property>
            <item>
-            <widget class="QLineEdit" name="fakeLabel2221">
+            <widget class="QLineEdit" name="inputLabelColumnName1231">
+             <property name="styleSheet">
+              <string notr="true">border-width: 3px;
+                                                            border-radius: 5px;
+                                                            border-color: rgb(0, 0, 0);
+                                                            border-style: solid;
+                                                            background-color: rgb(188, 188, 188);
+                                                            color: rgb(0, 0, 0);
+                                                        </string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QToolButton" name="questionBtn1232">
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="mouseTracking">
+              <bool>false</bool>
+             </property>
+             <property name="autoFillBackground">
+              <bool>false</bool>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">background-color: rgb(0, 0, 127);
+                                                            background-color: rgb(0, 0, 50);
+                                                            border-width: 1px;
+                                                            border-radius: 14px;
+                                                            border-color: rgb(255, 255, 255);
+                                                            border-style: solid;
+                                                        </string>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="icon">
+              <iconset>
+               <normaloff>resources/question_icon2.png</normaloff>resources/question_icon2.png</iconset>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout124">
+           <property name="spacing">
+            <number>14</number>
+           </property>
+           <property name="topMargin">
+            <number>0</number>
+           </property>
+           <property name="rightMargin">
+            <number>40</number>
+           </property>
+           <property name="bottomMargin">
+            <number>0</number>
+           </property>
+           <item>
+            <widget class="QLabel" name="label1241">
+             <property name="styleSheet">
+              <string notr="true">border-width: 0px;
+font: 8pt &quot;Sitka Small&quot;;
+</string>
+             </property>
+             <property name="text">
+              <string>Label for real news: </string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="inputRealLabel1242">
+             <property name="styleSheet">
+              <string notr="true">border-width: 3px;
+                                                            border-radius: 5px;
+                                                            border-color: rgb(0, 0, 0);
+                                                            border-style: solid;
+                                                            background-color: rgb(188, 188, 188);
+                                                            color: rgb(0, 0, 0);
+                                                        </string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout125">
+           <property name="spacing">
+            <number>11</number>
+           </property>
+           <property name="leftMargin">
+            <number>0</number>
+           </property>
+           <property name="rightMargin">
+            <number>40</number>
+           </property>
+           <item>
+            <widget class="QLabel" name="label1251">
+             <property name="styleSheet">
+              <string notr="true">border-width: 0px;
+font: 8pt &quot;Sitka Small&quot;;</string>
+             </property>
+             <property name="text">
+              <string>Label for fake news: </string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="inputFakeLabel1252">
              <property name="styleSheet">
               <string notr="true">border-width: 3px;
                                                             border-radius: 5px;
@@ -629,408 +864,11 @@ font: 8pt &quot;Sitka Small&quot;;</string>
                                                         
 </string>
              </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QToolButton" name="questionBtn2223">
-             <property name="minimumSize">
-              <size>
-               <width>0</width>
-               <height>0</height>
-              </size>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
              </property>
-             <property name="mouseTracking">
+             <property name="dragEnabled">
               <bool>false</bool>
-             </property>
-             <property name="autoFillBackground">
-              <bool>false</bool>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">background-color: rgb(0, 0, 127);
-                                                            background-color: rgb(0, 0, 50);
-                                                            border-width: 1px;
-                                                            border-radius: 14px;
-                                                            border-color: rgb(255, 255, 255);
-                                                            border-style: solid;
-                                                        </string>
-             </property>
-             <property name="text">
-              <string/>
-             </property>
-             <property name="icon">
-              <iconset>
-               <normaloff>resources/question_icon2.png</normaloff>resources/question_icon2.png</iconset>
-             </property>
-            </widget>
-           </item>
-          </layout>
-         </item>
-        </layout>
-       </widget>
-      </item>
-      <item>
-       <widget class="QGroupBox" name="verticalGroupBox13">
-        <property name="styleSheet">
-         <string notr="true">border-width: 2px;
-font: 10pt &quot;Sitka Small&quot;;</string>
-        </property>
-        <property name="title">
-         <string>Upload two files:</string>
-        </property>
-        <layout class="QVBoxLayout" name="verticalLayout_6" stretch="0,0,0,0,0,0">
-         <property name="spacing">
-          <number>2</number>
-         </property>
-         <property name="leftMargin">
-          <number>5</number>
-         </property>
-         <property name="topMargin">
-          <number>36</number>
-         </property>
-         <property name="rightMargin">
-          <number>5</number>
-         </property>
-         <property name="bottomMargin">
-          <number>18</number>
-         </property>
-         <item>
-          <widget class="QLabel" name="label1311">
-           <property name="styleSheet">
-            <string notr="true">border-width: 0px;
-font: 8pt &quot;Sitka Small&quot;;</string>
-           </property>
-           <property name="text">
-            <string>File path with true news:</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <layout class="QHBoxLayout" name="horizontalLayout131">
-           <item>
-            <widget class="QLineEdit" name="path1312">
-             <property name="styleSheet">
-              <string notr="true">border-width: 3px;
-                                                            border-radius: 5px;
-                                                            border-color: rgb(0, 0, 0);
-                                                            border-style: solid;
-                                                            background-color: rgb(188, 188, 188);
-                                                            color: rgb(0, 0, 0);
-                                                        </string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QToolButton" name="uploadBtn1313">
-             <property name="minimumSize">
-              <size>
-               <width>0</width>
-               <height>0</height>
-              </size>
-             </property>
-             <property name="mouseTracking">
-              <bool>false</bool>
-             </property>
-             <property name="autoFillBackground">
-              <bool>false</bool>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">background-color: rgb(212, 212, 212);
-                                                            border-width: 3px;
-                                                            border-radius: 5px;
-                                                            border-color: rgb(0, 0, 0);
-                                                            border-style: solid;
-                                                        </string>
-             </property>
-             <property name="text">
-              <string/>
-             </property>
-             <property name="icon">
-              <iconset>
-               <normaloff>resources/upload_icon.png</normaloff>resources/upload_icon.png</iconset>
-             </property>
-            </widget>
-           </item>
-          </layout>
-         </item>
-         <item>
-          <widget class="QLabel" name="label1321">
-           <property name="styleSheet">
-            <string notr="true">border-width: 0px;
-font: 8pt &quot;Sitka Small&quot;;</string>
-           </property>
-           <property name="text">
-            <string>File path with fake news:</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <layout class="QHBoxLayout" name="horizontalLayout132">
-           <item>
-            <widget class="QLineEdit" name="path1322">
-             <property name="styleSheet">
-              <string notr="true">border-width: 3px;
-                                                            border-radius: 5px;
-                                                            border-color: rgb(0, 0, 0);
-                                                            border-style: solid;
-                                                            background-color: rgb(188, 188, 188);
-                                                            color: rgb(0, 0, 0);
-                                                        </string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QToolButton" name="uploadBtn1323">
-             <property name="minimumSize">
-              <size>
-               <width>0</width>
-               <height>0</height>
-              </size>
-             </property>
-             <property name="mouseTracking">
-              <bool>false</bool>
-             </property>
-             <property name="autoFillBackground">
-              <bool>false</bool>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">background-color: rgb(212, 212, 212);
-                                                            border-width: 3px;
-                                                            border-radius: 5px;
-                                                            border-color: rgb(0, 0, 0);
-                                                            border-style: solid;
-                                                        </string>
-             </property>
-             <property name="text">
-              <string/>
-             </property>
-             <property name="icon">
-              <iconset>
-               <normaloff>resources/upload_icon.png</normaloff>resources/upload_icon.png</iconset>
-             </property>
-            </widget>
-           </item>
-          </layout>
-         </item>
-         <item>
-          <widget class="QLabel" name="label1331">
-           <property name="styleSheet">
-            <string notr="true">border-width: 0px;
-font: 8pt &quot;Sitka Small&quot;;</string>
-           </property>
-           <property name="text">
-            <string>seperator:</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <layout class="QHBoxLayout" name="horizontalLayout133">
-           <item>
-            <widget class="QLineEdit" name="seperator1333">
-             <property name="styleSheet">
-              <string notr="true">border-width: 3px;
-                                                            border-radius: 5px;
-                                                            border-color: rgb(0, 0, 0);
-                                                            border-style: solid;
-                                                            background-color: rgb(188, 188, 188);
-                                                            color: rgb(0, 0, 0);
-                                                        </string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QToolButton" name="questionBtn1332">
-             <property name="minimumSize">
-              <size>
-               <width>0</width>
-               <height>0</height>
-              </size>
-             </property>
-             <property name="mouseTracking">
-              <bool>false</bool>
-             </property>
-             <property name="autoFillBackground">
-              <bool>false</bool>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">background-color: rgb(0, 0, 127);
-                                                            background-color: rgb(0, 0, 50);
-                                                            border-width: 1px;
-                                                            border-radius: 14px;
-                                                            border-color: rgb(255, 255, 255);
-                                                            border-style: solid;
-                                                        </string>
-             </property>
-             <property name="text">
-              <string/>
-             </property>
-             <property name="icon">
-              <iconset>
-               <normaloff>resources/question_icon2.png</normaloff>resources/question_icon2.png</iconset>
-             </property>
-            </widget>
-           </item>
-          </layout>
-         </item>
-        </layout>
-       </widget>
-      </item>
-      <item>
-       <widget class="QGroupBox" name="verticalGroupBox14">
-        <property name="styleSheet">
-         <string notr="true">
-font: 10pt &quot;Sitka Small&quot;;</string>
-        </property>
-        <property name="title">
-         <string>Upload two folders:</string>
-        </property>
-        <layout class="QVBoxLayout" name="verticalLayout_7" stretch="0,0,0,0">
-         <property name="spacing">
-          <number>2</number>
-         </property>
-         <property name="leftMargin">
-          <number>5</number>
-         </property>
-         <property name="topMargin">
-          <number>36</number>
-         </property>
-         <property name="rightMargin">
-          <number>5</number>
-         </property>
-         <property name="bottomMargin">
-          <number>18</number>
-         </property>
-         <item>
-          <widget class="QLabel" name="label1411">
-           <property name="styleSheet">
-            <string notr="true">border-width: 0px;
-font: 8pt &quot;Sitka Small&quot;;
-</string>
-           </property>
-           <property name="text">
-            <string>Folder path with real news:</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <layout class="QHBoxLayout" name="horizontalLayout141">
-           <property name="spacing">
-            <number>10</number>
-           </property>
-           <property name="topMargin">
-            <number>8</number>
-           </property>
-           <property name="bottomMargin">
-            <number>8</number>
-           </property>
-           <item>
-            <widget class="QLineEdit" name="path1412">
-             <property name="styleSheet">
-              <string notr="true">border-width: 3px;
-                                                            border-radius: 5px;
-                                                            border-color: rgb(0, 0, 0);
-                                                            border-style: solid;
-                                                            background-color: rgb(188, 188, 188);
-                                                            color: rgb(0, 0, 0);
-                                                        </string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QToolButton" name="uploadBtn1413">
-             <property name="minimumSize">
-              <size>
-               <width>0</width>
-               <height>0</height>
-              </size>
-             </property>
-             <property name="mouseTracking">
-              <bool>false</bool>
-             </property>
-             <property name="autoFillBackground">
-              <bool>false</bool>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">background-color: rgb(212, 212, 212);
-                                                            border-width: 3px;
-                                                            border-radius: 5px;
-                                                            border-color: rgb(0, 0, 0);
-                                                            border-style: solid;
-                                                        </string>
-             </property>
-             <property name="text">
-              <string/>
-             </property>
-             <property name="icon">
-              <iconset>
-               <normaloff>resources/upload_icon.png</normaloff>resources/upload_icon.png</iconset>
-             </property>
-            </widget>
-           </item>
-          </layout>
-         </item>
-         <item>
-          <widget class="QLabel" name="label1421">
-           <property name="styleSheet">
-            <string notr="true">border-width: 0px;
-font: 8pt &quot;Sitka Small&quot;;</string>
-           </property>
-           <property name="text">
-            <string>Folder path with fake news:</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <layout class="QHBoxLayout" name="horizontalLayout142">
-           <property name="spacing">
-            <number>10</number>
-           </property>
-           <property name="topMargin">
-            <number>8</number>
-           </property>
-           <property name="bottomMargin">
-            <number>8</number>
-           </property>
-           <item>
-            <widget class="QLineEdit" name="path1422">
-             <property name="styleSheet">
-              <string notr="true">border-width: 3px;
-                                                            border-radius: 5px;
-                                                            border-color: rgb(0, 0, 0);
-                                                            border-style: solid;
-                                                            background-color: rgb(188, 188, 188);
-                                                            color: rgb(0, 0, 0);
-                                                        </string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QToolButton" name="uploadBtn1423">
-             <property name="minimumSize">
-              <size>
-               <width>0</width>
-               <height>0</height>
-              </size>
-             </property>
-             <property name="mouseTracking">
-              <bool>false</bool>
-             </property>
-             <property name="autoFillBackground">
-              <bool>false</bool>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">background-color: rgb(212, 212, 212);
-                                                            border-width: 3px;
-                                                            border-radius: 5px;
-                                                            border-color: rgb(0, 0, 0);
-                                                            border-style: solid;
-                                                        </string>
-             </property>
-             <property name="text">
-              <string/>
-             </property>
-             <property name="icon">
-              <iconset>
-               <normaloff>resources/upload_icon.png</normaloff>resources/upload_icon.png</iconset>
              </property>
             </widget>
            </item>
@@ -1119,11 +957,11 @@ font: 8pt &quot;Sitka Small&quot;;</string>
        <number>10</number>
       </property>
       <item>
-       <widget class="QGroupBox" name="verticalGroupBox11">
+       <widget class="QGroupBox" name="verticalGroupBox21">
         <property name="title">
          <string>Choose a relevant format of your DB:</string>
         </property>
-        <layout class="QVBoxLayout" name="verticalLayout_2" stretch="0,0,0">
+        <layout class="QVBoxLayout" name="verticalLayout_2" stretch="0,0">
          <property name="spacing">
           <number>10</number>
          </property>
@@ -1140,9 +978,9 @@ font: 8pt &quot;Sitka Small&quot;;</string>
           <number>18</number>
          </property>
          <item>
-          <layout class="QHBoxLayout" name="horizontalLayout111">
+          <layout class="QHBoxLayout" name="horizontalLayout211">
            <item>
-            <widget class="QRadioButton" name="radioButton1112">
+            <widget class="QRadioButton" name="radioButton2111">
              <property name="autoFillBackground">
               <bool>false</bool>
              </property>
@@ -1157,22 +995,11 @@ font: 8pt &quot;Sitka Small&quot;;</string>
           </layout>
          </item>
          <item>
-          <layout class="QHBoxLayout" name="horizontalLayout112">
+          <layout class="QHBoxLayout" name="horizontalLayout212">
            <item>
-            <widget class="QRadioButton" name="radioButton1122">
+            <widget class="QRadioButton" name="radioButton2121">
              <property name="text">
-              <string>Two seperated files for each label</string>
-             </property>
-            </widget>
-           </item>
-          </layout>
-         </item>
-         <item>
-          <layout class="QHBoxLayout" name="horizontalLayout113">
-           <item>
-            <widget class="QRadioButton" name="radioButton1132">
-             <property name="text">
-              <string>Two seperated folders for each label</string>
+              <string>Two seperated SCV files for each label</string>
              </property>
             </widget>
            </item>

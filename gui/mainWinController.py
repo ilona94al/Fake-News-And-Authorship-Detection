@@ -10,12 +10,19 @@ class MainWinController(QMainWindow):
         self.ui.setupUi(self)
 
         self.ui.plagiarismBtn.clicked.connect(self.openPlagiarismWin)
+        self.ui.fakeNewsBtn.clicked.connect(self.openFakeNewsWin)
+
         self.ui.trainBtn.clicked.connect(self.train_pressed)
 
     def openPlagiarismWin(self):
         self.close()
         from gui.plagiarismWinController import PlagiarismWinController
         self.window = PlagiarismWinController()
+        self.window.show()
+    def openFakeNewsWin(self):
+        self.close()
+        from gui.fakeNewsWinController import FakeNewsWinController
+        self.window = FakeNewsWinController()
         self.window.show()
 
     def train_pressed(self):

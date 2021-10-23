@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>TrainPlagModelWindow</class>
- <widget class="QMainWindow" name="TrainPlagModelWindow">
+ <class>FakeNewsWindow</class>
+ <widget class="QMainWindow" name="FakeNewsWindow">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Train New Plagiarism Model</string>
+   <string>Fake News Detection</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QLabel" name="backgroundImg">
@@ -227,16 +227,15 @@
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">color: rgb(255, 255, 255);
-                    </string>
+     <string notr="true">color: rgb(255, 255, 255);</string>
     </property>
     <property name="title">
-     <string>Train a new Model</string>
+     <string>Fake News Detetion</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
     </property>
-    <widget class="QPushButton" name="trainBtn">
+    <widget class="QPushButton" name="startBtn">
      <property name="enabled">
       <bool>true</bool>
      </property>
@@ -264,18 +263,19 @@
       <bool>false</bool>
      </property>
      <property name="styleSheet">
-      <string notr="true">
-                            background-color: rgb(0, 0, 20);
-                            font: 75 16pt &quot;Sitka Small&quot;;
-                            color: rgb(255, 255, 255);
-                            border-width: 3px;
-                            border-radius: 30px;
-                            border-color: rgb(255, 255, 255);
-                            border-style: solid;
-                        </string>
+      <string notr="true">background-color: rgb(0, 111, 0);
+
+font: 75 16pt &quot;Sitka Small&quot;;
+color: rgb(255, 255, 255);
+border-width: 3px;
+border-radius: 30px;
+border-color: rgb(255, 255, 255);
+border-style: solid;
+
+alternate-background-color: rgb(135, 135, 135);</string>
      </property>
      <property name="text">
-      <string>Train</string>
+      <string>Start</string>
      </property>
      <property name="checkable">
       <bool>false</bool>
@@ -319,23 +319,20 @@
      </property>
      <property name="styleSheet">
       <string notr="true">
-                            background-color: rgb(159, 0, 0);
-                            font: 75 16pt &quot;Sitka Small&quot;;
-                            color: rgb(255, 255, 255);
-                            border-width: 3px;
-                            border-radius: 30px;
-                            border-color: rgb(255, 255, 255);
-                            border-style: solid;
-                        </string>
+background-color: rgb(159, 0, 0);
+font: 75 16pt &quot;Sitka Small&quot;;
+color: rgb(255, 255, 255);
+border-width: 3px;
+border-radius: 30px;
+border-color: rgb(255, 255, 255);
+border-style: solid;</string>
      </property>
      <property name="text">
       <string>Back</string>
      </property>
      <property name="icon">
       <iconset>
-       <normaloff>D:/My Documents/Studies/Semester_9/פרויקט מסכם - שלב
-                                ב/icons/pnghut_arrow-icon-direction-left-logo-text.png</normaloff>D:/My Documents/Studies/Semester_9/פרויקט מסכם - שלב
-                                ב/icons/pnghut_arrow-icon-direction-left-logo-text.png</iconset>
+       <normaloff>D:/My Documents/Studies/Semester_9/פרויקט מסכם - שלב ב/icons/pnghut_arrow-icon-direction-left-logo-text.png</normaloff>D:/My Documents/Studies/Semester_9/פרויקט מסכם - שלב ב/icons/pnghut_arrow-icon-direction-left-logo-text.png</iconset>
      </property>
      <property name="iconSize">
       <size>
@@ -356,19 +353,19 @@
       <bool>false</bool>
      </property>
     </widget>
-    <widget class="QFrame" name="verticalFrame1">
+    <widget class="QFrame" name="verticalFrame">
      <property name="geometry">
       <rect>
-       <x>140</x>
-       <y>130</y>
-       <width>520</width>
-       <height>240</height>
+       <x>100</x>
+       <y>115</y>
+       <width>600</width>
+       <height>330</height>
       </rect>
      </property>
      <property name="font">
       <font>
        <family>Sitka Small</family>
-       <pointsize>8</pointsize>
+       <pointsize>10</pointsize>
        <weight>50</weight>
        <italic>false</italic>
        <bold>false</bold>
@@ -378,129 +375,135 @@
       <bool>false</bool>
      </property>
      <property name="styleSheet">
-      <string notr="true">border-width: 3px;
-                            border-radius: 15px;
-                            border-color: rgb(0, 0, 0);
-                            border-style: solid;
-                            font: 8pt &quot;Sitka Small&quot;;
-                            color: rgb(255, 255, 255);
-                            background-color: qlineargradient(spread:pad, x1:0.996, y1:0.0340909, x2:1, y2:0, stop:1
-                            rgba(0, 0, 32, 170));
-                        </string>
+      <string notr="true">border-width: 4px;
+border-radius: 15px;
+border-color: rgb(0, 0, 0);
+border-style: solid;
+font: 10pt &quot;Sitka Small&quot;;
+color: rgb(255, 255, 255);
+background-color: qlineargradient(spread:pad, x1:0.996, y1:0.0340909, x2:1, y2:0, stop:1 rgba(0, 0, 32, 170));</string>
      </property>
      <layout class="QVBoxLayout" name="verticalLayout">
       <property name="spacing">
        <number>10</number>
       </property>
       <property name="leftMargin">
-       <number>10</number>
+       <number>18</number>
       </property>
       <property name="topMargin">
-       <number>10</number>
+       <number>18</number>
       </property>
       <property name="rightMargin">
-       <number>10</number>
+       <number>18</number>
       </property>
       <property name="bottomMargin">
-       <number>10</number>
+       <number>18</number>
       </property>
       <item>
-       <widget class="QGroupBox" name="verticalGroupBox11">
-        <property name="styleSheet">
-         <string notr="true">border-width: 2px;
-font: 10pt &quot;Sitka Small&quot;;</string>
-        </property>
+       <widget class="QGroupBox" name="verticalGroupBox">
         <property name="title">
-         <string>Author name:</string>
+         <string>Choose a trained model:</string>
         </property>
-        <layout class="QVBoxLayout" name="verticalLayout_6" stretch="0,0,0">
+        <layout class="QVBoxLayout" name="verticalLayout_2" stretch="0">
          <property name="spacing">
-          <number>2</number>
+          <number>10</number>
          </property>
          <property name="leftMargin">
-          <number>5</number>
+          <number>10</number>
          </property>
          <property name="topMargin">
-          <number>36</number>
+          <number>48</number>
          </property>
          <property name="rightMargin">
-          <number>5</number>
+          <number>10</number>
          </property>
          <property name="bottomMargin">
-          <number>18</number>
+          <number>24</number>
          </property>
          <item>
-          <widget class="QLineEdit" name="inputAuthorName111">
+          <widget class="QComboBox" name="trainedModelsComboBox">
            <property name="styleSheet">
-            <string notr="true">border-width: 3px;
-                                                    border-radius: 5px;
-                                                    border-color: rgb(0, 0, 0);
-                                                    border-style: solid;
-                                                    background-color: rgb(188, 188, 188);
-                                                    color: rgb(0, 0, 0);
-                                                
-</string>
+            <string notr="true">border-width: 2px;
+border-radius: 5px;
+border-color: rgb(0, 0, 0);
+border-style: solid;</string>
            </property>
           </widget>
          </item>
+        </layout>
+       </widget>
+      </item>
+      <item>
+       <widget class="QGroupBox" name="horizontalGroupBox">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <property name="title">
+         <string> Tweet for detection:</string>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout">
+         <property name="spacing">
+          <number>10</number>
+         </property>
+         <property name="leftMargin">
+          <number>10</number>
+         </property>
+         <property name="topMargin">
+          <number>48</number>
+         </property>
+         <property name="rightMargin">
+          <number>10</number>
+         </property>
+         <property name="bottomMargin">
+          <number>24</number>
+         </property>
          <item>
-          <widget class="QLabel" name="label112">
-           <property name="styleSheet">
-            <string notr="true">border-width: 0px;
-</string>
+          <widget class="QPlainTextEdit" name="inputTweet">
+           <property name="toolTip">
+            <string/>
            </property>
-           <property name="text">
-            <string>Path to directory with books (.txt files):</string>
+           <property name="accessibleDescription">
+            <string/>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">border-width: 2px;
+border-radius: 5px;
+border-color: rgb(0, 0, 0);
+border-style: solid;
+background-color: rgb(181, 181, 181);
+color: rgb(0, 0, 0);</string>
+           </property>
+           <property name="frameShape">
+            <enum>QFrame::StyledPanel</enum>
+           </property>
+           <property name="tabChangesFocus">
+            <bool>false</bool>
+           </property>
+           <property name="documentTitle">
+            <string/>
+           </property>
+           <property name="plainText">
+            <string/>
+           </property>
+           <property name="overwriteMode">
+            <bool>false</bool>
+           </property>
+           <property name="placeholderText">
+            <string>Paste your tweet here...</string>
            </property>
           </widget>
-         </item>
-         <item>
-          <layout class="QHBoxLayout" name="horizontalLayout113">
-           <item>
-            <widget class="QLineEdit" name="inputPath1111">
-             <property name="styleSheet">
-              <string notr="true">border-width: 3px;
-                                                            border-radius: 5px;
-                                                            border-color: rgb(0, 0, 0);
-                                                            border-style: solid;
-                                                            background-color: rgb(188, 188, 188);
-                                                            color: rgb(0, 0, 0);
-                                                        </string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QToolButton" name="uploadBtn1112">
-             <property name="minimumSize">
-              <size>
-               <width>0</width>
-               <height>0</height>
-              </size>
-             </property>
-             <property name="mouseTracking">
-              <bool>false</bool>
-             </property>
-             <property name="autoFillBackground">
-              <bool>false</bool>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">background-color: rgb(212, 212, 212);
-                                                            border-width: 3px;
-                                                            border-radius: 5px;
-                                                            border-color: rgb(0, 0, 0);
-                                                            border-style: solid;
-                                                        </string>
-             </property>
-             <property name="text">
-              <string/>
-             </property>
-             <property name="icon">
-              <iconset>
-               <normaloff>resources/upload_icon.png</normaloff>resources/upload_icon.png</iconset>
-             </property>
-            </widget>
-           </item>
-          </layout>
          </item>
         </layout>
        </widget>
@@ -510,9 +513,9 @@ font: 10pt &quot;Sitka Small&quot;;</string>
     <widget class="QLabel" name="errorMsg">
      <property name="geometry">
       <rect>
-       <x>140</x>
-       <y>385</y>
-       <width>80</width>
+       <x>280</x>
+       <y>490</y>
+       <width>81</width>
        <height>41</height>
       </rect>
      </property>
@@ -520,14 +523,13 @@ font: 10pt &quot;Sitka Small&quot;;</string>
       <enum>Qt::RightToLeft</enum>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-color: qlineargradient(spread:pad, x1:0.983, y1:0.00568182,
-                            x2:0.996, y2:0, stop:1 rgba(48, 48, 48, 143));
-                            color: rgb(170, 0, 0);
-                            font: 75 8pt &quot;System&quot;;
-                            border-radius: 10px;
-                            border-style: solid;
-                            border-width: 0px
-                        </string>
+      <string notr="true">background-color: qlineargradient(spread:pad, x1:0.983, y1:0.00568182, x2:0.996, y2:0, stop:1 rgba(48, 48, 48, 143));
+color: rgb(170, 0, 0);
+font: 75 8pt &quot;System&quot;;
+border-radius: 10px;
+border-style: solid;
+border-width: 0px
+</string>
      </property>
      <property name="text">
       <string>warning</string>

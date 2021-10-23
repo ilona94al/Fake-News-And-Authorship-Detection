@@ -151,7 +151,7 @@ class Ui_TrainPlagModelWindow(object):
         self.backBtn.setFlat(False)
         self.backBtn.setObjectName("backBtn")
         self.verticalFrame1 = QtWidgets.QFrame(self.groupBox)
-        self.verticalFrame1.setGeometry(QtCore.QRect(30, 265, 450, 200))
+        self.verticalFrame1.setGeometry(QtCore.QRect(140, 130, 520, 240))
         font = QtGui.QFont()
         font.setFamily("Sitka Small")
         font.setPointSize(8)
@@ -174,130 +174,62 @@ class Ui_TrainPlagModelWindow(object):
         self.verticalLayout.setContentsMargins(10, 10, 10, 10)
         self.verticalLayout.setSpacing(10)
         self.verticalLayout.setObjectName("verticalLayout")
-        self.verticalGroupBox13 = QtWidgets.QGroupBox(self.verticalFrame1)
-        self.verticalGroupBox13.setStyleSheet("border-width: 2px;\n"
+        self.verticalGroupBox11 = QtWidgets.QGroupBox(self.verticalFrame1)
+        self.verticalGroupBox11.setStyleSheet("border-width: 2px;\n"
 "font: 10pt \"Sitka Small\";")
-        self.verticalGroupBox13.setObjectName("verticalGroupBox13")
-        self.verticalLayout_6 = QtWidgets.QVBoxLayout(self.verticalGroupBox13)
+        self.verticalGroupBox11.setObjectName("verticalGroupBox11")
+        self.verticalLayout_6 = QtWidgets.QVBoxLayout(self.verticalGroupBox11)
         self.verticalLayout_6.setContentsMargins(5, 36, 5, 18)
         self.verticalLayout_6.setSpacing(2)
         self.verticalLayout_6.setObjectName("verticalLayout_6")
-        self.label1311 = QtWidgets.QLabel(self.verticalGroupBox13)
-        self.label1311.setStyleSheet("border-width: 0px;\n"
-"font: 8pt \"Sitka Small\";")
-        self.label1311.setObjectName("label1311")
-        self.verticalLayout_6.addWidget(self.label1311)
-        self.horizontalLayout131 = QtWidgets.QHBoxLayout()
-        self.horizontalLayout131.setObjectName("horizontalLayout131")
-        self.path1312 = QtWidgets.QLineEdit(self.verticalGroupBox13)
-        self.path1312.setStyleSheet("border-width: 3px;\n"
+        self.inputAuthorName111 = QtWidgets.QLineEdit(self.verticalGroupBox11)
+        self.inputAuthorName111.setStyleSheet("border-width: 3px;\n"
+"                                                    border-radius: 5px;\n"
+"                                                    border-color: rgb(0, 0, 0);\n"
+"                                                    border-style: solid;\n"
+"                                                    background-color: rgb(188, 188, 188);\n"
+"                                                    color: rgb(0, 0, 0);\n"
+"                                                \n"
+"")
+        self.inputAuthorName111.setObjectName("inputAuthorName111")
+        self.verticalLayout_6.addWidget(self.inputAuthorName111)
+        self.label112 = QtWidgets.QLabel(self.verticalGroupBox11)
+        self.label112.setStyleSheet("border-width: 0px;\n"
+"")
+        self.label112.setObjectName("label112")
+        self.verticalLayout_6.addWidget(self.label112)
+        self.horizontalLayout113 = QtWidgets.QHBoxLayout()
+        self.horizontalLayout113.setObjectName("horizontalLayout113")
+        self.inputPath1111 = QtWidgets.QLineEdit(self.verticalGroupBox11)
+        self.inputPath1111.setStyleSheet("border-width: 3px;\n"
 "                                                            border-radius: 5px;\n"
 "                                                            border-color: rgb(0, 0, 0);\n"
 "                                                            border-style: solid;\n"
 "                                                            background-color: rgb(188, 188, 188);\n"
 "                                                            color: rgb(0, 0, 0);\n"
 "                                                        ")
-        self.path1312.setObjectName("path1312")
-        self.horizontalLayout131.addWidget(self.path1312)
-        self.uploadBtn1313 = QtWidgets.QToolButton(self.verticalGroupBox13)
-        self.uploadBtn1313.setMinimumSize(QtCore.QSize(0, 0))
-        self.uploadBtn1313.setMouseTracking(False)
-        self.uploadBtn1313.setAutoFillBackground(False)
-        self.uploadBtn1313.setStyleSheet("background-color: rgb(212, 212, 212);\n"
+        self.inputPath1111.setObjectName("inputPath1111")
+        self.horizontalLayout113.addWidget(self.inputPath1111)
+        self.uploadBtn1112 = QtWidgets.QToolButton(self.verticalGroupBox11)
+        self.uploadBtn1112.setMinimumSize(QtCore.QSize(0, 0))
+        self.uploadBtn1112.setMouseTracking(False)
+        self.uploadBtn1112.setAutoFillBackground(False)
+        self.uploadBtn1112.setStyleSheet("background-color: rgb(212, 212, 212);\n"
 "                                                            border-width: 3px;\n"
 "                                                            border-radius: 5px;\n"
 "                                                            border-color: rgb(0, 0, 0);\n"
 "                                                            border-style: solid;\n"
 "                                                        ")
-        self.uploadBtn1313.setText("")
+        self.uploadBtn1112.setText("")
         icon1 = QtGui.QIcon()
         icon1.addPixmap(QtGui.QPixmap("resources/upload_icon.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.uploadBtn1313.setIcon(icon1)
-        self.uploadBtn1313.setObjectName("uploadBtn1313")
-        self.horizontalLayout131.addWidget(self.uploadBtn1313)
-        self.verticalLayout_6.addLayout(self.horizontalLayout131)
-        self.label1331 = QtWidgets.QLabel(self.verticalGroupBox13)
-        self.label1331.setStyleSheet("border-width: 0px;\n"
-"font: 8pt \"Sitka Small\";")
-        self.label1331.setObjectName("label1331")
-        self.verticalLayout_6.addWidget(self.label1331)
-        self.horizontalLayout133 = QtWidgets.QHBoxLayout()
-        self.horizontalLayout133.setObjectName("horizontalLayout133")
-        self.seperator1333 = QtWidgets.QLineEdit(self.verticalGroupBox13)
-        self.seperator1333.setStyleSheet("border-width: 3px;\n"
-"                                                            border-radius: 5px;\n"
-"                                                            border-color: rgb(0, 0, 0);\n"
-"                                                            border-style: solid;\n"
-"                                                            background-color: rgb(188, 188, 188);\n"
-"                                                            color: rgb(0, 0, 0);\n"
-"                                                        ")
-        self.seperator1333.setObjectName("seperator1333")
-        self.horizontalLayout133.addWidget(self.seperator1333)
-        self.questionBtn1332 = QtWidgets.QToolButton(self.verticalGroupBox13)
-        self.questionBtn1332.setMinimumSize(QtCore.QSize(0, 0))
-        self.questionBtn1332.setMouseTracking(False)
-        self.questionBtn1332.setAutoFillBackground(False)
-        self.questionBtn1332.setStyleSheet("background-color: rgb(0, 0, 127);\n"
-"                                                            background-color: rgb(0, 0, 50);\n"
-"                                                            border-width: 1px;\n"
-"                                                            border-radius: 14px;\n"
-"                                                            border-color: rgb(255, 255, 255);\n"
-"                                                            border-style: solid;\n"
-"                                                        ")
-        self.questionBtn1332.setText("")
-        icon2 = QtGui.QIcon()
-        icon2.addPixmap(QtGui.QPixmap("resources/question_icon2.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.questionBtn1332.setIcon(icon2)
-        self.questionBtn1332.setObjectName("questionBtn1332")
-        self.horizontalLayout133.addWidget(self.questionBtn1332)
-        self.verticalLayout_6.addLayout(self.horizontalLayout133)
-        self.verticalLayout.addWidget(self.verticalGroupBox13)
-        self.verticalGroupBox14 = QtWidgets.QGroupBox(self.verticalFrame1)
-        self.verticalGroupBox14.setStyleSheet("\n"
-"font: 10pt \"Sitka Small\";")
-        self.verticalGroupBox14.setObjectName("verticalGroupBox14")
-        self.verticalLayout_7 = QtWidgets.QVBoxLayout(self.verticalGroupBox14)
-        self.verticalLayout_7.setContentsMargins(5, 36, 5, 36)
-        self.verticalLayout_7.setSpacing(2)
-        self.verticalLayout_7.setObjectName("verticalLayout_7")
-        self.label1411 = QtWidgets.QLabel(self.verticalGroupBox14)
-        self.label1411.setStyleSheet("border-width: 0px;\n"
-"font: 8pt \"Sitka Small\";\n"
-"")
-        self.label1411.setObjectName("label1411")
-        self.verticalLayout_7.addWidget(self.label1411)
-        self.horizontalLayout141 = QtWidgets.QHBoxLayout()
-        self.horizontalLayout141.setContentsMargins(-1, 8, -1, 8)
-        self.horizontalLayout141.setSpacing(10)
-        self.horizontalLayout141.setObjectName("horizontalLayout141")
-        self.path1412 = QtWidgets.QLineEdit(self.verticalGroupBox14)
-        self.path1412.setStyleSheet("border-width: 3px;\n"
-"                                                            border-radius: 5px;\n"
-"                                                            border-color: rgb(0, 0, 0);\n"
-"                                                            border-style: solid;\n"
-"                                                            background-color: rgb(188, 188, 188);\n"
-"                                                            color: rgb(0, 0, 0);\n"
-"                                                        ")
-        self.path1412.setObjectName("path1412")
-        self.horizontalLayout141.addWidget(self.path1412)
-        self.uploadBtn1413 = QtWidgets.QToolButton(self.verticalGroupBox14)
-        self.uploadBtn1413.setMinimumSize(QtCore.QSize(0, 0))
-        self.uploadBtn1413.setMouseTracking(False)
-        self.uploadBtn1413.setAutoFillBackground(False)
-        self.uploadBtn1413.setStyleSheet("background-color: rgb(212, 212, 212);\n"
-"                                                            border-width: 3px;\n"
-"                                                            border-radius: 5px;\n"
-"                                                            border-color: rgb(0, 0, 0);\n"
-"                                                            border-style: solid;\n"
-"                                                        ")
-        self.uploadBtn1413.setText("")
-        self.uploadBtn1413.setIcon(icon1)
-        self.uploadBtn1413.setObjectName("uploadBtn1413")
-        self.horizontalLayout141.addWidget(self.uploadBtn1413)
-        self.verticalLayout_7.addLayout(self.horizontalLayout141)
-        self.verticalLayout.addWidget(self.verticalGroupBox14)
+        self.uploadBtn1112.setIcon(icon1)
+        self.uploadBtn1112.setObjectName("uploadBtn1112")
+        self.horizontalLayout113.addWidget(self.uploadBtn1112)
+        self.verticalLayout_6.addLayout(self.horizontalLayout113)
+        self.verticalLayout.addWidget(self.verticalGroupBox11)
         self.errorMsg = QtWidgets.QLabel(self.groupBox)
-        self.errorMsg.setGeometry(QtCore.QRect(490, 420, 81, 41))
+        self.errorMsg.setGeometry(QtCore.QRect(140, 385, 80, 41))
         self.errorMsg.setLayoutDirection(QtCore.Qt.RightToLeft)
         self.errorMsg.setStyleSheet("background-color: qlineargradient(spread:pad, x1:0.983, y1:0.00568182,\n"
 "                            x2:0.996, y2:0, stop:1 rgba(48, 48, 48, 143));\n"
@@ -308,107 +240,6 @@ class Ui_TrainPlagModelWindow(object):
 "                            border-width: 0px\n"
 "                        ")
         self.errorMsg.setObjectName("errorMsg")
-        self.verticalFrame2 = QtWidgets.QFrame(self.groupBox)
-        self.verticalFrame2.setGeometry(QtCore.QRect(30, 100, 501, 161))
-        font = QtGui.QFont()
-        font.setFamily("Sitka Small")
-        font.setPointSize(8)
-        font.setBold(False)
-        font.setItalic(False)
-        font.setWeight(50)
-        self.verticalFrame2.setFont(font)
-        self.verticalFrame2.setAutoFillBackground(False)
-        self.verticalFrame2.setStyleSheet("border-width: 3px;\n"
-"                            border-radius: 15px;\n"
-"                            border-color: rgb(0, 0, 0);\n"
-"                            border-style: solid;\n"
-"                            font: 8pt \"Sitka Small\";\n"
-"                            color: rgb(255, 255, 255);\n"
-"                            background-color: qlineargradient(spread:pad, x1:0.996, y1:0.0340909, x2:1, y2:0, stop:1\n"
-"                            rgba(0, 0, 32, 170));\n"
-"                        ")
-        self.verticalFrame2.setObjectName("verticalFrame2")
-        self.verticalLayout_3 = QtWidgets.QVBoxLayout(self.verticalFrame2)
-        self.verticalLayout_3.setContentsMargins(10, 10, 10, 10)
-        self.verticalLayout_3.setSpacing(10)
-        self.verticalLayout_3.setObjectName("verticalLayout_3")
-        self.verticalGroupBox11 = QtWidgets.QGroupBox(self.verticalFrame2)
-        self.verticalGroupBox11.setStyleSheet("border-width: 2px;\n"
-"font: 10pt \"Sitka Small\";\n"
-"")
-        self.verticalGroupBox11.setObjectName("verticalGroupBox11")
-        self.verticalLayout_2 = QtWidgets.QVBoxLayout(self.verticalGroupBox11)
-        self.verticalLayout_2.setContentsMargins(5, 36, 5, 18)
-        self.verticalLayout_2.setSpacing(10)
-        self.verticalLayout_2.setObjectName("verticalLayout_2")
-        self.horizontalLayout112 = QtWidgets.QHBoxLayout()
-        self.horizontalLayout112.setObjectName("horizontalLayout112")
-        self.radioButton1122 = QtWidgets.QRadioButton(self.verticalGroupBox11)
-        self.radioButton1122.setStyleSheet("\n"
-"font: 8pt \"Sitka Small\";")
-        self.radioButton1122.setChecked(True)
-        self.radioButton1122.setObjectName("radioButton1122")
-        self.horizontalLayout112.addWidget(self.radioButton1122)
-        self.verticalLayout_2.addLayout(self.horizontalLayout112)
-        self.horizontalLayout113 = QtWidgets.QHBoxLayout()
-        self.horizontalLayout113.setObjectName("horizontalLayout113")
-        self.radioButton1132 = QtWidgets.QRadioButton(self.verticalGroupBox11)
-        self.radioButton1132.setStyleSheet("\n"
-"font: 8pt \"Sitka Small\";")
-        self.radioButton1132.setObjectName("radioButton1132")
-        self.horizontalLayout113.addWidget(self.radioButton1132)
-        self.verticalLayout_2.addLayout(self.horizontalLayout113)
-        self.verticalLayout_3.addWidget(self.verticalGroupBox11)
-        self.verticalFrame1_2 = QtWidgets.QFrame(self.groupBox)
-        self.verticalFrame1_2.setGeometry(QtCore.QRect(490, 265, 281, 141))
-        font = QtGui.QFont()
-        font.setFamily("Sitka Small")
-        font.setPointSize(8)
-        font.setBold(False)
-        font.setItalic(False)
-        font.setWeight(50)
-        self.verticalFrame1_2.setFont(font)
-        self.verticalFrame1_2.setAutoFillBackground(False)
-        self.verticalFrame1_2.setStyleSheet("border-width: 3px;\n"
-"                            border-radius: 15px;\n"
-"                            border-color: rgb(0, 0, 0);\n"
-"                            border-style: solid;\n"
-"                            font: 8pt \"Sitka Small\";\n"
-"                            color: rgb(255, 255, 255);\n"
-"                            background-color: qlineargradient(spread:pad, x1:0.996, y1:0.0340909, x2:1, y2:0, stop:1\n"
-"                            rgba(0, 0, 32, 170));\n"
-"                        ")
-        self.verticalFrame1_2.setObjectName("verticalFrame1_2")
-        self.verticalLayout_4 = QtWidgets.QVBoxLayout(self.verticalFrame1_2)
-        self.verticalLayout_4.setContentsMargins(10, 10, 10, 10)
-        self.verticalLayout_4.setSpacing(10)
-        self.verticalLayout_4.setObjectName("verticalLayout_4")
-        self.horizontalGroupBox21 = QtWidgets.QGroupBox(self.verticalFrame1_2)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.horizontalGroupBox21.sizePolicy().hasHeightForWidth())
-        self.horizontalGroupBox21.setSizePolicy(sizePolicy)
-        self.horizontalGroupBox21.setMinimumSize(QtCore.QSize(0, 0))
-        self.horizontalGroupBox21.setStyleSheet("border-width: 2px;\n"
-"font: 10pt \"Sitka Small\";")
-        self.horizontalGroupBox21.setObjectName("horizontalGroupBox21")
-        self.horizontalLayout_3 = QtWidgets.QHBoxLayout(self.horizontalGroupBox21)
-        self.horizontalLayout_3.setContentsMargins(5, 36, 5, 18)
-        self.horizontalLayout_3.setSpacing(2)
-        self.horizontalLayout_3.setObjectName("horizontalLayout_3")
-        self.authorName211 = QtWidgets.QLineEdit(self.horizontalGroupBox21)
-        self.authorName211.setStyleSheet("border-width: 3px;\n"
-"                                                    border-radius: 5px;\n"
-"                                                    border-color: rgb(0, 0, 0);\n"
-"                                                    border-style: solid;\n"
-"                                                    background-color: rgb(188, 188, 188);\n"
-"                                                    color: rgb(0, 0, 0);\n"
-"                                                \n"
-"")
-        self.authorName211.setObjectName("authorName211")
-        self.horizontalLayout_3.addWidget(self.authorName211)
-        self.verticalLayout_4.addWidget(self.horizontalGroupBox21)
         TrainPlagModelWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(TrainPlagModelWindow)
@@ -420,16 +251,9 @@ class Ui_TrainPlagModelWindow(object):
         self.groupBox.setTitle(_translate("TrainPlagModelWindow", "Train a new Model"))
         self.trainBtn.setText(_translate("TrainPlagModelWindow", "Train"))
         self.backBtn.setText(_translate("TrainPlagModelWindow", "Back"))
-        self.verticalGroupBox13.setTitle(_translate("TrainPlagModelWindow", "Upload text file:"))
-        self.label1311.setText(_translate("TrainPlagModelWindow", "Path to file (.txt) with books or excerpts of books:"))
-        self.label1331.setText(_translate("TrainPlagModelWindow", "Seperator:"))
-        self.verticalGroupBox14.setTitle(_translate("TrainPlagModelWindow", "Upload folder:"))
-        self.label1411.setText(_translate("TrainPlagModelWindow", "Path to directory with books (.txt files):"))
+        self.verticalGroupBox11.setTitle(_translate("TrainPlagModelWindow", "Author name:"))
+        self.label112.setText(_translate("TrainPlagModelWindow", "Path to directory with books (.txt files):"))
         self.errorMsg.setText(_translate("TrainPlagModelWindow", "warning"))
-        self.verticalGroupBox11.setTitle(_translate("TrainPlagModelWindow", "Choose a relevant format of your database:"))
-        self.radioButton1122.setText(_translate("TrainPlagModelWindow", "A text file containing books or excerpts of books"))
-        self.radioButton1132.setText(_translate("TrainPlagModelWindow", "A folder containing books in text file format"))
-        self.horizontalGroupBox21.setTitle(_translate("TrainPlagModelWindow", "Author name:"))
 
 
 if __name__ == "__main__":
