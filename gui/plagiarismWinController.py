@@ -41,12 +41,18 @@ class PlagiarismWinController(QMainWindow):
         self.clear_feedback()
 
         book_path = self.ui.inputPath.text()
+
         author_name = self.ui.authorComboBox.currentText()
         if str(book_path) == "":
-            self.book_not_uploaded()
+            self.book_not_uploaded( "Empty path!\n please upload a book")
         else:
+            # todo: check if book in .txt format. if no - error message
+            #self.book_not_uploaded( "Book not in .txt format")
             self.close()
             from gui.detectionResultsWinController import DetectionResultsWinController
+            # todo: results= DETECT(author_name, tweet)
+            #  find the relevant trained model(according to the author name)
+            #  insert book as input to the model and get detection results (graphs and etc.)
             self.window = DetectionResultsWinController(author_name, book_path)
             self.window.show()
 
@@ -55,8 +61,7 @@ class PlagiarismWinController(QMainWindow):
         self.ui.errorMsg.setText("")
         self.ui.horizontalGroupBox.setStyleSheet("")
 
-    def book_not_uploaded(self):
-        msg = "Empty path!\n please upload a book"
+    def book_not_uploaded(self,msg):
         widget = self.ui.horizontalGroupBox
         self.setFeedback(msg, widget)
 

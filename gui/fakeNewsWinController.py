@@ -16,7 +16,7 @@ class FakeNewsWinController(QMainWindow):
 
         self.ui.errorMsg.setHidden(True)
 
-        # todo: upload writers name into a combo box.
+        # todo: upload models name into a combo box.
 
         self.ui.trainedModelsComboBox.addItem("tm")
 
@@ -38,7 +38,10 @@ class FakeNewsWinController(QMainWindow):
         else:
             self.close()
             from gui.detectionResultsWinController import DetectionResultsWinController
-            self.window = DetectionResultsWinController(model_name, tweet)
+            # todo: results= DETECT(model_name, tweet)
+            #  find the relevant trained model(according to the model name)
+            #  insert tweet as input to the model and get detection results (graphs and etc.)
+            self.window = DetectionResultsWinController()#input results
             self.window.show()
 
     def clear_feedback(self):

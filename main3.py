@@ -170,7 +170,7 @@ def build_model():
 
 def fit_model(model, x_train, y_train_prob, x_valid, y_valid_prob):
     # Train the model
-    history = model.fit(x_train, y_train_prob, validation_data=(x_valid, y_valid_prob), batch_size=10, epochs=10)
+    history = model.fit(x_train, y_train_prob, validation_data=(x_valid, y_valid_prob), batch_size=10, epochs=2)
     _, accuracy = model.evaluate(x_valid, y_valid_prob, verbose=0)
     print("Accuracy of test groups:", accuracy)
     return model, history
@@ -189,79 +189,81 @@ config_512tokens = {
 }
 
 config = config_128tokens
-#
-# fake_news = read_file_into_array('database/fakenews/fake50.csv')
-# real_news = read_file_into_array('database/fakenews/true50.csv')
-#
-# real_texts = []
-# for tweet in real_news:
-#     preprocessed_text = text_preprocessing(tweet)
-#     tweet_blocks = seperate_to_blocks(preprocessed_text)
-#     real_texts.extend((block for block in tweet_blocks))
-#
-# fake_texts = []
-# for tweet in fake_news:
-#     preprocessed_text = text_preprocessing(tweet)
-#     tweet_blocks = seperate_to_blocks(preprocessed_text)
-#     fake_texts.extend((block for block in tweet_blocks))
-#
-# texts = real_texts + fake_texts
-#
-# # define original classification
-# y_expected = define_expected_classification(len(real_texts), len(texts))
-#
-# x_train, x, y_train, y = train_test_split(texts, y_expected, train_size=0.7)
-# x_test, x_valid, y_test, y_valid = train_test_split(x, y, train_size=0.5)
-#
-# y_train_prob = np_utils.to_categorical(y_train)
-# y_test_prob = np_utils.to_categorical(y_test)
-# y_valid_prob = np_utils.to_categorical(y_valid)
-# num_classes = y_train_prob.shape[1]
-#
-# new_model = True
-# model_name = 'FakeBERTModel.h5'
-# trained_model_name = 'TrainedFakeBERTModel.h5'
-# if new_model == True:
-#     model = build_model()
-#     model.save(model_name)
-#     model, history = fit_model(model, tf.constant(x_train), y_train_prob, tf.constant(x_valid), y_valid_prob)
-#     model.save(trained_model_name)
-# else:
-#     model = tf.keras.models.load_model(trained_model_name, custom_objects={'KerasLayer': hub.KerasLayer})
-#
-# _, accuracy = model.evaluate(tf.constant(x_test), y_test_prob, verbose=0)
-# print("Accuracy of evaluate new test groups:", accuracy)
-#
-# Y_predicted_prob = model.predict(tf.constant(x_test))
-# Y_predicted = np.argmax(Y_predicted_prob, -1)
-# count_well_predicted = np.count_nonzero([y_test == Y_predicted])
-#
-# print("Number of true predicts:", count_well_predicted)
-# print("Number of false predicts:", Y_predicted.shape[0] - count_well_predicted)
-#
-# #-------- Showing results of model training and validation---------------#
-#
-# import matplotlib.pyplot as plt
-#
-# plt.plot(history.history['accuracy'])
-# plt.plot(history.history['val_accuracy'])
-# plt.plot(accuracy)
-# plt.title('Model accuracy in epoch')
-# plt.ylabel('Accuracy')
-# plt.xlabel('Epoch')
-# plt.legend(['Train', 'Validation'], loc='upper left')
-# plt.show()
-# plt.savefig('ModelAcc.png')
-# plt.savefig('products\ModelAcc.png')
-#
-# plt.plot(history.history['loss'])
-# plt.plot(history.history['val_loss'])
-# plt.plot(accuracy)
-# plt.title('Model loss in epoch')
-# plt.ylabel('Loss')
-# plt.xlabel('Epoch')
-# plt.legend(['Train', 'Validation'], loc='upper left')
-# plt.show()
+
+fake_news = read_file_into_array('database/fakenews/db1/fake50.csv')
+real_news = read_file_into_array('database/fakenews/db1/true50.csv')
+
+real_texts = []
+for tweet in real_news:
+    preprocessed_text = text_preprocessing(tweet)
+    tweet_blocks = seperate_to_blocks(preprocessed_text)
+    real_texts.extend((block for block in tweet_blocks))
+
+fake_texts = []
+for tweet in fake_news:
+    preprocessed_text = text_preprocessing(tweet)
+    tweet_blocks = seperate_to_blocks(preprocessed_text)
+    fake_texts.extend((block for block in tweet_blocks))
+
+texts = real_texts + fake_texts
+
+# define original classification
+y_expected = define_expected_classification(len(real_texts), len(texts))
+
+x_train, x, y_train, y = train_test_split(texts, y_expected, train_size=0.7)
+x_test, x_valid, y_test, y_valid = train_test_split(x, y, train_size=0.5)
+
+y_train_prob = np_utils.to_categorical(y_train)
+y_test_prob = np_utils.to_categorical(y_test)
+y_valid_prob = np_utils.to_categorical(y_valid)
+num_classes = y_train_prob.shape[1]
+
+new_model = True
+model_name = 'FakeBERTModel.h5'
+trained_model_name = 'TrainedFakeBERTModel.h5'
+if new_model == True:
+    model = build_model()
+    model.save(model_name)
+    model, history = fit_model(model, tf.constant(x_train), y_train_prob, tf.constant(x_valid), y_valid_prob)
+    model.save(trained_model_name)
+else:
+    model = tf.keras.models.load_model(trained_model_name, custom_objects={'KerasLayer': hub.KerasLayer})
+
+_, accuracy = model.evaluate(tf.constant(x_test), y_test_prob, verbose=0)
+print("Accuracy of evaluate new test groups:", accuracy)
+
+Y_predicted_prob = model.predict(tf.constant(x_test))
+Y_predicted = np.argmax(Y_predicted_prob, -1)
+count_well_predicted = np.count_nonzero([y_test == Y_predicted])
+
+print("Number of true predicts:", count_well_predicted)
+print("Number of false predicts:", Y_predicted.shape[0] - count_well_predicted)
+
+#-------- Showing results of model training and validation---------------#
+
+import matplotlib.pyplot as plt
+
+plt.plot(history.history['accuracy'])
+plt.plot(history.history['val_accuracy'])
+plt.plot(accuracy)
+plt.title('Model accuracy in epoch')
+plt.ylabel('Accuracy')
+plt.xlabel('Epoch')
+plt.legend(['Train', 'Validation'], loc='upper left')
+plt.show()
+plt.savefig('ModelAcc.png')
+plt.savefig('plots\ModelAcc.png')
+
+plt.plot(history.history['loss'])
+plt.plot(history.history['val_loss'])
+plt.plot(accuracy)
+plt.title('Model loss in epoch')
+plt.ylabel('Loss')
+plt.xlabel('Epoch')
+plt.legend(['Train', 'Validation'], loc='upper left')
+plt.show()
+plt.savefig('ModelLoss.png')
+plt.savefig('plots\ModelLoss.png')
 #
 # # ------------------------------------
 # import os
@@ -379,79 +381,79 @@ config = config_128tokens
 # plt.savefig('products\shkModellLoss.png')
 #
 # #---------------------
-
-config = config_128tokens
-
-news, labels = read_file_into_array2('database/fakenews/db2/train2000.csv')
-_labels = []
-texts = []
-j = 0
-REAL = 0
-FAKE = 1
-
-for i, tweet in enumerate(news):
-    if isinstance(tweet, str):
-        if labels[i] == FAKE or labels[i] == REAL:
-            preprocessed_text = text_preprocessing("" + tweet)
-            tweet_blocks = seperate_to_blocks(preprocessed_text)
-            _labels.extend([labels[i] for x in range(j, j + len(tweet_blocks))])
-            j = j + len(tweet_blocks)
-            texts.extend(block for block in tweet_blocks)
-
-y_expected = np.empty(len(_labels), int)
-y_expected[0:len(_labels)]= _labels[0:len(_labels)]
-
-x_train, x, y_train, y = train_test_split(texts, y_expected, train_size=0.7)
-x_test, x_valid, y_test, y_valid = train_test_split(x, y, train_size=0.5)
-
-y_train_prob = np_utils.to_categorical(y_train)
-y_test_prob = np_utils.to_categorical(y_test)
-y_valid_prob = np_utils.to_categorical(y_valid)
-num_classes = y_train_prob.shape[1]
-
-new_model = False
-model_name = 'FakeBERTModel.h5'
-trained_model_name = 'model1/TrainedFakeBERTModel.h5'
-if new_model == True:
-    model = build_model()
-    model.save(model_name)
-    model, history = fit_model(model, tf.constant(x_train), y_train_prob, tf.constant(x_valid), y_valid_prob)
-    model.save(trained_model_name)
-else:
-    model = tf.keras.models.load_model(trained_model_name, custom_objects={'KerasLayer': hub.KerasLayer})
-
-_, accuracy = model.evaluate(tf.constant(x_test), y_test_prob, verbose=0)
-print("Accuracy of evaluate new test groups:", accuracy)
-
-Y_predicted_prob = model.predict(tf.constant(x_test))
-Y_predicted = np.argmax(Y_predicted_prob, -1)
-count_well_predicted = np.count_nonzero([y_test == Y_predicted])
-
-print("Number of true predicts:", count_well_predicted)
-print("Number of false predicts:", Y_predicted.shape[0] - count_well_predicted)
-
-# -------- Showing results of model training and validation---------------#
-
-import matplotlib.pyplot as plt
-
-plt.plot(history.history['accuracy'])
-plt.plot(history.history['val_accuracy'])
-plt.plot(accuracy)
-plt.title('Model accuracy in epoch')
-plt.ylabel('Accuracy')
-plt.xlabel('Epoch')
-plt.legend(['Train', 'Validation'], loc='upper left')
-plt.show()
-plt.savefig('ModelAcc.png')
-plt.savefig('products\ModelAcc.png')
-
-plt.plot(history.history['loss'])
-plt.plot(history.history['val_loss'])
-plt.plot(accuracy)
-plt.title('Model loss in epoch')
-plt.ylabel('Loss')
-plt.xlabel('Epoch')
-plt.legend(['Train', 'Validation'], loc='upper left')
-plt.show()
-
-# ------------------------------------
+#
+# config = config_128tokens
+#
+# news, labels = read_file_into_array2('database/fakenews/db2/train2000.csv')
+# _labels = []
+# texts = []
+# j = 0
+# REAL = 0
+# FAKE = 1
+#
+# for i, tweet in enumerate(news):
+#     if isinstance(tweet, str):
+#         if labels[i] == FAKE or labels[i] == REAL:
+#             preprocessed_text = text_preprocessing("" + tweet)
+#             tweet_blocks = seperate_to_blocks(preprocessed_text)
+#             _labels.extend([labels[i] for x in range(j, j + len(tweet_blocks))])
+#             j = j + len(tweet_blocks)
+#             texts.extend(block for block in tweet_blocks)
+#
+# y_expected = np.empty(len(_labels), int)
+# y_expected[0:len(_labels)]= _labels[0:len(_labels)]
+#
+# x_train, x, y_train, y = train_test_split(texts, y_expected, train_size=0.7)
+# x_test, x_valid, y_test, y_valid = train_test_split(x, y, train_size=0.5)
+#
+# y_train_prob = np_utils.to_categorical(y_train)
+# y_test_prob = np_utils.to_categorical(y_test)
+# y_valid_prob = np_utils.to_categorical(y_valid)
+# num_classes = y_train_prob.shape[1]
+#
+# new_model = False
+# model_name = 'FakeBERTModel.h5'
+# trained_model_name = 'model1/TrainedFakeBERTModel.h5'
+# if new_model == True:
+#     model = build_model()
+#     model.save(model_name)
+#     model, history = fit_model(model, tf.constant(x_train), y_train_prob, tf.constant(x_valid), y_valid_prob)
+#     model.save(trained_model_name)
+# else:
+#     model = tf.keras.models.load_model(trained_model_name, custom_objects={'KerasLayer': hub.KerasLayer})
+#
+# _, accuracy = model.evaluate(tf.constant(x_test), y_test_prob, verbose=0)
+# print("Accuracy of evaluate new test groups:", accuracy)
+#
+# Y_predicted_prob = model.predict(tf.constant(x_test))
+# Y_predicted = np.argmax(Y_predicted_prob, -1)
+# count_well_predicted = np.count_nonzero([y_test == Y_predicted])
+#
+# print("Number of true predicts:", count_well_predicted)
+# print("Number of false predicts:", Y_predicted.shape[0] - count_well_predicted)
+#
+# # -------- Showing results of model training and validation---------------#
+#
+# import matplotlib.pyplot as plt
+#
+# plt.plot(history.history['accuracy'])
+# plt.plot(history.history['val_accuracy'])
+# plt.plot(accuracy)
+# plt.title('Model accuracy in epoch')
+# plt.ylabel('Accuracy')
+# plt.xlabel('Epoch')
+# plt.legend(['Train', 'Validation'], loc='upper left')
+# plt.show()
+# plt.savefig('ModelAcc.png')
+# plt.savefig('products\ModelAcc.png')
+#
+# plt.plot(history.history['loss'])
+# plt.plot(history.history['val_loss'])
+# plt.plot(accuracy)
+# plt.title('Model loss in epoch')
+# plt.ylabel('Loss')
+# plt.xlabel('Epoch')
+# plt.legend(['Train', 'Validation'], loc='upper left')
+# plt.show()
+#
+# # ------------------------------------
