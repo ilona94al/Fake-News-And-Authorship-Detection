@@ -90,7 +90,7 @@ class Ui_TrainModelWindow(object):
         font.setWeight(75)
         self.groupBox.setFont(font)
         self.groupBox.setStyleSheet("color: rgb(255, 255, 255);\n"
-"                    ")
+                                    "                    ")
         self.groupBox.setAlignment(QtCore.Qt.AlignCenter)
         self.groupBox.setObjectName("groupBox")
         self.trainBtn = QtWidgets.QPushButton(self.groupBox)
@@ -106,14 +106,14 @@ class Ui_TrainModelWindow(object):
         self.trainBtn.setAcceptDrops(False)
         self.trainBtn.setAutoFillBackground(False)
         self.trainBtn.setStyleSheet("\n"
-"                            background-color: rgb(0, 0, 20);\n"
-"                            font: 75 16pt \"Sitka Small\";\n"
-"                            color: rgb(255, 255, 255);\n"
-"                            border-width: 3px;\n"
-"                            border-radius: 30px;\n"
-"                            border-color: rgb(255, 255, 255);\n"
-"                            border-style: solid;\n"
-"                        ")
+                                    "                            background-color: rgb(0, 0, 20);\n"
+                                    "                            font: 75 16pt \"Sitka Small\";\n"
+                                    "                            color: rgb(255, 255, 255);\n"
+                                    "                            border-width: 3px;\n"
+                                    "                            border-radius: 30px;\n"
+                                    "                            border-color: rgb(255, 255, 255);\n"
+                                    "                            border-style: solid;\n"
+                                    "                        ")
         self.trainBtn.setCheckable(False)
         self.trainBtn.setAutoDefault(False)
         self.trainBtn.setDefault(False)
@@ -132,17 +132,18 @@ class Ui_TrainModelWindow(object):
         self.backBtn.setAcceptDrops(False)
         self.backBtn.setAutoFillBackground(False)
         self.backBtn.setStyleSheet("\n"
-"                            background-color: rgb(159, 0, 0);\n"
-"                            font: 75 16pt \"Sitka Small\";\n"
-"                            color: rgb(255, 255, 255);\n"
-"                            border-width: 3px;\n"
-"                            border-radius: 30px;\n"
-"                            border-color: rgb(255, 255, 255);\n"
-"                            border-style: solid;\n"
-"                        ")
+                                   "                            background-color: rgb(159, 0, 0);\n"
+                                   "                            font: 75 16pt \"Sitka Small\";\n"
+                                   "                            color: rgb(255, 255, 255);\n"
+                                   "                            border-width: 3px;\n"
+                                   "                            border-radius: 30px;\n"
+                                   "                            border-color: rgb(255, 255, 255);\n"
+                                   "                            border-style: solid;\n"
+                                   "                        ")
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap("D:/My Documents/Studies/Semester_9/פרויקט מסכם - שלב\n"
-"                                ב/icons/pnghut_arrow-icon-direction-left-logo-text.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+                                     "                                ב/icons/pnghut_arrow-icon-direction-left-logo-text.png"),
+                       QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.backBtn.setIcon(icon)
         self.backBtn.setIconSize(QtCore.QSize(24, 24))
         self.backBtn.setCheckable(False)
@@ -161,14 +162,14 @@ class Ui_TrainModelWindow(object):
         self.verticalFrame1.setFont(font)
         self.verticalFrame1.setAutoFillBackground(False)
         self.verticalFrame1.setStyleSheet("border-width: 3px;\n"
-"                            border-radius: 15px;\n"
-"                            border-color: rgb(0, 0, 0);\n"
-"                            border-style: solid;\n"
-"                            font: 8pt \"Sitka Small\";\n"
-"                            color: rgb(255, 255, 255);\n"
-"                            background-color: qlineargradient(spread:pad, x1:0.996, y1:0.0340909, x2:1, y2:0, stop:1\n"
-"                            rgba(0, 0, 32, 170));\n"
-"                        ")
+                                          "                            border-radius: 15px;\n"
+                                          "                            border-color: rgb(0, 0, 0);\n"
+                                          "                            border-style: solid;\n"
+                                          "                            font: 8pt \"Sitka Small\";\n"
+                                          "                            color: rgb(255, 255, 255);\n"
+                                          "                            background-color: qlineargradient(spread:pad, x1:0.996, y1:0.0340909, x2:1, y2:0, stop:1\n"
+                                          "                            rgba(0, 0, 32, 170));\n"
+                                          "                        ")
         self.verticalFrame1.setObjectName("verticalFrame1")
         self.verticalLayout = QtWidgets.QVBoxLayout(self.verticalFrame1)
         self.verticalLayout.setContentsMargins(18, 18, 18, 18)
@@ -192,12 +193,12 @@ class Ui_TrainModelWindow(object):
         self.questionBtn1111.setMouseTracking(False)
         self.questionBtn1111.setAutoFillBackground(False)
         self.questionBtn1111.setStyleSheet("background-color: rgb(0, 0, 127);\n"
-"                                                            background-color: rgb(0, 0, 50);\n"
-"                                                            border-width: 1px;\n"
-"                                                            border-radius: 14px;\n"
-"                                                            border-color: rgb(255, 255, 255);\n"
-"                                                            border-style: solid;\n"
-"                                                        ")
+                                           "                                                            background-color: rgb(0, 0, 50);\n"
+                                           "                                                            border-width: 1px;\n"
+                                           "                                                            border-radius: 14px;\n"
+                                           "                                                            border-color: rgb(255, 255, 255);\n"
+                                           "                                                            border-style: solid;\n"
+                                           "                                                        ")
         self.questionBtn1111.setText("")
         icon1 = QtGui.QIcon()
         icon1.addPixmap(QtGui.QPixmap("resources/question_icon2.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
@@ -215,12 +216,12 @@ class Ui_TrainModelWindow(object):
         self.questionBtn1121.setMouseTracking(False)
         self.questionBtn1121.setAutoFillBackground(False)
         self.questionBtn1121.setStyleSheet("background-color: rgb(0, 0, 127);\n"
-"                                                            background-color: rgb(0, 0, 50);\n"
-"                                                            border-width: 1px;\n"
-"                                                            border-radius: 14px;\n"
-"                                                            border-color: rgb(255, 255, 255);\n"
-"                                                            border-style: solid;\n"
-"                                                        ")
+                                           "                                                            background-color: rgb(0, 0, 50);\n"
+                                           "                                                            border-width: 1px;\n"
+                                           "                                                            border-radius: 14px;\n"
+                                           "                                                            border-color: rgb(255, 255, 255);\n"
+                                           "                                                            border-style: solid;\n"
+                                           "                                                        ")
         self.questionBtn1121.setText("")
         self.questionBtn1121.setIcon(icon1)
         self.questionBtn1121.setObjectName("questionBtn1121")
@@ -236,12 +237,12 @@ class Ui_TrainModelWindow(object):
         self.questionBtn1131.setMouseTracking(False)
         self.questionBtn1131.setAutoFillBackground(False)
         self.questionBtn1131.setStyleSheet("background-color: rgb(0, 0, 127);\n"
-"                                                            background-color: rgb(0, 0, 50);\n"
-"                                                            border-width: 1px;\n"
-"                                                            border-radius: 14px;\n"
-"                                                            border-color: rgb(255, 255, 255);\n"
-"                                                            border-style: solid;\n"
-"                                                        ")
+                                           "                                                            background-color: rgb(0, 0, 50);\n"
+                                           "                                                            border-width: 1px;\n"
+                                           "                                                            border-radius: 14px;\n"
+                                           "                                                            border-color: rgb(255, 255, 255);\n"
+                                           "                                                            border-style: solid;\n"
+                                           "                                                        ")
         self.questionBtn1131.setText("")
         self.questionBtn1131.setIcon(icon1)
         self.questionBtn1131.setObjectName("questionBtn1131")
@@ -258,12 +259,12 @@ class Ui_TrainModelWindow(object):
         self.horizontalLayout121.setObjectName("horizontalLayout121")
         self.path1211 = QtWidgets.QLineEdit(self.verticalGroupBox12)
         self.path1211.setStyleSheet("border-width: 3px;\n"
-"                                                            border-radius: 5px;\n"
-"                                                            border-color: rgb(0, 0, 0);\n"
-"                                                            border-style: solid;\n"
-"                                                            background-color: rgb(188, 188, 188);\n"
-"                                                            color: rgb(0, 0, 0);\n"
-"                                                        ")
+                                    "                                                            border-radius: 5px;\n"
+                                    "                                                            border-color: rgb(0, 0, 0);\n"
+                                    "                                                            border-style: solid;\n"
+                                    "                                                            background-color: rgb(188, 188, 188);\n"
+                                    "                                                            color: rgb(0, 0, 0);\n"
+                                    "                                                        ")
         self.path1211.setObjectName("path1211")
         self.horizontalLayout121.addWidget(self.path1211)
         self.uploadBtn1212 = QtWidgets.QToolButton(self.verticalGroupBox12)
@@ -271,11 +272,11 @@ class Ui_TrainModelWindow(object):
         self.uploadBtn1212.setMouseTracking(False)
         self.uploadBtn1212.setAutoFillBackground(False)
         self.uploadBtn1212.setStyleSheet("background-color: rgb(212, 212, 212);\n"
-"                                                            border-width: 3px;\n"
-"                                                            border-radius: 5px;\n"
-"                                                            border-color: rgb(0, 0, 0);\n"
-"                                                            border-style: solid;\n"
-"                                                        ")
+                                         "                                                            border-width: 3px;\n"
+                                         "                                                            border-radius: 5px;\n"
+                                         "                                                            border-color: rgb(0, 0, 0);\n"
+                                         "                                                            border-style: solid;\n"
+                                         "                                                        ")
         self.uploadBtn1212.setText("")
         icon2 = QtGui.QIcon()
         icon2.addPixmap(QtGui.QPixmap("resources/upload_icon.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
@@ -291,12 +292,12 @@ class Ui_TrainModelWindow(object):
         self.horizontalLayout122.addWidget(self.label1222)
         self.columnName1221 = QtWidgets.QTextEdit(self.verticalGroupBox12)
         self.columnName1221.setStyleSheet("border-width: 3px;\n"
-"                                                            border-radius: 5px;\n"
-"                                                            border-color: rgb(0, 0, 0);\n"
-"                                                            border-style: solid;\n"
-"                                                            background-color: rgb(188, 188, 188);\n"
-"                                                            color: rgb(0, 0, 0);\n"
-"                                                        ")
+                                          "                                                            border-radius: 5px;\n"
+                                          "                                                            border-color: rgb(0, 0, 0);\n"
+                                          "                                                            border-style: solid;\n"
+                                          "                                                            background-color: rgb(188, 188, 188);\n"
+                                          "                                                            color: rgb(0, 0, 0);\n"
+                                          "                                                        ")
         self.columnName1221.setObjectName("columnName1221")
         self.horizontalLayout122.addWidget(self.columnName1221)
         self.questionBtn1223 = QtWidgets.QToolButton(self.verticalGroupBox12)
@@ -304,12 +305,12 @@ class Ui_TrainModelWindow(object):
         self.questionBtn1223.setMouseTracking(False)
         self.questionBtn1223.setAutoFillBackground(False)
         self.questionBtn1223.setStyleSheet("background-color: rgb(0, 0, 127);\n"
-"                                                            background-color: rgb(0, 0, 50);\n"
-"                                                            border-width: 1px;\n"
-"                                                            border-radius: 14px;\n"
-"                                                            border-color: rgb(255, 255, 255);\n"
-"                                                            border-style: solid;\n"
-"                                                        ")
+                                           "                                                            background-color: rgb(0, 0, 50);\n"
+                                           "                                                            border-width: 1px;\n"
+                                           "                                                            border-radius: 14px;\n"
+                                           "                                                            border-color: rgb(255, 255, 255);\n"
+                                           "                                                            border-style: solid;\n"
+                                           "                                                        ")
         self.questionBtn1223.setText("")
         self.questionBtn1223.setIcon(icon1)
         self.questionBtn1223.setObjectName("questionBtn1223")
@@ -329,12 +330,12 @@ class Ui_TrainModelWindow(object):
         self.horizontalLayout131.addWidget(self.label1311)
         self.path1312 = QtWidgets.QLineEdit(self.verticalGroupBox13)
         self.path1312.setStyleSheet("border-width: 3px;\n"
-"                                                            border-radius: 5px;\n"
-"                                                            border-color: rgb(0, 0, 0);\n"
-"                                                            border-style: solid;\n"
-"                                                            background-color: rgb(188, 188, 188);\n"
-"                                                            color: rgb(0, 0, 0);\n"
-"                                                        ")
+                                    "                                                            border-radius: 5px;\n"
+                                    "                                                            border-color: rgb(0, 0, 0);\n"
+                                    "                                                            border-style: solid;\n"
+                                    "                                                            background-color: rgb(188, 188, 188);\n"
+                                    "                                                            color: rgb(0, 0, 0);\n"
+                                    "                                                        ")
         self.path1312.setObjectName("path1312")
         self.horizontalLayout131.addWidget(self.path1312)
         self.uploadBtn1313 = QtWidgets.QToolButton(self.verticalGroupBox13)
@@ -342,11 +343,11 @@ class Ui_TrainModelWindow(object):
         self.uploadBtn1313.setMouseTracking(False)
         self.uploadBtn1313.setAutoFillBackground(False)
         self.uploadBtn1313.setStyleSheet("background-color: rgb(212, 212, 212);\n"
-"                                                            border-width: 3px;\n"
-"                                                            border-radius: 5px;\n"
-"                                                            border-color: rgb(0, 0, 0);\n"
-"                                                            border-style: solid;\n"
-"                                                        ")
+                                         "                                                            border-width: 3px;\n"
+                                         "                                                            border-radius: 5px;\n"
+                                         "                                                            border-color: rgb(0, 0, 0);\n"
+                                         "                                                            border-style: solid;\n"
+                                         "                                                        ")
         self.uploadBtn1313.setText("")
         self.uploadBtn1313.setIcon(icon2)
         self.uploadBtn1313.setObjectName("uploadBtn1313")
@@ -359,12 +360,12 @@ class Ui_TrainModelWindow(object):
         self.horizontalLayout132.addWidget(self.label1321)
         self.path1322 = QtWidgets.QLineEdit(self.verticalGroupBox13)
         self.path1322.setStyleSheet("border-width: 3px;\n"
-"                                                            border-radius: 5px;\n"
-"                                                            border-color: rgb(0, 0, 0);\n"
-"                                                            border-style: solid;\n"
-"                                                            background-color: rgb(188, 188, 188);\n"
-"                                                            color: rgb(0, 0, 0);\n"
-"                                                        ")
+                                    "                                                            border-radius: 5px;\n"
+                                    "                                                            border-color: rgb(0, 0, 0);\n"
+                                    "                                                            border-style: solid;\n"
+                                    "                                                            background-color: rgb(188, 188, 188);\n"
+                                    "                                                            color: rgb(0, 0, 0);\n"
+                                    "                                                        ")
         self.path1322.setObjectName("path1322")
         self.horizontalLayout132.addWidget(self.path1322)
         self.uploadBtn1323 = QtWidgets.QToolButton(self.verticalGroupBox13)
@@ -372,11 +373,11 @@ class Ui_TrainModelWindow(object):
         self.uploadBtn1323.setMouseTracking(False)
         self.uploadBtn1323.setAutoFillBackground(False)
         self.uploadBtn1323.setStyleSheet("background-color: rgb(212, 212, 212);\n"
-"                                                            border-width: 3px;\n"
-"                                                            border-radius: 5px;\n"
-"                                                            border-color: rgb(0, 0, 0);\n"
-"                                                            border-style: solid;\n"
-"                                                        ")
+                                         "                                                            border-width: 3px;\n"
+                                         "                                                            border-radius: 5px;\n"
+                                         "                                                            border-color: rgb(0, 0, 0);\n"
+                                         "                                                            border-style: solid;\n"
+                                         "                                                        ")
         self.uploadBtn1323.setText("")
         self.uploadBtn1323.setIcon(icon2)
         self.uploadBtn1323.setObjectName("uploadBtn1323")
@@ -389,12 +390,12 @@ class Ui_TrainModelWindow(object):
         self.horizontalLayout133.addWidget(self.label1331)
         self.seperator1333 = QtWidgets.QTextEdit(self.verticalGroupBox13)
         self.seperator1333.setStyleSheet("border-width: 3px;\n"
-"                                                            border-radius: 5px;\n"
-"                                                            border-color: rgb(0, 0, 0);\n"
-"                                                            border-style: solid;\n"
-"                                                            background-color: rgb(188, 188, 188);\n"
-"                                                            color: rgb(0, 0, 0);\n"
-"                                                        ")
+                                         "                                                            border-radius: 5px;\n"
+                                         "                                                            border-color: rgb(0, 0, 0);\n"
+                                         "                                                            border-style: solid;\n"
+                                         "                                                            background-color: rgb(188, 188, 188);\n"
+                                         "                                                            color: rgb(0, 0, 0);\n"
+                                         "                                                        ")
         self.seperator1333.setObjectName("seperator1333")
         self.horizontalLayout133.addWidget(self.seperator1333)
         self.questionBtn1332 = QtWidgets.QToolButton(self.verticalGroupBox13)
@@ -402,12 +403,12 @@ class Ui_TrainModelWindow(object):
         self.questionBtn1332.setMouseTracking(False)
         self.questionBtn1332.setAutoFillBackground(False)
         self.questionBtn1332.setStyleSheet("background-color: rgb(0, 0, 127);\n"
-"                                                            background-color: rgb(0, 0, 50);\n"
-"                                                            border-width: 1px;\n"
-"                                                            border-radius: 14px;\n"
-"                                                            border-color: rgb(255, 255, 255);\n"
-"                                                            border-style: solid;\n"
-"                                                        ")
+                                           "                                                            background-color: rgb(0, 0, 50);\n"
+                                           "                                                            border-width: 1px;\n"
+                                           "                                                            border-radius: 14px;\n"
+                                           "                                                            border-color: rgb(255, 255, 255);\n"
+                                           "                                                            border-style: solid;\n"
+                                           "                                                        ")
         self.questionBtn1332.setText("")
         self.questionBtn1332.setIcon(icon1)
         self.questionBtn1332.setObjectName("questionBtn1332")
@@ -429,12 +430,12 @@ class Ui_TrainModelWindow(object):
         self.horizontalLayout141.addWidget(self.label1411)
         self.path1412 = QtWidgets.QLineEdit(self.verticalGroupBox14)
         self.path1412.setStyleSheet("border-width: 3px;\n"
-"                                                            border-radius: 5px;\n"
-"                                                            border-color: rgb(0, 0, 0);\n"
-"                                                            border-style: solid;\n"
-"                                                            background-color: rgb(188, 188, 188);\n"
-"                                                            color: rgb(0, 0, 0);\n"
-"                                                        ")
+                                    "                                                            border-radius: 5px;\n"
+                                    "                                                            border-color: rgb(0, 0, 0);\n"
+                                    "                                                            border-style: solid;\n"
+                                    "                                                            background-color: rgb(188, 188, 188);\n"
+                                    "                                                            color: rgb(0, 0, 0);\n"
+                                    "                                                        ")
         self.path1412.setObjectName("path1412")
         self.horizontalLayout141.addWidget(self.path1412)
         self.uploadBtn1413 = QtWidgets.QToolButton(self.verticalGroupBox14)
@@ -442,11 +443,11 @@ class Ui_TrainModelWindow(object):
         self.uploadBtn1413.setMouseTracking(False)
         self.uploadBtn1413.setAutoFillBackground(False)
         self.uploadBtn1413.setStyleSheet("background-color: rgb(212, 212, 212);\n"
-"                                                            border-width: 3px;\n"
-"                                                            border-radius: 5px;\n"
-"                                                            border-color: rgb(0, 0, 0);\n"
-"                                                            border-style: solid;\n"
-"                                                        ")
+                                         "                                                            border-width: 3px;\n"
+                                         "                                                            border-radius: 5px;\n"
+                                         "                                                            border-color: rgb(0, 0, 0);\n"
+                                         "                                                            border-style: solid;\n"
+                                         "                                                        ")
         self.uploadBtn1413.setText("")
         self.uploadBtn1413.setIcon(icon2)
         self.uploadBtn1413.setObjectName("uploadBtn1413")
@@ -461,12 +462,12 @@ class Ui_TrainModelWindow(object):
         self.horizontalLayout142.addWidget(self.label1421)
         self.path1422 = QtWidgets.QLineEdit(self.verticalGroupBox14)
         self.path1422.setStyleSheet("border-width: 3px;\n"
-"                                                            border-radius: 5px;\n"
-"                                                            border-color: rgb(0, 0, 0);\n"
-"                                                            border-style: solid;\n"
-"                                                            background-color: rgb(188, 188, 188);\n"
-"                                                            color: rgb(0, 0, 0);\n"
-"                                                        ")
+                                    "                                                            border-radius: 5px;\n"
+                                    "                                                            border-color: rgb(0, 0, 0);\n"
+                                    "                                                            border-style: solid;\n"
+                                    "                                                            background-color: rgb(188, 188, 188);\n"
+                                    "                                                            color: rgb(0, 0, 0);\n"
+                                    "                                                        ")
         self.path1422.setObjectName("path1422")
         self.horizontalLayout142.addWidget(self.path1422)
         self.uploadBtn1423 = QtWidgets.QToolButton(self.verticalGroupBox14)
@@ -474,11 +475,11 @@ class Ui_TrainModelWindow(object):
         self.uploadBtn1423.setMouseTracking(False)
         self.uploadBtn1423.setAutoFillBackground(False)
         self.uploadBtn1423.setStyleSheet("background-color: rgb(212, 212, 212);\n"
-"                                                            border-width: 3px;\n"
-"                                                            border-radius: 5px;\n"
-"                                                            border-color: rgb(0, 0, 0);\n"
-"                                                            border-style: solid;\n"
-"                                                        ")
+                                         "                                                            border-width: 3px;\n"
+                                         "                                                            border-radius: 5px;\n"
+                                         "                                                            border-color: rgb(0, 0, 0);\n"
+                                         "                                                            border-style: solid;\n"
+                                         "                                                        ")
         self.uploadBtn1423.setText("")
         self.uploadBtn1423.setIcon(icon2)
         self.uploadBtn1423.setObjectName("uploadBtn1423")
@@ -489,13 +490,13 @@ class Ui_TrainModelWindow(object):
         self.errorMsg.setGeometry(QtCore.QRect(20, 425, 81, 41))
         self.errorMsg.setLayoutDirection(QtCore.Qt.RightToLeft)
         self.errorMsg.setStyleSheet("background-color: qlineargradient(spread:pad, x1:0.983, y1:0.00568182,\n"
-"                            x2:0.996, y2:0, stop:1 rgba(48, 48, 48, 143));\n"
-"                            color: rgb(170, 0, 0);\n"
-"                            font: 75 8pt \"System\";\n"
-"                            border-radius: 10px;\n"
-"                            border-style: solid;\n"
-"                            border-width: 0px\n"
-"                        ")
+                                    "                            x2:0.996, y2:0, stop:1 rgba(48, 48, 48, 143));\n"
+                                    "                            color: rgb(170, 0, 0);\n"
+                                    "                            font: 75 8pt \"System\";\n"
+                                    "                            border-radius: 10px;\n"
+                                    "                            border-style: solid;\n"
+                                    "                            border-width: 0px\n"
+                                    "                        ")
         self.errorMsg.setObjectName("errorMsg")
         self.verticalFrame2 = QtWidgets.QFrame(self.groupBox)
         self.verticalFrame2.setGeometry(QtCore.QRect(20, 100, 310, 320))
@@ -508,14 +509,14 @@ class Ui_TrainModelWindow(object):
         self.verticalFrame2.setFont(font)
         self.verticalFrame2.setAutoFillBackground(False)
         self.verticalFrame2.setStyleSheet("border-width: 3px;\n"
-"                            border-radius: 15px;\n"
-"                            border-color: rgb(0, 0, 0);\n"
-"                            border-style: solid;\n"
-"                            font: 8pt \"Sitka Small\";\n"
-"                            color: rgb(255, 255, 255);\n"
-"                            background-color: qlineargradient(spread:pad, x1:0.996, y1:0.0340909, x2:1, y2:0, stop:1\n"
-"                            rgba(0, 0, 32, 170));\n"
-"                        ")
+                                          "                            border-radius: 15px;\n"
+                                          "                            border-color: rgb(0, 0, 0);\n"
+                                          "                            border-style: solid;\n"
+                                          "                            font: 8pt \"Sitka Small\";\n"
+                                          "                            color: rgb(255, 255, 255);\n"
+                                          "                            background-color: qlineargradient(spread:pad, x1:0.996, y1:0.0340909, x2:1, y2:0, stop:1\n"
+                                          "                            rgba(0, 0, 32, 170));\n"
+                                          "                        ")
         self.verticalFrame2.setObjectName("verticalFrame2")
         self.verticalLayout_3 = QtWidgets.QVBoxLayout(self.verticalFrame2)
         self.verticalLayout_3.setContentsMargins(18, 18, 18, 18)
@@ -536,12 +537,12 @@ class Ui_TrainModelWindow(object):
         self.horizontalLayout_3.setObjectName("horizontalLayout_3")
         self.authorName211 = QtWidgets.QTextEdit(self.horizontalGroupBox21)
         self.authorName211.setStyleSheet("border-width: 3px;\n"
-"                                                    border-radius: 5px;\n"
-"                                                    border-color: rgb(0, 0, 0);\n"
-"                                                    border-style: solid;\n"
-"                                                    background-color: rgb(188, 188, 188);\n"
-"                                                    color: rgb(0, 0, 0);\n"
-"                                                ")
+                                         "                                                    border-radius: 5px;\n"
+                                         "                                                    border-color: rgb(0, 0, 0);\n"
+                                         "                                                    border-style: solid;\n"
+                                         "                                                    background-color: rgb(188, 188, 188);\n"
+                                         "                                                    color: rgb(0, 0, 0);\n"
+                                         "                                                ")
         self.authorName211.setObjectName("authorName211")
         self.horizontalLayout_3.addWidget(self.authorName211)
         self.questionBtn212 = QtWidgets.QToolButton(self.horizontalGroupBox21)
@@ -549,12 +550,12 @@ class Ui_TrainModelWindow(object):
         self.questionBtn212.setMouseTracking(False)
         self.questionBtn212.setAutoFillBackground(False)
         self.questionBtn212.setStyleSheet("background-color: rgb(0, 0, 127);\n"
-"                                                    background-color: rgb(0, 0, 50);\n"
-"                                                    border-width: 1px;\n"
-"                                                    border-radius: 14px;\n"
-"                                                    border-color: rgb(255, 255, 255);\n"
-"                                                    border-style: solid;\n"
-"                                                ")
+                                          "                                                    background-color: rgb(0, 0, 50);\n"
+                                          "                                                    border-width: 1px;\n"
+                                          "                                                    border-radius: 14px;\n"
+                                          "                                                    border-color: rgb(255, 255, 255);\n"
+                                          "                                                    border-style: solid;\n"
+                                          "                                                ")
         self.questionBtn212.setText("")
         self.questionBtn212.setIcon(icon1)
         self.questionBtn212.setObjectName("questionBtn212")
@@ -574,12 +575,12 @@ class Ui_TrainModelWindow(object):
         self.horizontalLayout221.addWidget(self.label2211)
         self.trueLavel2213 = QtWidgets.QTextEdit(self.verticalGroupBox22)
         self.trueLavel2213.setStyleSheet("border-width: 3px;\n"
-"                                                            border-radius: 5px;\n"
-"                                                            border-color: rgb(0, 0, 0);\n"
-"                                                            border-style: solid;\n"
-"                                                            background-color: rgb(188, 188, 188);\n"
-"                                                            color: rgb(0, 0, 0);\n"
-"                                                        ")
+                                         "                                                            border-radius: 5px;\n"
+                                         "                                                            border-color: rgb(0, 0, 0);\n"
+                                         "                                                            border-style: solid;\n"
+                                         "                                                            background-color: rgb(188, 188, 188);\n"
+                                         "                                                            color: rgb(0, 0, 0);\n"
+                                         "                                                        ")
         self.trueLavel2213.setObjectName("trueLavel2213")
         self.horizontalLayout221.addWidget(self.trueLavel2213)
         self.questionBtn2212 = QtWidgets.QToolButton(self.verticalGroupBox22)
@@ -587,12 +588,12 @@ class Ui_TrainModelWindow(object):
         self.questionBtn2212.setMouseTracking(False)
         self.questionBtn2212.setAutoFillBackground(False)
         self.questionBtn2212.setStyleSheet("background-color: rgb(0, 0, 127);\n"
-"                                                            background-color: rgb(0, 0, 50);\n"
-"                                                            border-width: 1px;\n"
-"                                                            border-radius: 14px;\n"
-"                                                            border-color: rgb(255, 255, 255);\n"
-"                                                            border-style: solid;\n"
-"                                                        ")
+                                           "                                                            background-color: rgb(0, 0, 50);\n"
+                                           "                                                            border-width: 1px;\n"
+                                           "                                                            border-radius: 14px;\n"
+                                           "                                                            border-color: rgb(255, 255, 255);\n"
+                                           "                                                            border-style: solid;\n"
+                                           "                                                        ")
         self.questionBtn2212.setText("")
         self.questionBtn2212.setIcon(icon1)
         self.questionBtn2212.setObjectName("questionBtn2212")
@@ -606,12 +607,12 @@ class Ui_TrainModelWindow(object):
         self.horizontalLayout222.addWidget(self.label2222)
         self.fakeLabel2221 = QtWidgets.QTextEdit(self.verticalGroupBox22)
         self.fakeLabel2221.setStyleSheet("border-width: 3px;\n"
-"                                                            border-radius: 5px;\n"
-"                                                            border-color: rgb(0, 0, 0);\n"
-"                                                            border-style: solid;\n"
-"                                                            background-color: rgb(188, 188, 188);\n"
-"                                                            color: rgb(0, 0, 0);\n"
-"                                                        ")
+                                         "                                                            border-radius: 5px;\n"
+                                         "                                                            border-color: rgb(0, 0, 0);\n"
+                                         "                                                            border-style: solid;\n"
+                                         "                                                            background-color: rgb(188, 188, 188);\n"
+                                         "                                                            color: rgb(0, 0, 0);\n"
+                                         "                                                        ")
         self.fakeLabel2221.setObjectName("fakeLabel2221")
         self.horizontalLayout222.addWidget(self.fakeLabel2221)
         self.questionBtn2223 = QtWidgets.QToolButton(self.verticalGroupBox22)
@@ -619,12 +620,12 @@ class Ui_TrainModelWindow(object):
         self.questionBtn2223.setMouseTracking(False)
         self.questionBtn2223.setAutoFillBackground(False)
         self.questionBtn2223.setStyleSheet("background-color: rgb(0, 0, 127);\n"
-"                                                            background-color: rgb(0, 0, 50);\n"
-"                                                            border-width: 1px;\n"
-"                                                            border-radius: 14px;\n"
-"                                                            border-color: rgb(255, 255, 255);\n"
-"                                                            border-style: solid;\n"
-"                                                        ")
+                                           "                                                            background-color: rgb(0, 0, 50);\n"
+                                           "                                                            border-width: 1px;\n"
+                                           "                                                            border-radius: 14px;\n"
+                                           "                                                            border-color: rgb(255, 255, 255);\n"
+                                           "                                                            border-style: solid;\n"
+                                           "                                                        ")
         self.questionBtn2223.setText("")
         self.questionBtn2223.setIcon(icon1)
         self.questionBtn2223.setObjectName("questionBtn2223")
@@ -664,6 +665,7 @@ class Ui_TrainModelWindow(object):
 
 if __name__ == "__main__":
     import sys
+
     app = QtWidgets.QApplication(sys.argv)
     TrainModelWindow = QtWidgets.QMainWindow()
     ui = Ui_TrainModelWindow()

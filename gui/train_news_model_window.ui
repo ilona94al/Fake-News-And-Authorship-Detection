@@ -359,10 +359,10 @@
     <widget class="QFrame" name="verticalFrame1">
      <property name="geometry">
       <rect>
-       <x>395</x>
+       <x>420</x>
        <y>100</y>
-       <width>391</width>
-       <height>321</height>
+       <width>370</width>
+       <height>320</height>
       </rect>
      </property>
      <property name="font">
@@ -584,7 +584,7 @@ font: 8pt &quot;Sitka Small&quot;;</string>
       <item>
        <widget class="QGroupBox" name="verticalGroupBox12">
         <property name="styleSheet">
-         <string notr="true">
+         <string notr="true">border-width: 2px;
 font: 10pt &quot;Sitka Small&quot;;</string>
         </property>
         <property name="title">
@@ -883,7 +883,7 @@ font: 8pt &quot;Sitka Small&quot;;</string>
      <property name="geometry">
       <rect>
        <x>280</x>
-       <y>420</y>
+       <y>490</y>
        <width>81</width>
        <height>41</height>
       </rect>
@@ -913,8 +913,8 @@ font: 8pt &quot;Sitka Small&quot;;</string>
       <rect>
        <x>10</x>
        <y>100</y>
-       <width>375</width>
-       <height>200</height>
+       <width>400</width>
+       <height>180</height>
       </rect>
      </property>
      <property name="font">
@@ -1000,6 +1000,142 @@ font: 8pt &quot;Sitka Small&quot;;</string>
             <widget class="QRadioButton" name="radioButton2121">
              <property name="text">
               <string>Two seperated SCV files for each label</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QFrame" name="verticalFrame3">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>290</y>
+       <width>400</width>
+       <height>130</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Sitka Small</family>
+       <pointsize>8</pointsize>
+       <weight>50</weight>
+       <italic>false</italic>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="autoFillBackground">
+      <bool>false</bool>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border-width: 3px;
+                            border-radius: 15px;
+                            border-color: rgb(0, 0, 0);
+                            border-style: solid;
+                            font: 8pt &quot;Sitka Small&quot;;
+                            color: rgb(255, 255, 255);
+                            background-color: qlineargradient(spread:pad, x1:0.996, y1:0.0340909, x2:1, y2:0, stop:1
+                            rgba(0, 0, 32, 170));
+                        </string>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_4">
+      <property name="spacing">
+       <number>10</number>
+      </property>
+      <property name="leftMargin">
+       <number>10</number>
+      </property>
+      <property name="topMargin">
+       <number>10</number>
+      </property>
+      <property name="rightMargin">
+       <number>10</number>
+      </property>
+      <property name="bottomMargin">
+       <number>10</number>
+      </property>
+      <item>
+       <widget class="QGroupBox" name="verticalGroupBox31">
+        <property name="styleSheet">
+         <string notr="true">border-width: 2px;
+font: 8pt &quot;Sitka Small&quot;;</string>
+        </property>
+        <property name="title">
+         <string>Training Hyperparameters:</string>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout_7" stretch="0">
+         <property name="spacing">
+          <number>2</number>
+         </property>
+         <property name="leftMargin">
+          <number>5</number>
+         </property>
+         <property name="topMargin">
+          <number>36</number>
+         </property>
+         <property name="rightMargin">
+          <number>5</number>
+         </property>
+         <property name="bottomMargin">
+          <number>18</number>
+         </property>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout311">
+           <item>
+            <widget class="QLabel" name="label3111">
+             <property name="styleSheet">
+              <string notr="true">border-width: 0px;
+</string>
+             </property>
+             <property name="text">
+              <string>Epoch:</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="inputEpoch3112">
+             <property name="styleSheet">
+              <string notr="true">border-width: 3px;
+                                                            border-radius: 5px;
+                                                            border-color: rgb(0, 0, 0);
+                                                            border-style: solid;
+                                                            background-color: rgb(188, 188, 188);
+                                                            color: rgb(0, 0, 0);
+                                                        </string>
+             </property>
+             <property name="placeholderText">
+              <string>15</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="label3113">
+             <property name="styleSheet">
+              <string notr="true">border-width: 0px;
+</string>
+             </property>
+             <property name="text">
+              <string>Batch size:</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="inputBatchSz3114">
+             <property name="styleSheet">
+              <string notr="true">border-width: 3px;
+                                                            border-radius: 5px;
+                                                            border-color: rgb(0, 0, 0);
+                                                            border-style: solid;
+                                                            background-color: rgb(188, 188, 188);
+                                                            color: rgb(0, 0, 0);
+                                                        </string>
+             </property>
+             <property name="placeholderText">
+              <string>10</string>
              </property>
             </widget>
            </item>

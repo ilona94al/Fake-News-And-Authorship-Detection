@@ -151,7 +151,7 @@ class Ui_TrainNewsModelWindow(object):
         self.backBtn.setFlat(False)
         self.backBtn.setObjectName("backBtn")
         self.verticalFrame1 = QtWidgets.QFrame(self.groupBox)
-        self.verticalFrame1.setGeometry(QtCore.QRect(395, 100, 391, 321))
+        self.verticalFrame1.setGeometry(QtCore.QRect(420, 100, 370, 320))
         font = QtGui.QFont()
         font.setFamily("Sitka Small")
         font.setPointSize(8)
@@ -268,7 +268,7 @@ class Ui_TrainNewsModelWindow(object):
         self.verticalLayout_6.addWidget(self.inputTextColumnName113)
         self.verticalLayout.addWidget(self.verticalGroupBox11)
         self.verticalGroupBox12 = QtWidgets.QGroupBox(self.verticalFrame1)
-        self.verticalGroupBox12.setStyleSheet("\n"
+        self.verticalGroupBox12.setStyleSheet("border-width: 2px;\n"
 "font: 10pt \"Sitka Small\";")
         self.verticalGroupBox12.setObjectName("verticalGroupBox12")
         self.verticalLayout_5 = QtWidgets.QVBoxLayout(self.verticalGroupBox12)
@@ -419,7 +419,7 @@ class Ui_TrainNewsModelWindow(object):
         self.verticalLayout_5.addLayout(self.horizontalLayout125)
         self.verticalLayout.addWidget(self.verticalGroupBox12)
         self.errorMsg = QtWidgets.QLabel(self.groupBox)
-        self.errorMsg.setGeometry(QtCore.QRect(280, 420, 81, 41))
+        self.errorMsg.setGeometry(QtCore.QRect(280, 490, 81, 41))
         self.errorMsg.setLayoutDirection(QtCore.Qt.RightToLeft)
         self.errorMsg.setStyleSheet("background-color: qlineargradient(spread:pad, x1:0.983, y1:0.00568182,\n"
 "                            x2:0.996, y2:0, stop:1 rgba(48, 48, 48, 143));\n"
@@ -431,7 +431,7 @@ class Ui_TrainNewsModelWindow(object):
 "                        ")
         self.errorMsg.setObjectName("errorMsg")
         self.verticalFrame2 = QtWidgets.QFrame(self.groupBox)
-        self.verticalFrame2.setGeometry(QtCore.QRect(10, 100, 375, 200))
+        self.verticalFrame2.setGeometry(QtCore.QRect(10, 100, 400, 180))
         font = QtGui.QFont()
         font.setFamily("Sitka Small")
         font.setPointSize(8)
@@ -475,6 +475,72 @@ class Ui_TrainNewsModelWindow(object):
         self.horizontalLayout212.addWidget(self.radioButton2121)
         self.verticalLayout_2.addLayout(self.horizontalLayout212)
         self.verticalLayout_3.addWidget(self.verticalGroupBox21)
+        self.verticalFrame3 = QtWidgets.QFrame(self.groupBox)
+        self.verticalFrame3.setGeometry(QtCore.QRect(10, 290, 400, 130))
+        font = QtGui.QFont()
+        font.setFamily("Sitka Small")
+        font.setPointSize(8)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setWeight(50)
+        self.verticalFrame3.setFont(font)
+        self.verticalFrame3.setAutoFillBackground(False)
+        self.verticalFrame3.setStyleSheet("border-width: 3px;\n"
+"                            border-radius: 15px;\n"
+"                            border-color: rgb(0, 0, 0);\n"
+"                            border-style: solid;\n"
+"                            font: 8pt \"Sitka Small\";\n"
+"                            color: rgb(255, 255, 255);\n"
+"                            background-color: qlineargradient(spread:pad, x1:0.996, y1:0.0340909, x2:1, y2:0, stop:1\n"
+"                            rgba(0, 0, 32, 170));\n"
+"                        ")
+        self.verticalFrame3.setObjectName("verticalFrame3")
+        self.verticalLayout_4 = QtWidgets.QVBoxLayout(self.verticalFrame3)
+        self.verticalLayout_4.setContentsMargins(10, 10, 10, 10)
+        self.verticalLayout_4.setSpacing(10)
+        self.verticalLayout_4.setObjectName("verticalLayout_4")
+        self.verticalGroupBox31 = QtWidgets.QGroupBox(self.verticalFrame3)
+        self.verticalGroupBox31.setStyleSheet("border-width: 2px;\n"
+"font: 8pt \"Sitka Small\";")
+        self.verticalGroupBox31.setObjectName("verticalGroupBox31")
+        self.verticalLayout_7 = QtWidgets.QVBoxLayout(self.verticalGroupBox31)
+        self.verticalLayout_7.setContentsMargins(5, 36, 5, 18)
+        self.verticalLayout_7.setSpacing(2)
+        self.verticalLayout_7.setObjectName("verticalLayout_7")
+        self.horizontalLayout311 = QtWidgets.QHBoxLayout()
+        self.horizontalLayout311.setObjectName("horizontalLayout311")
+        self.label3111 = QtWidgets.QLabel(self.verticalGroupBox31)
+        self.label3111.setStyleSheet("border-width: 0px;\n"
+"")
+        self.label3111.setObjectName("label3111")
+        self.horizontalLayout311.addWidget(self.label3111)
+        self.inputEpoch3112 = QtWidgets.QLineEdit(self.verticalGroupBox31)
+        self.inputEpoch3112.setStyleSheet("border-width: 3px;\n"
+"                                                            border-radius: 5px;\n"
+"                                                            border-color: rgb(0, 0, 0);\n"
+"                                                            border-style: solid;\n"
+"                                                            background-color: rgb(188, 188, 188);\n"
+"                                                            color: rgb(0, 0, 0);\n"
+"                                                        ")
+        self.inputEpoch3112.setObjectName("inputEpoch3112")
+        self.horizontalLayout311.addWidget(self.inputEpoch3112)
+        self.label3113 = QtWidgets.QLabel(self.verticalGroupBox31)
+        self.label3113.setStyleSheet("border-width: 0px;\n"
+"")
+        self.label3113.setObjectName("label3113")
+        self.horizontalLayout311.addWidget(self.label3113)
+        self.inputBatchSz3114 = QtWidgets.QLineEdit(self.verticalGroupBox31)
+        self.inputBatchSz3114.setStyleSheet("border-width: 3px;\n"
+"                                                            border-radius: 5px;\n"
+"                                                            border-color: rgb(0, 0, 0);\n"
+"                                                            border-style: solid;\n"
+"                                                            background-color: rgb(188, 188, 188);\n"
+"                                                            color: rgb(0, 0, 0);\n"
+"                                                        ")
+        self.inputBatchSz3114.setObjectName("inputBatchSz3114")
+        self.horizontalLayout311.addWidget(self.inputBatchSz3114)
+        self.verticalLayout_7.addLayout(self.horizontalLayout311)
+        self.verticalLayout_4.addWidget(self.verticalGroupBox31)
         TrainNewsModelWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(TrainNewsModelWindow)
@@ -499,6 +565,11 @@ class Ui_TrainNewsModelWindow(object):
         self.verticalGroupBox21.setTitle(_translate("TrainNewsModelWindow", "Choose a relevant format of your DB:"))
         self.radioButton2111.setText(_translate("TrainNewsModelWindow", "CSV File with column for label"))
         self.radioButton2121.setText(_translate("TrainNewsModelWindow", "Two seperated SCV files for each label"))
+        self.verticalGroupBox31.setTitle(_translate("TrainNewsModelWindow", "Training Hyperparameters:"))
+        self.label3111.setText(_translate("TrainNewsModelWindow", "Epoch:"))
+        self.inputEpoch3112.setPlaceholderText(_translate("TrainNewsModelWindow", "15"))
+        self.label3113.setText(_translate("TrainNewsModelWindow", "Batch size:"))
+        self.inputBatchSz3114.setPlaceholderText(_translate("TrainNewsModelWindow", "10"))
 
 
 if __name__ == "__main__":

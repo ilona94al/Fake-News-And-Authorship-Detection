@@ -170,7 +170,7 @@ def build_model():
 
 def fit_model(model, x_train, y_train_prob, x_valid, y_valid_prob):
     # Train the model
-    history = model.fit(x_train, y_train_prob, validation_data=(x_valid, y_valid_prob), batch_size=10, epochs=2)
+    history = model.fit(x_train, y_train_prob, validation_data=(x_valid, y_valid_prob), batch_size=10, epochs=15)
     _, accuracy = model.evaluate(x_valid, y_valid_prob, verbose=0)
     print("Accuracy of test groups:", accuracy)
     return model, history
@@ -190,140 +190,25 @@ config_512tokens = {
 
 config = config_128tokens
 
-fake_news = read_file_into_array('database/fakenews/db1/fake50.csv')
-real_news = read_file_into_array('database/fakenews/db1/true50.csv')
-
-real_texts = []
-for tweet in real_news:
-    preprocessed_text = text_preprocessing(tweet)
-    tweet_blocks = seperate_to_blocks(preprocessed_text)
-    real_texts.extend((block for block in tweet_blocks))
-
-fake_texts = []
-for tweet in fake_news:
-    preprocessed_text = text_preprocessing(tweet)
-    tweet_blocks = seperate_to_blocks(preprocessed_text)
-    fake_texts.extend((block for block in tweet_blocks))
-
-texts = real_texts + fake_texts
-
-# define original classification
-y_expected = define_expected_classification(len(real_texts), len(texts))
-
-x_train, x, y_train, y = train_test_split(texts, y_expected, train_size=0.7)
-x_test, x_valid, y_test, y_valid = train_test_split(x, y, train_size=0.5)
-
-y_train_prob = np_utils.to_categorical(y_train)
-y_test_prob = np_utils.to_categorical(y_test)
-y_valid_prob = np_utils.to_categorical(y_valid)
-num_classes = y_train_prob.shape[1]
-
-new_model = True
-model_name = 'FakeBERTModel.h5'
-trained_model_name = 'TrainedFakeBERTModel.h5'
-if new_model == True:
-    model = build_model()
-    model.save(model_name)
-    model, history = fit_model(model, tf.constant(x_train), y_train_prob, tf.constant(x_valid), y_valid_prob)
-    model.save(trained_model_name)
-else:
-    model = tf.keras.models.load_model(trained_model_name, custom_objects={'KerasLayer': hub.KerasLayer})
-
-_, accuracy = model.evaluate(tf.constant(x_test), y_test_prob, verbose=0)
-print("Accuracy of evaluate new test groups:", accuracy)
-
-Y_predicted_prob = model.predict(tf.constant(x_test))
-Y_predicted = np.argmax(Y_predicted_prob, -1)
-count_well_predicted = np.count_nonzero([y_test == Y_predicted])
-
-print("Number of true predicts:", count_well_predicted)
-print("Number of false predicts:", Y_predicted.shape[0] - count_well_predicted)
-
-#-------- Showing results of model training and validation---------------#
-
-import matplotlib.pyplot as plt
-
-plt.plot(history.history['accuracy'])
-plt.plot(history.history['val_accuracy'])
-plt.plot(accuracy)
-plt.title('Model accuracy in epoch')
-plt.ylabel('Accuracy')
-plt.xlabel('Epoch')
-plt.legend(['Train', 'Validation'], loc='upper left')
-plt.show()
-plt.savefig('ModelAcc.png')
-plt.savefig('plots\ModelAcc.png')
-
-plt.plot(history.history['loss'])
-plt.plot(history.history['val_loss'])
-plt.plot(accuracy)
-plt.title('Model loss in epoch')
-plt.ylabel('Loss')
-plt.xlabel('Epoch')
-plt.legend(['Train', 'Validation'], loc='upper left')
-plt.show()
-plt.savefig('ModelLoss.png')
-plt.savefig('plots\ModelLoss.png')
+# fake_news = read_file_into_array('database/fakenews/db1/fake50.csv')
+# real_news = read_file_into_array('database/fakenews/db1/true50.csv')
 #
-# # ------------------------------------
-# import os
-# import re
+# real_texts = []
+# for tweet in real_news:
+#     preprocessed_text = text_preprocessing(tweet)
+#     tweet_blocks = seperate_to_blocks(preprocessed_text)
+#     real_texts.extend((block for block in tweet_blocks))
 #
-# from nltk import word_tokenize
-# from nltk.corpus import stopwords
+# fake_texts = []
+# for tweet in fake_news:
+#     preprocessed_text = text_preprocessing(tweet)
+#     tweet_blocks = seperate_to_blocks(preprocessed_text)
+#     fake_texts.extend((block for block in tweet_blocks))
 #
-#
-# def read_books_of_specific_author(books_dir_path,author_name):
-#     res = []
-#
-#     for book_name in os.listdir(books_dir_path + '/' + author_name):
-#         if book_name.split('.')[1] == 'txt':
-#             book = read_book(books_dir_path,author_name, book_name)
-#             res.append(book)
-#
-#     return res
-#
-#
-# def read_books_of_various_authors(books_dir_path,name_to_ignore):
-#     res = []
-#
-#     for author_name in os.listdir(books_dir_path):
-#         if author_name != name_to_ignore:
-#             author_books = read_books_of_specific_author(books_dir_path,author_name)
-#             res.extend(book for book in author_books)
-#
-#     return res
-#
-#
-# def read_book(books_dir_path, writer_name, book_name):
-#     with open(books_dir_path + '/' + writer_name + '/' + book_name, 'r', encoding='UTF-8') as book_file:
-#         book_string = book_file.read()
-#         return book_string
-#
-#
-#
-#
-#
-# books_dir_path = 'database/books'
-#
-# author_books = read_books_of_specific_author(books_dir_path,author_name='shakespeare')
-# different_books = read_books_of_various_authors(books_dir_path,name_to_ignore='shakespeare')
-#
-# author_texts = []
-# for book in author_books:
-#     preprocessed_text = text_preprocessing(book)
-#     book_blocks = seperate_to_blocks(preprocessed_text)
-#     author_texts.extend(block for block in book_blocks)
-# diff_texts = []
-# for book in different_books:
-#     preprocessed_text = text_preprocessing(book)
-#     book_blocks = seperate_to_blocks(preprocessed_text)
-#     diff_texts.extend(block for block in book_blocks)
-#
-# texts = author_texts + diff_texts
+# texts = real_texts + fake_texts
 #
 # # define original classification
-# y_expected = define_expected_classification(len(author_texts), len(texts))
+# y_expected = define_expected_classification(len(real_texts), len(texts))
 #
 # x_train, x, y_train, y = train_test_split(texts, y_expected, train_size=0.7)
 # x_test, x_valid, y_test, y_valid = train_test_split(x, y, train_size=0.5)
@@ -333,11 +218,9 @@ plt.savefig('plots\ModelLoss.png')
 # y_valid_prob = np_utils.to_categorical(y_valid)
 # num_classes = y_train_prob.shape[1]
 #
-# # config = config_512tokens
-#
 # new_model = True
-# model_name = 'FakeBERTModelShakespeare.h5'
-# trained_model_name = 'TrainedFakeBERTModelShakespeare.h5'
+# model_name = 'FakeBERTModel.h5'
+# trained_model_name = 'TrainedFakeBERTModel.h5'
 # if new_model == True:
 #     model = build_model()
 #     model.save(model_name)
@@ -356,7 +239,7 @@ plt.savefig('plots\ModelLoss.png')
 # print("Number of true predicts:", count_well_predicted)
 # print("Number of false predicts:", Y_predicted.shape[0] - count_well_predicted)
 #
-# # -------- Showing results of model training and validation---------------#
+# #-------- Showing results of model training and validation---------------#
 #
 # import matplotlib.pyplot as plt
 #
@@ -368,6 +251,8 @@ plt.savefig('plots\ModelLoss.png')
 # plt.xlabel('Epoch')
 # plt.legend(['Train', 'Validation'], loc='upper left')
 # plt.show()
+# plt.savefig('ModelAcc.png')
+# plt.savefig('plots\ModelAcc.png')
 #
 # plt.plot(history.history['loss'])
 # plt.plot(history.history['val_loss'])
@@ -377,10 +262,127 @@ plt.savefig('plots\ModelLoss.png')
 # plt.xlabel('Epoch')
 # plt.legend(['Train', 'Validation'], loc='upper left')
 # plt.show()
-# plt.savefig('shekapereModelLoss.png')
-# plt.savefig('products\shkModellLoss.png')
+# plt.savefig('ModelLoss.png')
+# plt.savefig('plots\ModelLoss.png')
 #
-# #---------------------
+# # ------------------------------------
+import os
+import re
+
+from nltk import word_tokenize
+from nltk.corpus import stopwords
+
+
+def read_books_of_specific_author(books_dir_path,author_name):
+    res = []
+
+    for book_name in os.listdir(books_dir_path + '/' + author_name):
+        if book_name.split('.')[1] == 'txt':
+            book = read_book(books_dir_path,author_name, book_name)
+            res.append(book)
+
+    return res
+
+
+def read_books_of_various_authors(books_dir_path,name_to_ignore):
+    res = []
+
+    for author_name in os.listdir(books_dir_path):
+        if author_name != name_to_ignore:
+            author_books = read_books_of_specific_author(books_dir_path,author_name)
+            res.extend(book for book in author_books)
+
+    return res
+
+
+def read_book(books_dir_path, writer_name, book_name):
+    with open(books_dir_path + '/' + writer_name + '/' + book_name, 'r', encoding='UTF-8') as book_file:
+        book_string = book_file.read()
+        return book_string
+
+
+
+
+
+books_dir_path = 'database/books'
+
+author_books = read_books_of_specific_author(books_dir_path,author_name='shakespeare')
+different_books = read_books_of_various_authors(books_dir_path,name_to_ignore='shakespeare')
+
+author_texts = []
+for book in author_books:
+    preprocessed_text = text_preprocessing(book)
+    book_blocks = seperate_to_blocks(preprocessed_text)
+    author_texts.extend(block for block in book_blocks)
+diff_texts = []
+for book in different_books:
+    preprocessed_text = text_preprocessing(book)
+    book_blocks = seperate_to_blocks(preprocessed_text)
+    diff_texts.extend(block for block in book_blocks)
+
+texts = author_texts + diff_texts
+
+# define original classification
+y_expected = define_expected_classification(len(author_texts), len(texts))
+
+x_train, x, y_train, y = train_test_split(texts, y_expected, train_size=0.7)
+x_test, x_valid, y_test, y_valid = train_test_split(x, y, train_size=0.5)
+
+y_train_prob = np_utils.to_categorical(y_train)
+y_test_prob = np_utils.to_categorical(y_test)
+y_valid_prob = np_utils.to_categorical(y_valid)
+num_classes = y_train_prob.shape[1]
+
+# config = config_512tokens
+
+new_model = True
+model_name = 'FakeBERTModelShakespeare2.h5'
+trained_model_name = 'TrainedFakeBERTModelShakespeare2.h5'
+if new_model == True:
+    model = build_model()
+    model.save(model_name)
+    model, history = fit_model(model, tf.constant(x_train), y_train_prob, tf.constant(x_valid), y_valid_prob)
+    model.save(trained_model_name)
+else:
+    model = tf.keras.models.load_model(trained_model_name, custom_objects={'KerasLayer': hub.KerasLayer})
+
+_, accuracy = model.evaluate(tf.constant(x_test), y_test_prob, verbose=0)
+print("Accuracy of evaluate new test groups:", accuracy)
+
+Y_predicted_prob = model.predict(tf.constant(x_test))
+Y_predicted = np.argmax(Y_predicted_prob, -1)
+count_well_predicted = np.count_nonzero([y_test == Y_predicted])
+
+print("Number of true predicts:", count_well_predicted)
+print("Number of false predicts:", Y_predicted.shape[0] - count_well_predicted)
+
+# -------- Showing results of model training and validation---------------#
+
+import matplotlib.pyplot as plt
+
+plt.plot(history.history['accuracy'])
+plt.plot(history.history['val_accuracy'])
+plt.plot(accuracy)
+plt.title('Model accuracy in epoch')
+plt.ylabel('Accuracy')
+plt.xlabel('Epoch')
+plt.legend(['Train', 'Validation'], loc='upper left')
+plt.show()
+plt.savefig('ShakespeareModelAcc.png')
+#plt.savefig('plots\ShakespeareModelAcc.png')
+
+plt.plot(history.history['loss'])
+plt.plot(history.history['val_loss'])
+plt.plot(accuracy)
+plt.title('Model loss in epoch')
+plt.ylabel('Loss')
+plt.xlabel('Epoch')
+plt.legend(['Train', 'Validation'], loc='upper left')
+plt.show()
+plt.savefig('ShakespeareModelLoss.png')
+#plt.savefig('plots\ShakespeareModelLoss.png')
+
+#---------------------
 #
 # config = config_128tokens
 #
@@ -445,7 +447,7 @@ plt.savefig('plots\ModelLoss.png')
 # plt.legend(['Train', 'Validation'], loc='upper left')
 # plt.show()
 # plt.savefig('ModelAcc.png')
-# plt.savefig('products\ModelAcc.png')
+# plt.savefig('plots\ModelAcc.png')
 #
 # plt.plot(history.history['loss'])
 # plt.plot(history.history['val_loss'])

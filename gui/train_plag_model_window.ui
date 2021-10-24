@@ -362,7 +362,7 @@
        <x>140</x>
        <y>130</y>
        <width>520</width>
-       <height>240</height>
+       <height>291</height>
       </rect>
      </property>
      <property name="font">
@@ -413,7 +413,7 @@ font: 10pt &quot;Sitka Small&quot;;</string>
         <property name="title">
          <string>Author name:</string>
         </property>
-        <layout class="QVBoxLayout" name="verticalLayout_6" stretch="0,0,0">
+        <layout class="QVBoxLayout" name="verticalLayout_6" stretch="0,0,0,0,0">
          <property name="spacing">
           <number>2</number>
          </property>
@@ -441,6 +441,9 @@ font: 10pt &quot;Sitka Small&quot;;</string>
                                                 
 </string>
            </property>
+           <property name="placeholderText">
+            <string>William Shakespeare</string>
+           </property>
           </widget>
          </item>
          <item>
@@ -457,7 +460,7 @@ font: 10pt &quot;Sitka Small&quot;;</string>
          <item>
           <layout class="QHBoxLayout" name="horizontalLayout113">
            <item>
-            <widget class="QLineEdit" name="inputPath1111">
+            <widget class="QLineEdit" name="inputPath1131">
              <property name="styleSheet">
               <string notr="true">border-width: 3px;
                                                             border-radius: 5px;
@@ -467,10 +470,13 @@ font: 10pt &quot;Sitka Small&quot;;</string>
                                                             color: rgb(0, 0, 0);
                                                         </string>
              </property>
+             <property name="placeholderText">
+              <string>/.../...</string>
+             </property>
             </widget>
            </item>
            <item>
-            <widget class="QToolButton" name="uploadBtn1112">
+            <widget class="QToolButton" name="uploadBtn1132">
              <property name="minimumSize">
               <size>
                <width>0</width>
@@ -502,6 +508,75 @@ font: 10pt &quot;Sitka Small&quot;;</string>
            </item>
           </layout>
          </item>
+         <item>
+          <widget class="QLabel" name="label114">
+           <property name="styleSheet">
+            <string notr="true">border-width: 0px;
+</string>
+           </property>
+           <property name="text">
+            <string>Training Hyperparameters:</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout115">
+           <item>
+            <widget class="QLabel" name="label1151">
+             <property name="styleSheet">
+              <string notr="true">border-width: 0px;
+</string>
+             </property>
+             <property name="text">
+              <string>Epoch:</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="inputEpoch1152">
+             <property name="styleSheet">
+              <string notr="true">border-width: 3px;
+                                                            border-radius: 5px;
+                                                            border-color: rgb(0, 0, 0);
+                                                            border-style: solid;
+                                                            background-color: rgb(188, 188, 188);
+                                                            color: rgb(0, 0, 0);
+                                                        </string>
+             </property>
+             <property name="placeholderText">
+              <string>15</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="label1153">
+             <property name="styleSheet">
+              <string notr="true">border-width: 0px;
+</string>
+             </property>
+             <property name="text">
+              <string>Batch size</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="inputBatchSz1154">
+             <property name="styleSheet">
+              <string notr="true">border-width: 3px;
+                                                            border-radius: 5px;
+                                                            border-color: rgb(0, 0, 0);
+                                                            border-style: solid;
+                                                            background-color: rgb(188, 188, 188);
+                                                            color: rgb(0, 0, 0);
+                                                        </string>
+             </property>
+             <property name="placeholderText">
+              <string>10</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
         </layout>
        </widget>
       </item>
@@ -510,8 +585,8 @@ font: 10pt &quot;Sitka Small&quot;;</string>
     <widget class="QLabel" name="errorMsg">
      <property name="geometry">
       <rect>
-       <x>140</x>
-       <y>385</y>
+       <x>280</x>
+       <y>490</y>
        <width>80</width>
        <height>41</height>
       </rect>
