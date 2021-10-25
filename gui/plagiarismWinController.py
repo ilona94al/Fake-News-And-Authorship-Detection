@@ -1,3 +1,6 @@
+import os
+import pathlib
+
 from PyQt5 import QtWidgets
 from PyQt5.QtWidgets import QMainWindow
 
@@ -18,7 +21,10 @@ class PlagiarismWinController(QMainWindow):
 
         # todo: upload writers name into a combo box.
 
-        self.ui.authorComboBox.addItem("Vlad")
+        self.ui.authorComboBox.clear()
+        os.chdir("../Model/")
+        arr = os.listdir('Plagiarism')
+        self.ui.authorComboBox.addItems(arr)
 
     def back_pressed(self):
         self.close()
