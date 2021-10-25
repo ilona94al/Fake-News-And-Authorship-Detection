@@ -20,7 +20,7 @@ class PlagiarismWinController(QMainWindow):
         self.ui.errorMsg.setHidden(True)
 
         self.ui.authorComboBox.clear()
-        os.chdir("../Model1/")
+        os.chdir("../models/")
         arr = os.listdir('Plagiarism')
         self.ui.authorComboBox.addItems(arr)
 

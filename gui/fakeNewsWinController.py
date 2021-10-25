@@ -19,7 +19,7 @@ class FakeNewsWinController(QMainWindow):
         self.ui.errorMsg.setHidden(True)
 
         self.ui.trainedModelsComboBox.clear()
-        os.chdir("../Model1/")
+        os.chdir("../models/")
         arr = os.listdir('FakeNews')
         self.ui.trainedModelsComboBox.addItems(arr)
         #self.ui.trainedModelsComboBox.addItem("tm")
