@@ -19,10 +19,8 @@ class PlagiarismWinController(QMainWindow):
 
         self.ui.errorMsg.setHidden(True)
 
-        # todo: upload writers name into a combo box.
-
         self.ui.authorComboBox.clear()
-        os.chdir("../Model/")
+        os.chdir("../Model1/")
         arr = os.listdir('Plagiarism')
         self.ui.authorComboBox.addItems(arr)
 
