@@ -1,3 +1,5 @@
+import os
+
 from PyQt5 import QtWidgets
 from PyQt5.QtWidgets import QMainWindow
 
@@ -16,9 +18,11 @@ class FakeNewsWinController(QMainWindow):
 
         self.ui.errorMsg.setHidden(True)
 
-        # todo: upload models name into a combo box.
-
-        self.ui.trainedModelsComboBox.addItem("tm")
+        self.ui.trainedModelsComboBox.clear()
+        os.chdir("../Model1/")
+        arr = os.listdir('FakeNews')
+        self.ui.trainedModelsComboBox.addItems(arr)
+        #self.ui.trainedModelsComboBox.addItem("tm")
 
     def back_pressed(self):
         self.close()
