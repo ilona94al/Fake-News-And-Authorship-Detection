@@ -33,12 +33,10 @@ class TrainPlagModelWinController(QMainWindow):
 
     def train_pressed(self):
         self.clear_feedback()
-        # todo: check author name and path is not empty - if needed show erorr message
         # todo: open training process window (need to create ui,py,controller)
         # todo***: results=TRAIN MODEL (author name, path)
         # todo***: results window and load the results from training
         # todo***:option to train again, or save the model
-
 
         folder_path = str(self.ui.inputPath1131.text())
         author_name = str(self.ui.inputAuthorName111.text())
@@ -49,14 +47,14 @@ class TrainPlagModelWinController(QMainWindow):
             self.folder_not_uploaded("Please specify path to folder")
         if author_name == "":
             self.no_author_name("Please fill author name")
-        if batch_size == "" or not batch_size.isnumeric() or batch_size<=0:
+        if batch_size == "" or not batch_size.isnumeric() or int(batch_size) <= 0:
             self.no_batch_size("Please fill valid batch size")
-        if epochs == "" or not epochs.isnumeric() or epochs<=0:
+        if epochs == "" or not epochs.isnumeric() or int(epochs) <= 0:
             self.no_epochs("Please fill number of epochs")
         if self.allOk == True:
             self.close()
-            from gui.detectionResultsWinController import DetectionResultsWinController
-            self.window = DetectionResultsWinController(author_name, folder_path)
+            from gui.trainProgressWinController import TrainProgressWinController
+            self.window = TrainProgressWinController(author_name, folder_path, batch_size, epochs)
             self.window.show()
 
     def clear_feedback(self):
@@ -86,10 +84,10 @@ class TrainPlagModelWinController(QMainWindow):
 
     def setFeedback(self, msg, widget):
         self.allOk = False
-        curr_msg=self.ui.errorMsg.text()
+        curr_msg = self.ui.errorMsg.text()
         if curr_msg != "":
-            curr_msg+="\n"
-        self.ui.errorMsg.setText(curr_msg+msg)
+            curr_msg += "\n"
+        self.ui.errorMsg.setText(curr_msg + msg)
         self.ui.errorMsg.adjustSize()
         self.ui.errorMsg.setHidden(False)
         self.set_error_style(widget)

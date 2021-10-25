@@ -433,11 +433,11 @@ font: 10pt &quot;Sitka Small&quot;;</string>
           <widget class="QLineEdit" name="inputAuthorName111">
            <property name="styleSheet">
             <string notr="true">border-width: 3px;
-                                                    border-radius: 5px;
-                                                    border-color: rgb(0, 0, 0);
-                                                    border-style: solid;
-                                                    background-color: rgb(188, 188, 188);
-                                                    color: rgb(0, 0, 0);
+border-radius: 5px;
+border-color: rgb(0, 0, 0);
+border-style: solid;
+background-color: rgb(188, 188, 188);
+color: rgb(0, 0, 0);
                                                 
 </string>
            </property>
@@ -463,12 +463,16 @@ font: 10pt &quot;Sitka Small&quot;;</string>
             <widget class="QLineEdit" name="inputPath1131">
              <property name="styleSheet">
               <string notr="true">border-width: 3px;
-                                                            border-radius: 5px;
-                                                            border-color: rgb(0, 0, 0);
-                                                            border-style: solid;
-                                                            background-color: rgb(188, 188, 188);
-                                                            color: rgb(0, 0, 0);
-                                                        </string>
+border-radius: 5px;
+border-color: rgb(0, 0, 0);
+border-style: solid;
+background-color: rgb(188, 188, 188);
+color: rgb(0, 0, 0);
+                                                
+</string>
+             </property>
+             <property name="readOnly">
+              <bool>true</bool>
              </property>
              <property name="placeholderText">
               <string>/.../...</string>
@@ -536,12 +540,13 @@ font: 10pt &quot;Sitka Small&quot;;</string>
             <widget class="QLineEdit" name="inputEpoch1152">
              <property name="styleSheet">
               <string notr="true">border-width: 3px;
-                                                            border-radius: 5px;
-                                                            border-color: rgb(0, 0, 0);
-                                                            border-style: solid;
-                                                            background-color: rgb(188, 188, 188);
-                                                            color: rgb(0, 0, 0);
-                                                        </string>
+border-radius: 5px;
+border-color: rgb(0, 0, 0);
+border-style: solid;
+background-color: rgb(188, 188, 188);
+color: rgb(0, 0, 0);
+                                                
+</string>
              </property>
              <property name="placeholderText">
               <string>15</string>
@@ -563,12 +568,13 @@ font: 10pt &quot;Sitka Small&quot;;</string>
             <widget class="QLineEdit" name="inputBatchSz1154">
              <property name="styleSheet">
               <string notr="true">border-width: 3px;
-                                                            border-radius: 5px;
-                                                            border-color: rgb(0, 0, 0);
-                                                            border-style: solid;
-                                                            background-color: rgb(188, 188, 188);
-                                                            color: rgb(0, 0, 0);
-                                                        </string>
+border-radius: 5px;
+border-color: rgb(0, 0, 0);
+border-style: solid;
+background-color: rgb(188, 188, 188);
+color: rgb(0, 0, 0);
+                                                
+</string>
              </property>
              <property name="placeholderText">
               <string>10</string>
@@ -586,7 +592,7 @@ font: 10pt &quot;Sitka Small&quot;;</string>
      <property name="geometry">
       <rect>
        <x>280</x>
-       <y>490</y>
+       <y>440</y>
        <width>80</width>
        <height>41</height>
       </rect>

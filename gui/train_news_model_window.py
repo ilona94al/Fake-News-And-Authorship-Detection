@@ -197,6 +197,7 @@ class Ui_TrainNewsModelWindow(object):
 "                                                            background-color: rgb(188, 188, 188);\n"
 "                                                            color: rgb(0, 0, 0);\n"
 "                                                        ")
+        self.inputPath1111.setReadOnly(True)
         self.inputPath1111.setObjectName("inputPath1111")
         self.horizontalLayout111.addWidget(self.inputPath1111)
         self.uploadBtn1112 = QtWidgets.QToolButton(self.verticalGroupBox11)
@@ -231,6 +232,7 @@ class Ui_TrainNewsModelWindow(object):
 "                                                            background-color: rgb(188, 188, 188);\n"
 "                                                            color: rgb(0, 0, 0);\n"
 "                                                        ")
+        self.inputPath1121.setReadOnly(True)
         self.inputPath1121.setObjectName("inputPath1121")
         self.horizontalLayout112.addWidget(self.inputPath1121)
         self.uploadBtn1122 = QtWidgets.QToolButton(self.verticalGroupBox11)
@@ -285,6 +287,7 @@ class Ui_TrainNewsModelWindow(object):
 "                                                            background-color: rgb(188, 188, 188);\n"
 "                                                            color: rgb(0, 0, 0);\n"
 "                                                        ")
+        self.inputPath1211.setReadOnly(True)
         self.inputPath1211.setObjectName("inputPath1211")
         self.horizontalLayout121.addWidget(self.inputPath1211)
         self.uploadBtn1212 = QtWidgets.QToolButton(self.verticalGroupBox12)
@@ -419,7 +422,7 @@ class Ui_TrainNewsModelWindow(object):
         self.verticalLayout_5.addLayout(self.horizontalLayout125)
         self.verticalLayout.addWidget(self.verticalGroupBox12)
         self.errorMsg = QtWidgets.QLabel(self.groupBox)
-        self.errorMsg.setGeometry(QtCore.QRect(280, 490, 81, 41))
+        self.errorMsg.setGeometry(QtCore.QRect(280, 430, 81, 41))
         self.errorMsg.setLayoutDirection(QtCore.Qt.RightToLeft)
         self.errorMsg.setStyleSheet("background-color: qlineargradient(spread:pad, x1:0.983, y1:0.00568182,\n"
 "                            x2:0.996, y2:0, stop:1 rgba(48, 48, 48, 143));\n"

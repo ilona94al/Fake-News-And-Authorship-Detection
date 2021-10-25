@@ -367,9 +367,9 @@ plt.title('Model accuracy in epoch')
 plt.ylabel('Accuracy')
 plt.xlabel('Epoch')
 plt.legend(['Train', 'Validation'], loc='upper left')
-plt.show()
-plt.savefig('ShakespeareModelAcc.png')
-#plt.savefig('plots\ShakespeareModelAcc.png')
+# plt.show()
+plt.savefig('accTest.PNG')
+#plt.savefig('plots\ShakespeareModelAcc.PNG')
 
 plt.plot(history.history['loss'])
 plt.plot(history.history['val_loss'])
@@ -378,8 +378,8 @@ plt.title('Model loss in epoch')
 plt.ylabel('Loss')
 plt.xlabel('Epoch')
 plt.legend(['Train', 'Validation'], loc='upper left')
-plt.show()
-plt.savefig('ShakespeareModelLoss.png')
+# plt.show()
+plt.savefig('testLoss.png')
 #plt.savefig('plots\ShakespeareModelLoss.png')
 
 #---------------------
@@ -415,7 +415,7 @@ plt.savefig('ShakespeareModelLoss.png')
 #
 # new_model = False
 # model_name = 'FakeBERTModel.h5'
-# trained_model_name = 'model1/TrainedFakeBERTModel.h5'
+# trained_model_name = 'Model1/TrainedFakeBERTModel.h5'
 # if new_model == True:
 #     model = build_model()
 #     model.save(model_name)
