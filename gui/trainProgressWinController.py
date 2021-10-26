@@ -1,9 +1,9 @@
 from PyQt5 import QtWidgets
-from PyQt5.QtWidgets import QMainWindow
+from PyQt5.QtWidgets import QMainWindow, QMessageBox
 
 
 class TrainProgressWinController(QMainWindow):
-    def __init__(self ,author_name, folder_path, batch_size, epochs,parent=None):
+    def __init__(self, author_name, folder_path, batch_size, epochs, parent=None):
         super(TrainProgressWinController, self).__init__(parent)
         from gui.train_progress_window import Ui_TrainProgressWindow
         self.ui = Ui_TrainProgressWindow()
@@ -13,16 +13,28 @@ class TrainProgressWinController(QMainWindow):
 
         self.ui.resultsBtn.clicked.connect(self.results_pressed)
         self.ui.cancelBtn.clicked.connect(self.cancel_pressed)
-
-        #model_manager(author name,path)
+        # model_manager(author name,path)
         # todo***: results=TRAIN MODEL (author name, path)
 
     def cancel_pressed(self):
         # todo: show pop up window
-        self.close()
-        from gui.chooseTrainWinController import ChooseTrainWinController
-        self.window = ChooseTrainWinController()
-        self.window.show()
+        msg = QMessageBox()
+        msg.setWindowTitle("Train new model")
+        msg.setText("Do you sure to stop training progress?")
+        msg.setIcon(QMessageBox.Warning)
+        msg.setStandardButtons(QMessageBox.Cancel | QMessageBox.Ok)
+        msg.setDefaultButton(QMessageBox.Cancel)
+        msg.setInformativeText("The process will be reset!")
+
+        msg.buttonClicked.connect(self.PopUpAction)
+        x = msg.exec_()
+
+    def PopUpAction(self, i):
+        if i.text() == 'OK':
+            self.close()
+            from gui.chooseTrainWinController import ChooseTrainWinController
+            self.window = ChooseTrainWinController()
+            self.window.show()
 
     def results_pressed(self):
         # todo***: results window and load the results from training
