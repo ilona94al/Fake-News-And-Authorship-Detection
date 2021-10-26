@@ -1,8 +1,10 @@
 from PyQt5 import QtWidgets
 from PyQt5.QtWidgets import QMainWindow
 
+from gui.trainModelWinController import TrainModelWinController
 
-class TrainPlagModelWinController(QMainWindow):
+
+class TrainPlagModelWinController(TrainModelWinController):
     def __init__(self, parent=None):
         super(TrainPlagModelWinController, self).__init__(parent)
         from gui.train_plag_model_window import Ui_TrainPlagModelWindow
@@ -25,12 +27,6 @@ class TrainPlagModelWinController(QMainWindow):
         dir_path = filedialog.askdirectory()  # Returns opened path as str
         widget.setText(dir_path)  # Read path to field
 
-    def back_pressed(self):
-        self.close()
-        from gui.chooseTrainWinController import ChooseTrainWinController
-        self.window = ChooseTrainWinController()
-        self.window.show()
-
     def train_pressed(self):
         self.clear_feedback()
         # todo: open training process window (need to create ui,py,controller)
@@ -38,81 +34,38 @@ class TrainPlagModelWinController(QMainWindow):
         # todo***: results window and load the results from training
         # todo***:option to train again, or save the model
 
-        folder_path = str(self.ui.inputPath1131.text())
-        author_name = str(self.ui.inputAuthorName111.text())
-        epochs = str(self.ui.inputEpoch1152.text())
-        batch_size = str(self.ui.inputBatchSz1154.text())
+        folder_path_widget = self.ui.inputPath1131
+        author_name_widget = self.ui.inputAuthorName111
+        epochs_widget = self.ui.inputEpoch1152
+        batch_size_widget = self.ui.inputBatchSz1154
+
+        folder_path = str(folder_path_widget.text())
+        author_name = str(author_name_widget.text())
+        epochs = str(epochs_widget.text())
+        batch_size = str(batch_size_widget.text())
 
         if folder_path == "":
-            self.folder_not_uploaded("Please specify path to folder")
+            self.invalid_input("path to folder is miss", folder_path_widget)
+        else:
+            self.set_normal_style(folder_path_widget)
         if author_name == "":
-            self.no_author_name("Please fill author name")
+            self.invalid_input("Please fill author name is miss", author_name_widget)
+        else:
+            self.set_normal_style(author_name_widget)
         if batch_size == "" or not batch_size.isnumeric() or int(batch_size) <= 0:
-            self.no_batch_size("Please fill valid batch size")
+            self.invalid_input("Please fill valid batch size", batch_size_widget)
+        else:
+            self.set_normal_style(batch_size_widget)
         if epochs == "" or not epochs.isnumeric() or int(epochs) <= 0:
-            self.no_epochs("Please fill number of epochs")
+            self.invalid_input("Please fill valid number of epochs", epochs_widget)
+        else:
+            self.set_normal_style(epochs_widget)
+
         if self.allOk == True:
             self.close()
             from gui.trainProgressWinController import TrainProgressWinController
             self.window = TrainProgressWinController(author_name, folder_path, batch_size, epochs)
             self.window.show()
-
-    def clear_feedback(self):
-        self.allOk = True
-        self.ui.errorMsg.setHidden(True)
-        self.ui.errorMsg.setText("")
-        self.set_normal_style(self.ui.inputPath1131)
-        self.set_normal_style(self.ui.inputAuthorName111)
-        self.set_normal_style(self.ui.inputEpoch1152)
-        self.set_normal_style(self.ui.inputBatchSz1154)
-
-    def folder_not_uploaded(self, msg):
-        widget = self.ui.inputPath1131
-        self.setFeedback(msg, widget)
-
-    def no_author_name(self, msg):
-        widget = self.ui.inputAuthorName111
-        self.setFeedback(msg, widget)
-
-    def no_batch_size(self, msg):
-        widget = self.ui.inputBatchSz1154
-        self.setFeedback(msg, widget)
-
-    def no_epochs(self, msg):
-        widget = self.ui.inputEpoch1152
-        self.setFeedback(msg, widget)
-
-    def setFeedback(self, msg, widget):
-        self.allOk = False
-        curr_msg = self.ui.errorMsg.text()
-        if curr_msg != "":
-            curr_msg += "\n"
-        self.ui.errorMsg.setText(curr_msg + msg)
-        self.ui.errorMsg.adjustSize()
-        self.ui.errorMsg.setHidden(False)
-        self.set_error_style(widget)
-
-    def set_normal_style(self, widget):
-        widget.setStyleSheet("border-width: 3px;\n"
-                             "                                                    border-radius: 5px;\n"
-                             "                                                    border-color: rgb(0, 0, 0);\n"
-                             "                                                    border-style: solid;\n"
-                             "                                                    background-color: rgb(188, 188, 188);\n"
-                             "                                                    color: rgb(0, 0, 0);\n"
-                             "                                                \n"
-                             "")
-        widget.update()
-
-    def set_error_style(self, widget):
-        widget.setStyleSheet("border-width: 3px;\n"
-                             "                                                    border-radius: 5px;\n"
-                             "                                                    border-color: rgb(170, 0, 0);\n"
-                             "                                                    border-style: solid;\n"
-                             "                                                    background-color: rgb(188, 188, 188);\n"
-                             "                                                    color: rgb(0, 0, 0);\n"
-                             "                                                \n"
-                             "")
-        widget.update()
 
 
 if __name__ == "__main__":
