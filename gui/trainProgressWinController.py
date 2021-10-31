@@ -3,8 +3,9 @@ from PyQt5.QtWidgets import QMainWindow, QMessageBox
 
 
 class TrainProgressWinController(QMainWindow):
-    def __init__(self, author_name, folder_path, batch_size, epochs, parent=None):
+    def __init__(self, task, parent=None):
         super(TrainProgressWinController, self).__init__(parent)
+        self.task = task
         from gui.train_progress_window import Ui_TrainProgressWindow
         self.ui = Ui_TrainProgressWindow()
         self.ui.setupUi(self)
@@ -13,11 +14,13 @@ class TrainProgressWinController(QMainWindow):
 
         self.ui.resultsBtn.clicked.connect(self.results_pressed)
         self.ui.cancelBtn.clicked.connect(self.cancel_pressed)
-        # model_manager(author name,path)
-        # todo***: results=TRAIN MODEL (author name, path)
+        self.ui.progressBar
+        #  todo: progress percent will calculated by:
+        #              ?.passed epochs / task.number of epochs
+        #   - can we do it ?!!
+        # todo: get notification that fit thread finish -> set enable results button
 
     def cancel_pressed(self):
-        # todo: show pop up window
         msg = QMessageBox()
         msg.setWindowTitle("Train new model")
         msg.setText("Do you sure to stop training progress?")
@@ -37,8 +40,9 @@ class TrainProgressWinController(QMainWindow):
             self.window.show()
 
     def results_pressed(self):
-        # todo***: results window and load the results from training
-        # todo***:option to train again, or save the model
+        # todo: create results window and load the results from training
+        #  (task.accuracy, test params)
+        # todo**: option to train again, or save the model - task.save_model(name)
 
         self.close()
         from gui.detectionResultsWinController import DetectionResultsWinController

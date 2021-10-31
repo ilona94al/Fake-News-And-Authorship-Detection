@@ -55,6 +55,15 @@ class TrainNewsModelWinController(TrainModelWinController):
         batch_size_widget = self.ui.inputBatchSz3114
         batch_size = str(batch_size_widget.text())
 
+        if batch_size == "" or not batch_size.isnumeric() or int(batch_size) <= 0:
+            self.invalid_input("Please fill valid batch size", batch_size_widget)
+        else:
+            self.set_normal_style(batch_size_widget)
+        if epochs == "" or not epochs.isnumeric() or int(epochs) <= 0:
+            self.invalid_input("Please fill number of epochs", epochs_widget)
+        else:
+            self.set_normal_style(epochs_widget)
+
         if self.two_files == True:
             real_file_path_widget = self.ui.inputPath1111
             real_file_path = str(real_file_path_widget.text())
@@ -78,6 +87,11 @@ class TrainNewsModelWinController(TrainModelWinController):
             else:
                 self.set_normal_style(text_col_name_widget)
 
+            if self.allOk == True:
+                self.close()
+                from model.fake_news_tasks import FakeNewsTask2
+                self.task = FakeNewsTask2(real_file_path, fakes_file_path, text_col_name, int(batch_size), int(epochs))
+                self.next()
         else:
             file_path_widget = self.ui.inputPath1211
             file_path = str(file_path_widget.text())
@@ -115,29 +129,14 @@ class TrainNewsModelWinController(TrainModelWinController):
             else:
                 self.set_normal_style(real_label_val_widget)
 
-        if batch_size == "" or not batch_size.isnumeric() or int(batch_size) <= 0:
-            self.invalid_input("Please fill valid batch size", batch_size_widget)
-        else:
-            self.set_normal_style(batch_size_widget)
-        if epochs == "" or not epochs.isnumeric() or int(epochs) <= 0:
-            self.invalid_input("Please fill number of epochs", epochs_widget)
-        else:
-            self.set_normal_style(epochs_widget)
-
-        if self.allOk == True:
-            self.close()
-            from model.fake_bert_model import FakeBERTModel
-            fake_bert_model = FakeBERTModel()
-            #
-            # batch_size
-            # epochs
-
-            # if self.two_files == True:
+            if self.allOk == True:
+                self.close()
+                from model.fake_news_tasks import FakeNewsTask1
+                self.task = FakeNewsTask1(file_path, text_col_name, label_col_name, real_label_val, fakes_label_val,
+                                          int(batch_size), int(epochs))
+                self.next()
 
 
-            # from gui.trainProgressWinController import TrainProgressWinController
-            # self.window = TrainProgressWinController(author_name, folder_path, batch_size, epochs)
-            # self.window.show()
 
 
 if __name__ == "__main__":

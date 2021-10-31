@@ -25,13 +25,13 @@ def Text_processing():
     fake_news = []
     real_news = []
     i = 0
-    with open('database/fakenews/db1/fake50.csv', 'r', encoding='utf-8') as file:
+    with open('DATABASE/fakenews/db1/fake50.csv', 'r', encoding='utf-8') as file:
         fakeReader = csv.reader(file)
         for row in fakeReader:
             fake_news[i:] = row[1:2]
             i = i + 1
     i = 0
-    with open('database/fakenews/db1/true50.csv', 'r', encoding='utf-8') as file:
+    with open('DATABASE/fakenews/db1/true50.csv', 'r', encoding='utf-8') as file:
         trueReader = csv.reader(file)
         for row in trueReader:
             real_news[i:] = row[1:2]

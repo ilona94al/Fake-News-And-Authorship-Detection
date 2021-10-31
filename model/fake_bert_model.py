@@ -1,4 +1,4 @@
-
+import os
 import tensorflow as tf
 import tensorflow_hub as hub
 import tensorflow_text as text
@@ -19,9 +19,9 @@ class FakeBERTModel():
     def __init__(self):
         self.config = config_128tokens
 
-
-    def build_model(self):
+    def build_model(self, num_classes):
         input_layer = tf.keras.layers.Input(shape=(), dtype=tf.string, name='text')
+        os.chdir("../")
         preprocessing_layer = hub.KerasLayer('BERT/preprocessor', name='preprocessing')
         bert_encoder_inputs = preprocessing_layer(input_layer)
 
@@ -70,23 +70,25 @@ class FakeBERTModel():
         output_layer = tf.keras.layers.Dense \
             (num_classes, activation='softmax')(dropped)
 
-        model = tf.keras.models.Model(input_layer, output_layer)
+        self.model = tf.keras.models.Model(input_layer, output_layer)
 
-        model.summary()
+        self.model.summary()
 
         # Compile model
-        model.compile(loss='categorical_crossentropy', metrics=['accuracy'],
-                      optimizer=tf.keras.optimizers.Adadelta(0.001))
+        self.model.compile(loss='categorical_crossentropy', metrics=['accuracy'],
+                           optimizer=tf.keras.optimizers.Adadelta(0.001))
 
-        return model
-
-    def fit_model(self, model, x_train, y_train_prob, x_valid, y_valid_prob, batch_size, epochs):
+    def fit_model(self, x_train, y_train_prob, x_valid, y_valid_prob, batch_size, epochs):
         # Train the model
-        history = model.fit(x_train, y_train_prob, validation_data=(x_valid, y_valid_prob), batch_size=batch_size,
-                            epochs=epochs)
-        _, accuracy = model.evaluate(x_valid, y_valid_prob, verbose=0)
-        print("Accuracy of test groups:", accuracy)
-        return model, history
+        self.history = self.model.fit(x_train, y_train_prob,
+                                      validation_data=(x_valid, y_valid_prob),
+                                      batch_size=batch_size,
+                                      epochs=epochs)
+        _, self.train_accuracy = self.model.evaluate(x_train, y_train_prob, verbose=0)
+        _, self.valid_accuracy = self.model.evaluate(x_valid, y_valid_prob, verbose=0)
+
+    def save_model(self, model_name):
+        self.model.save(model_name)
 
 
 config_128tokens = {

@@ -197,8 +197,8 @@ def read_file_into_array(file_name):
 #
 # bert_preprocess_model = hub.KerasLayer(tfhub_handle_preprocess)
 #
-fake_news = read_file_into_array('database/fakenews/db1/fake50.csv')
-real_news = read_file_into_array('database/fakenews/db1/true50.csv')
+fake_news = read_file_into_array('DATABASE/fakenews/db1/fake50.csv')
+real_news = read_file_into_array('DATABASE/fakenews/db1/true50.csv')
 
 news = fake_news + real_news
 

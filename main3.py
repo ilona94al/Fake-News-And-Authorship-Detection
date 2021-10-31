@@ -190,8 +190,8 @@ config_512tokens = {
 
 config = config_128tokens
 
-fake_news = read_file_into_array('database/fakenews/db1/fake50.csv')
-real_news = read_file_into_array('database/fakenews/db1/true50.csv')
+fake_news = read_file_into_array('DATABASE/fakenews/db1/fake50.csv')
+real_news = read_file_into_array('DATABASE/fakenews/db1/true50.csv')
 
 real_texts = []
 for tweet in real_news:
@@ -304,7 +304,7 @@ def read_book(books_dir_path, writer_name, book_name):
 
 
 
-books_dir_path = 'database/books'
+books_dir_path = 'DATABASE/books'
 
 author_books = read_books_of_specific_author(books_dir_path,author_name='shakespeare')
 different_books = read_books_of_various_authors(books_dir_path,name_to_ignore='shakespeare')
@@ -386,7 +386,7 @@ plt.savefig('testLoss.png')
 
 config = config_128tokens
 
-news, labels = read_file_into_array2('database/fakenews/db2/train2000.csv')
+news, labels = read_file_into_array2('DATABASE/fakenews/db2/train2000.csv')
 _labels = []
 texts = []
 j = 0

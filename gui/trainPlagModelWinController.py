@@ -60,12 +60,11 @@ class TrainPlagModelWinController(TrainModelWinController):
             self.invalid_input("Please fill valid number of epochs", epochs_widget)
         else:
             self.set_normal_style(epochs_widget)
-
         if self.allOk == True:
             self.close()
-            from gui.trainProgressWinController import TrainProgressWinController
-            self.window = TrainProgressWinController(author_name, folder_path, batch_size, epochs)
-            self.window.show()
+            from model.plagiarism_task import PlagiarismTask
+            self.task = PlagiarismTask(author_name, folder_path, int(batch_size), int(epochs))
+            self.next()
 
 
 if __name__ == "__main__":

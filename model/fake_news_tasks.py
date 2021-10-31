@@ -1,9 +1,10 @@
 from model.task import Task
+import numpy as np
 
 
 class FakeNewsTask1(Task):
-    def __init__(self, mixed_file_path, text_col_name, label_col_name, real_label_val, fakes_label_val):
-        super().__init__()
+    def __init__(self, mixed_file_path, text_col_name, label_col_name, real_label_val, fakes_label_val,batch_size,epochs):
+        super().__init__(batch_size,epochs)
 
         #   read tweets
         news, labels = self.read_csv_file_into_array(mixed_file_path, text_col_name, label_col_name)
@@ -15,18 +16,17 @@ class FakeNewsTask1(Task):
         y_expected = self.get_classification_in_appropriate_format(clean_labels)
 
         #   split all data to train set, validation set and test set
-        x_train, x_valid, x_test, y_train, y_valid, y_test = \
-            self.prepare_train_validation_test_sets(texts, y_expected)
+        self.prepare_train_validation_test_sets(texts, y_expected)
 
         #   set probabilities for each text to belong for each label
-        #   ----    Real    |   Fake
-        #   text1   0.0     |   1.0
-        #   text1   1.0     |   0.0
-        #   ....    ...         ...
-        y_train_prob, y_valid_prob, y_test_prob = self.get_categorical_probabilities(y_test, y_train, y_valid)
+        self.get_categorical_probabilities(self.y_test, self.y_train, self.y_valid)
 
-        num_classes = y_train_prob.shape[1]
+        num_classes = self.y_train_prob.shape[1]
 
+        self.start_task(num_classes)
+
+    #   gets file name, the name for a column with tweet content, and name for a column with label
+    #   returns 2 arrays: 1st with tweets, 2nd with labels (corresponding to tweets by order)
     def read_csv_file_into_array(self, file_name, text_column_name, label_column_name):
         import pandas as pd
         col_list = [text_column_name, label_column_name]
@@ -35,19 +35,23 @@ class FakeNewsTask1(Task):
         labels_arr = df[label_column_name].values.tolist()
         return texts_arr, labels_arr
 
-    def get_preprocessed_texts_for_one_file(self, news, labels, real_label_val, fakes_label_val, ):
+    #   gets texts array, an array with corresponding labels, values for real and fake label
+    #   returns 2 arrays: 1st with preprocessed texts, 2nd with corresponding labels
+    def get_preprocessed_texts_for_one_file(self, texts, labels, real_label_val, fakes_label_val):
         clean_labels = []
-        texts = []
+        clean_texts = []
         j = 0
-        for i, tweet in enumerate(news):
+        for i, tweet in enumerate(texts):
             if isinstance(tweet, str):
                 if labels[i] == fakes_label_val or labels[i] == real_label_val:
                     tweet_blocks = self.get_preprocessed_text("" + tweet)
-                    texts.extend(block for block in tweet_blocks)
+                    clean_texts.extend(block for block in tweet_blocks)
                     clean_labels.extend([labels[i] for x in range(j, j + len(tweet_blocks))])
                     j = j + len(tweet_blocks)
-        return texts, clean_labels
+        return clean_texts, clean_labels
 
+    #   get array with labels
+    #   returns array with same labels in appropriate format
     @staticmethod
     def get_classification_in_appropriate_format(clean_labels):
         y_expected = np.empty(len(clean_labels), int)
@@ -56,8 +60,8 @@ class FakeNewsTask1(Task):
 
 
 class FakeNewsTask2(Task):
-    def __init__(self, real_file_path, fakes_file_path, text_col_name):
-        super().__init__()
+    def __init__(self, real_file_path, fakes_file_path, text_col_name,batch_size,epochs):
+        super().__init__(batch_size,epochs)
 
         #   read tweets
         fake_news = self.read_csv_file_into_array(fakes_file_path, text_col_name)
@@ -74,19 +78,19 @@ class FakeNewsTask2(Task):
         y_expected = self.define_expected_classification(len(real_texts), len(texts))
 
         #   split all data to train set, validation set and test set
-        x_train, x_valid, x_test, y_train, y_valid, y_test = \
-            self.prepare_train_validation_test_sets(texts, y_expected)
+        self.prepare_train_validation_test_sets(texts, y_expected)
 
         #   set probabilities for each text to belong for each label
-        #   ----    Real    |   Fake
-        #   text1   0.0     |   1.0
-        #   text1   1.0     |   0.0
-        #   ....    ...         ...
-        y_train_prob, y_valid_prob, y_test_prob = self.get_categorical_probabilities(y_test, y_train, y_valid)
+        self.get_categorical_probabilities(self.y_test, self.y_train, self.y_valid)
 
-        num_classes = y_train_prob.shape[1]
+        num_classes = self.y_train_prob.shape[1]
 
-    def read_csv_file_into_array(self, file_name, text_column_name):
+        self.start_task(num_classes)
+
+    #   gets file name,abd  the name for a column with tweet content
+    #   returns array with tweets
+    @staticmethod
+    def read_csv_file_into_array(file_name, text_column_name):
         import pandas as pd
         col_list = [text_column_name]
         df = pd.read_csv(file_name, usecols=col_list)

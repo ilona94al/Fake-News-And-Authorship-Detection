@@ -241,8 +241,8 @@ config_512tokens = {
 
 config = config_128tokens
 
-fake_news = read_file_into_array('database/fakenews/db1/fake50.csv')
-real_news = read_file_into_array('database/fakenews/db1/true50.csv')
+fake_news = read_file_into_array('DATABASE/fakenews/db1/fake50.csv')
+real_news = read_file_into_array('DATABASE/fakenews/db1/true50.csv')
 
 real_texts = []
 for tweet in real_news:

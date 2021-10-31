@@ -5,6 +5,7 @@ from PyQt5.QtWidgets import QMainWindow
 class TrainModelWinController(QMainWindow):
     def __init__(self, parent=None):
         super(TrainModelWinController, self).__init__(parent)
+        self.task = None
 
     def back_pressed(self):
         self.close()
@@ -51,6 +52,12 @@ class TrainModelWinController(QMainWindow):
                              "                                                \n"
                              "")
         widget.update()
+
+    def next(self):
+        # todo: after fit thread start, go to the next window and show a progress bar
+        from gui.trainProgressWinController import TrainProgressWinController
+        self.window = TrainProgressWinController(self.task)
+        self.window.show()
 
 
 if __name__ == "__main__":
