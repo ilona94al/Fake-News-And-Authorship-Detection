@@ -27,9 +27,7 @@ class PlagiarismTask(Task):
         #   set probabilities for each text to belong for each label
         self.get_categorical_probabilities(self.y_test, self.y_train, self.y_valid)
 
-        num_classes = self.y_train_prob.shape[1]
 
-        self.start_task(num_classes)
 
     #   gets author name and path to dir with books
     #   returns an array with books written by a specified author

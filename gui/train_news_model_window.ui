@@ -453,6 +453,9 @@ font: 8pt &quot;Sitka Small&quot;;</string>
                                                             color: rgb(0, 0, 0);
                                                         </string>
              </property>
+             <property name="text">
+              <string>C:/Users/Ilona Aliyev/PycharmProjects/Fake-News-And-Authorship-Detection/DATABASE/fakenews/db1/true50.csv</string>
+             </property>
              <property name="readOnly">
               <bool>true</bool>
              </property>
@@ -514,6 +517,9 @@ font: 8pt &quot;Sitka Small&quot;;</string>
                                                             background-color: rgb(188, 188, 188);
                                                             color: rgb(0, 0, 0);
                                                         </string>
+             </property>
+             <property name="text">
+              <string>C:/Users/Ilona Aliyev/PycharmProjects/Fake-News-And-Authorship-Detection/DATABASE/fakenews/db1/fake50.csv</string>
              </property>
              <property name="readOnly">
               <bool>true</bool>
@@ -581,6 +587,9 @@ font: 8pt &quot;Sitka Small&quot;;</string>
                                                             color: rgb(0, 0, 0);
                                                         
 </string>
+           </property>
+           <property name="text">
+            <string>text</string>
            </property>
           </widget>
          </item>
@@ -1116,6 +1125,9 @@ font: 8pt &quot;Sitka Small&quot;;</string>
                                                             color: rgb(0, 0, 0);
                                                         </string>
              </property>
+             <property name="text">
+              <string>2</string>
+             </property>
              <property name="placeholderText">
               <string>15</string>
              </property>
@@ -1142,6 +1154,9 @@ font: 8pt &quot;Sitka Small&quot;;</string>
                                                             background-color: rgb(188, 188, 188);
                                                             color: rgb(0, 0, 0);
                                                         </string>
+             </property>
+             <property name="text">
+              <string>2</string>
              </property>
              <property name="placeholderText">
               <string>10</string>

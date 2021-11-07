@@ -88,7 +88,6 @@ class TrainNewsModelWinController(TrainModelWinController):
                 self.set_normal_style(text_col_name_widget)
 
             if self.allOk == True:
-                self.close()
                 from model.fake_news_tasks import FakeNewsTask2
                 self.task = FakeNewsTask2(real_file_path, fakes_file_path, text_col_name, int(batch_size), int(epochs))
                 self.next()
@@ -130,13 +129,10 @@ class TrainNewsModelWinController(TrainModelWinController):
                 self.set_normal_style(real_label_val_widget)
 
             if self.allOk == True:
-                self.close()
                 from model.fake_news_tasks import FakeNewsTask1
                 self.task = FakeNewsTask1(file_path, text_col_name, label_col_name, real_label_val, fakes_label_val,
                                           int(batch_size), int(epochs))
                 self.next()
-
-
 
 
 if __name__ == "__main__":

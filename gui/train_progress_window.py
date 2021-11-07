@@ -105,15 +105,15 @@ class Ui_TrainProgressWindow(object):
         self.resultsBtn.setAcceptDrops(False)
         self.resultsBtn.setAutoFillBackground(False)
         self.resultsBtn.setStyleSheet("background-color: rgb(0, 111, 0);\n"
-"\n"
-"font: 75 16pt \"Sitka Small\";\n"
-"color: rgb(255, 255, 255);\n"
-"border-width: 3px;\n"
-"border-radius: 30px;\n"
-"border-color: rgb(255, 255, 255);\n"
-"border-style: solid;\n"
-"\n"
-"alternate-background-color: rgb(135, 135, 135);")
+                                      "\n"
+                                      "font: 75 16pt \"Sitka Small\";\n"
+                                      "color: rgb(255, 255, 255);\n"
+                                      "border-width: 3px;\n"
+                                      "border-radius: 30px;\n"
+                                      "border-color: rgb(255, 255, 255);\n"
+                                      "border-style: solid;\n"
+                                      "\n"
+                                      "alternate-background-color: rgb(135, 135, 135);")
         self.resultsBtn.setCheckable(False)
         self.resultsBtn.setAutoDefault(False)
         self.resultsBtn.setDefault(False)
@@ -132,13 +132,13 @@ class Ui_TrainProgressWindow(object):
         self.cancelBtn.setAcceptDrops(False)
         self.cancelBtn.setAutoFillBackground(False)
         self.cancelBtn.setStyleSheet("\n"
-"background-color: rgb(159, 0, 0);\n"
-"font: 75 16pt \"Sitka Small\";\n"
-"color: rgb(255, 255, 255);\n"
-"border-width: 3px;\n"
-"border-radius: 30px;\n"
-"border-color: rgb(255, 255, 255);\n"
-"border-style: solid;")
+                                     "background-color: rgb(159, 0, 0);\n"
+                                     "font: 75 16pt \"Sitka Small\";\n"
+                                     "color: rgb(255, 255, 255);\n"
+                                     "border-width: 3px;\n"
+                                     "border-radius: 30px;\n"
+                                     "border-color: rgb(255, 255, 255);\n"
+                                     "border-style: solid;")
         self.cancelBtn.setIconSize(QtCore.QSize(24, 24))
         self.cancelBtn.setCheckable(False)
         self.cancelBtn.setAutoDefault(False)
@@ -156,12 +156,12 @@ class Ui_TrainProgressWindow(object):
         self.verticalFrame.setFont(font)
         self.verticalFrame.setAutoFillBackground(False)
         self.verticalFrame.setStyleSheet("border-width: 4px;\n"
-"border-radius: 15px;\n"
-"border-color: rgb(0, 0, 0);\n"
-"border-style: solid;\n"
-"font: 10pt \"Sitka Small\";\n"
-"color: rgb(255, 255, 255);\n"
-"background-color: qlineargradient(spread:pad, x1:0.996, y1:0.0340909, x2:1, y2:0, stop:1 rgba(0, 0, 32, 170));")
+                                         "border-radius: 15px;\n"
+                                         "border-color: rgb(0, 0, 0);\n"
+                                         "border-style: solid;\n"
+                                         "font: 10pt \"Sitka Small\";\n"
+                                         "color: rgb(255, 255, 255);\n"
+                                         "background-color: qlineargradient(spread:pad, x1:0.996, y1:0.0340909, x2:1, y2:0, stop:1 rgba(0, 0, 32, 170));")
         self.verticalFrame.setObjectName("verticalFrame")
         self.verticalLayout = QtWidgets.QVBoxLayout(self.verticalFrame)
         self.verticalLayout.setSizeConstraint(QtWidgets.QLayout.SetNoConstraint)
@@ -171,9 +171,9 @@ class Ui_TrainProgressWindow(object):
         self.progressBar = QtWidgets.QProgressBar(self.verticalFrame)
         self.progressBar.setLayoutDirection(QtCore.Qt.LeftToRight)
         self.progressBar.setStyleSheet("background-color: rgb(230, 230, 230);\n"
-"color: rgb(0, 0, 94);\n"
-"border-width: 2px;\n"
-"border-radius: 3px;")
+                                       "color: rgb(0, 0, 94);\n"
+                                       "border-width: 2px;\n"
+                                       "border-radius: 3px;")
         self.progressBar.setProperty("value", 0)
         self.progressBar.setAlignment(QtCore.Qt.AlignCenter)
         self.progressBar.setTextVisible(True)
@@ -197,6 +197,7 @@ class Ui_TrainProgressWindow(object):
 
 if __name__ == "__main__":
     import sys
+
     app = QtWidgets.QApplication(sys.argv)
     TrainProgressWindow = QtWidgets.QMainWindow()
     ui = Ui_TrainProgressWindow()

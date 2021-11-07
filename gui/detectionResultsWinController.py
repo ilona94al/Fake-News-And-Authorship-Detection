@@ -3,7 +3,7 @@ from PyQt5.QtWidgets import QMainWindow
 
 
 class DetectionResultsWinController(QMainWindow):
-    def __init__(self,  parent=None):
+    def __init__(self, task,  parent=None):
         super(DetectionResultsWinController, self).__init__(parent)
 
         # todo: show results on ui

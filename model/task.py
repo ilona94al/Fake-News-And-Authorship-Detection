@@ -1,8 +1,10 @@
+import threading
+
 from sklearn.model_selection import train_test_split
 from tensorflow.python.keras.utils import np_utils
 import numpy as np
 import tensorflow as tf
-
+from multiprocessing import Process
 
 class Task():
     def __init__(self, batch_size, epochs):
@@ -45,23 +47,34 @@ class Task():
         self.y_train_prob = np_utils.to_categorical(y_train)
         self.y_valid_prob = np_utils.to_categorical(y_valid)
         self.y_test_prob = np_utils.to_categorical(y_test)
+        self.num_classes = self.y_train_prob.shape[1]
 
-    def start_task(self, num_classes):
-        self.model.build_model(num_classes)
+    def run_train_model(self):
+        self.model.build_model(self.num_classes)
         self.model.fit_model \
-            (tf.constant(self.x_train), self.y_train_prob, tf.constant(self.x_valid), self.y_valid_prob,
-             self.batch_size, self.epochs)
-        # todo: put fit model in thread
-        # todo: test model
-        # todo: send notification that fit finished
-        #  optional solution: flag , that trainProgressWinController will check...
+            (x_train=tf.constant(self.x_train), y_train_prob=self.y_train_prob,
+             x_valid=tf.constant(self.x_valid), y_valid_prob=self.y_valid_prob,
+             batch_size=self.batch_size, epochs=self.epochs, progress_bar=self.progress_bar)
+        self.running = False
+
+    def start_train_model(self, progress_bar):
+        self.running = True
+        self.progress_bar = progress_bar
+        self.current_epoch = 0
+        self.t = threading.Thread(target=self.run_train_model)
+        self.t.start()
+
 
     def save_model(self, model_name):
         self.model.save_model(model_name)
         # todo: show error popup if name exists
 
+    def test_model(self):
+        self.model.test_model(x_test=tf.constant(self.x_test), y_test_prob=self.y_test_prob, y_test=self.y_test)
+
     # get a number of real texts and number of all texts in the dataset
     # returns labels array with label 0 for real texts, and 1 for fake texts.
+
     @staticmethod
     def define_expected_classification(real_texts_count, total_texts_count):
         expected_classification = np.empty(total_texts_count, int)

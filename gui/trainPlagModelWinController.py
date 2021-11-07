@@ -61,7 +61,6 @@ class TrainPlagModelWinController(TrainModelWinController):
         else:
             self.set_normal_style(epochs_widget)
         if self.allOk == True:
-            self.close()
             from model.plagiarism_task import PlagiarismTask
             self.task = PlagiarismTask(author_name, folder_path, int(batch_size), int(epochs))
             self.next()

@@ -21,14 +21,14 @@ class FakeBERTModel():
 
     def build_model(self, num_classes):
         input_layer = tf.keras.layers.Input(shape=(), dtype=tf.string, name='text')
-        os.chdir("../")
-        preprocessing_layer = hub.KerasLayer('BERT/preprocessor', name='preprocessing')
+        os.chdir("../BERT/")
+        preprocessing_layer = hub.KerasLayer('preprocessor', name='preprocessing')
         bert_encoder_inputs = preprocessing_layer(input_layer)
 
-        bert_encoder = hub.KerasLayer('BERT/encoder', trainable=True, name='BERT_encoder')
+        bert_encoder = hub.KerasLayer('encoder', trainable=True, name='BERT_encoder')
         bert_outputs = bert_encoder(bert_encoder_inputs)
         embeddings = bert_outputs["sequence_output"]  # [batch_size, seq_length, 768]
-
+        os.chdir("../gui/")
         cnn_parallel_block_1 = tf.keras.layers.Conv1D \
             (filters=128, kernel_size=3, activation='relu', input_shape=(self.config['max_seq_len'], 768))(embeddings)
         cnn_parallel_block_1 = tf.keras.layers.MaxPooling1D \
@@ -78,17 +78,49 @@ class FakeBERTModel():
         self.model.compile(loss='categorical_crossentropy', metrics=['accuracy'],
                            optimizer=tf.keras.optimizers.Adadelta(0.001))
 
-    def fit_model(self, x_train, y_train_prob, x_valid, y_valid_prob, batch_size, epochs):
+    def fit_model(self, x_train, y_train_prob, x_valid, y_valid_prob, batch_size, epochs, progress_bar):
         # Train the model
-        self.history = self.model.fit(x_train, y_train_prob,
+        from model.callback import LoggingCallback
+        self.history = self.model.fit(x=x_train, y=y_train_prob,
                                       validation_data=(x_valid, y_valid_prob),
-                                      batch_size=batch_size,
-                                      epochs=epochs)
+                                      batch_size=batch_size, epochs=epochs,
+                                      callbacks=[LoggingCallback(progress_bar, epochs)])
         _, self.train_accuracy = self.model.evaluate(x_train, y_train_prob, verbose=0)
         _, self.valid_accuracy = self.model.evaluate(x_valid, y_valid_prob, verbose=0)
 
     def save_model(self, model_name):
         self.model.save(model_name)
+
+    def test_model(self,x_test,y_test_prob,y_test):
+        _, self.test_accuracy = self.model.evaluate(x_test, y_test_prob, verbose=0)
+        Y_predicted_prob = self.model.predict(tf.constant(x_test))
+        Y_predicted = np.argmax(Y_predicted_prob, -1)
+        self.count_well_predicted = np.count_nonzero([y_test == Y_predicted])
+        self.count_false_predicted=Y_predicted.shape[0] - self.count_well_predicted
+        # print("Accuracy of evaluate new test groups:", self.test_accuracy)
+        # print("Number of true predicts:", count_well_predicted)
+        # print("Number of false predicts:", Y_predicted.shape[0] - count_well_predicted)
+        # -------- Showing results of model training and validation---------------#
+
+        # import matplotlib.pyplot as plt
+        #
+        # plt.plot(self.history.history['accuracy'])
+        # plt.plot(self.history.history['val_accuracy'])
+        # plt.plot(self.test_accuracy)
+        # plt.title('Model accuracy in epoch')
+        # plt.ylabel('Accuracy')
+        # plt.xlabel('Epoch')
+        # plt.legend(['Train', 'Validation'], loc='upper left')
+        # plt.savefig('ModelAcc.png')
+        #
+        # plt.plot(self.history.history['loss'])
+        # plt.plot(self.history.history['val_loss'])
+        # plt.plot(self.test_accuracy)
+        # plt.title('Model loss in epoch')
+        # plt.ylabel('Loss')
+        # plt.xlabel('Epoch')
+        # plt.legend(['Train', 'Validation'], loc='upper left')
+        # plt.savefig('ModelLoss.png')
 
 
 config_128tokens = {
