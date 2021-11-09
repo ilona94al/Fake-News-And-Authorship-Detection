@@ -18,14 +18,14 @@ class PlagiarismWinController(FormCheckerWinController):
         self.ui.startBtn.clicked.connect(self.start_pressed)
 
         self.ui.authorComboBox.clear()
-        os.chdir("../Model1/")
+        os.chdir("../../Model1/")
         arr = os.listdir('Plagiarism')
         models=[]
         for item in arr:
             if item.split(".")[1]=="h5":
                 models.append(item)
         self.ui.authorComboBox.addItems(models)
-        os.chdir("../gui")
+        os.chdir("../gui/controllers")
 
 
         self.clear_feedback()

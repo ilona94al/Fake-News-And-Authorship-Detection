@@ -20,7 +20,7 @@ class Ui_SaveModelWindow(object):
         self.backgroundImg = QtWidgets.QLabel(self.centralwidget)
         self.backgroundImg.setGeometry(QtCore.QRect(0, 0, 860, 600))
         self.backgroundImg.setText("")
-        self.backgroundImg.setPixmap(QtGui.QPixmap("../RESOURCES/background.jpg"))
+        self.backgroundImg.setPixmap(QtGui.QPixmap("../../RESOURCES/background.jpg"))
         self.backgroundImg.setScaledContents(True)
         self.backgroundImg.setObjectName("backgroundImg")
         self.groupBox = QtWidgets.QGroupBox(self.centralwidget)
