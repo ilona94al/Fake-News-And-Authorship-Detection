@@ -2,13 +2,13 @@ import os
 
 from PyQt5 import QtWidgets
 
-from gui.controllers.formCheckerWinController import FormCheckerWinController
+from gui_controllers.formCheckerWinController import FormCheckerWinController
 
 
 class FakeNewsWinController(FormCheckerWinController):
     def __init__(self, parent=None):
         super(FakeNewsWinController, self).__init__(parent)
-        from gui.ui.fake_news_window import Ui_FakeNewsWindow
+        from gui_design.fake_news_window import Ui_FakeNewsWindow
 
         self.ui = Ui_FakeNewsWindow()
         self.ui.setupUi(self)
@@ -19,20 +19,20 @@ class FakeNewsWinController(FormCheckerWinController):
         self.ui.startBtn.clicked.connect(self.start_pressed)
 
         self.ui.trainedModelsComboBox.clear()
-        os.chdir("../Model1/")
+        os.chdir("../TRAINED_MODELS/")
         arr = os.listdir('FakeNews')
         models = []
         for item in arr:
             if item.split(".")[1] == "h5":
                 models.append(item)
         self.ui.trainedModelsComboBox.addItems(models)
-        os.chdir("../gui")
+        os.chdir("../gui_controllers")
 
         self.clear_feedback()
 
     def back_pressed(self):
         self.close()
-        from gui.controllers.mainWinController import MainWinController
+        from gui_controllers.mainWinController import MainWinController
         self.window = MainWinController()
         self.window.show()
 
@@ -54,7 +54,7 @@ class FakeNewsWinController(FormCheckerWinController):
         else:
             self.set_normal_style(tweet_widget)
             self.close()
-            from gui.controllers.detectionResultsWinController import DetectionResultsWinController
+            from gui_controllers.detectionResultsWinController import DetectionResultsWinController
             # todo: results= DETECT(model_name, tweet)
             #  find the relevant trained model(according to the model name)
             #  insert tweet as input to the model and get detection results (graphs and etc.)

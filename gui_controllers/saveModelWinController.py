@@ -1,13 +1,13 @@
 from PyQt5 import QtWidgets
 
-from gui.controllers.formCheckerWinController import FormCheckerWinController
+from gui_controllers.formCheckerWinController import FormCheckerWinController
 
 
 class SaveModelWinController(FormCheckerWinController):
     def __init__(self, task, parent=None):
         super(SaveModelWinController, self).__init__(parent)
         self.task = task
-        from gui.ui.save_model_window import Ui_SaveModelWindow
+        from gui_design.save_model_window import Ui_SaveModelWindow
         self.ui = Ui_SaveModelWindow()
         self.ui.setupUi(self)
         self.ui.backBtn.clicked.connect(self.back_pressed)
@@ -18,7 +18,7 @@ class SaveModelWinController(FormCheckerWinController):
 
     def back_pressed(self):
         self.close()
-        from gui.controllers.trainResultsWinController import TrainResultsWinController
+        from gui_controllers.trainResultsWinController import TrainResultsWinController
         self.window = TrainResultsWinController(self.task)
         self.window.show()
 
@@ -38,7 +38,7 @@ class SaveModelWinController(FormCheckerWinController):
                 dir_name="FakeNews"
             self.task.save_model(dir_name,name_widget_str)
             self.close()
-            from gui.controllers.mainWinController import MainWinController
+            from gui_controllers.mainWinController import MainWinController
             self.window = MainWinController()
             self.window.show()
 

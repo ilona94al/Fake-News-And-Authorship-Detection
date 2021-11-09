@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'train_news_model_window.ui'
+# Form implementation generated from reading gui_design file 'train_news_model_window.gui_design'
 #
 # Created by: PyQt5 UI code generator 5.15.4
 #
@@ -557,9 +557,9 @@ class Ui_TrainNewsModelWindow(object):
         self.backBtn.setText(_translate("TrainNewsModelWindow", "Back"))
         self.verticalGroupBox11.setTitle(_translate("TrainNewsModelWindow", "Upload two SCV files:"))
         self.label114.setText(_translate("TrainNewsModelWindow", "Real news file path:"))
-        self.inputPath1111.setText(_translate("TrainNewsModelWindow", "C:/Users/Ilona Aliyev/PycharmProjects/Fake-News-And-Authorship-Detection/DATABASE/fakenews/db1/true50.csv"))
+        self.inputPath1111.setText(_translate("TrainNewsModelWindow", "C:/Users/Ilona Aliyev/PycharmProjects/Fake-News-And-Authorship-Detection/DATABASE/fakenews/db1/true5.csv"))
         self.label115.setText(_translate("TrainNewsModelWindow", "Fake news file path:"))
-        self.inputPath1121.setText(_translate("TrainNewsModelWindow", "C:/Users/Ilona Aliyev/PycharmProjects/Fake-News-And-Authorship-Detection/DATABASE/fakenews/db1/fake50.csv"))
+        self.inputPath1121.setText(_translate("TrainNewsModelWindow", "C:/Users/Ilona Aliyev/PycharmProjects/Fake-News-And-Authorship-Detection/DATABASE/fakenews/db1/fake5.csv"))
         self.label116.setText(_translate("TrainNewsModelWindow", "Text\'s column name:"))
         self.inputTextColumnName113.setText(_translate("TrainNewsModelWindow", "text"))
         self.verticalGroupBox12.setTitle(_translate("TrainNewsModelWindow", "Upload CSV file:"))

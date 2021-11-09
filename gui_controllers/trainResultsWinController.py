@@ -9,16 +9,16 @@ class TrainResultsWinController(QMainWindow):
         super(TrainResultsWinController, self).__init__(parent)
         self.task = task
 
-        from gui.ui.train_results_window import Ui_TrainResultsWindow
+        from gui_design.train_results_window import Ui_TrainResultsWindow
         self.ui = Ui_TrainResultsWindow()
         self.ui.setupUi(self)
         self.ui.trainAgainBtn.clicked.connect(self.train_again_pressed)
         self.ui.saveBtn.clicked.connect(self.save_pressed)
-        os.chdir("../plots/")
+        os.chdir("../PLOTS/")
         from PyQt5 import QtGui
         self.ui.accuracyGraph.setPixmap(QtGui.QPixmap('ModelAcc.png'))
         self.ui.lossGraph.setPixmap(QtGui.QPixmap('ModelLoss.png'))
-        os.chdir("../gui")
+        os.chdir("../gui_controllers")
         results = "Number of true predicts: " + str(self.task.model.count_well_predicted) + "\n" \
                   + "Number of false predicts: " + str(self.model.count_false_predicted) + "\n" \
                   + "Total test set accuracy is " + str(self.task.model.test_accuracy * 100.0) + " \n\n" \
@@ -30,13 +30,13 @@ class TrainResultsWinController(QMainWindow):
     def train_again_pressed(self):
         self.close()
         # todo: consider to return to appropriate train window
-        from gui.controllers.chooseTrainWinController import ChooseTrainWinController
+        from gui_controllers.chooseTrainWinController import ChooseTrainWinController
         self.window = ChooseTrainWinController()
         self.window.show()
 
     def save_pressed(self):
         self.close()
-        from gui.controllers.saveModelWinController import SaveModelWinController
+        from gui_controllers.saveModelWinController import SaveModelWinController
         self.window = SaveModelWinController(self.task)
         self.window.show()
 

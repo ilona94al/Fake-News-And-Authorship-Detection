@@ -28,7 +28,7 @@ class FakeBERTModel():
         bert_encoder = hub.KerasLayer('encoder', trainable=True, name='BERT_encoder')
         bert_outputs = bert_encoder(bert_encoder_inputs)
         embeddings = bert_outputs["sequence_output"]  # [batch_size, seq_length, 768]
-        os.chdir("../gui")
+        os.chdir("../gui_controllers")
         cnn_parallel_block_1 = tf.keras.layers.Conv1D \
             (filters=128, kernel_size=3, activation='relu', input_shape=(self.config['max_seq_len'], 768))(embeddings)
         cnn_parallel_block_1 = tf.keras.layers.MaxPooling1D \
@@ -103,7 +103,7 @@ class FakeBERTModel():
         # -------- Showing results of model training and validation---------------#
 
         import matplotlib.pyplot as plt
-        os.chdir("../plots/")
+        os.chdir("../PLOTS/")
 
         plt.plot(self.history.history['accuracy'])
         plt.plot(self.history.history['val_accuracy'])
@@ -123,7 +123,7 @@ class FakeBERTModel():
         plt.legend(['Train', 'Validation'], loc='upper left')
         plt.savefig('ModelLoss.png')
 
-        os.chdir("../gui")
+        os.chdir("../gui_controllers")
 
 
 config_128tokens = {

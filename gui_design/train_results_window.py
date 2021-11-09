@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'detection_results_window.ui'
+# Form implementation generated from reading gui_design file 'train_results_window.gui_design'
 #
 # Created by: PyQt5 UI code generator 5.15.4
 #
@@ -11,11 +11,11 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
-class Ui_DetectionResultsWindow(object):
-    def setupUi(self, DetectionResultsWindow):
-        DetectionResultsWindow.setObjectName("DetectionResultsWindow")
-        DetectionResultsWindow.resize(860, 598)
-        self.centralwidget = QtWidgets.QWidget(DetectionResultsWindow)
+class Ui_TrainResultsWindow(object):
+    def setupUi(self, TrainResultsWindow):
+        TrainResultsWindow.setObjectName("TrainResultsWindow")
+        TrainResultsWindow.resize(860, 598)
+        self.centralwidget = QtWidgets.QWidget(TrainResultsWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.backgroundImg = QtWidgets.QLabel(self.centralwidget)
         self.backgroundImg.setGeometry(QtCore.QRect(0, 0, 860, 600))
@@ -92,19 +92,19 @@ class Ui_DetectionResultsWindow(object):
         self.groupBox.setStyleSheet("color: rgb(255, 255, 255);")
         self.groupBox.setAlignment(QtCore.Qt.AlignCenter)
         self.groupBox.setObjectName("groupBox")
-        self.backBtn = QtWidgets.QPushButton(self.groupBox)
-        self.backBtn.setEnabled(True)
-        self.backBtn.setGeometry(QtCore.QRect(30, 479, 240, 60))
+        self.trainAgainBtn = QtWidgets.QPushButton(self.groupBox)
+        self.trainAgainBtn.setEnabled(True)
+        self.trainAgainBtn.setGeometry(QtCore.QRect(30, 479, 240, 60))
         font = QtGui.QFont()
         font.setFamily("Sitka Small")
         font.setPointSize(16)
         font.setBold(False)
         font.setItalic(False)
         font.setWeight(9)
-        self.backBtn.setFont(font)
-        self.backBtn.setAcceptDrops(False)
-        self.backBtn.setAutoFillBackground(False)
-        self.backBtn.setStyleSheet("\n"
+        self.trainAgainBtn.setFont(font)
+        self.trainAgainBtn.setAcceptDrops(False)
+        self.trainAgainBtn.setAutoFillBackground(False)
+        self.trainAgainBtn.setStyleSheet("\n"
 "                            background-color: rgb(159, 0, 0);\n"
 "                            font: 75 16pt \"Sitka Small\";\n"
 "                            color: rgb(255, 255, 255);\n"
@@ -116,15 +116,15 @@ class Ui_DetectionResultsWindow(object):
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap("D:/My Documents/Studies/Semester_9/פרויקט מסכם - שלב\n"
 "                                ב/icons/pnghut_arrow-icon-direction-left-logo-text.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.backBtn.setIcon(icon)
-        self.backBtn.setIconSize(QtCore.QSize(24, 24))
-        self.backBtn.setCheckable(False)
-        self.backBtn.setAutoDefault(False)
-        self.backBtn.setDefault(False)
-        self.backBtn.setFlat(False)
-        self.backBtn.setObjectName("backBtn")
+        self.trainAgainBtn.setIcon(icon)
+        self.trainAgainBtn.setIconSize(QtCore.QSize(24, 24))
+        self.trainAgainBtn.setCheckable(False)
+        self.trainAgainBtn.setAutoDefault(False)
+        self.trainAgainBtn.setDefault(False)
+        self.trainAgainBtn.setFlat(False)
+        self.trainAgainBtn.setObjectName("trainAgainBtn")
         self.verticalFrame = QtWidgets.QFrame(self.groupBox)
-        self.verticalFrame.setGeometry(QtCore.QRect(150, 115, 500, 340))
+        self.verticalFrame.setGeometry(QtCore.QRect(300, 100, 481, 451))
         font = QtGui.QFont()
         font.setFamily("Sitka Small")
         font.setPointSize(10)
@@ -148,34 +148,107 @@ class Ui_DetectionResultsWindow(object):
         self.verticalLayout.setSpacing(10)
         self.verticalLayout.setObjectName("verticalLayout")
         self.tabWidget = QtWidgets.QTabWidget(self.verticalFrame)
+        self.tabWidget.setStyleSheet("color: rgb(0, 0, 0);")
         self.tabWidget.setObjectName("tabWidget")
-        self.tab = QtWidgets.QWidget()
-        self.tab.setObjectName("tab")
-        self.tabWidget.addTab(self.tab, "")
-        self.tab_2 = QtWidgets.QWidget()
-        self.tab_2.setObjectName("tab_2")
-        self.tabWidget.addTab(self.tab_2, "")
+        self.accTab = QtWidgets.QWidget()
+        self.accTab.setObjectName("accTab")
+        self.accuracyGraph = QtWidgets.QLabel(self.accTab)
+        self.accuracyGraph.setGeometry(QtCore.QRect(20, 20, 381, 321))
+        self.accuracyGraph.setObjectName("accuracyGraph")
+        self.tabWidget.addTab(self.accTab, "")
+        self.lossTab = QtWidgets.QWidget()
+        self.lossTab.setObjectName("lossTab")
+        self.lossGraph = QtWidgets.QLabel(self.lossTab)
+        self.lossGraph.setGeometry(QtCore.QRect(20, 20, 381, 321))
+        self.lossGraph.setObjectName("lossGraph")
+        self.tabWidget.addTab(self.lossTab, "")
         self.verticalLayout.addWidget(self.tabWidget)
-        DetectionResultsWindow.setCentralWidget(self.centralwidget)
+        self.saveBtn = QtWidgets.QPushButton(self.groupBox)
+        self.saveBtn.setEnabled(True)
+        self.saveBtn.setGeometry(QtCore.QRect(30, 410, 240, 60))
+        font = QtGui.QFont()
+        font.setFamily("Sitka Small")
+        font.setPointSize(16)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setWeight(9)
+        self.saveBtn.setFont(font)
+        self.saveBtn.setAcceptDrops(False)
+        self.saveBtn.setAutoFillBackground(False)
+        self.saveBtn.setStyleSheet("background-color: rgb(0, 111, 0);\n"
+"\n"
+"font: 75 16pt \"Sitka Small\";\n"
+"color: rgb(255, 255, 255);\n"
+"border-width: 3px;\n"
+"border-radius: 30px;\n"
+"border-color: rgb(255, 255, 255);\n"
+"border-style: solid;\n"
+"\n"
+"alternate-background-color: rgb(135, 135, 135);")
+        self.saveBtn.setIcon(icon)
+        self.saveBtn.setIconSize(QtCore.QSize(24, 24))
+        self.saveBtn.setCheckable(False)
+        self.saveBtn.setAutoDefault(False)
+        self.saveBtn.setDefault(False)
+        self.saveBtn.setFlat(False)
+        self.saveBtn.setObjectName("saveBtn")
+        self.verticalFrame_2 = QtWidgets.QFrame(self.groupBox)
+        self.verticalFrame_2.setGeometry(QtCore.QRect(30, 100, 251, 281))
+        font = QtGui.QFont()
+        font.setFamily("Sitka Small")
+        font.setPointSize(10)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setWeight(50)
+        self.verticalFrame_2.setFont(font)
+        self.verticalFrame_2.setAutoFillBackground(False)
+        self.verticalFrame_2.setStyleSheet("border-width: 3px;\n"
+"                            border-radius: 15px;\n"
+"                            border-color: rgb(0, 0, 0);\n"
+"                            border-style: solid;\n"
+"                            font: 10pt \"Sitka Small\";\n"
+"                            color: rgb(255, 255, 255);\n"
+"                            background-color: qlineargradient(spread:pad, x1:0.996, y1:0.0340909, x2:1, y2:0, stop:1\n"
+"                            rgba(0, 0, 32, 170));\n"
+"                        ")
+        self.verticalFrame_2.setObjectName("verticalFrame_2")
+        self.verticalLayout_2 = QtWidgets.QVBoxLayout(self.verticalFrame_2)
+        self.verticalLayout_2.setContentsMargins(18, 18, 18, 18)
+        self.verticalLayout_2.setSpacing(10)
+        self.verticalLayout_2.setObjectName("verticalLayout_2")
+        self.resultsTextEdit = QtWidgets.QTextEdit(self.verticalFrame_2)
+        self.resultsTextEdit.setStyleSheet("border-width: 3px;\n"
+"                                                            border-radius: 5px;\n"
+"                                                            border-color: rgb(0, 0, 0);\n"
+"                                                            border-style: solid;\n"
+"                                                            background-color: rgb(188, 188, 188);\n"
+"                                                            color: rgb(0, 0, 0);\n"
+"                                                        ")
+        self.resultsTextEdit.setObjectName("resultsTextEdit")
+        self.verticalLayout_2.addWidget(self.resultsTextEdit)
+        TrainResultsWindow.setCentralWidget(self.centralwidget)
 
-        self.retranslateUi(DetectionResultsWindow)
-        self.tabWidget.setCurrentIndex(1)
-        QtCore.QMetaObject.connectSlotsByName(DetectionResultsWindow)
+        self.retranslateUi(TrainResultsWindow)
+        self.tabWidget.setCurrentIndex(0)
+        QtCore.QMetaObject.connectSlotsByName(TrainResultsWindow)
 
-    def retranslateUi(self, DetectionResultsWindow):
+    def retranslateUi(self, TrainResultsWindow):
         _translate = QtCore.QCoreApplication.translate
-        DetectionResultsWindow.setWindowTitle(_translate("DetectionResultsWindow", "Detection Results"))
-        self.groupBox.setTitle(_translate("DetectionResultsWindow", "Detetion Results"))
-        self.backBtn.setText(_translate("DetectionResultsWindow", "Back"))
-        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab), _translate("DetectionResultsWindow", "Tab 1"))
-        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_2), _translate("DetectionResultsWindow", "Tab 2"))
+        TrainResultsWindow.setWindowTitle(_translate("TrainResultsWindow", "Train Model Results"))
+        self.groupBox.setTitle(_translate("TrainResultsWindow", "Tain Model Results"))
+        self.trainAgainBtn.setText(_translate("TrainResultsWindow", "Train again"))
+        self.accuracyGraph.setText(_translate("TrainResultsWindow", "TextLabel"))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.accTab), _translate("TrainResultsWindow", "Accuraccy"))
+        self.lossGraph.setText(_translate("TrainResultsWindow", "TextLabel"))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.lossTab), _translate("TrainResultsWindow", "Loss"))
+        self.saveBtn.setText(_translate("TrainResultsWindow", "Save Model"))
 
 
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
-    DetectionResultsWindow = QtWidgets.QMainWindow()
-    ui = Ui_DetectionResultsWindow()
-    ui.setupUi(DetectionResultsWindow)
-    DetectionResultsWindow.show()
+    TrainResultsWindow = QtWidgets.QMainWindow()
+    ui = Ui_TrainResultsWindow()
+    ui.setupUi(TrainResultsWindow)
+    TrainResultsWindow.show()
     sys.exit(app.exec_())

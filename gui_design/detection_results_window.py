@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'save_model_window.ui'
+# Form implementation generated from reading gui_design file 'detection_results_window.gui_design'
 #
 # Created by: PyQt5 UI code generator 5.15.4
 #
@@ -11,11 +11,11 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
-class Ui_SaveModelWindow(object):
-    def setupUi(self, SaveModelWindow):
-        SaveModelWindow.setObjectName("SaveModelWindow")
-        SaveModelWindow.resize(860, 456)
-        self.centralwidget = QtWidgets.QWidget(SaveModelWindow)
+class Ui_DetectionResultsWindow(object):
+    def setupUi(self, DetectionResultsWindow):
+        DetectionResultsWindow.setObjectName("DetectionResultsWindow")
+        DetectionResultsWindow.resize(860, 598)
+        self.centralwidget = QtWidgets.QWidget(DetectionResultsWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.backgroundImg = QtWidgets.QLabel(self.centralwidget)
         self.backgroundImg.setGeometry(QtCore.QRect(0, 0, 860, 600))
@@ -25,7 +25,7 @@ class Ui_SaveModelWindow(object):
         self.backgroundImg.setObjectName("backgroundImg")
         self.groupBox = QtWidgets.QGroupBox(self.centralwidget)
         self.groupBox.setEnabled(True)
-        self.groupBox.setGeometry(QtCore.QRect(30, 0, 800, 420))
+        self.groupBox.setGeometry(QtCore.QRect(30, 0, 800, 570))
         palette = QtGui.QPalette()
         brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
         brush.setStyle(QtCore.Qt.SolidPattern)
@@ -92,36 +92,9 @@ class Ui_SaveModelWindow(object):
         self.groupBox.setStyleSheet("color: rgb(255, 255, 255);")
         self.groupBox.setAlignment(QtCore.Qt.AlignCenter)
         self.groupBox.setObjectName("groupBox")
-        self.saveBtn = QtWidgets.QPushButton(self.groupBox)
-        self.saveBtn.setEnabled(True)
-        self.saveBtn.setGeometry(QtCore.QRect(530, 329, 240, 60))
-        font = QtGui.QFont()
-        font.setFamily("Sitka Small")
-        font.setPointSize(16)
-        font.setBold(False)
-        font.setItalic(False)
-        font.setWeight(9)
-        self.saveBtn.setFont(font)
-        self.saveBtn.setAcceptDrops(False)
-        self.saveBtn.setAutoFillBackground(False)
-        self.saveBtn.setStyleSheet("background-color: rgb(0, 111, 0);\n"
-"\n"
-"font: 75 16pt \"Sitka Small\";\n"
-"color: rgb(255, 255, 255);\n"
-"border-width: 3px;\n"
-"border-radius: 30px;\n"
-"border-color: rgb(255, 255, 255);\n"
-"border-style: solid;\n"
-"\n"
-"alternate-background-color: rgb(135, 135, 135);")
-        self.saveBtn.setCheckable(False)
-        self.saveBtn.setAutoDefault(False)
-        self.saveBtn.setDefault(False)
-        self.saveBtn.setFlat(False)
-        self.saveBtn.setObjectName("saveBtn")
         self.backBtn = QtWidgets.QPushButton(self.groupBox)
         self.backBtn.setEnabled(True)
-        self.backBtn.setGeometry(QtCore.QRect(30, 329, 240, 60))
+        self.backBtn.setGeometry(QtCore.QRect(30, 479, 240, 60))
         font = QtGui.QFont()
         font.setFamily("Sitka Small")
         font.setPointSize(16)
@@ -132,15 +105,17 @@ class Ui_SaveModelWindow(object):
         self.backBtn.setAcceptDrops(False)
         self.backBtn.setAutoFillBackground(False)
         self.backBtn.setStyleSheet("\n"
-"background-color: rgb(159, 0, 0);\n"
-"font: 75 16pt \"Sitka Small\";\n"
-"color: rgb(255, 255, 255);\n"
-"border-width: 3px;\n"
-"border-radius: 30px;\n"
-"border-color: rgb(255, 255, 255);\n"
-"border-style: solid;")
+"                            background-color: rgb(159, 0, 0);\n"
+"                            font: 75 16pt \"Sitka Small\";\n"
+"                            color: rgb(255, 255, 255);\n"
+"                            border-width: 3px;\n"
+"                            border-radius: 30px;\n"
+"                            border-color: rgb(255, 255, 255);\n"
+"                            border-style: solid;\n"
+"                        ")
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("D:/My Documents/Studies/Semester_9/פרויקט מסכם - שלב ב/icons/pnghut_arrow-icon-direction-left-logo-text.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap("D:/My Documents/Studies/Semester_9/פרויקט מסכם - שלב\n"
+"                                ב/icons/pnghut_arrow-icon-direction-left-logo-text.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.backBtn.setIcon(icon)
         self.backBtn.setIconSize(QtCore.QSize(24, 24))
         self.backBtn.setCheckable(False)
@@ -149,7 +124,7 @@ class Ui_SaveModelWindow(object):
         self.backBtn.setFlat(False)
         self.backBtn.setObjectName("backBtn")
         self.verticalFrame = QtWidgets.QFrame(self.groupBox)
-        self.verticalFrame.setGeometry(QtCore.QRect(100, 115, 600, 181))
+        self.verticalFrame.setGeometry(QtCore.QRect(150, 115, 500, 340))
         font = QtGui.QFont()
         font.setFamily("Sitka Small")
         font.setPointSize(10)
@@ -158,62 +133,49 @@ class Ui_SaveModelWindow(object):
         font.setWeight(50)
         self.verticalFrame.setFont(font)
         self.verticalFrame.setAutoFillBackground(False)
-        self.verticalFrame.setStyleSheet("border-width: 4px;\n"
-"border-radius: 15px;\n"
-"border-color: rgb(0, 0, 0);\n"
-"border-style: solid;\n"
-"font: 10pt \"Sitka Small\";\n"
-"color: rgb(255, 255, 255);\n"
-"background-color: qlineargradient(spread:pad, x1:0.996, y1:0.0340909, x2:1, y2:0, stop:1 rgba(0, 0, 32, 170));")
+        self.verticalFrame.setStyleSheet("border-width: 3px;\n"
+"                            border-radius: 15px;\n"
+"                            border-color: rgb(0, 0, 0);\n"
+"                            border-style: solid;\n"
+"                            font: 10pt \"Sitka Small\";\n"
+"                            color: rgb(255, 255, 255);\n"
+"                            background-color: qlineargradient(spread:pad, x1:0.996, y1:0.0340909, x2:1, y2:0, stop:1\n"
+"                            rgba(0, 0, 32, 170));\n"
+"                        ")
         self.verticalFrame.setObjectName("verticalFrame")
         self.verticalLayout = QtWidgets.QVBoxLayout(self.verticalFrame)
         self.verticalLayout.setContentsMargins(18, 18, 18, 18)
         self.verticalLayout.setSpacing(10)
         self.verticalLayout.setObjectName("verticalLayout")
-        self.horizontalGroupBox = QtWidgets.QGroupBox(self.verticalFrame)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.horizontalGroupBox.sizePolicy().hasHeightForWidth())
-        self.horizontalGroupBox.setSizePolicy(sizePolicy)
-        self.horizontalGroupBox.setMinimumSize(QtCore.QSize(0, 0))
-        self.horizontalGroupBox.setStyleSheet("")
-        self.horizontalGroupBox.setObjectName("horizontalGroupBox")
-        self.horizontalLayout = QtWidgets.QHBoxLayout(self.horizontalGroupBox)
-        self.horizontalLayout.setContentsMargins(10, 48, 10, 24)
-        self.horizontalLayout.setSpacing(10)
-        self.horizontalLayout.setObjectName("horizontalLayout")
-        self.inputName = QtWidgets.QLineEdit(self.horizontalGroupBox)
-        self.inputName.setEnabled(True)
-        self.inputName.setStyleSheet("border-width: 2px;\n"
-"border-radius: 5px;\n"
-"border-color: rgb(0, 0, 0);\n"
-"border-style: solid;\n"
-"background-color: rgb(181, 181, 181);\n"
-"color: rgb(0, 0, 0);")
-        self.inputName.setObjectName("inputName")
-        self.horizontalLayout.addWidget(self.inputName)
-        self.verticalLayout.addWidget(self.horizontalGroupBox)
-        SaveModelWindow.setCentralWidget(self.centralwidget)
+        self.tabWidget = QtWidgets.QTabWidget(self.verticalFrame)
+        self.tabWidget.setObjectName("tabWidget")
+        self.tab = QtWidgets.QWidget()
+        self.tab.setObjectName("tab")
+        self.tabWidget.addTab(self.tab, "")
+        self.tab_2 = QtWidgets.QWidget()
+        self.tab_2.setObjectName("tab_2")
+        self.tabWidget.addTab(self.tab_2, "")
+        self.verticalLayout.addWidget(self.tabWidget)
+        DetectionResultsWindow.setCentralWidget(self.centralwidget)
 
-        self.retranslateUi(SaveModelWindow)
-        QtCore.QMetaObject.connectSlotsByName(SaveModelWindow)
+        self.retranslateUi(DetectionResultsWindow)
+        self.tabWidget.setCurrentIndex(1)
+        QtCore.QMetaObject.connectSlotsByName(DetectionResultsWindow)
 
-    def retranslateUi(self, SaveModelWindow):
+    def retranslateUi(self, DetectionResultsWindow):
         _translate = QtCore.QCoreApplication.translate
-        SaveModelWindow.setWindowTitle(_translate("SaveModelWindow", "Save Model Window"))
-        self.groupBox.setTitle(_translate("SaveModelWindow", "Save a new model"))
-        self.saveBtn.setText(_translate("SaveModelWindow", "Save"))
-        self.backBtn.setText(_translate("SaveModelWindow", "Back"))
-        self.horizontalGroupBox.setTitle(_translate("SaveModelWindow", "Give a name for your model :"))
-        self.inputName.setPlaceholderText(_translate("SaveModelWindow", "example: fake news model 8-11-2021"))
+        DetectionResultsWindow.setWindowTitle(_translate("DetectionResultsWindow", "Detection Results"))
+        self.groupBox.setTitle(_translate("DetectionResultsWindow", "Detetion Results"))
+        self.backBtn.setText(_translate("DetectionResultsWindow", "Back"))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab), _translate("DetectionResultsWindow", "Tab 1"))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_2), _translate("DetectionResultsWindow", "Tab 2"))
 
 
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
-    SaveModelWindow = QtWidgets.QMainWindow()
-    ui = Ui_SaveModelWindow()
-    ui.setupUi(SaveModelWindow)
-    SaveModelWindow.show()
+    DetectionResultsWindow = QtWidgets.QMainWindow()
+    ui = Ui_DetectionResultsWindow()
+    ui.setupUi(DetectionResultsWindow)
+    DetectionResultsWindow.show()
     sys.exit(app.exec_())

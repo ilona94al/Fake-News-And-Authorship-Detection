@@ -303,7 +303,7 @@ plt.xlabel('Epoch')
 plt.legend(['Train', 'Validation'], loc='upper left')
 # plt.show()
 plt.savefig('ModelAcc.png')
-plt.savefig('plots/ModelAcc.png')
+plt.savefig('PLOTS/ModelAcc.png')
 #
 # plt.plot(history.history['loss'])
 # plt.plot(history.history['val_loss'])

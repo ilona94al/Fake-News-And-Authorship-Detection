@@ -10,7 +10,7 @@ combo_box_options = {
 class ChooseTrainWinController(QMainWindow):
     def __init__(self, parent=None):
         super(ChooseTrainWinController, self).__init__(parent)
-        from gui.ui.choose_train_window import Ui_ChooseTrainWindow
+        from gui_design.choose_train_window import Ui_ChooseTrainWindow
 
         self.ui = Ui_ChooseTrainWindow()
         self.ui.setupUi(self)
@@ -23,7 +23,7 @@ class ChooseTrainWinController(QMainWindow):
 
     def back_pressed(self):
         self.close()
-        from gui.controllers.mainWinController import MainWinController
+        from gui_controllers.mainWinController import MainWinController
         self.window = MainWinController()
         self.window.show()
 
@@ -33,10 +33,10 @@ class ChooseTrainWinController(QMainWindow):
         self.close()
 
         if model_type == combo_box_options['option1']:
-            from gui.controllers.trainPlagModelWinController import TrainPlagModelWinController
+            from gui_controllers.trainPlagModelWinController import TrainPlagModelWinController
             self.window = TrainPlagModelWinController()
         if model_type == combo_box_options['option2']:
-            from gui.controllers.trainNewsModelWinController import TrainNewsModelWinController
+            from gui_controllers.trainNewsModelWinController import TrainNewsModelWinController
             self.window = TrainNewsModelWinController()
 
         self.window.show()

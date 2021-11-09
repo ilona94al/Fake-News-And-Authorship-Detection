@@ -1,12 +1,13 @@
 from PyQt5 import QtWidgets
 
-from gui.controllers.trainModelWinController import TrainModelWinController
+from gui_controllers.trainModelWinController import TrainModelWinController
+from pathlib import Path
 
 
 class TrainNewsModelWinController(TrainModelWinController):
     def __init__(self, parent=None):
         super(TrainNewsModelWinController, self).__init__(parent)
-        from gui.ui.train_news_model_window import Ui_TrainNewsModelWindow
+        from gui_design.train_news_model_window import Ui_TrainNewsModelWindow
         self.ui = Ui_TrainNewsModelWindow()
         self.ui.setupUi(self)
 
@@ -25,6 +26,11 @@ class TrainNewsModelWinController(TrainModelWinController):
 
 
         self.clear_feedback()
+
+
+    @staticmethod
+    def get_project_root() -> Path:
+        return Path("Fake-News-And-Authorship-Detection").parent.parent
 
     def show_one_file_form(self):
         self.two_files = False
