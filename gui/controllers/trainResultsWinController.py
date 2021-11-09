@@ -14,7 +14,7 @@ class TrainResultsWinController(QMainWindow):
         self.ui.setupUi(self)
         self.ui.trainAgainBtn.clicked.connect(self.train_again_pressed)
         self.ui.saveBtn.clicked.connect(self.save_pressed)
-        os.chdir("../../plots/")
+        os.chdir("../../PLOTS/")
         from PyQt5 import QtGui
         self.ui.accuracyGraph.setPixmap(QtGui.QPixmap('ModelAcc.png'))
         self.ui.lossGraph.setPixmap(QtGui.QPixmap('ModelLoss.png'))

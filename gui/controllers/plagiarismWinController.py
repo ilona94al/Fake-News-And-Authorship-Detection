@@ -18,7 +18,7 @@ class PlagiarismWinController(FormCheckerWinController):
         self.ui.startBtn.clicked.connect(self.start_pressed)
 
         self.ui.authorComboBox.clear()
-        os.chdir("../../Model1/")
+        os.chdir("../../TRAINED_MODELS/")
         arr = os.listdir('Plagiarism')
         models=[]
         for item in arr:

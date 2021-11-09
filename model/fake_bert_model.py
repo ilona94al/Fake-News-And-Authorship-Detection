@@ -103,7 +103,7 @@ class FakeBERTModel():
         # -------- Showing results of model training and validation---------------#
 
         import matplotlib.pyplot as plt
-        os.chdir("../../plots/")
+        os.chdir("../../PLOTS/")
 
         plt.plot(self.history.history['accuracy'])
         plt.plot(self.history.history['val_accuracy'])

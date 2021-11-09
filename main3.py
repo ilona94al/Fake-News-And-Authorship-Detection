@@ -252,7 +252,7 @@ plt.xlabel('Epoch')
 plt.legend(['Train', 'Validation'], loc='upper left')
 plt.show()
 plt.savefig('ModelAcc.png')
-plt.savefig('plots\ModelAcc.png')
+plt.savefig('PLOTS\ModelAcc.png')
 
 plt.plot(history.history['loss'])
 plt.plot(history.history['val_loss'])
@@ -263,7 +263,7 @@ plt.xlabel('Epoch')
 plt.legend(['Train', 'Validation'], loc='upper left')
 plt.show()
 plt.savefig('ModelLoss.png')
-# plt.savefig('plots\ModelLoss.png')
+# plt.savefig('PLOTS\ModelLoss.png')
 #
 # # ------------------------------------
 import os
@@ -369,7 +369,7 @@ plt.xlabel('Epoch')
 plt.legend(['Train', 'Validation'], loc='upper left')
 # plt.show()
 plt.savefig('accTest.PNG')
-#plt.savefig('plots\ShakespeareModelAcc.PNG')
+#plt.savefig('PLOTS\ShakespeareModelAcc.PNG')
 
 plt.plot(history.history['loss'])
 plt.plot(history.history['val_loss'])
@@ -380,7 +380,7 @@ plt.xlabel('Epoch')
 plt.legend(['Train', 'Validation'], loc='upper left')
 # plt.show()
 plt.savefig('testLoss.png')
-#plt.savefig('plots\ShakespeareModelLoss.png')
+#plt.savefig('PLOTS\ShakespeareModelLoss.png')
 
 #---------------------
 
@@ -415,7 +415,7 @@ num_classes = y_train_prob.shape[1]
 
 new_model = False
 model_name = 'FakeBERTModel.h5'
-trained_model_name = 'Model1/TrainedFakeBERTModel.h5'
+trained_model_name = 'TRAINED_MODELS/TrainedFakeBERTModel.h5'
 if new_model == True:
     model = build_model()
     model.save(model_name)
@@ -447,7 +447,7 @@ plt.xlabel('Epoch')
 plt.legend(['Train', 'Validation'], loc='upper left')
 plt.show()
 plt.savefig('ModelAcc.png')
-plt.savefig('plots\ModelAcc.png')
+plt.savefig('PLOTS\ModelAcc.png')
 
 plt.plot(history.history['loss'])
 plt.plot(history.history['val_loss'])

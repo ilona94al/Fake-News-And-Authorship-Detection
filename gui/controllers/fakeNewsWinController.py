@@ -19,7 +19,7 @@ class FakeNewsWinController(FormCheckerWinController):
         self.ui.startBtn.clicked.connect(self.start_pressed)
 
         self.ui.trainedModelsComboBox.clear()
-        os.chdir("../../Model1/")
+        os.chdir("../../TRAINED_MODELS/")
         arr = os.listdir('FakeNews')
         models = []
         for item in arr:
