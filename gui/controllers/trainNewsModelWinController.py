@@ -1,13 +1,12 @@
 from PyQt5 import QtWidgets
-from PyQt5.QtWidgets import QMainWindow
 
-from gui.trainModelWinController import TrainModelWinController
+from gui.controllers.trainModelWinController import TrainModelWinController
 
 
 class TrainNewsModelWinController(TrainModelWinController):
     def __init__(self, parent=None):
         super(TrainNewsModelWinController, self).__init__(parent)
-        from gui.train_news_model_window import Ui_TrainNewsModelWindow
+        from gui.ui.train_news_model_window import Ui_TrainNewsModelWindow
         self.ui = Ui_TrainNewsModelWindow()
         self.ui.setupUi(self)
 
@@ -17,14 +16,15 @@ class TrainNewsModelWinController(TrainModelWinController):
         self.ui.radioButton2111.clicked.connect(self.show_one_file_form)
         self.ui.radioButton2121.clicked.connect(self.show_two_files_form)
 
-        self.ui.errorMsg.setHidden(True)
-
         self.ui.uploadBtn1212.clicked.connect(lambda: self.upload_file_pressed(widget=self.ui.inputPath1211))
         self.ui.uploadBtn1112.clicked.connect(lambda: self.upload_file_pressed(widget=self.ui.inputPath1111))
         self.ui.uploadBtn1122.clicked.connect(lambda: self.upload_file_pressed(widget=self.ui.inputPath1121))
 
         self.ui.backBtn.clicked.connect(self.back_pressed)
         self.ui.trainBtn.clicked.connect(self.train_pressed)
+
+
+        self.clear_feedback()
 
     def show_one_file_form(self):
         self.two_files = False

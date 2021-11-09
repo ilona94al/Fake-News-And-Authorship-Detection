@@ -28,7 +28,7 @@ class FakeBERTModel():
         bert_encoder = hub.KerasLayer('encoder', trainable=True, name='BERT_encoder')
         bert_outputs = bert_encoder(bert_encoder_inputs)
         embeddings = bert_outputs["sequence_output"]  # [batch_size, seq_length, 768]
-        os.chdir("../gui/")
+        os.chdir("../gui")
         cnn_parallel_block_1 = tf.keras.layers.Conv1D \
             (filters=128, kernel_size=3, activation='relu', input_shape=(self.config['max_seq_len'], 768))(embeddings)
         cnn_parallel_block_1 = tf.keras.layers.MaxPooling1D \
@@ -102,25 +102,28 @@ class FakeBERTModel():
         # print("Number of false predicts:", Y_predicted.shape[0] - count_well_predicted)
         # -------- Showing results of model training and validation---------------#
 
-        # import matplotlib.pyplot as plt
-        #
-        # plt.plot(self.history.history['accuracy'])
-        # plt.plot(self.history.history['val_accuracy'])
-        # plt.plot(self.test_accuracy)
-        # plt.title('Model accuracy in epoch')
-        # plt.ylabel('Accuracy')
-        # plt.xlabel('Epoch')
-        # plt.legend(['Train', 'Validation'], loc='upper left')
-        # plt.savefig('ModelAcc.png')
-        #
-        # plt.plot(self.history.history['loss'])
-        # plt.plot(self.history.history['val_loss'])
-        # plt.plot(self.test_accuracy)
-        # plt.title('Model loss in epoch')
-        # plt.ylabel('Loss')
-        # plt.xlabel('Epoch')
-        # plt.legend(['Train', 'Validation'], loc='upper left')
-        # plt.savefig('ModelLoss.png')
+        import matplotlib.pyplot as plt
+        os.chdir("../plots/")
+
+        plt.plot(self.history.history['accuracy'])
+        plt.plot(self.history.history['val_accuracy'])
+        plt.plot(self.test_accuracy)
+        plt.title('Model accuracy in epoch')
+        plt.ylabel('Accuracy')
+        plt.xlabel('Epoch')
+        plt.legend(['Train', 'Validation'], loc='upper left')
+        plt.savefig('ModelAcc.png')
+
+        plt.plot(self.history.history['loss'])
+        plt.plot(self.history.history['val_loss'])
+        plt.plot(self.test_accuracy)
+        plt.title('Model loss in epoch')
+        plt.ylabel('Loss')
+        plt.xlabel('Epoch')
+        plt.legend(['Train', 'Validation'], loc='upper left')
+        plt.savefig('ModelLoss.png')
+
+        os.chdir("../gui")
 
 
 config_128tokens = {

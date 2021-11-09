@@ -1,3 +1,4 @@
+import os
 import threading
 
 from sklearn.model_selection import train_test_split
@@ -65,8 +66,11 @@ class Task():
         self.t.start()
 
 
-    def save_model(self, model_name):
+    def save_model(self, dir_name,model_name):
+
+        os.chdir("../Model1/"+dir_name)
         self.model.save_model(model_name)
+        os.chdir("../../gui")
         # todo: show error popup if name exists
 
     def test_model(self):

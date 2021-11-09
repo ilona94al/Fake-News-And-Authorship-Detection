@@ -7,14 +7,14 @@ class DetectionResultsWinController(QMainWindow):
         super(DetectionResultsWinController, self).__init__(parent)
 
         # todo: show results on ui
-        from gui.detection_results_window import Ui_DetectionResultsWindow
+        from gui.ui.detection_results_window import Ui_DetectionResultsWindow
         self.ui = Ui_DetectionResultsWindow()
         self.ui.setupUi(self)
         self.ui.backBtn.clicked.connect(self.back_pressed)
 
     def back_pressed(self):
         self.close()
-        from gui.plagiarismWinController import PlagiarismWinController
+        from gui.controllers.plagiarismWinController import PlagiarismWinController
         self.window = PlagiarismWinController()
         self.window.show()
 

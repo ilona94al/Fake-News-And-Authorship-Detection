@@ -22,6 +22,8 @@ pyuic5 -x choose_train_window.ui -o choose_train_window.py
 
 pyuic5 -x train_news_model_window.ui -o train_news_model_window.py
 
+pyuic5 -x save_model_window.ui -o save_model_window.py
+
 pyuic5 -x train_plag_model_window.ui -o train_plag_model_window.py
 
 pyuic5 -x fake_news_window.ui -o fake_news_window.py

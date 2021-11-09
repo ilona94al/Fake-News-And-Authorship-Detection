@@ -1,21 +1,20 @@
 from PyQt5 import QtWidgets
-from PyQt5.QtWidgets import QMainWindow
 
-from gui.trainModelWinController import TrainModelWinController
+from gui.controllers.trainModelWinController import TrainModelWinController
 
 
 class TrainPlagModelWinController(TrainModelWinController):
     def __init__(self, parent=None):
         super(TrainPlagModelWinController, self).__init__(parent)
-        from gui.train_plag_model_window import Ui_TrainPlagModelWindow
+        from gui.ui.train_plag_model_window import Ui_TrainPlagModelWindow
         self.ui = Ui_TrainPlagModelWindow()
         self.ui.setupUi(self)
-
-        self.ui.errorMsg.setHidden(True)
 
         self.ui.uploadBtn1132.clicked.connect(lambda: self.upload_folder_pressed(widget=self.ui.inputPath1131))
         self.ui.trainBtn.clicked.connect(self.train_pressed)
         self.ui.backBtn.clicked.connect(self.back_pressed)
+
+        self.clear_feedback()
 
     def upload_folder_pressed(self, widget):  # Folder uploader
         import tkinter as tk
