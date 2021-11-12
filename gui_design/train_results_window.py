@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading gui_design file 'train_results_window.gui_design'
+# Form implementation generated from reading ui file 'train_results_window.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.4
 #
@@ -20,7 +20,7 @@ class Ui_TrainResultsWindow(object):
         self.backgroundImg = QtWidgets.QLabel(self.centralwidget)
         self.backgroundImg.setGeometry(QtCore.QRect(0, 0, 860, 600))
         self.backgroundImg.setText("")
-        self.backgroundImg.setPixmap(QtGui.QPixmap("../RESOURCES/background.jpg"))
+        self.backgroundImg.setPixmap(QtGui.QPixmap("resources/background.jpg"))
         self.backgroundImg.setScaledContents(True)
         self.backgroundImg.setObjectName("backgroundImg")
         self.groupBox = QtWidgets.QGroupBox(self.centralwidget)
@@ -123,17 +123,17 @@ class Ui_TrainResultsWindow(object):
         self.trainAgainBtn.setDefault(False)
         self.trainAgainBtn.setFlat(False)
         self.trainAgainBtn.setObjectName("trainAgainBtn")
-        self.verticalFrame = QtWidgets.QFrame(self.groupBox)
-        self.verticalFrame.setGeometry(QtCore.QRect(300, 100, 481, 451))
+        self.verticalFrame1 = QtWidgets.QFrame(self.groupBox)
+        self.verticalFrame1.setGeometry(QtCore.QRect(300, 100, 481, 451))
         font = QtGui.QFont()
         font.setFamily("Sitka Small")
         font.setPointSize(10)
         font.setBold(False)
         font.setItalic(False)
         font.setWeight(50)
-        self.verticalFrame.setFont(font)
-        self.verticalFrame.setAutoFillBackground(False)
-        self.verticalFrame.setStyleSheet("border-width: 3px;\n"
+        self.verticalFrame1.setFont(font)
+        self.verticalFrame1.setAutoFillBackground(False)
+        self.verticalFrame1.setStyleSheet("border-width: 3px;\n"
 "                            border-radius: 15px;\n"
 "                            border-color: rgb(0, 0, 0);\n"
 "                            border-style: solid;\n"
@@ -142,27 +142,17 @@ class Ui_TrainResultsWindow(object):
 "                            background-color: qlineargradient(spread:pad, x1:0.996, y1:0.0340909, x2:1, y2:0, stop:1\n"
 "                            rgba(0, 0, 32, 170));\n"
 "                        ")
-        self.verticalFrame.setObjectName("verticalFrame")
-        self.verticalLayout = QtWidgets.QVBoxLayout(self.verticalFrame)
+        self.verticalFrame1.setObjectName("verticalFrame1")
+        self.verticalLayout = QtWidgets.QVBoxLayout(self.verticalFrame1)
         self.verticalLayout.setContentsMargins(18, 18, 18, 18)
         self.verticalLayout.setSpacing(10)
         self.verticalLayout.setObjectName("verticalLayout")
-        self.tabWidget = QtWidgets.QTabWidget(self.verticalFrame)
-        self.tabWidget.setStyleSheet("color: rgb(0, 0, 0);")
-        self.tabWidget.setObjectName("tabWidget")
-        self.accTab = QtWidgets.QWidget()
-        self.accTab.setObjectName("accTab")
-        self.accuracyGraph = QtWidgets.QLabel(self.accTab)
-        self.accuracyGraph.setGeometry(QtCore.QRect(20, 20, 381, 321))
+        self.accuracyGraph = QtWidgets.QLabel(self.verticalFrame1)
         self.accuracyGraph.setObjectName("accuracyGraph")
-        self.tabWidget.addTab(self.accTab, "")
-        self.lossTab = QtWidgets.QWidget()
-        self.lossTab.setObjectName("lossTab")
-        self.lossGraph = QtWidgets.QLabel(self.lossTab)
-        self.lossGraph.setGeometry(QtCore.QRect(20, 20, 381, 321))
+        self.verticalLayout.addWidget(self.accuracyGraph)
+        self.lossGraph = QtWidgets.QLabel(self.verticalFrame1)
         self.lossGraph.setObjectName("lossGraph")
-        self.tabWidget.addTab(self.lossTab, "")
-        self.verticalLayout.addWidget(self.tabWidget)
+        self.verticalLayout.addWidget(self.lossGraph)
         self.saveBtn = QtWidgets.QPushButton(self.groupBox)
         self.saveBtn.setEnabled(True)
         self.saveBtn.setGeometry(QtCore.QRect(30, 410, 240, 60))
@@ -192,17 +182,17 @@ class Ui_TrainResultsWindow(object):
         self.saveBtn.setDefault(False)
         self.saveBtn.setFlat(False)
         self.saveBtn.setObjectName("saveBtn")
-        self.verticalFrame_2 = QtWidgets.QFrame(self.groupBox)
-        self.verticalFrame_2.setGeometry(QtCore.QRect(30, 100, 251, 281))
+        self.verticalFrame2 = QtWidgets.QFrame(self.groupBox)
+        self.verticalFrame2.setGeometry(QtCore.QRect(30, 100, 251, 281))
         font = QtGui.QFont()
         font.setFamily("Sitka Small")
         font.setPointSize(10)
         font.setBold(False)
         font.setItalic(False)
         font.setWeight(50)
-        self.verticalFrame_2.setFont(font)
-        self.verticalFrame_2.setAutoFillBackground(False)
-        self.verticalFrame_2.setStyleSheet("border-width: 3px;\n"
+        self.verticalFrame2.setFont(font)
+        self.verticalFrame2.setAutoFillBackground(False)
+        self.verticalFrame2.setStyleSheet("border-width: 3px;\n"
 "                            border-radius: 15px;\n"
 "                            border-color: rgb(0, 0, 0);\n"
 "                            border-style: solid;\n"
@@ -211,12 +201,12 @@ class Ui_TrainResultsWindow(object):
 "                            background-color: qlineargradient(spread:pad, x1:0.996, y1:0.0340909, x2:1, y2:0, stop:1\n"
 "                            rgba(0, 0, 32, 170));\n"
 "                        ")
-        self.verticalFrame_2.setObjectName("verticalFrame_2")
-        self.verticalLayout_2 = QtWidgets.QVBoxLayout(self.verticalFrame_2)
+        self.verticalFrame2.setObjectName("verticalFrame2")
+        self.verticalLayout_2 = QtWidgets.QVBoxLayout(self.verticalFrame2)
         self.verticalLayout_2.setContentsMargins(18, 18, 18, 18)
         self.verticalLayout_2.setSpacing(10)
         self.verticalLayout_2.setObjectName("verticalLayout_2")
-        self.resultsTextEdit = QtWidgets.QTextEdit(self.verticalFrame_2)
+        self.resultsTextEdit = QtWidgets.QTextEdit(self.verticalFrame2)
         self.resultsTextEdit.setStyleSheet("border-width: 3px;\n"
 "                                                            border-radius: 5px;\n"
 "                                                            border-color: rgb(0, 0, 0);\n"
@@ -229,7 +219,6 @@ class Ui_TrainResultsWindow(object):
         TrainResultsWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(TrainResultsWindow)
-        self.tabWidget.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(TrainResultsWindow)
 
     def retranslateUi(self, TrainResultsWindow):
@@ -238,9 +227,7 @@ class Ui_TrainResultsWindow(object):
         self.groupBox.setTitle(_translate("TrainResultsWindow", "Tain Model Results"))
         self.trainAgainBtn.setText(_translate("TrainResultsWindow", "Train again"))
         self.accuracyGraph.setText(_translate("TrainResultsWindow", "TextLabel"))
-        self.tabWidget.setTabText(self.tabWidget.indexOf(self.accTab), _translate("TrainResultsWindow", "Accuraccy"))
         self.lossGraph.setText(_translate("TrainResultsWindow", "TextLabel"))
-        self.tabWidget.setTabText(self.tabWidget.indexOf(self.lossTab), _translate("TrainResultsWindow", "Loss"))
         self.saveBtn.setText(_translate("TrainResultsWindow", "Save Model"))
 
 

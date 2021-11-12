@@ -23,12 +23,14 @@ class PlagiarismWinController(FormCheckerWinController):
         models=[]
         for item in arr:
             if item.split(".")[1]=="h5":
-                models.append(item)
+                models.append(item.removesuffix(".h5"))
         self.ui.authorComboBox.addItems(models)
         os.chdir("../gui_controllers")
 
 
         self.clear_feedback()
+        self.type = "Plagiarism"
+
 
     def back_pressed(self):
         self.close()
@@ -47,21 +49,24 @@ class PlagiarismWinController(FormCheckerWinController):
 
         self.ui.inputPath.setText(file_path)
 
-    def start_pressed(self):
+    def start_pressed(self, ):
         self.clear_feedback()
-        path_widget = self.ui.inputPath
 
+        path_widget = self.ui.inputPath
 
         book_path = path_widget.text()
 
         author_name = self.ui.authorComboBox.currentText()
         if str(book_path) == "":
             self.invalid_input("Empty path!\n please upload a book", path_widget)
+        elif book_path.split(".")[1] != "txt":
+            self.invalid_input("Book not in .txt format", path_widget)
         else:
             self.set_normal_style(path_widget)
-            # todo: check if book in .txt format. if no - error message
-            #self.invalid_input( "Book not in .txt format",self.gui_design.inputPath)
             self.close()
+            book_str=read_book(book_path)
+            from model.detection import Detection
+            self.detection=Detection(input=book_str,model_name=author_name+".h5",model_type=self.type)
             from gui_controllers.detectionResultsWinController import DetectionResultsWinController
             # todo: results= DETECT(author_name, tweet)
             #  find the relevant trained model(according to the author name)
@@ -69,6 +74,10 @@ class PlagiarismWinController(FormCheckerWinController):
             self.window = DetectionResultsWinController(author_name, book_path)
             self.window.show()
 
+def read_book( book_dir_path):
+    with open(book_dir_path, 'r', encoding='UTF-8') as book_file:
+        book_string = book_file.read()
+        return book_string
 
 if __name__ == "__main__":
     import sys

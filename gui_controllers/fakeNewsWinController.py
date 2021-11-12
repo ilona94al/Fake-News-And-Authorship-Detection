@@ -41,6 +41,8 @@ class FakeNewsWinController(FormCheckerWinController):
     def start_pressed(self):
         self.clear_feedback()
 
+
+
         tweet_widget = self.ui.inputTweet
 
         self.set_normal_style(tweet_widget)
@@ -53,11 +55,13 @@ class FakeNewsWinController(FormCheckerWinController):
             self.invalid_input( "Empty tweet box!\n please paste a tweet",tweet_widget)
         else:
             self.set_normal_style(tweet_widget)
+
             self.close()
             from gui_controllers.detectionResultsWinController import DetectionResultsWinController
             # todo: results= DETECT(model_name, tweet)
             #  find the relevant trained model(according to the model name)
             #  insert tweet as input to the model and get detection results (graphs and etc.)
+
             self.window = DetectionResultsWinController()#input results
             self.window.show()
 

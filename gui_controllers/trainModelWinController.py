@@ -17,7 +17,6 @@ class TrainModelWinController(FormCheckerWinController):
 
     def next(self):
         self.close()
-        # todo: after fit thread start, go to the next window and show a progress bar
         from gui_controllers.trainProgressWinController import TrainProgressWinController
         self.window = TrainProgressWinController(self.task)
         self.window.show()

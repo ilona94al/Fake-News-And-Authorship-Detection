@@ -33,11 +33,13 @@ class TrainNewsModelWinController(TrainModelWinController):
         return Path("Fake-News-And-Authorship-Detection").parent.parent
 
     def show_one_file_form(self):
+        self.clear_feedback()
         self.two_files = False
         self.ui.verticalGroupBox12.setHidden(False)
         self.ui.verticalGroupBox11.setHidden(True)
 
     def show_two_files_form(self):
+        self.clear_feedback()
         self.two_files = True
         self.ui.verticalGroupBox12.setHidden(True)
         self.ui.verticalGroupBox11.setHidden(False)
@@ -54,6 +56,7 @@ class TrainNewsModelWinController(TrainModelWinController):
     def train_pressed(self):
 
         self.clear_feedback()
+
 
         epochs_widget = self.ui.inputEpoch3112
         epochs = str(epochs_widget.text())
@@ -94,6 +97,8 @@ class TrainNewsModelWinController(TrainModelWinController):
                 self.set_normal_style(text_col_name_widget)
 
             if self.allOk == True:
+                self.ui.trainBtn.setEnabled(False)
+
                 from model.fake_news_tasks import FakeNewsTask2
                 self.task = FakeNewsTask2(real_file_path, fakes_file_path, text_col_name, int(batch_size), int(epochs))
                 self.next()
@@ -135,6 +140,8 @@ class TrainNewsModelWinController(TrainModelWinController):
                 self.set_normal_style(real_label_val_widget)
 
             if self.allOk == True:
+                self.ui.trainBtn.setEnabled(False)
+
                 from model.fake_news_tasks import FakeNewsTask1
                 self.task = FakeNewsTask1(file_path, text_col_name, label_col_name, real_label_val, fakes_label_val,
                                           int(batch_size), int(epochs))

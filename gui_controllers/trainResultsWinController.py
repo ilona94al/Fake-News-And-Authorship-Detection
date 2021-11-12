@@ -16,15 +16,15 @@ class TrainResultsWinController(QMainWindow):
         self.ui.saveBtn.clicked.connect(self.save_pressed)
         os.chdir("../PLOTS/")
         from PyQt5 import QtGui
-        self.ui.accuracyGraph.setPixmap(QtGui.QPixmap('ModelAcc.png'))
-        self.ui.lossGraph.setPixmap(QtGui.QPixmap('ModelLoss.png'))
+        # self.ui.accuracyGraph.setPixmap(QtGui.QPixmap('ModelAcc.png'))
+        # self.ui.lossGraph.setPixmap(QtGui.QPixmap('ModelLoss.png'))
         os.chdir("../gui_controllers")
-        results = "Number of true predicts: " + str(self.task.model.count_well_predicted) + "\n" \
-                  + "Number of false predicts: " + str(self.model.count_false_predicted) + "\n" \
-                  + "Total test set accuracy is " + str(self.task.model.test_accuracy * 100.0) + " \n\n" \
-                  + "Train accuracy is: " + str(self.task.model.train_accuracy * 100.0) + "% \n" \
-                  + "Validation accuracy is: " + str(self.task.model.valid_accuracy * 100.0) + "%"
-        self.ui.resultsTextEdit.setText(results)
+        # results = "Number of true predicts: " + str(self.task.model.count_well_predicted) + "\n" \
+        #           + "Number of false predicts: " + str(self.task.model.count_false_predicted) + "\n" \
+        #           + "Total test set accuracy is " + str(self.task.model.test_accuracy * 100.0) + " \n\n" \
+        #           + "Train accuracy is: " + str(self.task.model.train_accuracy * 100.0) + "% \n" \
+        #           + "Validation accuracy is: " + str(self.task.model.valid_accuracy * 100.0) + "%"
+        # self.ui.resultsTextEdit.setText(results)
 
 
     def train_again_pressed(self):
