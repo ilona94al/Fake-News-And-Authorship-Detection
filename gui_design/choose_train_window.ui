@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Fake Texts Detector</string>
+   <string>Choose Model Type For Train</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <property name="sizePolicy">
@@ -33,7 +33,7 @@
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>resources/background.jpg</pixmap>
+     <pixmap>../RESOURCES/background.jpg</pixmap>
     </property>
     <property name="scaledContents">
      <bool>true</bool>
@@ -385,7 +385,7 @@ border-style: solid;</string>
      </property>
      <property name="icon">
       <iconset>
-       <normaloff>D:/My Documents/Studies/Semester_9/פרויקט מסכם - שלב ב/icons/pnghut_arrow-icon-direction-left-logo-text.png</normaloff>D:/My Documents/Studies/Semester_9/פרויקט מסכם - שלב ב/icons/pnghut_arrow-icon-direction-left-logo-text.png</iconset>
+       <normaloff>../RESOURCES/left_arrow_icon.png</normaloff>../RESOURCES/left_arrow_icon.png</iconset>
      </property>
      <property name="iconSize">
       <size>

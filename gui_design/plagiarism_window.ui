@@ -27,7 +27,7 @@
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>resources/background.jpg</pixmap>
+     <pixmap>../RESOURCES/background.jpg</pixmap>
     </property>
     <property name="scaledContents">
      <bool>true</bool>
@@ -332,7 +332,7 @@ border-style: solid;</string>
      </property>
      <property name="icon">
       <iconset>
-       <normaloff>D:/My Documents/Studies/Semester_9/פרויקט מסכם - שלב ב/icons/pnghut_arrow-icon-direction-left-logo-text.png</normaloff>D:/My Documents/Studies/Semester_9/פרויקט מסכם - שלב ב/icons/pnghut_arrow-icon-direction-left-logo-text.png</iconset>
+       <normaloff>../RESOURCES/left_arrow_icon.png</normaloff>../RESOURCES/left_arrow_icon.png</iconset>
      </property>
      <property name="iconSize">
       <size>
@@ -479,6 +479,9 @@ border-style: solid;
 background-color: rgb(181, 181, 181);
 color: rgb(0, 0, 0);</string>
            </property>
+           <property name="readOnly">
+            <bool>true</bool>
+           </property>
            <property name="placeholderText">
             <string>/.../...</string>
            </property>
@@ -510,7 +513,7 @@ border-style: solid;</string>
            </property>
            <property name="icon">
             <iconset>
-             <normaloff>resources/upload_icon.png</normaloff>resources/upload_icon.png</iconset>
+             <normaloff>../RESOURCES/upload_icon.png</normaloff>../RESOURCES/upload_icon.png</iconset>
            </property>
           </widget>
          </item>

@@ -1,23 +1,4 @@
-# Fake-News-And-Authorship-Detection
-
-# tenser flow with gpu installation in terminal:
-pip install tensorflow-gpu
-
-
-pip install -q -U tensorflow-text
-pip install -q tf-models-official
-
-#Keras for fine-tuning
-pip install keras
-
-#BERT in keras:
-pip install keras-bert
-
-#pyuic5 -x second_win.ui -o second_win.py
-pyuic5 -x .ui -o .py
-#install stopwords
-pip install stop-words
-
+cd gui_design
 pyuic5 -x choose_train_window.ui -o choose_train_window.py
 pyuic5 -x detection_results_window.ui -o detection_results_window.py
 pyuic5 -x fake_news_window.ui -o fake_news_window.py

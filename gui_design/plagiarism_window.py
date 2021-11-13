@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading gui_design file 'plagiarism_window.gui_design'
+# Form implementation generated from reading ui file 'plagiarism_window.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.4
 #
@@ -20,7 +20,7 @@ class Ui_PlagiarismWindow(object):
         self.backgroundImg = QtWidgets.QLabel(self.centralwidget)
         self.backgroundImg.setGeometry(QtCore.QRect(0, 0, 860, 600))
         self.backgroundImg.setText("")
-        self.backgroundImg.setPixmap(QtGui.QPixmap("../../RESOURCES/background.jpg"))
+        self.backgroundImg.setPixmap(QtGui.QPixmap("../RESOURCES/background.jpg"))
         self.backgroundImg.setScaledContents(True)
         self.backgroundImg.setObjectName("backgroundImg")
         self.groupBox = QtWidgets.QGroupBox(self.centralwidget)
@@ -140,7 +140,7 @@ class Ui_PlagiarismWindow(object):
 "border-color: rgb(255, 255, 255);\n"
 "border-style: solid;")
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("D:/My Documents/Studies/Semester_9/פרויקט מסכם - שלב ב/icons/pnghut_arrow-icon-direction-left-logo-text.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap("../RESOURCES/left_arrow_icon.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.backBtn.setIcon(icon)
         self.backBtn.setIconSize(QtCore.QSize(24, 24))
         self.backBtn.setCheckable(False)
@@ -204,6 +204,7 @@ class Ui_PlagiarismWindow(object):
 "border-style: solid;\n"
 "background-color: rgb(181, 181, 181);\n"
 "color: rgb(0, 0, 0);")
+        self.inputPath.setReadOnly(True)
         self.inputPath.setObjectName("inputPath")
         self.horizontalLayout.addWidget(self.inputPath)
         self.uploadBtn = QtWidgets.QToolButton(self.horizontalGroupBox)
@@ -217,7 +218,7 @@ class Ui_PlagiarismWindow(object):
 "border-style: solid;")
         self.uploadBtn.setText("")
         icon1 = QtGui.QIcon()
-        icon1.addPixmap(QtGui.QPixmap("../../RESOURCES/upload_icon.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon1.addPixmap(QtGui.QPixmap("../RESOURCES/upload_icon.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.uploadBtn.setIcon(icon1)
         self.uploadBtn.setObjectName("uploadBtn")
         self.horizontalLayout.addWidget(self.uploadBtn)

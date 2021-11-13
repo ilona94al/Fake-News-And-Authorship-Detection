@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading gui_design file 'choose_train_window.gui_design'
+# Form implementation generated from reading ui file 'choose_train_window.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.4
 #
@@ -25,7 +25,6 @@ class Ui_ChooseTrainWindow(object):
         self.backgroundImg = QtWidgets.QLabel(self.centralwidget)
         self.backgroundImg.setGeometry(QtCore.QRect(0, 0, 860, 600))
         self.backgroundImg.setText("")
-
         self.backgroundImg.setPixmap(QtGui.QPixmap("../RESOURCES/background.jpg"))
         self.backgroundImg.setScaledContents(True)
         self.backgroundImg.setObjectName("backgroundImg")
@@ -167,7 +166,7 @@ class Ui_ChooseTrainWindow(object):
 "border-color: rgb(255, 255, 255);\n"
 "border-style: solid;")
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("D:/My Documents/Studies/Semester_9/פרויקט מסכם - שלב ב/icons/pnghut_arrow-icon-direction-left-logo-text.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap("../RESOURCES/left_arrow_icon.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.backBtn.setIcon(icon)
         self.backBtn.setIconSize(QtCore.QSize(24, 24))
         self.backBtn.setCheckable(False)
@@ -182,7 +181,7 @@ class Ui_ChooseTrainWindow(object):
 
     def retranslateUi(self, ChooseTrainWindow):
         _translate = QtCore.QCoreApplication.translate
-        ChooseTrainWindow.setWindowTitle(_translate("ChooseTrainWindow", "Fake Texts Detector"))
+        ChooseTrainWindow.setWindowTitle(_translate("ChooseTrainWindow", "Choose Model Type For Train"))
         self.groupBox.setTitle(_translate("ChooseTrainWindow", "Train Model"))
         self.verticalGroupBox.setTitle(_translate("ChooseTrainWindow", "Please, choose model type for train:"))
         self.nextBtn.setText(_translate("ChooseTrainWindow", "Next"))

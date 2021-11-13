@@ -27,7 +27,7 @@
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>resources/background.jpg</pixmap>
+     <pixmap>../RESOURCES/background.jpg</pixmap>
     </property>
     <property name="scaledContents">
      <bool>true</bool>
@@ -333,9 +333,7 @@
      </property>
      <property name="icon">
       <iconset>
-       <normaloff>D:/My Documents/Studies/Semester_9/פרויקט מסכם - שלב
-                                ב/icons/pnghut_arrow-icon-direction-left-logo-text.png</normaloff>D:/My Documents/Studies/Semester_9/פרויקט מסכם - שלב
-                                ב/icons/pnghut_arrow-icon-direction-left-logo-text.png</iconset>
+       <normaloff>../RESOURCES/left_arrow_icon.png</normaloff>../RESOURCES/left_arrow_icon.png</iconset>
      </property>
      <property name="iconSize">
       <size>
@@ -732,7 +730,7 @@ font: 8pt &quot;Sitka Small&quot;;</string>
              </property>
              <property name="icon">
               <iconset>
-               <normaloff>resources/question_icon2.png</normaloff>resources/question_icon2.png</iconset>
+               <normaloff>../RESOURCES/question_icon2.png</normaloff>../RESOURCES/question_icon2.png</iconset>
              </property>
             </widget>
            </item>
@@ -798,7 +796,7 @@ font: 8pt &quot;Sitka Small&quot;;</string>
              </property>
              <property name="icon">
               <iconset>
-               <normaloff>resources/question_icon2.png</normaloff>resources/question_icon2.png</iconset>
+               <normaloff>../RESOURCES/question_icon2.png</normaloff>../RESOURCES/question_icon2.png</iconset>
              </property>
             </widget>
            </item>
