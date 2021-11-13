@@ -128,9 +128,9 @@ class FakeBERTModel():
 
         os.chdir("../gui_controllers")
 
-    def load_model(self, model_name):
+    def load_model(self, model_path):
         os.chdir("../")
-        self.model = tf.keras.models.load_model(model_name, custom_objects={'KerasLayer': hub.KerasLayer})
+        self.model = tf.keras.models.load_model(model_path, custom_objects={'KerasLayer': hub.KerasLayer})
         os.chdir("gui_controllers")
 
     def predict(self, input):

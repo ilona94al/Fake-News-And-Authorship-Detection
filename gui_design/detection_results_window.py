@@ -123,7 +123,7 @@ class Ui_DetectionResultsWindow(object):
         self.backBtn.setFlat(False)
         self.backBtn.setObjectName("backBtn")
         self.verticalFrame = QtWidgets.QFrame(self.groupBox)
-        self.verticalFrame.setGeometry(QtCore.QRect(150, 115, 500, 340))
+        self.verticalFrame.setGeometry(QtCore.QRect(50, 114, 340, 340))
         font = QtGui.QFont()
         font.setFamily("Sitka Small")
         font.setPointSize(10)
@@ -146,19 +146,73 @@ class Ui_DetectionResultsWindow(object):
         self.verticalLayout.setContentsMargins(18, 18, 18, 18)
         self.verticalLayout.setSpacing(10)
         self.verticalLayout.setObjectName("verticalLayout")
-        self.tabWidget = QtWidgets.QTabWidget(self.verticalFrame)
-        self.tabWidget.setObjectName("tabWidget")
-        self.tab = QtWidgets.QWidget()
-        self.tab.setObjectName("tab")
-        self.tabWidget.addTab(self.tab, "")
-        self.tab_2 = QtWidgets.QWidget()
-        self.tab_2.setObjectName("tab_2")
-        self.tabWidget.addTab(self.tab_2, "")
-        self.verticalLayout.addWidget(self.tabWidget)
+        self.plotLabel1 = QtWidgets.QLabel(self.verticalFrame)
+        self.plotLabel1.setText("")
+        self.plotLabel1.setObjectName("plotLabel1")
+        self.verticalLayout.addWidget(self.plotLabel1)
+        self.verticalFrame3 = QtWidgets.QFrame(self.groupBox)
+        self.verticalFrame3.setGeometry(QtCore.QRect(300, 468, 450, 71))
+        font = QtGui.QFont()
+        font.setFamily("Sitka Small")
+        font.setPointSize(10)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setWeight(50)
+        self.verticalFrame3.setFont(font)
+        self.verticalFrame3.setAutoFillBackground(False)
+        self.verticalFrame3.setStyleSheet("border-width: 3px;\n"
+"                            border-radius: 15px;\n"
+"                            border-color: rgb(0, 0, 0);\n"
+"                            border-style: solid;\n"
+"                            font: 10pt \"Sitka Small\";\n"
+"                            color: rgb(255, 255, 255);\n"
+"                            background-color: qlineargradient(spread:pad, x1:0.996, y1:0.0340909, x2:1, y2:0, stop:1\n"
+"                            rgba(0, 0, 32, 170));\n"
+"                        ")
+        self.verticalFrame3.setObjectName("verticalFrame3")
+        self.verticalLayout_3 = QtWidgets.QVBoxLayout(self.verticalFrame3)
+        self.verticalLayout_3.setContentsMargins(18, 18, 18, 18)
+        self.verticalLayout_3.setSpacing(10)
+        self.verticalLayout_3.setObjectName("verticalLayout_3")
+        self.resultLabel = QtWidgets.QLabel(self.verticalFrame3)
+        self.resultLabel.setStyleSheet("border-width: 0px;\n"
+"font: 10pt \"Sitka Small\";\n"
+"color: rgb(255, 255, 255);\n"
+"background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:0, stop:1 rgba(0, 0, 0, 0));")
+        self.resultLabel.setText("")
+        self.resultLabel.setObjectName("resultLabel")
+        self.verticalLayout_3.addWidget(self.resultLabel)
+        self.verticalFrame2 = QtWidgets.QFrame(self.groupBox)
+        self.verticalFrame2.setGeometry(QtCore.QRect(410, 114, 340, 340))
+        font = QtGui.QFont()
+        font.setFamily("Sitka Small")
+        font.setPointSize(10)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setWeight(50)
+        self.verticalFrame2.setFont(font)
+        self.verticalFrame2.setAutoFillBackground(False)
+        self.verticalFrame2.setStyleSheet("border-width: 3px;\n"
+"                            border-radius: 15px;\n"
+"                            border-color: rgb(0, 0, 0);\n"
+"                            border-style: solid;\n"
+"                            font: 10pt \"Sitka Small\";\n"
+"                            color: rgb(255, 255, 255);\n"
+"                            background-color: qlineargradient(spread:pad, x1:0.996, y1:0.0340909, x2:1, y2:0, stop:1\n"
+"                            rgba(0, 0, 32, 170));\n"
+"                        ")
+        self.verticalFrame2.setObjectName("verticalFrame2")
+        self.verticalLayout_2 = QtWidgets.QVBoxLayout(self.verticalFrame2)
+        self.verticalLayout_2.setContentsMargins(18, 18, 18, 18)
+        self.verticalLayout_2.setSpacing(10)
+        self.verticalLayout_2.setObjectName("verticalLayout_2")
+        self.plotLabel2 = QtWidgets.QLabel(self.verticalFrame2)
+        self.plotLabel2.setText("")
+        self.plotLabel2.setObjectName("plotLabel2")
+        self.verticalLayout_2.addWidget(self.plotLabel2)
         DetectionResultsWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(DetectionResultsWindow)
-        self.tabWidget.setCurrentIndex(1)
         QtCore.QMetaObject.connectSlotsByName(DetectionResultsWindow)
 
     def retranslateUi(self, DetectionResultsWindow):
@@ -166,8 +220,6 @@ class Ui_DetectionResultsWindow(object):
         DetectionResultsWindow.setWindowTitle(_translate("DetectionResultsWindow", "Detection Results"))
         self.groupBox.setTitle(_translate("DetectionResultsWindow", "Detetion Results"))
         self.backBtn.setText(_translate("DetectionResultsWindow", "Back"))
-        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab), _translate("DetectionResultsWindow", "Tab 1"))
-        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_2), _translate("DetectionResultsWindow", "Tab 2"))
 
 
 if __name__ == "__main__":

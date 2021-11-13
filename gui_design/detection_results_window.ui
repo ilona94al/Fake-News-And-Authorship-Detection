@@ -302,9 +302,9 @@
     <widget class="QFrame" name="verticalFrame">
      <property name="geometry">
       <rect>
-       <x>150</x>
-       <y>115</y>
-       <width>500</width>
+       <x>50</x>
+       <y>114</y>
+       <width>340</width>
        <height>340</height>
       </rect>
      </property>
@@ -348,20 +348,130 @@
        <number>18</number>
       </property>
       <item>
-       <widget class="QTabWidget" name="tabWidget">
-        <property name="currentIndex">
-         <number>1</number>
+       <widget class="QLabel" name="plotLabel1">
+        <property name="text">
+         <string/>
         </property>
-        <widget class="QWidget" name="tab">
-         <attribute name="title">
-          <string>Tab 1</string>
-         </attribute>
-        </widget>
-        <widget class="QWidget" name="tab_2">
-         <attribute name="title">
-          <string>Tab 2</string>
-         </attribute>
-        </widget>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QFrame" name="verticalFrame3">
+     <property name="geometry">
+      <rect>
+       <x>300</x>
+       <y>468</y>
+       <width>450</width>
+       <height>71</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Sitka Small</family>
+       <pointsize>10</pointsize>
+       <weight>50</weight>
+       <italic>false</italic>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="autoFillBackground">
+      <bool>false</bool>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border-width: 3px;
+                            border-radius: 15px;
+                            border-color: rgb(0, 0, 0);
+                            border-style: solid;
+                            font: 10pt &quot;Sitka Small&quot;;
+                            color: rgb(255, 255, 255);
+                            background-color: qlineargradient(spread:pad, x1:0.996, y1:0.0340909, x2:1, y2:0, stop:1
+                            rgba(0, 0, 32, 170));
+                        </string>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_3">
+      <property name="spacing">
+       <number>10</number>
+      </property>
+      <property name="leftMargin">
+       <number>18</number>
+      </property>
+      <property name="topMargin">
+       <number>18</number>
+      </property>
+      <property name="rightMargin">
+       <number>18</number>
+      </property>
+      <property name="bottomMargin">
+       <number>18</number>
+      </property>
+      <item>
+       <widget class="QLabel" name="resultLabel">
+        <property name="styleSheet">
+         <string notr="true">border-width: 0px;
+font: 10pt &quot;Sitka Small&quot;;
+color: rgb(255, 255, 255);
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:0, stop:1 rgba(0, 0, 0, 0));</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QFrame" name="verticalFrame2">
+     <property name="geometry">
+      <rect>
+       <x>410</x>
+       <y>114</y>
+       <width>340</width>
+       <height>340</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Sitka Small</family>
+       <pointsize>10</pointsize>
+       <weight>50</weight>
+       <italic>false</italic>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="autoFillBackground">
+      <bool>false</bool>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border-width: 3px;
+                            border-radius: 15px;
+                            border-color: rgb(0, 0, 0);
+                            border-style: solid;
+                            font: 10pt &quot;Sitka Small&quot;;
+                            color: rgb(255, 255, 255);
+                            background-color: qlineargradient(spread:pad, x1:0.996, y1:0.0340909, x2:1, y2:0, stop:1
+                            rgba(0, 0, 32, 170));
+                        </string>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_2">
+      <property name="spacing">
+       <number>10</number>
+      </property>
+      <property name="leftMargin">
+       <number>18</number>
+      </property>
+      <property name="topMargin">
+       <number>18</number>
+      </property>
+      <property name="rightMargin">
+       <number>18</number>
+      </property>
+      <property name="bottomMargin">
+       <number>18</number>
+      </property>
+      <item>
+       <widget class="QLabel" name="plotLabel2">
+        <property name="text">
+         <string/>
+        </property>
        </widget>
       </item>
      </layout>

@@ -20,17 +20,14 @@ class PlagiarismWinController(FormCheckerWinController):
         self.ui.authorComboBox.clear()
         os.chdir("../TRAINED_MODELS/")
         arr = os.listdir('Plagiarism')
-        models=[]
+        models = []
         for item in arr:
-            if item.split(".")[1]=="h5":
+            if item.split(".")[1] == "h5":
                 models.append(item.removesuffix(".h5"))
         self.ui.authorComboBox.addItems(models)
         os.chdir("../gui_controllers")
 
-
         self.clear_feedback()
-        self.type = "Plagiarism"
-
 
     def back_pressed(self):
         self.close()
@@ -64,20 +61,20 @@ class PlagiarismWinController(FormCheckerWinController):
         else:
             self.set_normal_style(path_widget)
             self.close()
-            book_str=read_book(book_path)
-            from model.detection import Detection
-            self.detection=Detection(input=book_str,model_name=author_name+".h5",model_type=self.type)
+            book_str = read_book(book_path)
+
+            from model.plagiarism_detection import PlagiarismDetection
+            detection = PlagiarismDetection(input=book_str, model_name=author_name + ".h5", author_name=author_name)
             from gui_controllers.detectionResultsWinController import DetectionResultsWinController
-            # todo: results= DETECT(author_name, tweet)
-            #  find the relevant trained model(according to the author name)
-            #  insert book as input to the model and get detection results (graphs and etc.)
-            self.window = DetectionResultsWinController(author_name, book_path)
+            self.window = DetectionResultsWinController(detection)
             self.window.show()
 
-def read_book( book_dir_path):
+
+def read_book(book_dir_path):
     with open(book_dir_path, 'r', encoding='UTF-8') as book_file:
         book_string = book_file.read()
         return book_string
+
 
 if __name__ == "__main__":
     import sys
