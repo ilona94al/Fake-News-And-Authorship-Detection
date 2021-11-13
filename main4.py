@@ -269,9 +269,10 @@ y_test_prob = np_utils.to_categorical(y_test)
 y_valid_prob = np_utils.to_categorical(y_valid)
 num_classes = y_train_prob.shape[1]
 
-new_model = True
+new_model = False
 model_name = 'FakeBERTModel.h5'
 trained_model_name = 'TrainedFakeBERTModel.h5'
+#TrainedFakeBERTModel.h5
 if new_model == True:
     model = build_model()
     model.save(model_name)

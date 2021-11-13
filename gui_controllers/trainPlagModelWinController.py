@@ -1,12 +1,12 @@
 from PyQt5 import QtWidgets
 
-from gui.controllers.trainModelWinController import TrainModelWinController
+from gui_controllers.trainModelWinController import TrainModelWinController
 
 
 class TrainPlagModelWinController(TrainModelWinController):
     def __init__(self, parent=None):
         super(TrainPlagModelWinController, self).__init__(parent)
-        from gui.ui.train_plag_model_window import Ui_TrainPlagModelWindow
+        from gui_design.train_plag_model_window import Ui_TrainPlagModelWindow
         self.ui = Ui_TrainPlagModelWindow()
         self.ui.setupUi(self)
 
@@ -28,7 +28,7 @@ class TrainPlagModelWinController(TrainModelWinController):
 
     def train_pressed(self):
         self.clear_feedback()
-        # todo: open training process window (need to create ui,py,controller)
+        # todo: open training process window (need to create gui_design,py,controller)
         # todo***: results=TRAIN MODEL (author name, path)
         # todo***: results window and load the results from training
         # todo***:option to train again, or save the model

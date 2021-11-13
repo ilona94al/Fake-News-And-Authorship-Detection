@@ -21,14 +21,14 @@ class FakeBERTModel():
 
     def build_model(self, num_classes):
         input_layer = tf.keras.layers.Input(shape=(), dtype=tf.string, name='text')
-        os.chdir("../../BERT/")
+        os.chdir("../BERT/")
         preprocessing_layer = hub.KerasLayer('preprocessor', name='preprocessing')
         bert_encoder_inputs = preprocessing_layer(input_layer)
 
         bert_encoder = hub.KerasLayer('encoder', trainable=True, name='BERT_encoder')
         bert_outputs = bert_encoder(bert_encoder_inputs)
         embeddings = bert_outputs["sequence_output"]  # [batch_size, seq_length, 768]
-        os.chdir("../gui/controllers")
+        os.chdir("../gui_controllers")
         cnn_parallel_block_1 = tf.keras.layers.Conv1D \
             (filters=128, kernel_size=3, activation='relu', input_shape=(self.config['max_seq_len'], 768))(embeddings)
         cnn_parallel_block_1 = tf.keras.layers.MaxPooling1D \
@@ -81,10 +81,13 @@ class FakeBERTModel():
     def fit_model(self, x_train, y_train_prob, x_valid, y_valid_prob, batch_size, epochs, progress_bar):
         # Train the model
         from model.callback import LoggingCallback
+        # self.history = self.model.fit(x=x_train, y=y_train_prob,
+        #                               validation_data=(x_valid, y_valid_prob),
+        #                               batch_size=batch_size, epochs=epochs,
+        #                               callbacks=[LoggingCallback(progress_bar, epochs)])
         self.history = self.model.fit(x=x_train, y=y_train_prob,
                                       validation_data=(x_valid, y_valid_prob),
-                                      batch_size=batch_size, epochs=epochs,
-                                      callbacks=[LoggingCallback(progress_bar, epochs)])
+                                      batch_size=batch_size, epochs=epochs)
         _, self.train_accuracy = self.model.evaluate(x_train, y_train_prob, verbose=0)
         _, self.valid_accuracy = self.model.evaluate(x_valid, y_valid_prob, verbose=0)
 
@@ -103,7 +106,7 @@ class FakeBERTModel():
         # -------- Showing results of model training and validation---------------#
 
         import matplotlib.pyplot as plt
-        os.chdir("../../PLOTS/")
+        os.chdir("../PLOTS/")
 
         plt.plot(self.history.history['accuracy'])
         plt.plot(self.history.history['val_accuracy'])
@@ -123,7 +126,15 @@ class FakeBERTModel():
         plt.legend(['Train', 'Validation'], loc='upper left')
         plt.savefig('ModelLoss.png')
 
-        os.chdir("../gui/controllers")
+        os.chdir("../gui_controllers")
+
+    def load_model(self, model_name):
+        os.chdir("../")
+        self.model = tf.keras.models.load_model(model_name, custom_objects={'KerasLayer': hub.KerasLayer})
+        os.chdir("gui_controllers")
+
+    def predict(self, input):
+        return self.model.predict(x=input)
 
 
 config_128tokens = {

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'save_model_window.ui'
+# Form implementation generated from reading gui_design file 'plagiarism_window.gui_design'
 #
 # Created by: PyQt5 UI code generator 5.15.4
 #
@@ -11,11 +11,11 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
-class Ui_SaveModelWindow(object):
-    def setupUi(self, SaveModelWindow):
-        SaveModelWindow.setObjectName("SaveModelWindow")
-        SaveModelWindow.resize(860, 456)
-        self.centralwidget = QtWidgets.QWidget(SaveModelWindow)
+class Ui_PlagiarismWindow(object):
+    def setupUi(self, PlagiarismWindow):
+        PlagiarismWindow.setObjectName("PlagiarismWindow")
+        PlagiarismWindow.resize(860, 598)
+        self.centralwidget = QtWidgets.QWidget(PlagiarismWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.backgroundImg = QtWidgets.QLabel(self.centralwidget)
         self.backgroundImg.setGeometry(QtCore.QRect(0, 0, 860, 600))
@@ -25,7 +25,7 @@ class Ui_SaveModelWindow(object):
         self.backgroundImg.setObjectName("backgroundImg")
         self.groupBox = QtWidgets.QGroupBox(self.centralwidget)
         self.groupBox.setEnabled(True)
-        self.groupBox.setGeometry(QtCore.QRect(30, 0, 800, 420))
+        self.groupBox.setGeometry(QtCore.QRect(30, 0, 800, 570))
         palette = QtGui.QPalette()
         brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
         brush.setStyle(QtCore.Qt.SolidPattern)
@@ -92,19 +92,19 @@ class Ui_SaveModelWindow(object):
         self.groupBox.setStyleSheet("color: rgb(255, 255, 255);")
         self.groupBox.setAlignment(QtCore.Qt.AlignCenter)
         self.groupBox.setObjectName("groupBox")
-        self.saveBtn = QtWidgets.QPushButton(self.groupBox)
-        self.saveBtn.setEnabled(True)
-        self.saveBtn.setGeometry(QtCore.QRect(530, 329, 240, 60))
+        self.startBtn = QtWidgets.QPushButton(self.groupBox)
+        self.startBtn.setEnabled(True)
+        self.startBtn.setGeometry(QtCore.QRect(530, 479, 240, 60))
         font = QtGui.QFont()
         font.setFamily("Sitka Small")
         font.setPointSize(16)
         font.setBold(False)
         font.setItalic(False)
         font.setWeight(9)
-        self.saveBtn.setFont(font)
-        self.saveBtn.setAcceptDrops(False)
-        self.saveBtn.setAutoFillBackground(False)
-        self.saveBtn.setStyleSheet("background-color: rgb(0, 111, 0);\n"
+        self.startBtn.setFont(font)
+        self.startBtn.setAcceptDrops(False)
+        self.startBtn.setAutoFillBackground(False)
+        self.startBtn.setStyleSheet("background-color: rgb(0, 111, 0);\n"
 "\n"
 "font: 75 16pt \"Sitka Small\";\n"
 "color: rgb(255, 255, 255);\n"
@@ -114,14 +114,14 @@ class Ui_SaveModelWindow(object):
 "border-style: solid;\n"
 "\n"
 "alternate-background-color: rgb(135, 135, 135);")
-        self.saveBtn.setCheckable(False)
-        self.saveBtn.setAutoDefault(False)
-        self.saveBtn.setDefault(False)
-        self.saveBtn.setFlat(False)
-        self.saveBtn.setObjectName("saveBtn")
+        self.startBtn.setCheckable(False)
+        self.startBtn.setAutoDefault(False)
+        self.startBtn.setDefault(False)
+        self.startBtn.setFlat(False)
+        self.startBtn.setObjectName("startBtn")
         self.backBtn = QtWidgets.QPushButton(self.groupBox)
         self.backBtn.setEnabled(True)
-        self.backBtn.setGeometry(QtCore.QRect(30, 329, 240, 60))
+        self.backBtn.setGeometry(QtCore.QRect(30, 479, 240, 60))
         font = QtGui.QFont()
         font.setFamily("Sitka Small")
         font.setPointSize(16)
@@ -149,7 +149,7 @@ class Ui_SaveModelWindow(object):
         self.backBtn.setFlat(False)
         self.backBtn.setObjectName("backBtn")
         self.verticalFrame = QtWidgets.QFrame(self.groupBox)
-        self.verticalFrame.setGeometry(QtCore.QRect(100, 115, 600, 181))
+        self.verticalFrame.setGeometry(QtCore.QRect(100, 115, 600, 330))
         font = QtGui.QFont()
         font.setFamily("Sitka Small")
         font.setPointSize(10)
@@ -170,6 +170,20 @@ class Ui_SaveModelWindow(object):
         self.verticalLayout.setContentsMargins(18, 18, 18, 18)
         self.verticalLayout.setSpacing(10)
         self.verticalLayout.setObjectName("verticalLayout")
+        self.verticalGroupBox = QtWidgets.QGroupBox(self.verticalFrame)
+        self.verticalGroupBox.setObjectName("verticalGroupBox")
+        self.verticalLayout_2 = QtWidgets.QVBoxLayout(self.verticalGroupBox)
+        self.verticalLayout_2.setContentsMargins(10, 48, 10, 24)
+        self.verticalLayout_2.setSpacing(10)
+        self.verticalLayout_2.setObjectName("verticalLayout_2")
+        self.authorComboBox = QtWidgets.QComboBox(self.verticalGroupBox)
+        self.authorComboBox.setStyleSheet("border-width: 2px;\n"
+"border-radius: 5px;\n"
+"border-color: rgb(0, 0, 0);\n"
+"border-style: solid;")
+        self.authorComboBox.setObjectName("authorComboBox")
+        self.verticalLayout_2.addWidget(self.authorComboBox)
+        self.verticalLayout.addWidget(self.verticalGroupBox)
         self.horizontalGroupBox = QtWidgets.QGroupBox(self.verticalFrame)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
         sizePolicy.setHorizontalStretch(0)
@@ -183,37 +197,64 @@ class Ui_SaveModelWindow(object):
         self.horizontalLayout.setContentsMargins(10, 48, 10, 24)
         self.horizontalLayout.setSpacing(10)
         self.horizontalLayout.setObjectName("horizontalLayout")
-        self.inputName = QtWidgets.QLineEdit(self.horizontalGroupBox)
-        self.inputName.setEnabled(True)
-        self.inputName.setStyleSheet("border-width: 2px;\n"
+        self.inputPath = QtWidgets.QLineEdit(self.horizontalGroupBox)
+        self.inputPath.setStyleSheet("border-width: 2px;\n"
 "border-radius: 5px;\n"
 "border-color: rgb(0, 0, 0);\n"
 "border-style: solid;\n"
 "background-color: rgb(181, 181, 181);\n"
 "color: rgb(0, 0, 0);")
-        self.inputName.setObjectName("inputName")
-        self.horizontalLayout.addWidget(self.inputName)
+        self.inputPath.setObjectName("inputPath")
+        self.horizontalLayout.addWidget(self.inputPath)
+        self.uploadBtn = QtWidgets.QToolButton(self.horizontalGroupBox)
+        self.uploadBtn.setMinimumSize(QtCore.QSize(0, 0))
+        self.uploadBtn.setMouseTracking(False)
+        self.uploadBtn.setAutoFillBackground(False)
+        self.uploadBtn.setStyleSheet("background-color: rgb(212, 212, 212);\n"
+"border-width: 2px;\n"
+"border-radius: 5px;\n"
+"border-color: rgb(0, 0, 0);\n"
+"border-style: solid;")
+        self.uploadBtn.setText("")
+        icon1 = QtGui.QIcon()
+        icon1.addPixmap(QtGui.QPixmap("../../RESOURCES/upload_icon.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.uploadBtn.setIcon(icon1)
+        self.uploadBtn.setObjectName("uploadBtn")
+        self.horizontalLayout.addWidget(self.uploadBtn)
         self.verticalLayout.addWidget(self.horizontalGroupBox)
-        SaveModelWindow.setCentralWidget(self.centralwidget)
+        self.errorMsg = QtWidgets.QLabel(self.groupBox)
+        self.errorMsg.setGeometry(QtCore.QRect(280, 490, 81, 41))
+        self.errorMsg.setLayoutDirection(QtCore.Qt.RightToLeft)
+        self.errorMsg.setStyleSheet("background-color: qlineargradient(spread:pad, x1:0.983, y1:0.00568182, x2:0.996, y2:0, stop:1 rgba(48, 48, 48, 143));\n"
+"color: rgb(170, 0, 0);\n"
+"font: 75 8pt \"System\";\n"
+"border-radius: 10px;\n"
+"border-style: solid;\n"
+"border-width: 0px\n"
+"")
+        self.errorMsg.setObjectName("errorMsg")
+        PlagiarismWindow.setCentralWidget(self.centralwidget)
 
-        self.retranslateUi(SaveModelWindow)
-        QtCore.QMetaObject.connectSlotsByName(SaveModelWindow)
+        self.retranslateUi(PlagiarismWindow)
+        QtCore.QMetaObject.connectSlotsByName(PlagiarismWindow)
 
-    def retranslateUi(self, SaveModelWindow):
+    def retranslateUi(self, PlagiarismWindow):
         _translate = QtCore.QCoreApplication.translate
-        SaveModelWindow.setWindowTitle(_translate("SaveModelWindow", "Save Model Window"))
-        self.groupBox.setTitle(_translate("SaveModelWindow", "Save a new model"))
-        self.saveBtn.setText(_translate("SaveModelWindow", "Save"))
-        self.backBtn.setText(_translate("SaveModelWindow", "Back"))
-        self.horizontalGroupBox.setTitle(_translate("SaveModelWindow", "Give a name for your model :"))
-        self.inputName.setPlaceholderText(_translate("SaveModelWindow", "example: fake news model 8-11-2021"))
+        PlagiarismWindow.setWindowTitle(_translate("PlagiarismWindow", "Plagiarism Detection"))
+        self.groupBox.setTitle(_translate("PlagiarismWindow", "Plagiarism Detetion"))
+        self.startBtn.setText(_translate("PlagiarismWindow", "Start"))
+        self.backBtn.setText(_translate("PlagiarismWindow", "Back"))
+        self.verticalGroupBox.setTitle(_translate("PlagiarismWindow", "Choose a suspected author:"))
+        self.horizontalGroupBox.setTitle(_translate("PlagiarismWindow", "Upload book:"))
+        self.inputPath.setPlaceholderText(_translate("PlagiarismWindow", "/.../..."))
+        self.errorMsg.setText(_translate("PlagiarismWindow", "warning"))
 
 
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
-    SaveModelWindow = QtWidgets.QMainWindow()
-    ui = Ui_SaveModelWindow()
-    ui.setupUi(SaveModelWindow)
-    SaveModelWindow.show()
+    PlagiarismWindow = QtWidgets.QMainWindow()
+    ui = Ui_PlagiarismWindow()
+    ui.setupUi(PlagiarismWindow)
+    PlagiarismWindow.show()
     sys.exit(app.exec_())

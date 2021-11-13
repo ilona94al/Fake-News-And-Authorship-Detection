@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'fake_news_window.ui'
+# Form implementation generated from reading gui_design file 'fake_news_window.gui_design'
 #
 # Created by: PyQt5 UI code generator 5.15.4
 #

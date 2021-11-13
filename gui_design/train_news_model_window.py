@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'train_news_model_window.ui'
+# Form implementation generated from reading gui_design file 'train_news_model_window.gui_design'
 #
 # Created by: PyQt5 UI code generator 5.15.4
 #
@@ -20,7 +20,7 @@ class Ui_TrainNewsModelWindow(object):
         self.backgroundImg = QtWidgets.QLabel(self.centralwidget)
         self.backgroundImg.setGeometry(QtCore.QRect(0, 0, 860, 600))
         self.backgroundImg.setText("")
-        self.backgroundImg.setPixmap(QtGui.QPixmap("../../RESOURCES/background.jpg"))
+        self.backgroundImg.setPixmap(QtGui.QPixmap("../RESOURCES/background.jpg"))
         self.backgroundImg.setScaledContents(True)
         self.backgroundImg.setObjectName("backgroundImg")
         self.groupBox = QtWidgets.QGroupBox(self.centralwidget)
@@ -212,7 +212,7 @@ class Ui_TrainNewsModelWindow(object):
 "                                                        ")
         self.uploadBtn1112.setText("")
         icon1 = QtGui.QIcon()
-        icon1.addPixmap(QtGui.QPixmap("../../RESOURCES/upload_icon.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon1.addPixmap(QtGui.QPixmap("../RESOURCES/upload_icon.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.uploadBtn1112.setIcon(icon1)
         self.uploadBtn1112.setObjectName("uploadBtn1112")
         self.horizontalLayout111.addWidget(self.uploadBtn1112)
@@ -336,7 +336,7 @@ class Ui_TrainNewsModelWindow(object):
 "                                                        ")
         self.questionBtn1222.setText("")
         icon2 = QtGui.QIcon()
-        icon2.addPixmap(QtGui.QPixmap("../../RESOURCES/question_icon2.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon2.addPixmap(QtGui.QPixmap("../RESOURCES/question_icon2.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.questionBtn1222.setIcon(icon2)
         self.questionBtn1222.setObjectName("questionBtn1222")
         self.horizontalLayout122.addWidget(self.questionBtn1222)

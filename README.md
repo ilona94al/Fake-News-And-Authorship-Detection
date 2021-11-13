@@ -29,3 +29,4 @@ pyuic5 -x train_plag_model_window.ui -o train_plag_model_window.py
 pyuic5 -x fake_news_window.ui -o fake_news_window.py
 
 pyuic5 -x plagiarism_window.ui -o plagiarism_window.py
+

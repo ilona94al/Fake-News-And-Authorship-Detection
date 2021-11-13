@@ -9,7 +9,7 @@ class TrainProgressWinController(QMainWindow):
     def __init__(self, task, parent=None):
         super(TrainProgressWinController, self).__init__(parent)
         self.task = task
-        from gui.ui.train_progress_window import Ui_TrainProgressWindow
+        from gui_design.train_progress_window import Ui_TrainProgressWindow
         self.ui = Ui_TrainProgressWindow()
         self.ui.setupUi(self)
 
@@ -48,7 +48,7 @@ class TrainProgressWinController(QMainWindow):
             self.task.stop_thread()
 
             self.close()
-            from gui.controllers.chooseTrainWinController import ChooseTrainWinController
+            from gui_controllers.chooseTrainWinController import ChooseTrainWinController
             self.window = ChooseTrainWinController()
             self.window.show()
 
@@ -58,7 +58,7 @@ class TrainProgressWinController(QMainWindow):
         # todo**: option to train again, or save the model - task.save_model(name)
         self.task.test_model()
         self.close()
-        from gui.controllers.trainResultsWinController import TrainResultsWinController
+        from gui_controllers.trainResultsWinController import TrainResultsWinController
         self.window = TrainResultsWinController(self.task)
         self.window.show()
 

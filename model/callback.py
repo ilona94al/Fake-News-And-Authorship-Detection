@@ -19,8 +19,8 @@ class LoggingCallback(Callback):
         self.progress_bar.setValue(progress_percent)
         self.progress_bar.update()
 
-    def on_epoch_end(self, epoch, logs={}):
-        progress_percent = int(100 * (epoch + 1) / self.epochs)
-        self.progress_bar.setValue(progress_percent)
-        self.progress_bar.update()
+    # def on_epoch_end(self, epoch, logs={}):
+    #     progress_percent = int(100 * (epoch + 1) / self.epochs)
+    #     self.progress_bar.setValue(progress_percent)
+    #     self.progress_bar.update()
 
