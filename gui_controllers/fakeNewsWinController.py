@@ -41,8 +41,6 @@ class FakeNewsWinController(FormCheckerWinController):
     def start_pressed(self):
         self.clear_feedback()
 
-
-
         tweet_widget = self.ui.inputTweet
 
         self.set_normal_style(tweet_widget)

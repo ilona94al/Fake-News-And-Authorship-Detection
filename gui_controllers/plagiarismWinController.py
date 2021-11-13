@@ -49,7 +49,7 @@ class PlagiarismWinController(FormCheckerWinController):
 
         self.ui.inputPath.setText(file_path)
 
-    def start_pressed(self, ):
+    def start_pressed(self):
         self.clear_feedback()
 
         path_widget = self.ui.inputPath

@@ -138,7 +138,7 @@ def seperate_to_blocks(book):
 #     output_layer = tf.keras.layers.Dense \
 #         (num_classes, activation='softmax')(dropped)
 #
-#     model = tf.keras.models.Model(input_layer, output_layer)
+#     model = tf.keras.Model1.Model(input_layer, output_layer)
 #
 #     model.summary()
 #
