@@ -1,8 +1,7 @@
-
 import threading
 import time
 
-from PyQt5 import QtWidgets, QtGui,  Qt
+from PyQt5 import QtWidgets, QtGui, Qt
 from PyQt5.QtGui import QMovie
 from PyQt5.QtWidgets import QMainWindow, QMessageBox
 
@@ -11,26 +10,25 @@ from gui_controllers.formCheckerWinController import FormCheckerWinController
 
 
 class LoadingWinController(QMainWindow):
-    def __init__(self, book, author, parent=None):
+    def __init__(self, book_name, content, author, parent=None):
         super(LoadingWinController, self).__init__(parent)
         from gui_design.loading_window import Ui_LoadingWindow
 
         self.ui = Ui_LoadingWindow()
         self.ui.setupUi(self)
 
-
         self.set_disable_style(self.ui.resultsBtn)
         self.ui.resultsBtn.clicked.connect(self.results_pressed)
         self.ui.cancelBtn.clicked.connect(self.cancel_pressed)
         self.ui.cancelBtn.setHidden(True)
 
-        self.movie = QMovie("../"+RESOURCES_PATH+"loading.gif")
+        self.movie = QMovie("../" + RESOURCES_PATH + "loading.gif")
         self.ui.loadinLabel.setMovie(self.movie)
         self.movie.start()
 
         self.loading = True
 
-        self.t1 = threading.Thread(target=self.run_detection, args=(book, author))
+        self.t1 = threading.Thread(target=self.run_detection, args=(book_name,content, author))
         self.t1.start()
 
         self.t2 = threading.Thread(target=self.run_waiting)
@@ -51,29 +49,26 @@ class LoadingWinController(QMainWindow):
 
     def PopUpAction(self, i):
         if i.text() == 'OK':
-
             self.close()
             from gui_controllers.mainWinController import MainWindow
             self.window = MainWindow()
             self.window.show()
 
-
-    def run_detection(self, book, author):
+    def run_detection(self, book_name, content, author):
         from model.plagiarism_detection import PlagiarismDetection
-        self.detection = PlagiarismDetection(input=book, model_name=author + ".h5", author_name=author)
-        self.loading=False
+        self.detection = PlagiarismDetection(input=content, model_name=author + ".h5", author_name=author,book_name=book_name)
+        self.loading = False
 
     def run_waiting(self):
         while self.loading:
             time.sleep(10)
 
-        pixmap=QtGui.QPixmap("../" + RESOURCES_PATH + "completed.png")
+        pixmap = QtGui.QPixmap("../" + RESOURCES_PATH + "completed.png")
         pixmap_small = pixmap.scaled(64, 64)
         self.ui.loadinLabel.setPixmap(pixmap_small)
         self.ui.loadinLabel.adjustSize()
         self.set_enable_style(self.ui.resultsBtn)
         self.ui.cancelBtn.setHidden(False)
-
 
     def results_pressed(self):
         self.close()
@@ -108,4 +103,3 @@ class LoadingWinController(QMainWindow):
                              "\n"
                              "alternate-background-color: rgb(135, 135, 135);")
         widget.update()
-

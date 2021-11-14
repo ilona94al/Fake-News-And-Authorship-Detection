@@ -5,16 +5,16 @@ import matplotlib.pyplot as plt
 
 
 class PlagiarismDetection(Detection):
-    def __init__(self, input, model_name, author_name):
+    def __init__(self, input, model_name, author_name, book_name):
         super().__init__(input=input, model_name=model_name, model_type="Plagiarism")
-        self.author_name=author_name
-
+        self.author_name = author_name
+        self.book_name=book_name
 
     def create_distribution_plot(self):
-        real_percent, fake_percent = self.get_distribution()
+        self.real_percent, self.fake_percent = self.get_distribution()
         # Creating dataset
         authors = [self.author_name, 'Other']
-        data = [real_percent, fake_percent]
+        data = [self.real_percent, self.fake_percent]
         # Creating explode data
         explode = (0.2, 0.2)
         # Creating color parameters
@@ -27,7 +27,7 @@ class PlagiarismDetection(Detection):
             return "{:.1f}%\n".format(pct)
 
         # Creating plot
-        fig, ax = plt.subplots(figsize=(5, 3))
+        fig, ax = plt.subplots(figsize=(4, 4))
         wedges, texts, autotexts = ax.pie(data,
                                           autopct=lambda pct: func(pct),
                                           explode=explode,
@@ -44,8 +44,8 @@ class PlagiarismDetection(Detection):
                   loc="upper right",
                   bbox_to_anchor=(0.1, 1, 0, 0))
         plt.setp(autotexts, size=8, weight="bold")
-        ax.set_title("Distribution Graph")
-        plt.savefig("../"+self.plot_path2)
+        ax.set_title("Distribution Graph of authors of book:")
+        plt.savefig("../" + self.plot_path2)
 
     def get_distribution(self):
         real_numb = np.count_nonzero(self.predictions == 0)
@@ -56,11 +56,11 @@ class PlagiarismDetection(Detection):
         return real_percent, fake_percent
 
     def create_probabilities_plot(self):
-        X_axis = np.arange(self.number_of_chunks)+1
+        X_axis = np.arange(self.number_of_chunks) + 1
         plt.bar(X_axis - 0.2, self.probabilities[:, 0], 0.4, label='Shakespeare', color="lightblue")
         plt.bar(X_axis + 0.2, self.probabilities[:, 1], 0.4, label='Others', color="salmon")
         plt.xlabel("Book chunks")
         plt.ylabel("Probability")
-        plt.title("Probabilities that chunk written by " + self.author_name + " and by other writers")
-        plt.legend()
-        plt.savefig("../"+self.plot_path1)
+        plt.title("Probabilities for chunks that written by " + self.author_name + " and by other writers")
+        # plt.legend()
+        plt.savefig("../" + self.plot_path1)

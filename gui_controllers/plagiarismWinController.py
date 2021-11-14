@@ -63,20 +63,26 @@ class PlagiarismWinController(FormCheckerWinController):
             self.invalid_input("Empty path!\n please upload a book", path_widget)
         elif book_path.split(".")[1] != "txt":
             self.invalid_input("Book not in .txt format", path_widget)
+
         else:
+
             self.set_normal_style(path_widget)
 
-            book_str = read_book(book_path)
+            book_content,book_name = read_book(book_path)
 
             self.close()
             from gui_controllers.loadingWinController import LoadingWinController
-            self.window = LoadingWinController(book=book_str,author=author_name)
+            self.window = LoadingWinController(book_name=book_name,content=book_content, author=author_name)
             self.window.show()
 
 def read_book(book_dir_path):
+    path_parts=book_dir_path.split("/")
+    last_part_i=len(path_parts)
+    book_name=path_parts[last_part_i-1].removesuffix(".txt")
     with open(book_dir_path, 'r', encoding='UTF-8') as book_file:
         book_string = book_file.read()
-        return book_string
+        return book_string,book_name
+
 
 
 if __name__ == "__main__":

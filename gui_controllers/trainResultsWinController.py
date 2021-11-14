@@ -4,8 +4,6 @@ from PyQt5 import QtWidgets
 from PyQt5.QtWidgets import QMainWindow
 
 
-
-
 class TrainResultsWinController(QMainWindow):
     def __init__(self, task, parent=None):
         super(TrainResultsWinController, self).__init__(parent)
@@ -28,7 +26,6 @@ class TrainResultsWinController(QMainWindow):
         #           + "Train accuracy is: " + str(self.task.model.train_accuracy * 100.0) + "% \n" \
         #           + "Validation accuracy is: " + str(self.task.model.valid_accuracy * 100.0) + "%"
         # self.ui.resultsTextEdit.setText(results)
-
 
     def train_again_pressed(self):
         self.close()

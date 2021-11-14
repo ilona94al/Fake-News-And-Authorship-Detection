@@ -81,15 +81,15 @@ class FakeBERTModel():
     def fit_model(self, x_train, y_train_prob, x_valid, y_valid_prob, batch_size, epochs, progress_bar):
         # Train the model
         from model.callback import LoggingCallback
-        # self.history = self.model.fit(x=x_train, y=y_train_prob,
-        #                               validation_data=(x_valid, y_valid_prob),
-        #                               batch_size=batch_size, epochs=epochs,
-        #                               callbacks=[LoggingCallback(progress_bar, epochs)])
         self.history = self.model.fit(x=x_train, y=y_train_prob,
                                       validation_data=(x_valid, y_valid_prob),
-                                      batch_size=batch_size, epochs=epochs)
-        _, self.train_accuracy = self.model.evaluate(x_train, y_train_prob, verbose=0)
-        _, self.valid_accuracy = self.model.evaluate(x_valid, y_valid_prob, verbose=0)
+                                      batch_size=batch_size, epochs=epochs,
+                                      callbacks=[LoggingCallback(progress_bar, epochs)])
+        # self.history = self.model.fit(x=x_train, y=y_train_prob,
+        #                               validation_data=(x_valid, y_valid_prob),
+        #                               batch_size=batch_size, epochs=epochs)
+        # _, self.train_accuracy = self.model.evaluate(x_train, y_train_prob, verbose=0)
+        # _, self.valid_accuracy = self.model.evaluate(x_valid, y_valid_prob, verbose=0)
 
     def save_model(self, model_name):
         self.model.save(model_name)

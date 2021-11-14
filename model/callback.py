@@ -10,9 +10,9 @@ class LoggingCallback(Callback):
         self.progress_bar = progress_bar
         self.epochs = epochs
 
-    def on_train_begin(self, logs={}):
-        self.progress_bar.setValue(1)
-        self.progress_bar.update()
+    # def on_train_begin(self, logs={}):
+    #     self.progress_bar.setValue(1)
+    #     self.progress_bar.update()
 
     def on_epoch_begin(self, epoch, logs={}):
         progress_percent = int(100 * epoch / self.epochs) + 1

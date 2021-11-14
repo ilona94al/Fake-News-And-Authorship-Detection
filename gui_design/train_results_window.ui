@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>TrainResultsWindow</class>
- <widget class="QMainWindow" name="TrainResultsWindow">
+ <class>DetectionResultsWindow</class>
+ <widget class="QMainWindow" name="DetectionResultsWindow">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>860</width>
-    <height>598</height>
+    <width>1230</width>
+    <height>830</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Train Model Results</string>
+   <string>Detection Results</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QLabel" name="backgroundImg">
@@ -19,8 +19,8 @@
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>860</width>
-      <height>600</height>
+      <width>1230</width>
+      <height>830</height>
      </rect>
     </property>
     <property name="text">
@@ -41,8 +41,8 @@
      <rect>
       <x>30</x>
       <y>0</y>
-      <width>800</width>
-      <height>570</height>
+      <width>1170</width>
+      <height>800</height>
      </rect>
     </property>
     <property name="palette">
@@ -230,78 +230,18 @@
      <string notr="true">color: rgb(255, 255, 255);</string>
     </property>
     <property name="title">
-     <string>Tain Model Results</string>
+     <string>Train Results</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
     </property>
-    <widget class="QPushButton" name="trainAgainBtn">
-     <property name="enabled">
-      <bool>true</bool>
-     </property>
+    <widget class="QFrame" name="verticalFrame">
      <property name="geometry">
       <rect>
-       <x>30</x>
-       <y>479</y>
-       <width>240</width>
-       <height>60</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>Sitka Small</family>
-       <pointsize>16</pointsize>
-       <weight>9</weight>
-       <italic>false</italic>
-       <bold>false</bold>
-      </font>
-     </property>
-     <property name="acceptDrops">
-      <bool>false</bool>
-     </property>
-     <property name="autoFillBackground">
-      <bool>false</bool>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">
-                            background-color: rgb(159, 0, 0);
-                            font: 75 16pt &quot;Sitka Small&quot;;
-                            color: rgb(255, 255, 255);
-                            border-width: 3px;
-                            border-radius: 30px;
-                            border-color: rgb(255, 255, 255);
-                            border-style: solid;
-                        </string>
-     </property>
-     <property name="text">
-      <string>Train again</string>
-     </property>
-     <property name="iconSize">
-      <size>
-       <width>24</width>
-       <height>24</height>
-      </size>
-     </property>
-     <property name="checkable">
-      <bool>false</bool>
-     </property>
-     <property name="autoDefault">
-      <bool>false</bool>
-     </property>
-     <property name="default">
-      <bool>false</bool>
-     </property>
-     <property name="flat">
-      <bool>false</bool>
-     </property>
-    </widget>
-    <widget class="QFrame" name="verticalFrame1">
-     <property name="geometry">
-      <rect>
-       <x>300</x>
-       <y>100</y>
-       <width>481</width>
-       <height>451</height>
+       <x>40</x>
+       <y>114</y>
+       <width>540</width>
+       <height>540</height>
       </rect>
      </property>
      <property name="font">
@@ -344,16 +284,129 @@
        <number>18</number>
       </property>
       <item>
-       <widget class="QLabel" name="accuracyGraph">
+       <widget class="QLabel" name="plotLabel1">
         <property name="text">
-         <string>TextLabel</string>
+         <string/>
         </property>
        </widget>
       </item>
+     </layout>
+    </widget>
+    <widget class="QFrame" name="verticalFrame3">
+     <property name="geometry">
+      <rect>
+       <x>300</x>
+       <y>685</y>
+       <width>570</width>
+       <height>91</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Sitka Small</family>
+       <pointsize>10</pointsize>
+       <weight>50</weight>
+       <italic>false</italic>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="autoFillBackground">
+      <bool>false</bool>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border-width: 3px;
+                            border-radius: 15px;
+                            border-color: rgb(0, 0, 0);
+                            border-style: solid;
+                            font: 10pt &quot;Sitka Small&quot;;
+                            color: rgb(255, 255, 255);
+                            background-color: qlineargradient(spread:pad, x1:0.996, y1:0.0340909, x2:1, y2:0, stop:1
+                            rgba(0, 0, 32, 170));
+                        </string>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_3">
+      <property name="spacing">
+       <number>10</number>
+      </property>
+      <property name="leftMargin">
+       <number>6</number>
+      </property>
+      <property name="topMargin">
+       <number>2</number>
+      </property>
+      <property name="rightMargin">
+       <number>6</number>
+      </property>
+      <property name="bottomMargin">
+       <number>2</number>
+      </property>
       <item>
-       <widget class="QLabel" name="lossGraph">
+       <widget class="QTextEdit" name="resultsTextEdit">
+        <property name="styleSheet">
+         <string notr="true">border-width: 3px;
+                                                            border-radius: 5px;
+                                                            border-color: rgb(0, 0, 0);
+                                                            border-style: solid;
+                                                            background-color: rgb(188, 188, 188);
+                                                            color: rgb(0, 0, 0);
+                                                        </string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QFrame" name="verticalFrame2">
+     <property name="geometry">
+      <rect>
+       <x>600</x>
+       <y>114</y>
+       <width>540</width>
+       <height>540</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Sitka Small</family>
+       <pointsize>10</pointsize>
+       <weight>50</weight>
+       <italic>false</italic>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="autoFillBackground">
+      <bool>false</bool>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border-width: 3px;
+                            border-radius: 15px;
+                            border-color: rgb(0, 0, 0);
+                            border-style: solid;
+                            font: 10pt &quot;Sitka Small&quot;;
+                            color: rgb(255, 255, 255);
+                            background-color: qlineargradient(spread:pad, x1:0.996, y1:0.0340909, x2:1, y2:0, stop:1
+                            rgba(0, 0, 32, 170));
+                        </string>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_2">
+      <property name="spacing">
+       <number>10</number>
+      </property>
+      <property name="leftMargin">
+       <number>18</number>
+      </property>
+      <property name="topMargin">
+       <number>18</number>
+      </property>
+      <property name="rightMargin">
+       <number>18</number>
+      </property>
+      <property name="bottomMargin">
+       <number>18</number>
+      </property>
+      <item>
+       <widget class="QLabel" name="plotLabel2">
         <property name="text">
-         <string>TextLabel</string>
+         <string/>
         </property>
        </widget>
       </item>
@@ -365,8 +418,8 @@
      </property>
      <property name="geometry">
       <rect>
-       <x>30</x>
-       <y>410</y>
+       <x>900</x>
+       <y>710</y>
        <width>240</width>
        <height>60</height>
       </rect>
@@ -420,68 +473,65 @@ alternate-background-color: rgb(135, 135, 135);</string>
       <bool>false</bool>
      </property>
     </widget>
-    <widget class="QFrame" name="verticalFrame2">
+    <widget class="QPushButton" name="trainAgainBtn">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
      <property name="geometry">
       <rect>
        <x>30</x>
-       <y>100</y>
-       <width>251</width>
-       <height>281</height>
+       <y>710</y>
+       <width>240</width>
+       <height>60</height>
       </rect>
      </property>
      <property name="font">
       <font>
        <family>Sitka Small</family>
-       <pointsize>10</pointsize>
-       <weight>50</weight>
+       <pointsize>16</pointsize>
+       <weight>9</weight>
        <italic>false</italic>
        <bold>false</bold>
       </font>
+     </property>
+     <property name="acceptDrops">
+      <bool>false</bool>
      </property>
      <property name="autoFillBackground">
       <bool>false</bool>
      </property>
      <property name="styleSheet">
-      <string notr="true">border-width: 3px;
-                            border-radius: 15px;
-                            border-color: rgb(0, 0, 0);
-                            border-style: solid;
-                            font: 10pt &quot;Sitka Small&quot;;
+      <string notr="true">
+                            background-color: rgb(159, 0, 0);
+                            font: 75 16pt &quot;Sitka Small&quot;;
                             color: rgb(255, 255, 255);
-                            background-color: qlineargradient(spread:pad, x1:0.996, y1:0.0340909, x2:1, y2:0, stop:1
-                            rgba(0, 0, 32, 170));
+                            border-width: 3px;
+                            border-radius: 30px;
+                            border-color: rgb(255, 255, 255);
+                            border-style: solid;
                         </string>
      </property>
-     <layout class="QVBoxLayout" name="verticalLayout_2">
-      <property name="spacing">
-       <number>10</number>
-      </property>
-      <property name="leftMargin">
-       <number>18</number>
-      </property>
-      <property name="topMargin">
-       <number>18</number>
-      </property>
-      <property name="rightMargin">
-       <number>18</number>
-      </property>
-      <property name="bottomMargin">
-       <number>18</number>
-      </property>
-      <item>
-       <widget class="QTextEdit" name="resultsTextEdit">
-        <property name="styleSheet">
-         <string notr="true">border-width: 3px;
-                                                            border-radius: 5px;
-                                                            border-color: rgb(0, 0, 0);
-                                                            border-style: solid;
-                                                            background-color: rgb(188, 188, 188);
-                                                            color: rgb(0, 0, 0);
-                                                        </string>
-        </property>
-       </widget>
-      </item>
-     </layout>
+     <property name="text">
+      <string>Train again</string>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>24</width>
+       <height>24</height>
+      </size>
+     </property>
+     <property name="checkable">
+      <bool>false</bool>
+     </property>
+     <property name="autoDefault">
+      <bool>false</bool>
+     </property>
+     <property name="default">
+      <bool>false</bool>
+     </property>
+     <property name="flat">
+      <bool>false</bool>
+     </property>
     </widget>
    </widget>
   </widget>
