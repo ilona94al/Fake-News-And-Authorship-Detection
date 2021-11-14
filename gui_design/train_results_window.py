@@ -11,11 +11,11 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
-class Ui_DetectionResultsWindow(object):
-    def setupUi(self, DetectionResultsWindow):
-        DetectionResultsWindow.setObjectName("DetectionResultsWindow")
-        DetectionResultsWindow.resize(1230, 830)
-        self.centralwidget = QtWidgets.QWidget(DetectionResultsWindow)
+class Ui_TrainResultsWindow(object):
+    def setupUi(self, TrainResultsWindow):
+        TrainResultsWindow.setObjectName("TrainResultsWindow")
+        TrainResultsWindow.resize(1230, 830)
+        self.centralwidget = QtWidgets.QWidget(TrainResultsWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.backgroundImg = QtWidgets.QLabel(self.centralwidget)
         self.backgroundImg.setGeometry(QtCore.QRect(0, 0, 1230, 830))
@@ -116,10 +116,10 @@ class Ui_DetectionResultsWindow(object):
         self.verticalLayout.setContentsMargins(18, 18, 18, 18)
         self.verticalLayout.setSpacing(10)
         self.verticalLayout.setObjectName("verticalLayout")
-        self.plotLabel1 = QtWidgets.QLabel(self.verticalFrame)
-        self.plotLabel1.setText("")
-        self.plotLabel1.setObjectName("plotLabel1")
-        self.verticalLayout.addWidget(self.plotLabel1)
+        self.accuracyGraph = QtWidgets.QLabel(self.verticalFrame)
+        self.accuracyGraph.setText("")
+        self.accuracyGraph.setObjectName("accuracyGraph")
+        self.verticalLayout.addWidget(self.accuracyGraph)
         self.verticalFrame3 = QtWidgets.QFrame(self.groupBox)
         self.verticalFrame3.setGeometry(QtCore.QRect(300, 685, 570, 91))
         font = QtGui.QFont()
@@ -178,10 +178,10 @@ class Ui_DetectionResultsWindow(object):
         self.verticalLayout_2.setContentsMargins(18, 18, 18, 18)
         self.verticalLayout_2.setSpacing(10)
         self.verticalLayout_2.setObjectName("verticalLayout_2")
-        self.plotLabel2 = QtWidgets.QLabel(self.verticalFrame2)
-        self.plotLabel2.setText("")
-        self.plotLabel2.setObjectName("plotLabel2")
-        self.verticalLayout_2.addWidget(self.plotLabel2)
+        self.lossGraph = QtWidgets.QLabel(self.verticalFrame2)
+        self.lossGraph.setText("")
+        self.lossGraph.setObjectName("lossGraph")
+        self.verticalLayout_2.addWidget(self.lossGraph)
         self.saveBtn = QtWidgets.QPushButton(self.groupBox)
         self.saveBtn.setEnabled(True)
         self.saveBtn.setGeometry(QtCore.QRect(900, 710, 240, 60))
@@ -237,24 +237,24 @@ class Ui_DetectionResultsWindow(object):
         self.trainAgainBtn.setDefault(False)
         self.trainAgainBtn.setFlat(False)
         self.trainAgainBtn.setObjectName("trainAgainBtn")
-        DetectionResultsWindow.setCentralWidget(self.centralwidget)
+        TrainResultsWindow.setCentralWidget(self.centralwidget)
 
-        self.retranslateUi(DetectionResultsWindow)
-        QtCore.QMetaObject.connectSlotsByName(DetectionResultsWindow)
+        self.retranslateUi(TrainResultsWindow)
+        QtCore.QMetaObject.connectSlotsByName(TrainResultsWindow)
 
-    def retranslateUi(self, DetectionResultsWindow):
+    def retranslateUi(self, TrainResultsWindow):
         _translate = QtCore.QCoreApplication.translate
-        DetectionResultsWindow.setWindowTitle(_translate("DetectionResultsWindow", "Detection Results"))
-        self.groupBox.setTitle(_translate("DetectionResultsWindow", "Train Results"))
-        self.saveBtn.setText(_translate("DetectionResultsWindow", "Save Model"))
-        self.trainAgainBtn.setText(_translate("DetectionResultsWindow", "Train again"))
+        TrainResultsWindow.setWindowTitle(_translate("TrainResultsWindow", "Train Results"))
+        self.groupBox.setTitle(_translate("TrainResultsWindow", "Train Results"))
+        self.saveBtn.setText(_translate("TrainResultsWindow", "Save Model"))
+        self.trainAgainBtn.setText(_translate("TrainResultsWindow", "Train again"))
 
 
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
-    DetectionResultsWindow = QtWidgets.QMainWindow()
-    ui = Ui_DetectionResultsWindow()
-    ui.setupUi(DetectionResultsWindow)
-    DetectionResultsWindow.show()
+    TrainResultsWindow = QtWidgets.QMainWindow()
+    ui = Ui_TrainResultsWindow()
+    ui.setupUi(TrainResultsWindow)
+    TrainResultsWindow.show()
     sys.exit(app.exec_())
