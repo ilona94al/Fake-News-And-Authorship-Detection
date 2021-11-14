@@ -19,14 +19,15 @@ class FakeNewsWinController(FormCheckerWinController):
         self.ui.startBtn.clicked.connect(self.start_pressed)
 
         self.ui.trainedModelsComboBox.clear()
-        os.chdir("../TRAINED_MODELS/")
-        arr = os.listdir('FakeNews')
+
+        from constants import TRAINED_MODELS_PATH
+        arr = os.listdir('../'+TRAINED_MODELS_PATH+'FakeNews')
         models = []
         for item in arr:
             if item.split(".")[1] == "h5":
                 models.append(item)
         self.ui.trainedModelsComboBox.addItems(models)
-        os.chdir("../gui_controllers")
+
 
         self.clear_feedback()
 
@@ -55,13 +56,11 @@ class FakeNewsWinController(FormCheckerWinController):
             self.set_normal_style(tweet_widget)
 
             self.close()
-            from gui_controllers.detectionResultsWinController import DetectionResultsWinController
-            # todo: results= DETECT(model_name, tweet)
+          # todo: results= DETECT(model_name, tweet)
             #  find the relevant trained model(according to the model name)
             #  insert tweet as input to the model and get detection results (graphs and etc.)
 
-            self.window = DetectionResultsWinController()#input results
-            self.window.show()
+
 
 
 

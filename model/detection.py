@@ -1,5 +1,6 @@
 import os
 
+from constants import PLOTS_PATH
 from model.fake_bert_model import FakeBERTModel
 
 import tensorflow as tf
@@ -7,20 +8,22 @@ import tensorflow as tf
 import numpy as np
 
 
-
-
 class Detection():
     def __init__(self, input, model_name, model_type):
         self.model = FakeBERTModel()
 
         #   loads the relevant model according to name and type
-        self.model.load_model("TRAINED_MODELS/" + model_type + "/" + model_name)
+        from constants import TRAINED_MODELS_PATH
+        self.model.load_model(TRAINED_MODELS_PATH + model_type + "/" + model_name)
 
         #   input preprocessing (separate input to chunks in size 128 tokens)
         input_texts = self.get_preprocessed_text(input, max_text_len=self.model.config['max_seq_len'])
-        self.number_of_chunks= len(input_texts) + 1
+        self.number_of_chunks = len(input_texts)
 
         self.probabilities, self.predictions = self.get_prediction(input_texts)
+
+        self.plot_path1 = PLOTS_PATH + "detection_plot_1.PNG"
+        self.plot_path2 = PLOTS_PATH + "detection_plot_2.PNG"
 
     @staticmethod
     def get_preprocessed_text(input, max_text_len):

@@ -68,9 +68,8 @@ class Task():
 
     def save_model(self, dir_name,model_name):
 
-        os.chdir("../TRAINED_MODELS/"+dir_name)
-        self.model.save_model(model_name)
-        os.chdir("../../gui_controllers")
+        from constants import TRAINED_MODELS_PATH
+        self.model.save_model("../"+TRAINED_MODELS_PATH+dir_name+"/"+model_name)
         # todo: show error popup if name exists
 
     def test_model(self):

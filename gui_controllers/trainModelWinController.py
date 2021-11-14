@@ -20,7 +20,7 @@ class TrainModelWinController(FormCheckerWinController):
         from gui_controllers.trainProgressWinController import TrainProgressWinController
         self.window = TrainProgressWinController(self.task)
         self.window.show()
-        #self.window.t.start()
+
 
 
 if __name__ == "__main__":

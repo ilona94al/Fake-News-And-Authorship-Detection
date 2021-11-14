@@ -4,6 +4,8 @@ from PyQt5 import QtWidgets
 from PyQt5.QtWidgets import QMainWindow
 
 
+
+
 class TrainResultsWinController(QMainWindow):
     def __init__(self, task, parent=None):
         super(TrainResultsWinController, self).__init__(parent)
@@ -14,11 +16,12 @@ class TrainResultsWinController(QMainWindow):
         self.ui.setupUi(self)
         self.ui.trainAgainBtn.clicked.connect(self.train_again_pressed)
         self.ui.saveBtn.clicked.connect(self.save_pressed)
-        os.chdir("../PLOTS/")
+        from constants import PLOTS_PATH
+
         from PyQt5 import QtGui
-        # self.ui.accuracyGraph.setPixmap(QtGui.QPixmap('ModelAcc.png'))
-        # self.ui.lossGraph.setPixmap(QtGui.QPixmap('ModelLoss.png'))
-        os.chdir("../gui_controllers")
+        # self.ui.accuracyGraph.setPixmap(QtGui.QPixmap("../"+PLOTS_PATH+"ModelAcc.png"))
+        # self.ui.lossGraph.setPixmap(QtGui.QPixmap("../"+PLOTS_PATH+"ModelLoss.png"))
+
         # results = "Number of true predicts: " + str(self.task.model.count_well_predicted) + "\n" \
         #           + "Number of false predicts: " + str(self.task.model.count_false_predicted) + "\n" \
         #           + "Total test set accuracy is " + str(self.task.model.test_accuracy * 100.0) + " \n\n" \

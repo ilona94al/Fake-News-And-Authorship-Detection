@@ -1,4 +1,6 @@
 import os
+import threading
+import time
 
 from PyQt5 import QtWidgets
 
@@ -18,16 +20,19 @@ class PlagiarismWinController(FormCheckerWinController):
         self.ui.startBtn.clicked.connect(self.start_pressed)
 
         self.ui.authorComboBox.clear()
-        os.chdir("../TRAINED_MODELS/")
-        arr = os.listdir('Plagiarism')
+
+        from constants import TRAINED_MODELS_PATH
+        arr = os.listdir('../'+TRAINED_MODELS_PATH+'Plagiarism')
         models = []
         for item in arr:
             if item.split(".")[1] == "h5":
                 models.append(item.removesuffix(".h5"))
         self.ui.authorComboBox.addItems(models)
-        os.chdir("../gui_controllers")
+
 
         self.clear_feedback()
+
+
 
     def back_pressed(self):
         self.close()
@@ -60,15 +65,13 @@ class PlagiarismWinController(FormCheckerWinController):
             self.invalid_input("Book not in .txt format", path_widget)
         else:
             self.set_normal_style(path_widget)
-            self.close()
+
             book_str = read_book(book_path)
 
-            from model.plagiarism_detection import PlagiarismDetection
-            detection = PlagiarismDetection(input=book_str, model_name=author_name + ".h5", author_name=author_name)
-            from gui_controllers.detectionResultsWinController import DetectionResultsWinController
-            self.window = DetectionResultsWinController(detection)
+            self.close()
+            from gui_controllers.loadingWinController import LoadingWinController
+            self.window = LoadingWinController(book=book_str,author=author_name)
             self.window.show()
-
 
 def read_book(book_dir_path):
     with open(book_dir_path, 'r', encoding='UTF-8') as book_file:

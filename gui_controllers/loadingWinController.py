@@ -1,42 +1,49 @@
+
 import threading
 import time
 
-from PyQt5 import QtWidgets
+from PyQt5 import QtWidgets, QtGui,  Qt
+from PyQt5.QtGui import QMovie
 from PyQt5.QtWidgets import QMainWindow, QMessageBox
 
+from constants import RESOURCES_PATH
+from gui_controllers.formCheckerWinController import FormCheckerWinController
 
-class TrainProgressWinController(QMainWindow):
-    def __init__(self, task, parent=None):
-        super(TrainProgressWinController, self).__init__(parent)
-        self.task = task
-        from gui_design.train_progress_window import Ui_TrainProgressWindow
-        self.ui = Ui_TrainProgressWindow()
+
+class LoadingWinController(QMainWindow):
+    def __init__(self, book, author, parent=None):
+        super(LoadingWinController, self).__init__(parent)
+        from gui_design.loading_window import Ui_LoadingWindow
+
+        self.ui = Ui_LoadingWindow()
         self.ui.setupUi(self)
+
 
         self.set_disable_style(self.ui.resultsBtn)
         self.ui.resultsBtn.clicked.connect(self.results_pressed)
         self.ui.cancelBtn.clicked.connect(self.cancel_pressed)
         self.ui.cancelBtn.setHidden(True)
 
-        self.task.start_train_model(self.ui.progressBar)
+        self.movie = QMovie("../"+RESOURCES_PATH+"loading.gif")
+        self.ui.loadinLabel.setMovie(self.movie)
+        self.movie.start()
 
-        self.t = threading.Thread(target=self.run_check_running)
-        self.t.start()
+        self.loading = True
 
-    def run_check_running(self):
-        while self.task.running:
-            time.sleep(10)
-        self.set_enable_style(self.ui.resultsBtn)
-        self.ui.cancelBtn.setHidden(False)
+        self.t1 = threading.Thread(target=self.run_detection, args=(book, author))
+        self.t1.start()
+
+        self.t2 = threading.Thread(target=self.run_waiting)
+        self.t2.start()
 
     def cancel_pressed(self):
         msg = QMessageBox()
-        msg.setWindowTitle("Train a new model progress")
-        msg.setText("Do you sure you want cancel train progress?")
+        msg.setWindowTitle("Stop detection progress")
+        msg.setText("Do you sure you want cancel detection?")
         msg.setIcon(QMessageBox.Warning)
         msg.setStandardButtons(QMessageBox.Cancel | QMessageBox.Ok)
         msg.setDefaultButton(QMessageBox.Cancel)
-        msg.setInformativeText("The model will be lost")
+        msg.setInformativeText("The results will be lost")
 
         msg.buttonClicked.connect(self.PopUpAction)
 
@@ -44,19 +51,34 @@ class TrainProgressWinController(QMainWindow):
 
     def PopUpAction(self, i):
         if i.text() == 'OK':
+
             self.close()
-            from gui_controllers.chooseTrainWinController import ChooseTrainWinController
-            self.window = ChooseTrainWinController()
+            from gui_controllers.mainWinController import MainWindow
+            self.window = MainWindow()
             self.window.show()
 
+
+    def run_detection(self, book, author):
+        from model.plagiarism_detection import PlagiarismDetection
+        self.detection = PlagiarismDetection(input=book, model_name=author + ".h5", author_name=author)
+        self.loading=False
+
+    def run_waiting(self):
+        while self.loading:
+            time.sleep(10)
+
+        pixmap=QtGui.QPixmap("../" + RESOURCES_PATH + "completed.png")
+        pixmap_small = pixmap.scaled(64, 64)
+        self.ui.loadinLabel.setPixmap(pixmap_small)
+        self.ui.loadinLabel.adjustSize()
+        self.set_enable_style(self.ui.resultsBtn)
+        self.ui.cancelBtn.setHidden(False)
+
+
     def results_pressed(self):
-        # todo: create results window and load the results from training
-        #  (task.accuracy, test params)
-        # todo**: option to train again, or save the model - task.save_model(name)
-        self.task.test_model()
         self.close()
-        from gui_controllers.trainResultsWinController import TrainResultsWinController
-        self.window = TrainResultsWinController(self.task)
+        from gui_controllers.detectionResultsWinController import DetectionResultsWinController
+        self.window = DetectionResultsWinController(self.detection)
         self.window.show()
 
     def set_enable_style(self, widget):
@@ -87,11 +109,3 @@ class TrainProgressWinController(QMainWindow):
                              "alternate-background-color: rgb(135, 135, 135);")
         widget.update()
 
-
-if __name__ == "__main__":
-    import sys
-
-    app = QtWidgets.QApplication(sys.argv)
-    MainWindow = TrainProgressWinController()
-    MainWindow.show()
-    sys.exit(app.exec_())

@@ -14,7 +14,7 @@ import numpy as np
 # plt.xlabel('Part')
 # plt.legend(['Real', 'Fake'], loc='upper left')
 # plt.show()
-
+from constants import PLOTS_PATH
 
 Y_predicted_prob=np.random.rand(5,2)
 
@@ -29,7 +29,9 @@ plt.title("---")
 
 
 plt.legend()
-plt.show()
+
+
+plt.savefig(PLOTS_PATH+"test2.PNG")
 #
 #
 #
@@ -109,4 +111,4 @@ plt.setp(autotexts, size=8, weight="bold")
 ax.set_title("Distribution Graph")
 
 # show plot
-plt.show()
+plt.savefig(PLOTS_PATH+"test.PNG")

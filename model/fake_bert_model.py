@@ -106,7 +106,8 @@ class FakeBERTModel():
         # -------- Showing results of model training and validation---------------#
 
         import matplotlib.pyplot as plt
-        os.chdir("../PLOTS/")
+
+
 
         plt.plot(self.history.history['accuracy'])
         plt.plot(self.history.history['val_accuracy'])
@@ -115,7 +116,9 @@ class FakeBERTModel():
         plt.ylabel('Accuracy')
         plt.xlabel('Epoch')
         plt.legend(['Train', 'Validation'], loc='upper left')
-        plt.savefig('ModelAcc.png')
+        from constants import PLOTS_PATH
+        self.acc_path="../"+PLOTS_PATH+"ModelAcc.png"
+        plt.savefig(self.acc_path)
 
         plt.plot(self.history.history['loss'])
         plt.plot(self.history.history['val_loss'])
@@ -124,9 +127,9 @@ class FakeBERTModel():
         plt.ylabel('Loss')
         plt.xlabel('Epoch')
         plt.legend(['Train', 'Validation'], loc='upper left')
-        plt.savefig('ModelLoss.png')
+        self.loss_path="../"+PLOTS_PATH+"ModelLoss.png"
+        plt.savefig(self.loss_path)
 
-        os.chdir("../gui_controllers")
 
     def load_model(self, model_path):
         os.chdir("../")
