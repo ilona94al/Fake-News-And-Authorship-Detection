@@ -1,7 +1,8 @@
-import os
 
 from PyQt5 import QtWidgets
 from PyQt5.QtWidgets import QMainWindow
+from constants import PLOTS_PATH
+from PyQt5 import QtGui
 
 
 class TrainResultsWinController(QMainWindow):
@@ -12,20 +13,24 @@ class TrainResultsWinController(QMainWindow):
         from gui_design.train_results_window import Ui_TrainResultsWindow
         self.ui = Ui_TrainResultsWindow()
         self.ui.setupUi(self)
-        self.ui.trainAgainBtn.clicked.connect(self.train_again_pressed)
-        self.ui.saveBtn.clicked.connect(self.save_pressed)
-        from constants import PLOTS_PATH
 
-        from PyQt5 import QtGui
-        self.ui.accuracyGraph.setPixmap(QtGui.QPixmap("../"+PLOTS_PATH+"ModelAcc.png"))
-        self.ui.lossGraph.setPixmap(QtGui.QPixmap("../"+PLOTS_PATH+"ModelLoss.png"))
+        self.set_buttons_handlers()
 
+        self.update_ui_with_data()
+
+    def update_ui_with_data(self):
+        self.ui.accuracyGraph.setPixmap(QtGui.QPixmap("../" + PLOTS_PATH + "ModelAcc.png"))
+        self.ui.accuracyGraph.setPixmap(QtGui.QPixmap("../" + PLOTS_PATH + "ModelAcc.png"))
         results = "Number of true predicts: " + str(self.task.model.count_well_predicted) + "\n" \
                   + "Number of false predicts: " + str(self.task.model.count_false_predicted) + "\n" \
                   + "Total test set accuracy is " + str(self.task.model.test_accuracy * 100.0) + " \n\n" \
                   + "Train accuracy is: " + str(self.task.model.train_accuracy * 100.0) + "% \n" \
                   + "Validation accuracy is: " + str(self.task.model.valid_accuracy * 100.0) + "%"
         self.ui.resultsTextEdit.setText(results)
+
+    def set_buttons_handlers(self):
+        self.ui.trainAgainBtn.clicked.connect(self.train_again_pressed)
+        self.ui.saveBtn.clicked.connect(self.save_pressed)
 
     def train_again_pressed(self):
         self.close()

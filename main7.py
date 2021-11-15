@@ -16,7 +16,7 @@ import numpy as np
 # plt.show()
 from constants import PLOTS_PATH
 
-Y_predicted_prob=np.random.rand(5,2)
+Y_predicted_prob=np.random.rand(10,10)
 
 X_axis = np.arange(Y_predicted_prob.shape[0])+1
 
@@ -112,3 +112,4 @@ ax.set_title("Distribution Graph")
 
 # show plot
 plt.savefig(PLOTS_PATH+"test.PNG")
+print("book \" boki\"")

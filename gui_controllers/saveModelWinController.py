@@ -10,11 +10,13 @@ class SaveModelWinController(FormCheckerWinController):
         from gui_design.save_model_window import Ui_SaveModelWindow
         self.ui = Ui_SaveModelWindow()
         self.ui.setupUi(self)
-        self.ui.backBtn.clicked.connect(self.back_pressed)
-        self.ui.saveBtn.clicked.connect(self.save_pressed)
-
+        self.set_buttons_handlers()
 
         self.clear_feedback()
+
+    def set_buttons_handlers(self):
+        self.ui.backBtn.clicked.connect(self.back_pressed)
+        self.ui.saveBtn.clicked.connect(self.save_pressed)
 
     def back_pressed(self):
         self.close()

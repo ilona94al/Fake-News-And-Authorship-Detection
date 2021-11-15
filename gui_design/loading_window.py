@@ -14,7 +14,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_LoadingWindow(object):
     def setupUi(self, LoadingWindow):
         LoadingWindow.setObjectName("LoadingWindow")
-        LoadingWindow.resize(860, 598)
+        LoadingWindow.resize(860, 396)
         self.centralwidget = QtWidgets.QWidget(LoadingWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.backgroundImg = QtWidgets.QLabel(self.centralwidget)
@@ -25,7 +25,7 @@ class Ui_LoadingWindow(object):
         self.backgroundImg.setObjectName("backgroundImg")
         self.groupBox = QtWidgets.QGroupBox(self.centralwidget)
         self.groupBox.setEnabled(True)
-        self.groupBox.setGeometry(QtCore.QRect(30, 0, 800, 570))
+        self.groupBox.setGeometry(QtCore.QRect(30, 0, 800, 370))
         palette = QtGui.QPalette()
         brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
         brush.setStyle(QtCore.Qt.SolidPattern)
@@ -94,14 +94,21 @@ class Ui_LoadingWindow(object):
         self.groupBox.setAlignment(QtCore.Qt.AlignCenter)
         self.groupBox.setObjectName("groupBox")
         self.loadinLabel = QtWidgets.QLabel(self.groupBox)
-        self.loadinLabel.setGeometry(QtCore.QRect(270, 140, 260, 271))
+        self.loadinLabel.setGeometry(QtCore.QRect(280, 140, 240, 121))
+        self.loadinLabel.setStyleSheet("border-width: 3px;\n"
+"border-radius: 5px;\n"
+"border-color: rgb(0, 0, 0);\n"
+"border-style: solid;\n"
+"color: rgb(0, 0, 0);                                                      \n"
+"background-color: rgb(255, 255, 255);")
         self.loadinLabel.setText("")
-        self.loadinLabel.setPixmap(QtGui.QPixmap("../RESOURCES/loading.gif"))
+        self.loadinLabel.setPixmap(QtGui.QPixmap("../RESOURCES/please_wait3.gif"))
         self.loadinLabel.setScaledContents(False)
+        self.loadinLabel.setAlignment(QtCore.Qt.AlignCenter)
         self.loadinLabel.setObjectName("loadinLabel")
-        self.resultsBtn = QtWidgets.QPushButton(self.groupBox)
-        self.resultsBtn.setEnabled(False)
-        self.resultsBtn.setGeometry(QtCore.QRect(530, 479, 240, 60))
+        self.resultsBtn = QtWidgets.QPushButton(self.centralwidget)
+        self.resultsBtn.setEnabled(True)
+        self.resultsBtn.setGeometry(QtCore.QRect(570, 420, 240, 60))
         font = QtGui.QFont()
         font.setFamily("Sitka Small")
         font.setPointSize(16)
@@ -126,32 +133,6 @@ class Ui_LoadingWindow(object):
         self.resultsBtn.setDefault(False)
         self.resultsBtn.setFlat(False)
         self.resultsBtn.setObjectName("resultsBtn")
-        self.cancelBtn = QtWidgets.QPushButton(self.groupBox)
-        self.cancelBtn.setEnabled(True)
-        self.cancelBtn.setGeometry(QtCore.QRect(30, 479, 240, 60))
-        font = QtGui.QFont()
-        font.setFamily("Sitka Small")
-        font.setPointSize(16)
-        font.setBold(False)
-        font.setItalic(False)
-        font.setWeight(9)
-        self.cancelBtn.setFont(font)
-        self.cancelBtn.setAcceptDrops(False)
-        self.cancelBtn.setAutoFillBackground(False)
-        self.cancelBtn.setStyleSheet("\n"
-"background-color: rgb(159, 0, 0);\n"
-"font: 75 16pt \"Sitka Small\";\n"
-"color: rgb(255, 255, 255);\n"
-"border-width: 3px;\n"
-"border-radius: 30px;\n"
-"border-color: rgb(255, 255, 255);\n"
-"border-style: solid;")
-        self.cancelBtn.setIconSize(QtCore.QSize(24, 24))
-        self.cancelBtn.setCheckable(False)
-        self.cancelBtn.setAutoDefault(False)
-        self.cancelBtn.setDefault(False)
-        self.cancelBtn.setFlat(False)
-        self.cancelBtn.setObjectName("cancelBtn")
         LoadingWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(LoadingWindow)
@@ -160,9 +141,8 @@ class Ui_LoadingWindow(object):
     def retranslateUi(self, LoadingWindow):
         _translate = QtCore.QCoreApplication.translate
         LoadingWindow.setWindowTitle(_translate("LoadingWindow", "Prediction in process"))
-        self.groupBox.setTitle(_translate("LoadingWindow", "Prediction process running, Please, wait..."))
+        self.groupBox.setTitle(_translate("LoadingWindow", "Prediction process running"))
         self.resultsBtn.setText(_translate("LoadingWindow", "results"))
-        self.cancelBtn.setText(_translate("LoadingWindow", "Cancel"))
 
 
 if __name__ == "__main__":

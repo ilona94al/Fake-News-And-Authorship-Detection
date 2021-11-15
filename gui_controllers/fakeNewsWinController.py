@@ -13,23 +13,25 @@ class FakeNewsWinController(FormCheckerWinController):
         self.ui = Ui_FakeNewsWindow()
         self.ui.setupUi(self)
 
-        self.ui.backBtn.clicked.connect(self.back_pressed)
+        self.set_buttons_handlers()
 
+        self.update_ui_with_data()
 
-        self.ui.startBtn.clicked.connect(self.start_pressed)
+        self.clear_feedback()
 
+    def update_ui_with_data(self):
         self.ui.trainedModelsComboBox.clear()
-
         from constants import TRAINED_MODELS_PATH
-        arr = os.listdir('../'+TRAINED_MODELS_PATH+'FakeNews')
+        arr = os.listdir('../' + TRAINED_MODELS_PATH + 'FakeNews')
         models = []
         for item in arr:
             if item.split(".")[1] == "h5":
                 models.append(item)
         self.ui.trainedModelsComboBox.addItems(models)
 
-
-        self.clear_feedback()
+    def set_buttons_handlers(self):
+        self.ui.backBtn.clicked.connect(self.back_pressed)
+        self.ui.startBtn.clicked.connect(self.start_pressed)
 
     def back_pressed(self):
         self.close()

@@ -16,6 +16,8 @@ from tensorflow.python.keras.utils import np_utils
 from nltk import word_tokenize
 from nltk.corpus import stopwords
 
+from constants import PLOTS_PATH
+
 
 def define_expected_classification(real_texts_count, total_texts_count):
     expected_classification = np.empty(total_texts_count, int)
@@ -138,7 +140,7 @@ def seperate_to_blocks(book):
 #     output_layer = tf.keras.layers.Dense \
 #         (num_classes, activation='softmax')(dropped)
 #
-#     model = tf.keras.Model1.Model(input_layer, output_layer)
+#     model = tf.keras.models.Model(input_layer, output_layer)
 #
 #     model.summary()
 #
@@ -241,8 +243,8 @@ config_512tokens = {
 
 config = config_128tokens
 
-fake_news = read_file_into_array('DATABASE/fakenews/db1/fake50.csv')
-real_news = read_file_into_array('DATABASE/fakenews/db1/true50.csv')
+fake_news = read_file_into_array('database/fakenews/db1/fake50.csv')
+real_news = read_file_into_array('database/fakenews/db1/true50.csv')
 
 real_texts = []
 for tweet in real_news:
@@ -269,10 +271,9 @@ y_test_prob = np_utils.to_categorical(y_test)
 y_valid_prob = np_utils.to_categorical(y_valid)
 num_classes = y_train_prob.shape[1]
 
-new_model = False
+new_model = True
 model_name = 'FakeBERTModel.h5'
 trained_model_name = 'TrainedFakeBERTModel.h5'
-#TrainedFakeBERTModel.h5
 if new_model == True:
     model = build_model()
     model.save(model_name)
@@ -282,21 +283,20 @@ else:
     model = tf.keras.models.load_model(trained_model_name, custom_objects={'KerasLayer': hub.KerasLayer})
 
 _, accuracy = model.evaluate(tf.constant(x_test), y_test_prob, verbose=0)
-# print("Accuracy of evaluate new test groups:", accuracy)
-#
-# Y_predicted_prob = model.predict(tf.constant(x_test))
-# Y_predicted = np.argmax(Y_predicted_prob, -1)
-# count_well_predicted = np.count_nonzero([y_test == Y_predicted])
-#
-# print("Number of true predicts:", count_well_predicted)
-# print("Number of false predicts:", Y_predicted.shape[0] - count_well_predicted)
+print("Accuracy of evaluate new test groups:", accuracy)
+
+Y_predicted_prob = model.predict(tf.constant(x_test))
+Y_predicted = np.argmax(Y_predicted_prob, -1)
+count_well_predicted = np.count_nonzero([y_test == Y_predicted])
+
+print("Number of true predicts:", count_well_predicted)
+print("Number of false predicts:", Y_predicted.shape[0] - count_well_predicted)
 
 #-------- Showing results of model training and validation---------------#
 
 import matplotlib.pyplot as plt
 
 plt.plot(history.history['accuracy'])
-plt.plot(history.history['val_accuracy'])
 plt.plot(accuracy)
 plt.title('Model accuracy in epoch')
 plt.ylabel('Accuracy')
@@ -304,13 +304,12 @@ plt.xlabel('Epoch')
 plt.legend(['Train', 'Validation'], loc='upper left')
 # plt.show()
 plt.savefig('ModelAcc.png')
-plt.savefig('PLOTS/ModelAcc.png')
-#
-# plt.plot(history.history['loss'])
-# plt.plot(history.history['val_loss'])
-# plt.plot(accuracy)
-# plt.title('Model loss in epoch')
-# plt.ylabel('Loss')
-# plt.xlabel('Epoch')
-# plt.legend(['Train', 'Validation'], loc='upper left')
-# plt.show()
+
+
+plt.plot(history.history['loss'])
+plt.plot(accuracy)
+plt.title('Model loss in epoch')
+plt.ylabel('Loss')
+plt.xlabel('Epoch')
+plt.legend(['Train', 'Validation'], loc='upper left')
+plt.savefig("ModelAcc.png")

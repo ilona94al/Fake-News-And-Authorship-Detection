@@ -9,9 +9,11 @@ class MainWinController(QMainWindow):
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
 
+        self.set_buttons_handlers()
+
+    def set_buttons_handlers(self):
         self.ui.plagiarismBtn.clicked.connect(self.openPlagiarismWin)
         self.ui.fakeNewsBtn.clicked.connect(self.openFakeNewsWin)
-
         self.ui.trainBtn.clicked.connect(self.train_pressed)
 
     def openPlagiarismWin(self):
@@ -19,6 +21,7 @@ class MainWinController(QMainWindow):
         from gui_controllers.plagiarismWinController import PlagiarismWinController
         self.window = PlagiarismWinController()
         self.window.show()
+
     def openFakeNewsWin(self):
         self.close()
         from gui_controllers.fakeNewsWinController import FakeNewsWinController
@@ -30,6 +33,7 @@ class MainWinController(QMainWindow):
         from gui_controllers.chooseTrainWinController import ChooseTrainWinController
         self.window = ChooseTrainWinController()
         self.window.show()
+
 
 if __name__ == "__main__":
     import sys

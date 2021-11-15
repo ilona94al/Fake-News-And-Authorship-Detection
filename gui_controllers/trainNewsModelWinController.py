@@ -1,7 +1,8 @@
 from PyQt5 import QtWidgets
 
-from gui_controllers.trainModelWinController import TrainModelWinController
 from pathlib import Path
+
+from gui_controllers.trainModelWinController import TrainModelWinController
 
 
 class TrainNewsModelWinController(TrainModelWinController):
@@ -14,6 +15,11 @@ class TrainNewsModelWinController(TrainModelWinController):
         self.ui.radioButton2111.setChecked(True)
         self.show_one_file_form()
 
+        self.set_buttons_handlers()
+
+        self.clear_feedback()
+
+    def set_buttons_handlers(self):
         self.ui.radioButton2111.clicked.connect(self.show_one_file_form)
         self.ui.radioButton2121.clicked.connect(self.show_two_files_form)
 
@@ -23,10 +29,6 @@ class TrainNewsModelWinController(TrainModelWinController):
 
         self.ui.backBtn.clicked.connect(self.back_pressed)
         self.ui.trainBtn.clicked.connect(self.train_pressed)
-
-
-        self.clear_feedback()
-
 
     @staticmethod
     def get_project_root() -> Path:

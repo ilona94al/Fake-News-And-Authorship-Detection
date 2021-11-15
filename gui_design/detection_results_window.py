@@ -14,18 +14,18 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_DetectionResultsWindow(object):
     def setupUi(self, DetectionResultsWindow):
         DetectionResultsWindow.setObjectName("DetectionResultsWindow")
-        DetectionResultsWindow.resize(1230, 830)
+        DetectionResultsWindow.resize(1400, 930)
         self.centralwidget = QtWidgets.QWidget(DetectionResultsWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.backgroundImg = QtWidgets.QLabel(self.centralwidget)
-        self.backgroundImg.setGeometry(QtCore.QRect(0, 0, 1230, 830))
+        self.backgroundImg.setGeometry(QtCore.QRect(0, 0, 1400, 930))
         self.backgroundImg.setText("")
         self.backgroundImg.setPixmap(QtGui.QPixmap("../RESOURCES/background.jpg"))
         self.backgroundImg.setScaledContents(True)
         self.backgroundImg.setObjectName("backgroundImg")
         self.groupBox = QtWidgets.QGroupBox(self.centralwidget)
         self.groupBox.setEnabled(True)
-        self.groupBox.setGeometry(QtCore.QRect(30, 0, 1170, 800))
+        self.groupBox.setGeometry(QtCore.QRect(30, 0, 1340, 900))
         palette = QtGui.QPalette()
         brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
         brush.setStyle(QtCore.Qt.SolidPattern)
@@ -94,7 +94,7 @@ class Ui_DetectionResultsWindow(object):
         self.groupBox.setObjectName("groupBox")
         self.backBtn = QtWidgets.QPushButton(self.groupBox)
         self.backBtn.setEnabled(True)
-        self.backBtn.setGeometry(QtCore.QRect(30, 709, 240, 60))
+        self.backBtn.setGeometry(QtCore.QRect(30, 809, 240, 60))
         font = QtGui.QFont()
         font.setFamily("Sitka Small")
         font.setPointSize(16)
@@ -122,17 +122,9 @@ class Ui_DetectionResultsWindow(object):
         self.backBtn.setDefault(False)
         self.backBtn.setFlat(False)
         self.backBtn.setObjectName("backBtn")
-        self.verticalFrame = QtWidgets.QFrame(self.groupBox)
-        self.verticalFrame.setGeometry(QtCore.QRect(40, 114, 540, 540))
-        font = QtGui.QFont()
-        font.setFamily("Sitka Small")
-        font.setPointSize(10)
-        font.setBold(False)
-        font.setItalic(False)
-        font.setWeight(50)
-        self.verticalFrame.setFont(font)
-        self.verticalFrame.setAutoFillBackground(False)
-        self.verticalFrame.setStyleSheet("border-width: 3px;\n"
+        self.verticalGroupBox1 = QtWidgets.QGroupBox(self.groupBox)
+        self.verticalGroupBox1.setGeometry(QtCore.QRect(300, 769, 1021, 111))
+        self.verticalGroupBox1.setStyleSheet("border-width: 3px;\n"
 "                            border-radius: 15px;\n"
 "                            border-color: rgb(0, 0, 0);\n"
 "                            border-style: solid;\n"
@@ -141,26 +133,46 @@ class Ui_DetectionResultsWindow(object):
 "                            background-color: qlineargradient(spread:pad, x1:0.996, y1:0.0340909, x2:1, y2:0, stop:1\n"
 "                            rgba(0, 0, 32, 170));\n"
 "                        ")
-        self.verticalFrame.setObjectName("verticalFrame")
-        self.verticalLayout = QtWidgets.QVBoxLayout(self.verticalFrame)
-        self.verticalLayout.setContentsMargins(18, 18, 18, 18)
-        self.verticalLayout.setSpacing(10)
-        self.verticalLayout.setObjectName("verticalLayout")
-        self.plotLabel1 = QtWidgets.QLabel(self.verticalFrame)
+        self.verticalGroupBox1.setObjectName("verticalGroupBox1")
+        self.verticalLayout_5 = QtWidgets.QVBoxLayout(self.verticalGroupBox1)
+        self.verticalLayout_5.setContentsMargins(6, 24, 6, 6)
+        self.verticalLayout_5.setSpacing(2)
+        self.verticalLayout_5.setObjectName("verticalLayout_5")
+        self.detectionTextEdit = QtWidgets.QPlainTextEdit(self.verticalGroupBox1)
+        self.detectionTextEdit.setStyleSheet("border-width: 3px;\n"
+"border-radius: 5px;\n"
+"border-color: rgb(0, 0, 0);\n"
+"border-style: solid;\n"
+"background-color: rgb(188, 188, 188);\n"
+"color: rgb(0, 0, 0);\n"
+"                                                \n"
+"\n"
+"")
+        self.detectionTextEdit.setObjectName("detectionTextEdit")
+        self.verticalLayout_5.addWidget(self.detectionTextEdit)
+        self.verticalGroupBox2 = QtWidgets.QGroupBox(self.groupBox)
+        self.verticalGroupBox2.setGeometry(QtCore.QRect(20, 114, 640, 640))
+        self.verticalGroupBox2.setStyleSheet("border-width: 3px;\n"
+"                            border-radius: 15px;\n"
+"                            border-color: rgb(0, 0, 0);\n"
+"                            border-style: solid;\n"
+"                            font: 10pt \"Sitka Small\";\n"
+"                            color: rgb(255, 255, 255);\n"
+"                            background-color: qlineargradient(spread:pad, x1:0.996, y1:0.0340909, x2:1, y2:0, stop:1\n"
+"                            rgba(0, 0, 32, 170));\n"
+"                        ")
+        self.verticalGroupBox2.setObjectName("verticalGroupBox2")
+        self.verticalLayout_6 = QtWidgets.QVBoxLayout(self.verticalGroupBox2)
+        self.verticalLayout_6.setContentsMargins(6, 30, 6, 6)
+        self.verticalLayout_6.setSpacing(2)
+        self.verticalLayout_6.setObjectName("verticalLayout_6")
+        self.plotLabel1 = QtWidgets.QLabel(self.verticalGroupBox2)
         self.plotLabel1.setText("")
         self.plotLabel1.setObjectName("plotLabel1")
-        self.verticalLayout.addWidget(self.plotLabel1)
-        self.verticalFrame3 = QtWidgets.QFrame(self.groupBox)
-        self.verticalFrame3.setGeometry(QtCore.QRect(300, 698, 841, 71))
-        font = QtGui.QFont()
-        font.setFamily("Sitka Small")
-        font.setPointSize(10)
-        font.setBold(False)
-        font.setItalic(False)
-        font.setWeight(50)
-        self.verticalFrame3.setFont(font)
-        self.verticalFrame3.setAutoFillBackground(False)
-        self.verticalFrame3.setStyleSheet("border-width: 3px;\n"
+        self.verticalLayout_6.addWidget(self.plotLabel1)
+        self.verticalGroupBox3 = QtWidgets.QGroupBox(self.groupBox)
+        self.verticalGroupBox3.setGeometry(QtCore.QRect(680, 114, 640, 640))
+        self.verticalGroupBox3.setStyleSheet("border-width: 3px;\n"
 "                            border-radius: 15px;\n"
 "                            border-color: rgb(0, 0, 0);\n"
 "                            border-style: solid;\n"
@@ -169,47 +181,15 @@ class Ui_DetectionResultsWindow(object):
 "                            background-color: qlineargradient(spread:pad, x1:0.996, y1:0.0340909, x2:1, y2:0, stop:1\n"
 "                            rgba(0, 0, 32, 170));\n"
 "                        ")
-        self.verticalFrame3.setObjectName("verticalFrame3")
-        self.verticalLayout_3 = QtWidgets.QVBoxLayout(self.verticalFrame3)
-        self.verticalLayout_3.setContentsMargins(18, 18, 18, 18)
-        self.verticalLayout_3.setSpacing(10)
-        self.verticalLayout_3.setObjectName("verticalLayout_3")
-        self.resultLabel = QtWidgets.QLabel(self.verticalFrame3)
-        self.resultLabel.setStyleSheet("border-width: 0px;\n"
-"font: 10pt \"Sitka Small\";\n"
-"color: rgb(255, 255, 255);\n"
-"background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:0, stop:1 rgba(0, 0, 0, 0));")
-        self.resultLabel.setText("")
-        self.resultLabel.setObjectName("resultLabel")
-        self.verticalLayout_3.addWidget(self.resultLabel)
-        self.verticalFrame2 = QtWidgets.QFrame(self.groupBox)
-        self.verticalFrame2.setGeometry(QtCore.QRect(600, 114, 540, 540))
-        font = QtGui.QFont()
-        font.setFamily("Sitka Small")
-        font.setPointSize(10)
-        font.setBold(False)
-        font.setItalic(False)
-        font.setWeight(50)
-        self.verticalFrame2.setFont(font)
-        self.verticalFrame2.setAutoFillBackground(False)
-        self.verticalFrame2.setStyleSheet("border-width: 3px;\n"
-"                            border-radius: 15px;\n"
-"                            border-color: rgb(0, 0, 0);\n"
-"                            border-style: solid;\n"
-"                            font: 10pt \"Sitka Small\";\n"
-"                            color: rgb(255, 255, 255);\n"
-"                            background-color: qlineargradient(spread:pad, x1:0.996, y1:0.0340909, x2:1, y2:0, stop:1\n"
-"                            rgba(0, 0, 32, 170));\n"
-"                        ")
-        self.verticalFrame2.setObjectName("verticalFrame2")
-        self.verticalLayout_2 = QtWidgets.QVBoxLayout(self.verticalFrame2)
-        self.verticalLayout_2.setContentsMargins(18, 18, 18, 18)
-        self.verticalLayout_2.setSpacing(10)
-        self.verticalLayout_2.setObjectName("verticalLayout_2")
-        self.plotLabel2 = QtWidgets.QLabel(self.verticalFrame2)
+        self.verticalGroupBox3.setObjectName("verticalGroupBox3")
+        self.verticalLayout_7 = QtWidgets.QVBoxLayout(self.verticalGroupBox3)
+        self.verticalLayout_7.setContentsMargins(6, 30, 6, 6)
+        self.verticalLayout_7.setSpacing(2)
+        self.verticalLayout_7.setObjectName("verticalLayout_7")
+        self.plotLabel2 = QtWidgets.QLabel(self.verticalGroupBox3)
         self.plotLabel2.setText("")
         self.plotLabel2.setObjectName("plotLabel2")
-        self.verticalLayout_2.addWidget(self.plotLabel2)
+        self.verticalLayout_7.addWidget(self.plotLabel2)
         DetectionResultsWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(DetectionResultsWindow)
@@ -220,6 +200,9 @@ class Ui_DetectionResultsWindow(object):
         DetectionResultsWindow.setWindowTitle(_translate("DetectionResultsWindow", "Detection Results"))
         self.groupBox.setTitle(_translate("DetectionResultsWindow", "Detetion Results"))
         self.backBtn.setText(_translate("DetectionResultsWindow", "Back"))
+        self.verticalGroupBox1.setTitle(_translate("DetectionResultsWindow", "Model detects that:"))
+        self.verticalGroupBox2.setTitle(_translate("DetectionResultsWindow", "Probabilities graph:"))
+        self.verticalGroupBox3.setTitle(_translate("DetectionResultsWindow", "Distebution graph:"))
 
 
 if __name__ == "__main__":

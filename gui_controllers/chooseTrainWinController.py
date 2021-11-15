@@ -15,11 +15,17 @@ class ChooseTrainWinController(QMainWindow):
         self.ui = Ui_ChooseTrainWindow()
         self.ui.setupUi(self)
 
-        self.ui.backBtn.clicked.connect(self.back_pressed)
-        self.ui.nextBtn.clicked.connect(self.next_pressed)
+        self.set_buttons_handlers()
 
+        self.update_ui_with_data()
+
+    def update_ui_with_data(self):
         self.ui.modelTypeComboBox.addItem(combo_box_options['option1'])
         self.ui.modelTypeComboBox.addItem(combo_box_options['option2'])
+
+    def set_buttons_handlers(self):
+        self.ui.backBtn.clicked.connect(self.back_pressed)
+        self.ui.nextBtn.clicked.connect(self.next_pressed)
 
     def back_pressed(self):
         self.close()

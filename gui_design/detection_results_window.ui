@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1230</width>
-    <height>830</height>
+    <width>1400</width>
+    <height>930</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -19,8 +19,8 @@
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>1230</width>
-      <height>830</height>
+      <width>1400</width>
+      <height>930</height>
      </rect>
     </property>
     <property name="text">
@@ -41,8 +41,8 @@
      <rect>
       <x>30</x>
       <y>0</y>
-      <width>1170</width>
-      <height>800</height>
+      <width>1340</width>
+      <height>900</height>
      </rect>
     </property>
     <property name="palette">
@@ -242,7 +242,7 @@
      <property name="geometry">
       <rect>
        <x>30</x>
-       <y>709</y>
+       <y>809</y>
        <width>240</width>
        <height>60</height>
       </rect>
@@ -299,26 +299,14 @@
       <bool>false</bool>
      </property>
     </widget>
-    <widget class="QFrame" name="verticalFrame">
+    <widget class="QGroupBox" name="verticalGroupBox1">
      <property name="geometry">
       <rect>
-       <x>40</x>
-       <y>114</y>
-       <width>540</width>
-       <height>540</height>
+       <x>300</x>
+       <y>769</y>
+       <width>1021</width>
+       <height>111</height>
       </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>Sitka Small</family>
-       <pointsize>10</pointsize>
-       <weight>50</weight>
-       <italic>false</italic>
-       <bold>false</bold>
-      </font>
-     </property>
-     <property name="autoFillBackground">
-      <bool>false</bool>
      </property>
      <property name="styleSheet">
       <string notr="true">border-width: 3px;
@@ -331,21 +319,80 @@
                             rgba(0, 0, 32, 170));
                         </string>
      </property>
-     <layout class="QVBoxLayout" name="verticalLayout">
+     <property name="title">
+      <string>Model detects that:</string>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_5" stretch="0">
       <property name="spacing">
-       <number>10</number>
+       <number>2</number>
       </property>
       <property name="leftMargin">
-       <number>18</number>
+       <number>6</number>
       </property>
       <property name="topMargin">
-       <number>18</number>
+       <number>24</number>
       </property>
       <property name="rightMargin">
-       <number>18</number>
+       <number>6</number>
       </property>
       <property name="bottomMargin">
-       <number>18</number>
+       <number>6</number>
+      </property>
+      <item>
+       <widget class="QPlainTextEdit" name="detectionTextEdit">
+        <property name="styleSheet">
+         <string notr="true">border-width: 3px;
+border-radius: 5px;
+border-color: rgb(0, 0, 0);
+border-style: solid;
+background-color: rgb(188, 188, 188);
+color: rgb(0, 0, 0);
+                                                
+
+</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QGroupBox" name="verticalGroupBox2">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>114</y>
+       <width>640</width>
+       <height>640</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border-width: 3px;
+                            border-radius: 15px;
+                            border-color: rgb(0, 0, 0);
+                            border-style: solid;
+                            font: 10pt &quot;Sitka Small&quot;;
+                            color: rgb(255, 255, 255);
+                            background-color: qlineargradient(spread:pad, x1:0.996, y1:0.0340909, x2:1, y2:0, stop:1
+                            rgba(0, 0, 32, 170));
+                        </string>
+     </property>
+     <property name="title">
+      <string>Probabilities graph:</string>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_6" stretch="0">
+      <property name="spacing">
+       <number>2</number>
+      </property>
+      <property name="leftMargin">
+       <number>6</number>
+      </property>
+      <property name="topMargin">
+       <number>30</number>
+      </property>
+      <property name="rightMargin">
+       <number>6</number>
+      </property>
+      <property name="bottomMargin">
+       <number>6</number>
       </property>
       <item>
        <widget class="QLabel" name="plotLabel1">
@@ -356,89 +403,14 @@
       </item>
      </layout>
     </widget>
-    <widget class="QFrame" name="verticalFrame3">
+    <widget class="QGroupBox" name="verticalGroupBox3">
      <property name="geometry">
       <rect>
-       <x>300</x>
-       <y>698</y>
-       <width>841</width>
-       <height>71</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>Sitka Small</family>
-       <pointsize>10</pointsize>
-       <weight>50</weight>
-       <italic>false</italic>
-       <bold>false</bold>
-      </font>
-     </property>
-     <property name="autoFillBackground">
-      <bool>false</bool>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">border-width: 3px;
-                            border-radius: 15px;
-                            border-color: rgb(0, 0, 0);
-                            border-style: solid;
-                            font: 10pt &quot;Sitka Small&quot;;
-                            color: rgb(255, 255, 255);
-                            background-color: qlineargradient(spread:pad, x1:0.996, y1:0.0340909, x2:1, y2:0, stop:1
-                            rgba(0, 0, 32, 170));
-                        </string>
-     </property>
-     <layout class="QVBoxLayout" name="verticalLayout_3">
-      <property name="spacing">
-       <number>10</number>
-      </property>
-      <property name="leftMargin">
-       <number>18</number>
-      </property>
-      <property name="topMargin">
-       <number>18</number>
-      </property>
-      <property name="rightMargin">
-       <number>18</number>
-      </property>
-      <property name="bottomMargin">
-       <number>18</number>
-      </property>
-      <item>
-       <widget class="QLabel" name="resultLabel">
-        <property name="styleSheet">
-         <string notr="true">border-width: 0px;
-font: 10pt &quot;Sitka Small&quot;;
-color: rgb(255, 255, 255);
-background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:0, stop:1 rgba(0, 0, 0, 0));</string>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </widget>
-    <widget class="QFrame" name="verticalFrame2">
-     <property name="geometry">
-      <rect>
-       <x>600</x>
+       <x>680</x>
        <y>114</y>
-       <width>540</width>
-       <height>540</height>
+       <width>640</width>
+       <height>640</height>
       </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>Sitka Small</family>
-       <pointsize>10</pointsize>
-       <weight>50</weight>
-       <italic>false</italic>
-       <bold>false</bold>
-      </font>
-     </property>
-     <property name="autoFillBackground">
-      <bool>false</bool>
      </property>
      <property name="styleSheet">
       <string notr="true">border-width: 3px;
@@ -451,21 +423,24 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:0, stop:1 rgb
                             rgba(0, 0, 32, 170));
                         </string>
      </property>
-     <layout class="QVBoxLayout" name="verticalLayout_2">
+     <property name="title">
+      <string>Distebution graph:</string>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_7" stretch="0">
       <property name="spacing">
-       <number>10</number>
+       <number>2</number>
       </property>
       <property name="leftMargin">
-       <number>18</number>
+       <number>6</number>
       </property>
       <property name="topMargin">
-       <number>18</number>
+       <number>30</number>
       </property>
       <property name="rightMargin">
-       <number>18</number>
+       <number>6</number>
       </property>
       <property name="bottomMargin">
-       <number>18</number>
+       <number>6</number>
       </property>
       <item>
        <widget class="QLabel" name="plotLabel2">

@@ -1,9 +1,8 @@
 import os
-import threading
-import time
 
 from PyQt5 import QtWidgets
 
+from constants import TRAINED_MODELS_PATH
 from gui_controllers.formCheckerWinController import FormCheckerWinController
 
 
@@ -15,24 +14,25 @@ class PlagiarismWinController(FormCheckerWinController):
         self.ui = Ui_PlagiarismWindow()
         self.ui.setupUi(self)
 
-        self.ui.backBtn.clicked.connect(self.back_pressed)
-        self.ui.uploadBtn.clicked.connect(self.upload_pressed)
-        self.ui.startBtn.clicked.connect(self.start_pressed)
+        self.set_buttons_handlers()
 
+        self.update_ui_with_data()
+
+        self.clear_feedback()
+
+    def update_ui_with_data(self):
         self.ui.authorComboBox.clear()
-
-        from constants import TRAINED_MODELS_PATH
-        arr = os.listdir('../'+TRAINED_MODELS_PATH+'Plagiarism')
+        arr = os.listdir('../' + TRAINED_MODELS_PATH + 'Plagiarism')
         models = []
         for item in arr:
             if item.split(".")[1] == "h5":
                 models.append(item.removesuffix(".h5"))
         self.ui.authorComboBox.addItems(models)
 
-
-        self.clear_feedback()
-
-
+    def set_buttons_handlers(self):
+        self.ui.backBtn.clicked.connect(self.back_pressed)
+        self.ui.uploadBtn.clicked.connect(self.upload_pressed)
+        self.ui.startBtn.clicked.connect(self.start_pressed)
 
     def back_pressed(self):
         self.close()
@@ -48,7 +48,6 @@ class PlagiarismWinController(FormCheckerWinController):
         root.withdraw()
 
         file_path = filedialog.askopenfilename()
-
         self.ui.inputPath.setText(file_path)
 
     def start_pressed(self):

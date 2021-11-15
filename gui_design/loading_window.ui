@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>860</width>
-    <height>598</height>
+    <height>396</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -42,7 +42,7 @@
       <x>30</x>
       <y>0</y>
       <width>800</width>
-      <height>570</height>
+      <height>370</height>
      </rect>
     </property>
     <property name="palette">
@@ -231,7 +231,7 @@
 font: 20pt &quot;Sitka&quot;;</string>
     </property>
     <property name="title">
-     <string>Prediction process running, Please, wait...</string>
+     <string>Prediction process running</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
@@ -239,51 +239,66 @@ font: 20pt &quot;Sitka&quot;;</string>
     <widget class="QLabel" name="loadinLabel">
      <property name="geometry">
       <rect>
-       <x>270</x>
+       <x>280</x>
        <y>140</y>
-       <width>260</width>
-       <height>271</height>
+       <width>240</width>
+       <height>121</height>
       </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border-width: 3px;
+border-radius: 5px;
+border-color: rgb(0, 0, 0);
+border-style: solid;
+color: rgb(0, 0, 0);                                                      
+background-color: rgb(255, 255, 255);</string>
      </property>
      <property name="text">
       <string/>
      </property>
      <property name="pixmap">
-      <pixmap>../RESOURCES/loading.gif</pixmap>
+      <pixmap>../RESOURCES/please_wait3.gif</pixmap>
      </property>
      <property name="scaledContents">
       <bool>false</bool>
      </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+     <property name="margin">
+      <number>0</number>
+     </property>
     </widget>
-    <widget class="QPushButton" name="resultsBtn">
-     <property name="enabled">
-      <bool>false</bool>
-     </property>
-     <property name="geometry">
-      <rect>
-       <x>530</x>
-       <y>479</y>
-       <width>240</width>
-       <height>60</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>Sitka Small</family>
-       <pointsize>16</pointsize>
-       <weight>9</weight>
-       <italic>false</italic>
-       <bold>false</bold>
-      </font>
-     </property>
-     <property name="acceptDrops">
-      <bool>false</bool>
-     </property>
-     <property name="autoFillBackground">
-      <bool>false</bool>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: rgb(0, 111, 0);
+   </widget>
+   <widget class="QPushButton" name="resultsBtn">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>570</x>
+      <y>420</y>
+      <width>240</width>
+      <height>60</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Sitka Small</family>
+      <pointsize>16</pointsize>
+      <weight>9</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="acceptDrops">
+     <bool>false</bool>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(0, 111, 0);
 
 font: 75 16pt &quot;Sitka Small&quot;;
 color: rgb(255, 255, 255);
@@ -293,82 +308,22 @@ border-color: rgb(255, 255, 255);
 border-style: solid;
 
 alternate-background-color: rgb(135, 135, 135);</string>
-     </property>
-     <property name="text">
-      <string>results</string>
-     </property>
-     <property name="checkable">
-      <bool>false</bool>
-     </property>
-     <property name="autoDefault">
-      <bool>false</bool>
-     </property>
-     <property name="default">
-      <bool>false</bool>
-     </property>
-     <property name="flat">
-      <bool>false</bool>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="cancelBtn">
-     <property name="enabled">
-      <bool>true</bool>
-     </property>
-     <property name="geometry">
-      <rect>
-       <x>30</x>
-       <y>479</y>
-       <width>240</width>
-       <height>60</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>Sitka Small</family>
-       <pointsize>16</pointsize>
-       <weight>9</weight>
-       <italic>false</italic>
-       <bold>false</bold>
-      </font>
-     </property>
-     <property name="acceptDrops">
-      <bool>false</bool>
-     </property>
-     <property name="autoFillBackground">
-      <bool>false</bool>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">
-background-color: rgb(159, 0, 0);
-font: 75 16pt &quot;Sitka Small&quot;;
-color: rgb(255, 255, 255);
-border-width: 3px;
-border-radius: 30px;
-border-color: rgb(255, 255, 255);
-border-style: solid;</string>
-     </property>
-     <property name="text">
-      <string>Cancel</string>
-     </property>
-     <property name="iconSize">
-      <size>
-       <width>24</width>
-       <height>24</height>
-      </size>
-     </property>
-     <property name="checkable">
-      <bool>false</bool>
-     </property>
-     <property name="autoDefault">
-      <bool>false</bool>
-     </property>
-     <property name="default">
-      <bool>false</bool>
-     </property>
-     <property name="flat">
-      <bool>false</bool>
-     </property>
-    </widget>
+    </property>
+    <property name="text">
+     <string>results</string>
+    </property>
+    <property name="checkable">
+     <bool>false</bool>
+    </property>
+    <property name="autoDefault">
+     <bool>false</bool>
+    </property>
+    <property name="default">
+     <bool>false</bool>
+    </property>
+    <property name="flat">
+     <bool>false</bool>
+    </property>
    </widget>
   </widget>
  </widget>

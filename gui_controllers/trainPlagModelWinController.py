@@ -10,11 +10,14 @@ class TrainPlagModelWinController(TrainModelWinController):
         self.ui = Ui_TrainPlagModelWindow()
         self.ui.setupUi(self)
 
+        self.set_buttons_handlers()
+
+        self.clear_feedback()
+
+    def set_buttons_handlers(self):
         self.ui.uploadBtn1132.clicked.connect(lambda: self.upload_folder_pressed(widget=self.ui.inputPath1131))
         self.ui.trainBtn.clicked.connect(self.train_pressed)
         self.ui.backBtn.clicked.connect(self.back_pressed)
-
-        self.clear_feedback()
 
     def upload_folder_pressed(self, widget):  # Folder uploader
         import tkinter as tk
