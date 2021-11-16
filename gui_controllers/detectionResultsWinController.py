@@ -10,6 +10,8 @@ class DetectionResultsWinController(QMainWindow):
         self.ui = Ui_DetectionResultsWindow()
         self.ui.setupUi(self)
 
+        self.detection=detection
+
         self.update_ui_with_data(detection)
 
         self.set_buttons_handlers()

@@ -20,23 +20,23 @@ class Ui_DetectionResultsWindow(object):
         self.backgroundImg = QtWidgets.QLabel(self.centralwidget)
         self.backgroundImg.setGeometry(QtCore.QRect(0, 0, 1400, 930))
         self.backgroundImg.setText("")
-        self.backgroundImg.setPixmap(QtGui.QPixmap("../RESOURCES/background.jpg"))
+        self.backgroundImg.setPixmap(QtGui.QPixmap("../RESOURCES/background2.jpg"))
         self.backgroundImg.setScaledContents(True)
         self.backgroundImg.setObjectName("backgroundImg")
         self.groupBox = QtWidgets.QGroupBox(self.centralwidget)
         self.groupBox.setEnabled(True)
         self.groupBox.setGeometry(QtCore.QRect(30, 0, 1340, 900))
         palette = QtGui.QPalette()
-        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.WindowText, brush)
         brush = QtGui.QBrush(QtGui.QColor(0, 0, 127))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Button, brush)
-        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Text, brush)
-        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.ButtonText, brush)
         brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
@@ -45,16 +45,16 @@ class Ui_DetectionResultsWindow(object):
         brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.ToolTipText, brush)
-        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.WindowText, brush)
         brush = QtGui.QBrush(QtGui.QColor(0, 0, 127))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Button, brush)
-        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Text, brush)
-        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.ButtonText, brush)
         brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
@@ -63,16 +63,16 @@ class Ui_DetectionResultsWindow(object):
         brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.ToolTipText, brush)
-        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.WindowText, brush)
         brush = QtGui.QBrush(QtGui.QColor(0, 0, 127))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Button, brush)
-        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Text, brush)
-        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.ButtonText, brush)
         brush = QtGui.QBrush(QtGui.QColor(240, 240, 240))
@@ -89,7 +89,7 @@ class Ui_DetectionResultsWindow(object):
         font.setUnderline(False)
         font.setWeight(75)
         self.groupBox.setFont(font)
-        self.groupBox.setStyleSheet("color: rgb(255, 255, 255);")
+        self.groupBox.setStyleSheet("color: rgb(0, 0, 0);")
         self.groupBox.setAlignment(QtCore.Qt.AlignCenter)
         self.groupBox.setObjectName("groupBox")
         self.backBtn = QtWidgets.QPushButton(self.groupBox)
@@ -97,7 +97,7 @@ class Ui_DetectionResultsWindow(object):
         self.backBtn.setGeometry(QtCore.QRect(30, 809, 240, 60))
         font = QtGui.QFont()
         font.setFamily("Sitka Small")
-        font.setPointSize(16)
+        font.setPointSize(14)
         font.setBold(False)
         font.setItalic(False)
         font.setWeight(9)
@@ -106,15 +106,15 @@ class Ui_DetectionResultsWindow(object):
         self.backBtn.setAutoFillBackground(False)
         self.backBtn.setStyleSheet("\n"
 "                            background-color: rgb(159, 0, 0);\n"
-"                            font: 75 16pt \"Sitka Small\";\n"
-"                            color: rgb(255, 255, 255);\n"
-"                            border-width: 3px;\n"
-"                            border-radius: 30px;\n"
-"                            border-color: rgb(255, 255, 255);\n"
-"                            border-style: solid;\n"
+"font: 75 14pt \"Sitka Small\";\n"
+"color: rgb(0, 0, 0);\n"
+"border-width: 3px;\n"
+"border-radius: 30px;\n"
+"border-color: rgb(0, 0, 0);\n"
+"border-style: solid;\n"
 "                        ")
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("../RESOURCES/left_arrow_icon.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap("../RESOURCES/left_icon.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.backBtn.setIcon(icon)
         self.backBtn.setIconSize(QtCore.QSize(24, 24))
         self.backBtn.setCheckable(False)
@@ -130,9 +130,11 @@ class Ui_DetectionResultsWindow(object):
 "                            border-style: solid;\n"
 "                            font: 10pt \"Sitka Small\";\n"
 "                            color: rgb(255, 255, 255);\n"
+"  color: rgb(0, 0, 0);\n"
 "                            background-color: qlineargradient(spread:pad, x1:0.996, y1:0.0340909, x2:1, y2:0, stop:1\n"
-"                            rgba(0, 0, 32, 170));\n"
-"                        ")
+"                            rgba(100, 104, 108, 170));\n"
+"                        \n"
+"")
         self.verticalGroupBox1.setObjectName("verticalGroupBox1")
         self.verticalLayout_5 = QtWidgets.QVBoxLayout(self.verticalGroupBox1)
         self.verticalLayout_5.setContentsMargins(6, 24, 6, 6)
@@ -157,10 +159,11 @@ class Ui_DetectionResultsWindow(object):
 "                            border-color: rgb(0, 0, 0);\n"
 "                            border-style: solid;\n"
 "                            font: 10pt \"Sitka Small\";\n"
-"                            color: rgb(255, 255, 255);\n"
+" color: rgb(0, 0, 0);\n"
 "                            background-color: qlineargradient(spread:pad, x1:0.996, y1:0.0340909, x2:1, y2:0, stop:1\n"
-"                            rgba(0, 0, 32, 170));\n"
-"                        ")
+"                            rgba(100, 104, 108, 170));\n"
+"                        \n"
+"")
         self.verticalGroupBox2.setObjectName("verticalGroupBox2")
         self.verticalLayout_6 = QtWidgets.QVBoxLayout(self.verticalGroupBox2)
         self.verticalLayout_6.setContentsMargins(6, 30, 6, 6)
@@ -177,10 +180,11 @@ class Ui_DetectionResultsWindow(object):
 "                            border-color: rgb(0, 0, 0);\n"
 "                            border-style: solid;\n"
 "                            font: 10pt \"Sitka Small\";\n"
-"                            color: rgb(255, 255, 255);\n"
+"color: rgb(0, 0, 0);\n"
 "                            background-color: qlineargradient(spread:pad, x1:0.996, y1:0.0340909, x2:1, y2:0, stop:1\n"
-"                            rgba(0, 0, 32, 170));\n"
-"                        ")
+"                            rgba(100, 104, 108, 170));\n"
+"                        \n"
+"")
         self.verticalGroupBox3.setObjectName("verticalGroupBox3")
         self.verticalLayout_7 = QtWidgets.QVBoxLayout(self.verticalGroupBox3)
         self.verticalLayout_7.setContentsMargins(6, 30, 6, 6)

@@ -27,7 +27,7 @@
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>../RESOURCES/background.jpg</pixmap>
+     <pixmap>../RESOURCES/background2.jpg</pixmap>
     </property>
     <property name="scaledContents">
      <bool>true</bool>
@@ -51,9 +51,9 @@
        <colorrole role="WindowText">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>255</red>
-          <green>255</green>
-          <blue>255</blue>
+          <red>0</red>
+          <green>0</green>
+          <blue>0</blue>
          </color>
         </brush>
        </colorrole>
@@ -69,18 +69,18 @@
        <colorrole role="Text">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>255</red>
-          <green>255</green>
-          <blue>255</blue>
+          <red>0</red>
+          <green>0</green>
+          <blue>0</blue>
          </color>
         </brush>
        </colorrole>
        <colorrole role="ButtonText">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>255</red>
-          <green>255</green>
-          <blue>255</blue>
+          <red>0</red>
+          <green>0</green>
+          <blue>0</blue>
          </color>
         </brush>
        </colorrole>
@@ -107,9 +107,9 @@
        <colorrole role="WindowText">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>255</red>
-          <green>255</green>
-          <blue>255</blue>
+          <red>0</red>
+          <green>0</green>
+          <blue>0</blue>
          </color>
         </brush>
        </colorrole>
@@ -125,18 +125,18 @@
        <colorrole role="Text">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>255</red>
-          <green>255</green>
-          <blue>255</blue>
+          <red>0</red>
+          <green>0</green>
+          <blue>0</blue>
          </color>
         </brush>
        </colorrole>
        <colorrole role="ButtonText">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>255</red>
-          <green>255</green>
-          <blue>255</blue>
+          <red>0</red>
+          <green>0</green>
+          <blue>0</blue>
          </color>
         </brush>
        </colorrole>
@@ -163,9 +163,9 @@
        <colorrole role="WindowText">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>255</red>
-          <green>255</green>
-          <blue>255</blue>
+          <red>0</red>
+          <green>0</green>
+          <blue>0</blue>
          </color>
         </brush>
        </colorrole>
@@ -181,18 +181,18 @@
        <colorrole role="Text">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>255</red>
-          <green>255</green>
-          <blue>255</blue>
+          <red>0</red>
+          <green>0</green>
+          <blue>0</blue>
          </color>
         </brush>
        </colorrole>
        <colorrole role="ButtonText">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>255</red>
-          <green>255</green>
-          <blue>255</blue>
+          <red>0</red>
+          <green>0</green>
+          <blue>0</blue>
          </color>
         </brush>
        </colorrole>
@@ -227,7 +227,7 @@
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">color: rgb(255, 255, 255);</string>
+     <string notr="true">color: rgb(0, 0, 0);</string>
     </property>
     <property name="title">
      <string>Fake News Detetion</string>
@@ -250,7 +250,7 @@
      <property name="font">
       <font>
        <family>Sitka Small</family>
-       <pointsize>16</pointsize>
+       <pointsize>14</pointsize>
        <weight>9</weight>
        <italic>false</italic>
        <bold>false</bold>
@@ -265,14 +265,13 @@
      <property name="styleSheet">
       <string notr="true">background-color: rgb(0, 111, 0);
 
-font: 75 16pt &quot;Sitka Small&quot;;
-color: rgb(255, 255, 255);
+font: 75 14pt &quot;Sitka Small&quot;;
+color: rgb(0, 0, 0);
 border-width: 3px;
 border-radius: 30px;
-border-color: rgb(255, 255, 255);
+border-color: rgb(0, 0, 0);
 border-style: solid;
-
-alternate-background-color: rgb(135, 135, 135);</string>
+                        </string>
      </property>
      <property name="text">
       <string>Start</string>
@@ -305,7 +304,7 @@ alternate-background-color: rgb(135, 135, 135);</string>
      <property name="font">
       <font>
        <family>Sitka Small</family>
-       <pointsize>16</pointsize>
+       <pointsize>14</pointsize>
        <weight>9</weight>
        <italic>false</italic>
        <bold>false</bold>
@@ -320,19 +319,20 @@ alternate-background-color: rgb(135, 135, 135);</string>
      <property name="styleSheet">
       <string notr="true">
 background-color: rgb(159, 0, 0);
-font: 75 16pt &quot;Sitka Small&quot;;
-color: rgb(255, 255, 255);
+font: 75 14pt &quot;Sitka Small&quot;;
+color: rgb(0, 0, 0);
 border-width: 3px;
 border-radius: 30px;
-border-color: rgb(255, 255, 255);
-border-style: solid;</string>
+border-color: rgb(0, 0, 0);
+border-style: solid;
+                        </string>
      </property>
      <property name="text">
       <string>Back</string>
      </property>
      <property name="icon">
       <iconset>
-       <normaloff>../RESOURCES/left_arrow_icon.png</normaloff>../RESOURCES/left_arrow_icon.png</iconset>
+       <normaloff>../RESOURCES/left_icon.png</normaloff>../RESOURCES/left_icon.png</iconset>
      </property>
      <property name="iconSize">
       <size>
@@ -380,8 +380,11 @@ border-radius: 15px;
 border-color: rgb(0, 0, 0);
 border-style: solid;
 font: 10pt &quot;Sitka Small&quot;;
-color: rgb(255, 255, 255);
-background-color: qlineargradient(spread:pad, x1:0.996, y1:0.0340909, x2:1, y2:0, stop:1 rgba(0, 0, 32, 170));</string>
+ color: rgb(0, 0, 0);
+                            background-color: qlineargradient(spread:pad, x1:0.996, y1:0.0340909, x2:1, y2:0, stop:1
+                            rgba(100, 104, 108, 170));
+                        
+</string>
      </property>
      <layout class="QVBoxLayout" name="verticalLayout">
       <property name="spacing">
