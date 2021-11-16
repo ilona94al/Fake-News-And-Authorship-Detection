@@ -9,7 +9,6 @@ class FakeNewsWinController(FormCheckerWinController):
     def __init__(self, parent=None):
         super(FakeNewsWinController, self).__init__(parent)
         from gui_design.fake_news_window import Ui_FakeNewsWindow
-
         self.ui = Ui_FakeNewsWindow()
         self.ui.setupUi(self)
 
@@ -26,12 +25,8 @@ class FakeNewsWinController(FormCheckerWinController):
         models = []
         for item in arr:
             if item.split(".")[1] == "h5":
-                models.append(item)
+                models.append(item.removesuffix(".h5"))
         self.ui.trainedModelsComboBox.addItems(models)
-
-    def set_buttons_handlers(self):
-        self.ui.backBtn.clicked.connect(self.back_pressed)
-        self.ui.startBtn.clicked.connect(self.start_pressed)
 
     def back_pressed(self):
         self.close()
@@ -39,7 +34,9 @@ class FakeNewsWinController(FormCheckerWinController):
         self.window = MainWinController()
         self.window.show()
 
-
+    def set_buttons_handlers(self):
+        self.ui.backBtn.clicked.connect(self.back_pressed)
+        self.ui.startBtn.clicked.connect(self.start_pressed)
 
     def start_pressed(self):
         self.clear_feedback()
@@ -48,22 +45,20 @@ class FakeNewsWinController(FormCheckerWinController):
 
         self.set_normal_style(tweet_widget)
 
-        tweet_str=str(tweet_widget.toPlainText());
+        tweet_str = str(tweet_widget.toPlainText());
 
         model_name = self.ui.trainedModelsComboBox.currentText()
 
         if tweet_str == "":
-            self.invalid_input( "Empty tweet box!\n please paste a tweet",tweet_widget)
+            self.invalid_input("Empty tweet box!\n please paste a tweet", tweet_widget)
         else:
             self.set_normal_style(tweet_widget)
 
             self.close()
-          # todo: results= DETECT(model_name, tweet)
-            #  find the relevant trained model(according to the model name)
-            #  insert tweet as input to the model and get detection results (graphs and etc.)
 
-
-
+            from gui_controllers.loadingFNModelWinController import LoadingFNModelWinController
+            self.window = LoadingFNModelWinController(content=tweet_str, model_name=model_name)
+            self.window.show()
 
 
 if __name__ == "__main__":

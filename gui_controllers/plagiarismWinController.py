@@ -10,7 +10,6 @@ class PlagiarismWinController(FormCheckerWinController):
     def __init__(self, parent=None):
         super(PlagiarismWinController, self).__init__(parent)
         from gui_design.plagiarism_window import Ui_PlagiarismWindow
-
         self.ui = Ui_PlagiarismWindow()
         self.ui.setupUi(self)
 
@@ -29,16 +28,16 @@ class PlagiarismWinController(FormCheckerWinController):
                 models.append(item.removesuffix(".h5"))
         self.ui.authorComboBox.addItems(models)
 
-    def set_buttons_handlers(self):
-        self.ui.backBtn.clicked.connect(self.back_pressed)
-        self.ui.uploadBtn.clicked.connect(self.upload_pressed)
-        self.ui.startBtn.clicked.connect(self.start_pressed)
-
     def back_pressed(self):
         self.close()
         from gui_controllers.mainWinController import MainWinController
         self.window = MainWinController()
         self.window.show()
+
+    def set_buttons_handlers(self):
+        self.ui.backBtn.clicked.connect(self.back_pressed)
+        self.ui.uploadBtn.clicked.connect(self.upload_pressed)
+        self.ui.startBtn.clicked.connect(self.start_pressed)
 
     def upload_pressed(self):
         import tkinter as tk
@@ -55,6 +54,8 @@ class PlagiarismWinController(FormCheckerWinController):
 
         path_widget = self.ui.inputPath
 
+        self.set_normal_style(path_widget)
+
         book_path = path_widget.text()
 
         author_name = self.ui.authorComboBox.currentText()
@@ -62,16 +63,14 @@ class PlagiarismWinController(FormCheckerWinController):
             self.invalid_input("Empty path!\n please upload a book", path_widget)
         elif book_path.split(".")[1] != "txt":
             self.invalid_input("Book not in .txt format", path_widget)
-
         else:
-
             self.set_normal_style(path_widget)
 
             book_content,book_name = read_book(book_path)
 
             self.close()
-            from gui_controllers.loadingWinController import LoadingWinController
-            self.window = LoadingWinController(book_name=book_name,content=book_content, author=author_name)
+            from gui_controllers.loadingPlagModelWinController import LoadingPlagModelWinController
+            self.window = LoadingPlagModelWinController(book_name=book_name,content=book_content, author=author_name)
             self.window.show()
 
 def read_book(book_dir_path):

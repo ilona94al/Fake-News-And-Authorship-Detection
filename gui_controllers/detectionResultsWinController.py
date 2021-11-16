@@ -6,7 +6,6 @@ from PyQt5 import QtGui, QtWidgets
 class DetectionResultsWinController(QMainWindow):
     def __init__(self, detection, parent=None):
         super(DetectionResultsWinController, self).__init__(parent)
-
         from gui_design.detection_results_window import Ui_DetectionResultsWindow
         self.ui = Ui_DetectionResultsWindow()
         self.ui.setupUi(self)
@@ -22,13 +21,8 @@ class DetectionResultsWinController(QMainWindow):
         self.set_graph(widget=self.ui.plotLabel1,plot_path=detection.plot_path1)
         self.set_graph(widget=self.ui.plotLabel2,plot_path=detection.plot_path2)
 
-        text = "The book: \"" + str(detection.book_name) + \
-               "\" was written by " + str(detection.author_name) \
-               + " with " + "{:.1f}%".format(detection.real_percent) + " certainty." + "\n"
-        if detection.real_percent>detection.fake_percent:
-            text+="It seems like the book was written by "+detection.author_name+"."
-        else:
-            text+="It seems like the book wasn't written by Shakespeare"
+        text=detection.get_result()
+
         self.ui.detectionTextEdit.setPlainText(text)
 
     def set_graph(self, widget, plot_path):
@@ -41,9 +35,19 @@ class DetectionResultsWinController(QMainWindow):
 
     def back_pressed(self):
         self.close()
-        from gui_controllers.mainWinController import MainWinController
-        self.window = MainWinController()
+        from model.fake_news_detection import FakeNewsDetection
+        if isinstance(self.detection, FakeNewsDetection):
+            from gui_controllers.fakeNewsWinController import FakeNewsWinController
+            self.window = FakeNewsWinController()
+        from model.plagiarism_detection import PlagiarismDetection
+        if isinstance(self.detection, PlagiarismDetection):
+            from gui_controllers.plagiarismWinController import PlagiarismWinController
+            self.window = PlagiarismWinController()
         self.window.show()
+
+
+
+
 
 if __name__ == "__main__":
     import sys

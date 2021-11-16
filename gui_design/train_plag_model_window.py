@@ -20,23 +20,23 @@ class Ui_TrainPlagModelWindow(object):
         self.backgroundImg = QtWidgets.QLabel(self.centralwidget)
         self.backgroundImg.setGeometry(QtCore.QRect(0, 0, 860, 600))
         self.backgroundImg.setText("")
-        self.backgroundImg.setPixmap(QtGui.QPixmap("../RESOURCES/background.jpg"))
+        self.backgroundImg.setPixmap(QtGui.QPixmap("../RESOURCES/background2.jpg"))
         self.backgroundImg.setScaledContents(True)
         self.backgroundImg.setObjectName("backgroundImg")
         self.groupBox = QtWidgets.QGroupBox(self.centralwidget)
         self.groupBox.setEnabled(True)
         self.groupBox.setGeometry(QtCore.QRect(30, 0, 800, 570))
         palette = QtGui.QPalette()
-        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.WindowText, brush)
         brush = QtGui.QBrush(QtGui.QColor(0, 0, 127))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Button, brush)
-        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Text, brush)
-        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.ButtonText, brush)
         brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
@@ -45,16 +45,16 @@ class Ui_TrainPlagModelWindow(object):
         brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.ToolTipText, brush)
-        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.WindowText, brush)
         brush = QtGui.QBrush(QtGui.QColor(0, 0, 127))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Button, brush)
-        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Text, brush)
-        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.ButtonText, brush)
         brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
@@ -63,16 +63,16 @@ class Ui_TrainPlagModelWindow(object):
         brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.ToolTipText, brush)
-        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.WindowText, brush)
         brush = QtGui.QBrush(QtGui.QColor(0, 0, 127))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Button, brush)
-        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Text, brush)
-        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.ButtonText, brush)
         brush = QtGui.QBrush(QtGui.QColor(240, 240, 240))
@@ -89,7 +89,7 @@ class Ui_TrainPlagModelWindow(object):
         font.setUnderline(False)
         font.setWeight(75)
         self.groupBox.setFont(font)
-        self.groupBox.setStyleSheet("color: rgb(255, 255, 255);\n"
+        self.groupBox.setStyleSheet("color: rgb(0, 0, 0);\n"
 "                    ")
         self.groupBox.setAlignment(QtCore.Qt.AlignCenter)
         self.groupBox.setObjectName("groupBox")
@@ -98,22 +98,20 @@ class Ui_TrainPlagModelWindow(object):
         self.trainBtn.setGeometry(QtCore.QRect(530, 479, 240, 60))
         font = QtGui.QFont()
         font.setFamily("Sitka Small")
-        font.setPointSize(16)
+        font.setPointSize(14)
         font.setBold(False)
         font.setItalic(False)
         font.setWeight(9)
         self.trainBtn.setFont(font)
         self.trainBtn.setAcceptDrops(False)
         self.trainBtn.setAutoFillBackground(False)
-        self.trainBtn.setStyleSheet("\n"
-"                            background-color: rgb(0, 0, 20);\n"
-"                            font: 75 16pt \"Sitka Small\";\n"
-"                            color: rgb(255, 255, 255);\n"
-"                            border-width: 3px;\n"
-"                            border-radius: 30px;\n"
-"                            border-color: rgb(255, 255, 255);\n"
-"                            border-style: solid;\n"
-"                        ")
+        self.trainBtn.setStyleSheet("background-color: rgb(0, 111, 0);\n"
+"font: 75 14pt \"Sitka Small\";\n"
+"color: rgb(0, 0, 0);\n"
+"border-width: 3px;\n"
+"border-radius: 30px;\n"
+"border-color: rgb(0, 0, 0);\n"
+"border-style: solid;")
         self.trainBtn.setCheckable(False)
         self.trainBtn.setAutoDefault(False)
         self.trainBtn.setDefault(False)
@@ -124,7 +122,7 @@ class Ui_TrainPlagModelWindow(object):
         self.backBtn.setGeometry(QtCore.QRect(30, 479, 240, 60))
         font = QtGui.QFont()
         font.setFamily("Sitka Small")
-        font.setPointSize(16)
+        font.setPointSize(14)
         font.setBold(False)
         font.setItalic(False)
         font.setWeight(9)
@@ -133,17 +131,18 @@ class Ui_TrainPlagModelWindow(object):
         self.backBtn.setAutoFillBackground(False)
         self.backBtn.setStyleSheet("\n"
 "                            background-color: rgb(159, 0, 0);\n"
-"                            font: 75 16pt \"Sitka Small\";\n"
-"                            color: rgb(255, 255, 255);\n"
-"                            border-width: 3px;\n"
-"                            border-radius: 30px;\n"
-"                            border-color: rgb(255, 255, 255);\n"
-"                            border-style: solid;\n"
+"\n"
+"font: 75 14pt \"Sitka Small\";\n"
+"color: rgb(0, 0, 0);\n"
+"border-width: 3px;\n"
+"border-radius: 30px;\n"
+"border-color: rgb(0, 0, 0);\n"
+"border-style: solid;\n"
 "                        ")
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("../RESOURCES/left_arrow_icon.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap("../RESOURCES/left_icon.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.backBtn.setIcon(icon)
-        self.backBtn.setIconSize(QtCore.QSize(24, 24))
+        self.backBtn.setIconSize(QtCore.QSize(32, 32))
         self.backBtn.setCheckable(False)
         self.backBtn.setAutoDefault(False)
         self.backBtn.setDefault(False)
@@ -164,9 +163,9 @@ class Ui_TrainPlagModelWindow(object):
 "                            border-color: rgb(0, 0, 0);\n"
 "                            border-style: solid;\n"
 "                            font: 8pt \"Sitka Small\";\n"
-"                            color: rgb(255, 255, 255);\n"
+"                            color: rgb(0, 0, 0);\n"
 "                            background-color: qlineargradient(spread:pad, x1:0.996, y1:0.0340909, x2:1, y2:0, stop:1\n"
-"                            rgba(0, 0, 32, 170));\n"
+"                            rgba(100, 104, 108, 170));\n"
 "                        ")
         self.verticalFrame1.setObjectName("verticalFrame1")
         self.verticalLayout = QtWidgets.QVBoxLayout(self.verticalFrame1)
@@ -223,7 +222,7 @@ class Ui_TrainPlagModelWindow(object):
 "                                                        ")
         self.uploadBtn1132.setText("")
         icon1 = QtGui.QIcon()
-        icon1.addPixmap(QtGui.QPixmap("resources/upload_icon.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon1.addPixmap(QtGui.QPixmap("../RESOURCES/upload_icon.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.uploadBtn1132.setIcon(icon1)
         self.uploadBtn1132.setObjectName("uploadBtn1132")
         self.horizontalLayout113.addWidget(self.uploadBtn1132)

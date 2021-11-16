@@ -112,4 +112,22 @@ ax.set_title("Distribution Graph")
 
 # show plot
 plt.savefig(PLOTS_PATH+"test.PNG")
-print("book \" boki\"")
+
+
+
+Y_predicted_prob=np.random.rand(10,10)
+
+X_axis = np.arange(Y_predicted_prob.shape[0])+1
+
+plt.bar(X_axis-0.2,Y_predicted_prob[:,0], 0.4, label='Real',color="lightblue")
+plt.bar(X_axis+0.2,Y_predicted_prob[:,1], 0.4, label='Fake',color="salmon")
+
+plt.xlabel("Book parts")
+plt.ylabel("Prob")
+plt.title("---")
+
+
+plt.legend()
+
+
+plt.savefig(PLOTS_PATH+"test2.PNG")

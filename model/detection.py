@@ -25,6 +25,8 @@ class Detection():
         self.plot_path1 = PLOTS_PATH + "detection_plot_1.PNG"
         self.plot_path2 = PLOTS_PATH + "detection_plot_2.PNG"
 
+        self.real_percent, self.fake_percent = self.get_distribution()
+
     @staticmethod
     def get_preprocessed_text(input, max_text_len):
         input_texts = []
@@ -51,3 +53,11 @@ class Detection():
         predictions_array = np.argmax(predicted_probs, -1)
 
         return predicted_probs, predictions_array
+
+    def get_distribution(self):
+        real_numb = np.count_nonzero(self.predictions == 0)
+        fake_numb = np.count_nonzero(self.predictions == 1)
+        all = np.size(self.predictions)
+        real_percent = 100 * real_numb / all
+        fake_percent = 100 * fake_numb / all
+        return real_percent, fake_percent

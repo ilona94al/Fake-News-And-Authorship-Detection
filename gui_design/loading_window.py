@@ -18,7 +18,7 @@ class Ui_LoadingWindow(object):
         self.centralwidget = QtWidgets.QWidget(LoadingWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.backgroundImg = QtWidgets.QLabel(self.centralwidget)
-        self.backgroundImg.setGeometry(QtCore.QRect(0, 0, 860, 600))
+        self.backgroundImg.setGeometry(QtCore.QRect(0, 0, 860, 396))
         self.backgroundImg.setText("")
         self.backgroundImg.setPixmap(QtGui.QPixmap("../RESOURCES/background.jpg"))
         self.backgroundImg.setScaledContents(True)

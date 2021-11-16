@@ -14,7 +14,6 @@ class PlagiarismDetection(Detection):
         self.book_name=book_name
 
     def create_distribution_plot(self):
-        self.real_percent, self.fake_percent = self.get_distribution()
         # Creating dataset
         authors = [self.author_name, 'Other']
         data = [self.real_percent, self.fake_percent]
@@ -68,3 +67,14 @@ class PlagiarismDetection(Detection):
         plt.title("Probabilities for each chunk to be written by " + self.author_name + " / other writers")
         plt.legend()
         plt.savefig("../" + self.plot_path1)
+
+
+    def get_result(self):
+        text = "The book: \"" + str(self.book_name) + \
+               "\" was written by " + str(self.author_name) \
+               + " with " + "{:.1f}%".format(self.real_percent) + " certainty." + "\n"
+        if self.real_percent > self.fake_percent:
+            text += "It seems like the book was written by " + self.author_name + "."
+        else:
+            text += "It seems like the book wasn't written by Shakespeare"
+        return text
