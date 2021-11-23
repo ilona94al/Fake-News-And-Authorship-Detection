@@ -11,7 +11,6 @@ class SaveModelWinController(FormCheckerWinController):
         self.ui = Ui_SaveModelWindow()
         self.ui.setupUi(self)
         self.set_buttons_handlers()
-
         self.clear_feedback()
 
     def set_buttons_handlers(self):
@@ -33,12 +32,7 @@ class SaveModelWinController(FormCheckerWinController):
             self.invalid_input("No name, please give a name for your model",name_widget)
         else:
             self.set_normal_style(name_widget)
-            from model.plagiarism_task import PlagiarismTask
-            if isinstance(self.task, PlagiarismTask):
-                dir_name="Plagiarism"
-            else:
-                dir_name="FakeNews"
-            self.task.save_model(dir_name,name_widget_str)
+            self.task.save_model(name_widget_str)
             self.close()
             from gui_controllers.mainWinController import MainWinController
             self.window = MainWinController()
@@ -46,10 +40,3 @@ class SaveModelWinController(FormCheckerWinController):
 
 
 
-if __name__ == "__main__":
-    import sys
-
-    app = QtWidgets.QApplication(sys.argv)
-    MainWindow = SaveModelWinController()
-    MainWindow.show()
-    sys.exit(app.exec_())

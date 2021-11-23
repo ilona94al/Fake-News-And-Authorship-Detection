@@ -29,8 +29,22 @@ class LoadingWinController(QMainWindow):
         self.movie.start()
 
     def set_buttons_handlers(self):
-        self.ui.resultsBtn.clicked.connect(self.next)
+        self.ui.resultsBtn.clicked.connect(self.open_results_win)
 
+
+    def run_waiting(self):
+        while self.loading:
+            time.sleep(10)
+
+        # call to open_results_win()...
+        self.ui.resultsBtn.click()
+
+    # called when detection process completed
+    def open_results_win(self):
+        self.close()
+        from gui_controllers.detectionResultsWinController import DetectionResultsWinController
+        self.window = DetectionResultsWinController(self.detection)
+        self.window.show()
 
 
 

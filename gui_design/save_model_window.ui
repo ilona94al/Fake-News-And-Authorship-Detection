@@ -451,7 +451,7 @@ background-color: rgb(181, 181, 181);
 color: rgb(0, 0, 0);</string>
            </property>
            <property name="placeholderText">
-            <string>example: fake news model 8-11-2021</string>
+            <string>for example: William Shakespeare</string>
            </property>
           </widget>
          </item>
@@ -459,6 +459,34 @@ color: rgb(0, 0, 0);</string>
        </widget>
       </item>
      </layout>
+    </widget>
+    <widget class="QLabel" name="errorMsg">
+     <property name="geometry">
+      <rect>
+       <x>290</x>
+       <y>340</y>
+       <width>81</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="layoutDirection">
+      <enum>Qt::RightToLeft</enum>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: qlineargradient(spread:pad, x1:0.983, y1:0.00568182, x2:0.996, y2:0, stop:1 rgba(48, 48, 48, 143));
+color: rgb(170, 0, 0);
+font: 75 8pt &quot;System&quot;;
+border-radius: 10px;
+border-style: solid;
+border-width: 0px
+</string>
+     </property>
+     <property name="text">
+      <string>warning</string>
+     </property>
+     <property name="margin">
+      <number>5</number>
+     </property>
     </widget>
    </widget>
   </widget>

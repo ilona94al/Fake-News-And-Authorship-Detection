@@ -66,21 +66,21 @@ class PlagiarismWinController(FormCheckerWinController):
         else:
             self.set_normal_style(path_widget)
 
-            book_content,book_name = read_book(book_path)
+            book_content, book_name = self.read_book(book_path)
 
             self.close()
             from gui_controllers.loadingPlagModelWinController import LoadingPlagModelWinController
-            self.window = LoadingPlagModelWinController(book_name=book_name,content=book_content, author=author_name)
+            self.window = LoadingPlagModelWinController(book_name=book_name, content=book_content, author=author_name)
             self.window.show()
 
-def read_book(book_dir_path):
-    path_parts=book_dir_path.split("/")
-    last_part_i=len(path_parts)
-    book_name=path_parts[last_part_i-1].removesuffix(".txt")
-    with open(book_dir_path, 'r', encoding='UTF-8') as book_file:
-        book_string = book_file.read()
-        return book_string,book_name
-
+    @staticmethod
+    def read_book(book_dir_path):
+        path_parts = book_dir_path.split("/")
+        last_part_i = len(path_parts)
+        book_name = path_parts[last_part_i - 1].removesuffix(".txt")
+        with open(book_dir_path, 'r', encoding='UTF-8') as book_file:
+            book_string = book_file.read()
+            return book_string, book_name
 
 
 if __name__ == "__main__":

@@ -429,7 +429,8 @@ font: 10pt &quot;Sitka Small&quot;;
             <string notr="true">border-width: 2px;
 border-radius: 5px;
 border-color: rgb(0, 0, 0);
-border-style: solid;</string>
+border-style: solid;
+background-color: rgb(181, 181, 181);</string>
            </property>
           </widget>
          </item>

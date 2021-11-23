@@ -1,10 +1,12 @@
+from constants import PLOTS_PATH, TRAINED_MODELS_PATH
 from model.task import Task
 import numpy as np
 
 
 class FakeNewsTask1(Task):
-    def __init__(self, mixed_file_path, text_col_name, label_col_name, real_label_val, fakes_label_val,batch_size,epochs):
-        super().__init__(batch_size,epochs)
+    def __init__(self, mixed_file_path, text_col_name, label_col_name, real_label_val, fakes_label_val, batch_size,
+                 epochs):
+        super().__init__(batch_size, epochs)
 
         #   read tweets
         news, labels = self.read_csv_file_into_array(mixed_file_path, text_col_name, label_col_name)
@@ -21,12 +23,12 @@ class FakeNewsTask1(Task):
         #   set probabilities for each text to belong for each label
         self.get_categorical_probabilities(self.y_test, self.y_train, self.y_valid)
 
-
-
+        self.model_path = TRAINED_MODELS_PATH + "FakeNews/"
 
     #   gets file name, the name for a column with tweet content, and name for a column with label
     #   returns 2 arrays: 1st with tweets, 2nd with labels (corresponding to tweets by order)
-    def read_csv_file_into_array(self, file_name, text_column_name, label_column_name):
+    @staticmethod
+    def read_csv_file_into_array(file_name, text_column_name, label_column_name):
         import pandas as pd
         col_list = [text_column_name, label_column_name]
         df = pd.read_csv(file_name, usecols=col_list)
@@ -59,8 +61,8 @@ class FakeNewsTask1(Task):
 
 
 class FakeNewsTask2(Task):
-    def __init__(self, real_file_path, fakes_file_path, text_col_name,batch_size,epochs):
-        super().__init__(batch_size,epochs)
+    def __init__(self, real_file_path, fakes_file_path, text_col_name, batch_size, epochs):
+        super().__init__(batch_size, epochs)
 
         #   read tweets
         fake_news = self.read_csv_file_into_array(fakes_file_path, text_col_name)
@@ -82,6 +84,7 @@ class FakeNewsTask2(Task):
         #   set probabilities for each text to belong for each label
         self.get_categorical_probabilities(self.y_test, self.y_train, self.y_valid)
 
+        self.model_path = TRAINED_MODELS_PATH + "FakeNews/"
 
     #   gets file name,abd  the name for a column with tweet content
     #   returns array with tweets

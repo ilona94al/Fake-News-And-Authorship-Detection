@@ -15,7 +15,7 @@ class TrainModelWinController(FormCheckerWinController):
         self.window.show()
 
 
-    def next(self):
+    def open_progress_win(self):
         self.close()
         from gui_controllers.trainProgressWinController import TrainProgressWinController
         self.window = TrainProgressWinController(self.task)

@@ -11,21 +11,21 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
-class Ui_TrainProgressWindow(object):
-    def setupUi(self, TrainProgressWindow):
-        TrainProgressWindow.setObjectName("TrainProgressWindow")
-        TrainProgressWindow.resize(860, 598)
-        self.centralwidget = QtWidgets.QWidget(TrainProgressWindow)
+class Ui_TrainingProcessWindow(object):
+    def setupUi(self, TrainingProcessWindow):
+        TrainingProcessWindow.setObjectName("TrainingProcessWindow")
+        TrainingProcessWindow.resize(860, 396)
+        self.centralwidget = QtWidgets.QWidget(TrainingProcessWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.backgroundImg = QtWidgets.QLabel(self.centralwidget)
-        self.backgroundImg.setGeometry(QtCore.QRect(0, 0, 860, 600))
+        self.backgroundImg.setGeometry(QtCore.QRect(0, 0, 860, 396))
         self.backgroundImg.setText("")
         self.backgroundImg.setPixmap(QtGui.QPixmap("../RESOURCES/background2.jpg"))
         self.backgroundImg.setScaledContents(True)
         self.backgroundImg.setObjectName("backgroundImg")
         self.groupBox = QtWidgets.QGroupBox(self.centralwidget)
         self.groupBox.setEnabled(True)
-        self.groupBox.setGeometry(QtCore.QRect(30, 0, 800, 570))
+        self.groupBox.setGeometry(QtCore.QRect(30, 0, 800, 370))
         palette = QtGui.QPalette()
         brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
         brush.setStyle(QtCore.Qt.SolidPattern)
@@ -83,21 +83,37 @@ class Ui_TrainProgressWindow(object):
         palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.ToolTipText, brush)
         self.groupBox.setPalette(palette)
         font = QtGui.QFont()
-        font.setFamily("Sitka Heading")
-        font.setPointSize(36)
-        font.setBold(True)
-        font.setUnderline(False)
-        font.setWeight(75)
+        font.setFamily("Sitka")
+        font.setPointSize(20)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setWeight(50)
         self.groupBox.setFont(font)
-        self.groupBox.setStyleSheet("color: rgb(0, 0, 0);")
+        self.groupBox.setStyleSheet("color: rgb(0, 0, 0);\n"
+"font: 20pt \"Sitka\";")
         self.groupBox.setAlignment(QtCore.Qt.AlignCenter)
         self.groupBox.setObjectName("groupBox")
-        self.resultsBtn = QtWidgets.QPushButton(self.groupBox)
-        self.resultsBtn.setEnabled(False)
-        self.resultsBtn.setGeometry(QtCore.QRect(530, 479, 240, 60))
+        self.loadinLabel = QtWidgets.QLabel(self.groupBox)
+        self.loadinLabel.setGeometry(QtCore.QRect(280, 140, 240, 121))
+        self.loadinLabel.setStyleSheet("border-width: 3px;\n"
+"\n"
+"border-radius: 5px;\n"
+"border-color: rgb(0, 0, 83);\n"
+"\n"
+"border-style: solid;\n"
+"color: rgb(0, 0, 0);                                                      \n"
+"background-color: rgb(255, 255, 255);")
+        self.loadinLabel.setText("")
+        self.loadinLabel.setPixmap(QtGui.QPixmap("../RESOURCES/please_wait3.gif"))
+        self.loadinLabel.setScaledContents(False)
+        self.loadinLabel.setAlignment(QtCore.Qt.AlignCenter)
+        self.loadinLabel.setObjectName("loadinLabel")
+        self.resultsBtn = QtWidgets.QPushButton(self.centralwidget)
+        self.resultsBtn.setEnabled(True)
+        self.resultsBtn.setGeometry(QtCore.QRect(570, 420, 240, 60))
         font = QtGui.QFont()
         font.setFamily("Sitka Small")
-        font.setPointSize(14)
+        font.setPointSize(16)
         font.setBold(False)
         font.setItalic(False)
         font.setWeight(9)
@@ -105,102 +121,37 @@ class Ui_TrainProgressWindow(object):
         self.resultsBtn.setAcceptDrops(False)
         self.resultsBtn.setAutoFillBackground(False)
         self.resultsBtn.setStyleSheet("background-color: rgb(0, 111, 0);\n"
-"font: 75 14pt \"Sitka Small\";\n"
-"color: rgb(0, 0, 0);\n"
+"\n"
+"font: 75 16pt \"Sitka Small\";\n"
+"color: rgb(255, 255, 255);\n"
 "border-width: 3px;\n"
 "border-radius: 30px;\n"
-"border-color: rgb(0, 0, 0);\n"
+"border-color: rgb(255, 255, 255);\n"
 "border-style: solid;\n"
-"                        ")
+"\n"
+"alternate-background-color: rgb(135, 135, 135);")
         self.resultsBtn.setCheckable(False)
         self.resultsBtn.setAutoDefault(False)
         self.resultsBtn.setDefault(False)
         self.resultsBtn.setFlat(False)
         self.resultsBtn.setObjectName("resultsBtn")
-        self.cancelBtn = QtWidgets.QPushButton(self.groupBox)
-        self.cancelBtn.setEnabled(True)
-        self.cancelBtn.setGeometry(QtCore.QRect(30, 479, 240, 60))
-        font = QtGui.QFont()
-        font.setFamily("Sitka Small")
-        font.setPointSize(14)
-        font.setBold(False)
-        font.setItalic(False)
-        font.setWeight(9)
-        self.cancelBtn.setFont(font)
-        self.cancelBtn.setAcceptDrops(False)
-        self.cancelBtn.setAutoFillBackground(False)
-        self.cancelBtn.setStyleSheet("\n"
-"background-color: rgb(159, 0, 0);\n"
-"font: 75 14pt \"Sitka Small\";\n"
-"color: rgb(0, 0, 0);\n"
-"border-width: 3px;\n"
-"border-radius: 30px;\n"
-"border-color: rgb(0, 0, 0);\n"
-"border-style: solid;\n"
-"                        ")
-        self.cancelBtn.setIconSize(QtCore.QSize(24, 24))
-        self.cancelBtn.setCheckable(False)
-        self.cancelBtn.setAutoDefault(False)
-        self.cancelBtn.setDefault(False)
-        self.cancelBtn.setFlat(False)
-        self.cancelBtn.setObjectName("cancelBtn")
-        self.verticalFrame = QtWidgets.QFrame(self.groupBox)
-        self.verticalFrame.setGeometry(QtCore.QRect(100, 230, 600, 100))
-        font = QtGui.QFont()
-        font.setFamily("Sitka Small")
-        font.setPointSize(10)
-        font.setBold(False)
-        font.setItalic(False)
-        font.setWeight(50)
-        self.verticalFrame.setFont(font)
-        self.verticalFrame.setAutoFillBackground(False)
-        self.verticalFrame.setStyleSheet("border-width: 4px;\n"
-"border-radius: 15px;\n"
-"border-color: rgb(0, 0, 0);\n"
-"border-style: solid;\n"
-"font: 10pt \"Sitka Small\";\n"
-"                            color: rgb(0, 0, 0);\n"
-"                            background-color: qlineargradient(spread:pad, x1:0.996, y1:0.0340909, x2:1, y2:0, stop:1\n"
-"                            rgba(100, 104, 108, 170));\n"
-"                        ")
-        self.verticalFrame.setObjectName("verticalFrame")
-        self.verticalLayout = QtWidgets.QVBoxLayout(self.verticalFrame)
-        self.verticalLayout.setSizeConstraint(QtWidgets.QLayout.SetNoConstraint)
-        self.verticalLayout.setContentsMargins(10, 0, 10, 0)
-        self.verticalLayout.setSpacing(0)
-        self.verticalLayout.setObjectName("verticalLayout")
-        self.progressBar = QtWidgets.QProgressBar(self.verticalFrame)
-        self.progressBar.setLayoutDirection(QtCore.Qt.LeftToRight)
-        self.progressBar.setStyleSheet("background-color: rgb(230, 230, 230);\n"
-"color: rgb(0, 0, 94);\n"
-"border-width: 2px;\n"
-"border-radius: 3px;")
-        self.progressBar.setProperty("value", 0)
-        self.progressBar.setAlignment(QtCore.Qt.AlignCenter)
-        self.progressBar.setTextVisible(True)
-        self.progressBar.setOrientation(QtCore.Qt.Horizontal)
-        self.progressBar.setInvertedAppearance(False)
-        self.progressBar.setTextDirection(QtWidgets.QProgressBar.TopToBottom)
-        self.progressBar.setObjectName("progressBar")
-        self.verticalLayout.addWidget(self.progressBar)
-        TrainProgressWindow.setCentralWidget(self.centralwidget)
+        TrainingProcessWindow.setCentralWidget(self.centralwidget)
 
-        self.retranslateUi(TrainProgressWindow)
-        QtCore.QMetaObject.connectSlotsByName(TrainProgressWindow)
+        self.retranslateUi(TrainingProcessWindow)
+        QtCore.QMetaObject.connectSlotsByName(TrainingProcessWindow)
 
-    def retranslateUi(self, TrainProgressWindow):
+    def retranslateUi(self, TrainingProcessWindow):
         _translate = QtCore.QCoreApplication.translate
-        TrainProgressWindow.setWindowTitle(_translate("TrainProgressWindow", "Train Model Progress"))
-        self.groupBox.setTitle(_translate("TrainProgressWindow", "Train Progress"))
-        self.resultsBtn.setText(_translate("TrainProgressWindow", "Results"))
-        self.cancelBtn.setText(_translate("TrainProgressWindow", "Cancel"))
+        TrainingProcessWindow.setWindowTitle(_translate("TrainingProcessWindow", "Model training in process"))
+        self.groupBox.setTitle(_translate("TrainingProcessWindow", "Training process running"))
+        self.resultsBtn.setText(_translate("TrainingProcessWindow", "results"))
 
 
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
-    TrainProgressWindow = QtWidgets.QMainWindow()
-    ui = Ui_TrainProgressWindow()
-    ui.setupUi(TrainProgressWindow)
-    TrainProgressWindow.show()
+    TrainingProcessWindow = QtWidgets.QMainWindow()
+    ui = Ui_TrainingProcessWindow()
+    ui.setupUi(TrainingProcessWindow)
+    TrainingProcessWindow.show()
     sys.exit(app.exec_())

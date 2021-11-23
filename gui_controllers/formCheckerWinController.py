@@ -6,7 +6,6 @@ class FormCheckerWinController(QMainWindow):
     def __init__(self, parent=None):
         super(FormCheckerWinController, self).__init__(parent)
 
-
     def clear_feedback(self):
         self.allOk = True
         self.ui.errorMsg.setHidden(True)
@@ -25,9 +24,10 @@ class FormCheckerWinController(QMainWindow):
         self.ui.errorMsg.setHidden(False)
         self.set_error_style(widget)
 
+    # ☻ ☺ ☻ ♥ ♠ ♣ ♦ • ◘ ○
     def set_normal_style(self, widget):
         widget.setStyleSheet("border-width: 3px;\n"
-                             "                                                    border-radius: 5px;\n"
+                           "                                                    border-radius: 5px;\n"
                              "                                                    border-color: rgb(0, 0, 0);\n"
                              "                                                    border-style: solid;\n"
                              "                                                    background-color: rgb(188, 188, 188);\n"

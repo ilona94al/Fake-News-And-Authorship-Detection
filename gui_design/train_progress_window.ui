@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>TrainProgressWindow</class>
- <widget class="QMainWindow" name="TrainProgressWindow">
+ <class>TrainingProcessWindow</class>
+ <widget class="QMainWindow" name="TrainingProcessWindow">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
     <width>860</width>
-    <height>598</height>
+    <height>396</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Train Model Progress</string>
+   <string>Model training in process</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QLabel" name="backgroundImg">
@@ -20,7 +20,7 @@
       <x>0</x>
       <y>0</y>
       <width>860</width>
-      <height>600</height>
+      <height>396</height>
      </rect>
     </property>
     <property name="text">
@@ -42,7 +42,7 @@
       <x>30</x>
       <y>0</y>
       <width>800</width>
-      <height>570</height>
+      <height>370</height>
      </rect>
     </property>
     <property name="palette">
@@ -219,219 +219,113 @@
     </property>
     <property name="font">
      <font>
-      <family>Sitka Heading</family>
-      <pointsize>36</pointsize>
-      <weight>75</weight>
-      <bold>true</bold>
-      <underline>false</underline>
+      <family>Sitka</family>
+      <pointsize>20</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">color: rgb(0, 0, 0);</string>
+     <string notr="true">color: rgb(0, 0, 0);
+font: 20pt &quot;Sitka&quot;;</string>
     </property>
     <property name="title">
-     <string>Train Progress</string>
+     <string>Training process running</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
     </property>
-    <widget class="QPushButton" name="resultsBtn">
-     <property name="enabled">
-      <bool>false</bool>
-     </property>
+    <widget class="QLabel" name="loadinLabel">
      <property name="geometry">
       <rect>
-       <x>530</x>
-       <y>479</y>
+       <x>280</x>
+       <y>140</y>
        <width>240</width>
-       <height>60</height>
+       <height>121</height>
       </rect>
      </property>
-     <property name="font">
-      <font>
-       <family>Sitka Small</family>
-       <pointsize>14</pointsize>
-       <weight>9</weight>
-       <italic>false</italic>
-       <bold>false</bold>
-      </font>
-     </property>
-     <property name="acceptDrops">
-      <bool>false</bool>
-     </property>
-     <property name="autoFillBackground">
-      <bool>false</bool>
-     </property>
      <property name="styleSheet">
-      <string notr="true">background-color: rgb(0, 111, 0);
-font: 75 14pt &quot;Sitka Small&quot;;
-color: rgb(0, 0, 0);
-border-width: 3px;
-border-radius: 30px;
-border-color: rgb(0, 0, 0);
+      <string notr="true">border-width: 3px;
+
+border-radius: 5px;
+border-color: rgb(0, 0, 83);
+
 border-style: solid;
-                        </string>
+color: rgb(0, 0, 0);                                                      
+background-color: rgb(255, 255, 255);</string>
      </property>
      <property name="text">
-      <string>Results</string>
+      <string/>
      </property>
-     <property name="checkable">
+     <property name="pixmap">
+      <pixmap>../RESOURCES/please_wait3.gif</pixmap>
+     </property>
+     <property name="scaledContents">
       <bool>false</bool>
      </property>
-     <property name="autoDefault">
-      <bool>false</bool>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
      </property>
-     <property name="default">
-      <bool>false</bool>
-     </property>
-     <property name="flat">
-      <bool>false</bool>
+     <property name="margin">
+      <number>0</number>
      </property>
     </widget>
-    <widget class="QPushButton" name="cancelBtn">
-     <property name="enabled">
-      <bool>true</bool>
-     </property>
-     <property name="geometry">
-      <rect>
-       <x>30</x>
-       <y>479</y>
-       <width>240</width>
-       <height>60</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>Sitka Small</family>
-       <pointsize>14</pointsize>
-       <weight>9</weight>
-       <italic>false</italic>
-       <bold>false</bold>
-      </font>
-     </property>
-     <property name="acceptDrops">
-      <bool>false</bool>
-     </property>
-     <property name="autoFillBackground">
-      <bool>false</bool>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">
-background-color: rgb(159, 0, 0);
-font: 75 14pt &quot;Sitka Small&quot;;
-color: rgb(0, 0, 0);
+   </widget>
+   <widget class="QPushButton" name="resultsBtn">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>570</x>
+      <y>420</y>
+      <width>240</width>
+      <height>60</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Sitka Small</family>
+      <pointsize>16</pointsize>
+      <weight>9</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="acceptDrops">
+     <bool>false</bool>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(0, 111, 0);
+
+font: 75 16pt &quot;Sitka Small&quot;;
+color: rgb(255, 255, 255);
 border-width: 3px;
 border-radius: 30px;
-border-color: rgb(0, 0, 0);
+border-color: rgb(255, 255, 255);
 border-style: solid;
-                        </string>
-     </property>
-     <property name="text">
-      <string>Cancel</string>
-     </property>
-     <property name="iconSize">
-      <size>
-       <width>24</width>
-       <height>24</height>
-      </size>
-     </property>
-     <property name="checkable">
-      <bool>false</bool>
-     </property>
-     <property name="autoDefault">
-      <bool>false</bool>
-     </property>
-     <property name="default">
-      <bool>false</bool>
-     </property>
-     <property name="flat">
-      <bool>false</bool>
-     </property>
-    </widget>
-    <widget class="QFrame" name="verticalFrame">
-     <property name="geometry">
-      <rect>
-       <x>100</x>
-       <y>230</y>
-       <width>600</width>
-       <height>100</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>Sitka Small</family>
-       <pointsize>10</pointsize>
-       <weight>50</weight>
-       <italic>false</italic>
-       <bold>false</bold>
-      </font>
-     </property>
-     <property name="autoFillBackground">
-      <bool>false</bool>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">border-width: 4px;
-border-radius: 15px;
-border-color: rgb(0, 0, 0);
-border-style: solid;
-font: 10pt &quot;Sitka Small&quot;;
-                            color: rgb(0, 0, 0);
-                            background-color: qlineargradient(spread:pad, x1:0.996, y1:0.0340909, x2:1, y2:0, stop:1
-                            rgba(100, 104, 108, 170));
-                        </string>
-     </property>
-     <layout class="QVBoxLayout" name="verticalLayout">
-      <property name="spacing">
-       <number>0</number>
-      </property>
-      <property name="sizeConstraint">
-       <enum>QLayout::SetNoConstraint</enum>
-      </property>
-      <property name="leftMargin">
-       <number>10</number>
-      </property>
-      <property name="topMargin">
-       <number>0</number>
-      </property>
-      <property name="rightMargin">
-       <number>10</number>
-      </property>
-      <property name="bottomMargin">
-       <number>0</number>
-      </property>
-      <item>
-       <widget class="QProgressBar" name="progressBar">
-        <property name="layoutDirection">
-         <enum>Qt::LeftToRight</enum>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background-color: rgb(230, 230, 230);
-color: rgb(0, 0, 94);
-border-width: 2px;
-border-radius: 3px;</string>
-        </property>
-        <property name="value">
-         <number>0</number>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-        <property name="textVisible">
-         <bool>true</bool>
-        </property>
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-        <property name="invertedAppearance">
-         <bool>false</bool>
-        </property>
-        <property name="textDirection">
-         <enum>QProgressBar::TopToBottom</enum>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </widget>
+
+alternate-background-color: rgb(135, 135, 135);</string>
+    </property>
+    <property name="text">
+     <string>results</string>
+    </property>
+    <property name="checkable">
+     <bool>false</bool>
+    </property>
+    <property name="autoDefault">
+     <bool>false</bool>
+    </property>
+    <property name="default">
+     <bool>false</bool>
+    </property>
+    <property name="flat">
+     <bool>false</bool>
+    </property>
    </widget>
   </widget>
  </widget>

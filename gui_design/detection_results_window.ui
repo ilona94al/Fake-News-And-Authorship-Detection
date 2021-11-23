@@ -371,7 +371,7 @@ color: rgb(0, 0, 0);
                             border-radius: 15px;
                             border-color: rgb(0, 0, 0);
                             border-style: solid;
-                            font: 10pt &quot;Sitka Small&quot;;
+                            font: 14pt &quot;Sitka Small&quot;;
  color: rgb(0, 0, 0);
                             background-color: qlineargradient(spread:pad, x1:0.996, y1:0.0340909, x2:1, y2:0, stop:1
                             rgba(100, 104, 108, 170));
@@ -420,7 +420,7 @@ color: rgb(0, 0, 0);
                             border-radius: 15px;
                             border-color: rgb(0, 0, 0);
                             border-style: solid;
-                            font: 10pt &quot;Sitka Small&quot;;
+                            font: 14pt &quot;Sitka Small&quot;;
 color: rgb(0, 0, 0);
                             background-color: qlineargradient(spread:pad, x1:0.996, y1:0.0340909, x2:1, y2:0, stop:1
                             rgba(100, 104, 108, 170));

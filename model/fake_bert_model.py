@@ -15,6 +15,7 @@ from nltk import word_tokenize
 from nltk.corpus import stopwords
 
 
+
 class FakeBERTModel():
     def __init__(self):
         self.config = config_128tokens
@@ -78,57 +79,31 @@ class FakeBERTModel():
         self.model.compile(loss='categorical_crossentropy', metrics=['accuracy'],
                            optimizer=tf.keras.optimizers.Adadelta(0.001))
 
-    def fit_model(self, x_train, y_train_prob, x_valid, y_valid_prob, batch_size, epochs, progress_bar):
+    def fit_model(self, x_train, y_train_prob, x_valid, y_valid_prob, batch_size, epochs):
         # Train the model
         from model.callback import LoggingCallback
-        self.history = self.model.fit(x=x_train, y=y_train_prob,
-                                      validation_data=(x_valid, y_valid_prob),
-                                      batch_size=batch_size, epochs=epochs,
-                                      callbacks=[LoggingCallback(progress_bar, epochs)])
         # self.history = self.model.fit(x=x_train, y=y_train_prob,
         #                               validation_data=(x_valid, y_valid_prob),
-        #                               batch_size=batch_size, epochs=epochs)
-        # _, self.train_accuracy = self.model.evaluate(x_train, y_train_prob, verbose=0)
-        # _, self.valid_accuracy = self.model.evaluate(x_valid, y_valid_prob, verbose=0)
+        #                               batch_size=batch_size, epochs=epochs,
+        #                               callbacks=[LoggingCallback(progress_bar, epochs)])
+        self.history = self.model.fit(x=x_train, y=y_train_prob,
+                                      validation_data=(x_valid, y_valid_prob),
+                                      batch_size=batch_size, epochs=epochs)
+        _, self.train_accuracy = self.model.evaluate(x_train, y_train_prob, verbose=0)
+        _, self.valid_accuracy = self.model.evaluate(x_valid, y_valid_prob, verbose=0)
 
     def save_model(self, model_name):
-        self.model.save(model_name)
+        self.model.save(model_name+".h5")
 
-    def test_model(self,x_test,y_test_prob,y_test):
+    def test_model(self, x_test, y_test_prob, y_test):
         _, self.test_accuracy = self.model.evaluate(x_test, y_test_prob, verbose=0)
         Y_predicted_prob = self.model.predict(tf.constant(x_test))
         Y_predicted = np.argmax(Y_predicted_prob, -1)
         self.count_well_predicted = np.count_nonzero([y_test == Y_predicted])
-        self.count_false_predicted=Y_predicted.shape[0] - self.count_well_predicted
-        # print("Accuracy of evaluate new test groups:", self.test_accuracy)
-        # print("Number of true predicts:", count_well_predicted)
-        # print("Number of false predicts:", Y_predicted.shape[0] - count_well_predicted)
-        # -------- Showing results of model training and validation---------------#
-
-        import matplotlib.pyplot as plt
+        self.count_false_predicted = Y_predicted.shape[0] - self.count_well_predicted
 
 
 
-        plt.plot(self.history.history['accuracy'])
-        plt.plot(self.history.history['val_accuracy'])
-        plt.plot(self.test_accuracy)
-        plt.title('Model accuracy in epoch')
-        plt.ylabel('Accuracy')
-        plt.xlabel('Epoch')
-        plt.legend(['Train', 'Validation'], loc='upper left')
-        from constants import PLOTS_PATH
-        self.acc_path="../"+PLOTS_PATH+"ModelAcc.png"
-        plt.savefig(self.acc_path)
-
-        plt.plot(self.history.history['loss'])
-        plt.plot(self.history.history['val_loss'])
-        plt.plot(self.test_accuracy)
-        plt.title('Model loss in epoch')
-        plt.ylabel('Loss')
-        plt.xlabel('Epoch')
-        plt.legend(['Train', 'Validation'], loc='upper left')
-        self.loss_path="../"+PLOTS_PATH+"ModelLoss.png"
-        plt.savefig(self.loss_path)
 
 
     def load_model(self, model_path):

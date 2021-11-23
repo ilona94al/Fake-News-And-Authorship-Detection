@@ -1,10 +1,5 @@
 import threading
-import time
 
-from PyQt5.QtGui import QMovie
-from PyQt5.QtWidgets import QMainWindow, QMessageBox
-
-from constants import RESOURCES_PATH
 from gui_controllers.loadingWinController import LoadingWinController
 
 
@@ -27,16 +22,7 @@ class LoadingFNModelWinController(LoadingWinController):
         self.detection = FakeNewsDetection(input=content, model_name=model_name + ".h5")
         self.loading = False
 
-    def run_waiting(self):
-        while self.loading:
-            time.sleep(10)
-        self.ui.resultsBtn.click()
 
-    def next(self):
-        self.close()
-        from gui_controllers.detectionResultsWinController import DetectionResultsWinController
-        self.window = DetectionResultsWinController(self.detection)
-        self.window.show()
 
 
 

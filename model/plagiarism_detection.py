@@ -7,11 +7,11 @@ import matplotlib.pyplot as plt
 class PlagiarismDetection(Detection):
     def __init__(self, input, model_name, author_name, book_name):
         super().__init__(input=input, model_name=model_name, model_type="Plagiarism")
-        #todo:
-        #self.author_name = author_name
-        #delete:
-        self.author_name= 'Shakespeare'
-        self.book_name=book_name
+        # todo:
+        # self.author_name = author_name
+        # delete:
+        self.author_name = 'Shakespeare'
+        self.book_name = book_name
 
     def create_distribution_plot(self):
         # Creating dataset
@@ -20,9 +20,9 @@ class PlagiarismDetection(Detection):
         # Creating explode data
         explode = (0.2, 0.2)
         # Creating color parameters
-        colors = ("darkgreen", "orange")
+        colors = ("limegreen", "lightcoral")
         # Wedge properties
-        wp = {'linewidth': 1, 'edgecolor': "grey"}
+        wp = {'linewidth': 1, 'edgecolor': "black"}
 
         # Creating autocpt arguments
         def func(pct):
@@ -38,7 +38,7 @@ class PlagiarismDetection(Detection):
                                           colors=colors,
                                           startangle=40,
                                           wedgeprops=wp,
-                                          textprops=dict(color="black",size=10)
+                                          textprops=dict(color="black", size=10)
                                           )
         # Adding legend
         ax.legend(wedges, authors,
@@ -46,7 +46,7 @@ class PlagiarismDetection(Detection):
                   loc="upper right",
                   bbox_to_anchor=(0.1, 1, 0, 0))
         plt.setp(autotexts, size=10, weight="bold")
-        ax.set_title("Pie chart of book author classification:",size=10)
+        ax.set_title("Pie chart of book author classification:", size=10)
         plt.savefig("../" + self.plot_path2)
 
     def get_distribution(self):
@@ -58,16 +58,15 @@ class PlagiarismDetection(Detection):
         return real_percent, fake_percent
 
     def create_probabilities_plot(self):
-
+        plt.figure()
         X_axis = np.arange(self.number_of_chunks) + 1
         plt.bar(X_axis - 0.2, self.probabilities[:, 0], 0.4, label=self.author_name, color="lightblue")
         plt.bar(X_axis + 0.2, self.probabilities[:, 1], 0.4, label='Others', color="salmon")
-        plt.xlabel("Book chunks")
-        plt.ylabel("Probability")
-        plt.title("Probabilities for each chunk to be written by " + self.author_name + " / other writers")
+        plt.xlabel("Book chunks", weight="bold")
+        plt.ylabel("Probability", weight="bold")
+        plt.title("Probabilities for each chunk to be written by " + self.author_name + " / other writers", weight="bold")
         plt.legend()
         plt.savefig("../" + self.plot_path1)
-
 
     def get_result(self):
         text = "The book: \"" + str(self.book_name) + \

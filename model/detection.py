@@ -1,4 +1,3 @@
-import os
 
 from constants import PLOTS_PATH
 from model.fake_bert_model import FakeBERTModel
@@ -58,6 +57,14 @@ class Detection():
         real_numb = np.count_nonzero(self.predictions == 0)
         fake_numb = np.count_nonzero(self.predictions == 1)
         all = np.size(self.predictions)
-        real_percent = 100 * real_numb / all
-        fake_percent = 100 * fake_numb / all
+        if all==1:
+            real_percent=100*self.probabilities[0][0]
+            fake_percent=100*self.probabilities[0][1]
+        elif all<128:
+            real_percent=sum(self.probabilities[:, 0]) / all
+            fake_percent=sum(self.probabilities[:, 1]) / all
+        else:
+            real_percent = 100 * real_numb / all
+            fake_percent = 100 * fake_numb / all
+
         return real_percent, fake_percent

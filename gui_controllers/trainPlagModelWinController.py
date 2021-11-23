@@ -19,16 +19,6 @@ class TrainPlagModelWinController(TrainModelWinController):
         self.ui.trainBtn.clicked.connect(self.train_pressed)
         self.ui.backBtn.clicked.connect(self.back_pressed)
 
-    def upload_folder_pressed(self, widget):  # Folder uploader
-        import tkinter as tk
-        from tkinter import filedialog
-
-        root = tk.Tk()
-        root.withdraw()
-        root.attributes('-topmost', True)
-        dir_path = filedialog.askdirectory()  # Returns opened path as str
-        widget.setText(dir_path)  # Read path to field
-
     def train_pressed(self):
         self.clear_feedback()
         # todo: open training process window (need to create gui_design,py,controller)
@@ -65,7 +55,18 @@ class TrainPlagModelWinController(TrainModelWinController):
         if self.allOk == True:
             from model.plagiarism_task import PlagiarismTask
             self.task = PlagiarismTask(author_name, folder_path, int(batch_size), int(epochs))
-            self.next()
+            self.open_progress_win()
+
+    @staticmethod
+    def upload_folder_pressed(widget):  # Folder uploader
+        import tkinter as tk
+        from tkinter import filedialog
+
+        root = tk.Tk()
+        root.withdraw()
+        root.attributes('-topmost', True)
+        dir_path = filedialog.askdirectory()  # Returns opened path as str
+        widget.setText(dir_path)  # Read path to field
 
 
 if __name__ == "__main__":

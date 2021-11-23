@@ -27,15 +27,10 @@ class LoadingPlagModelWinController(LoadingWinController):
         self.detection = PlagiarismDetection(input=content, model_name=author + ".h5", author_name=author,book_name=book_name)
         self.loading = False
 
-    def run_waiting(self):
-        while self.loading:
-            time.sleep(10)
-        self.ui.resultsBtn.click()
 
-    def next(self):
-        self.close()
-        from gui_controllers.detectionResultsWinController import DetectionResultsWinController
-        self.window = DetectionResultsWinController(self.detection)
-        self.window.show()
+
+
+
+
 
 

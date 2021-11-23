@@ -30,10 +30,6 @@ class TrainNewsModelWinController(TrainModelWinController):
         self.ui.backBtn.clicked.connect(self.back_pressed)
         self.ui.trainBtn.clicked.connect(self.train_pressed)
 
-    @staticmethod
-    def get_project_root() -> Path:
-        return Path("Fake-News-And-Authorship-Detection").parent.parent
-
     def show_one_file_form(self):
         self.clear_feedback()
         self.two_files = False
@@ -46,19 +42,9 @@ class TrainNewsModelWinController(TrainModelWinController):
         self.ui.verticalGroupBox12.setHidden(True)
         self.ui.verticalGroupBox11.setHidden(False)
 
-    def upload_file_pressed(self, widget):
-        import tkinter as tk
-        from tkinter import filedialog
-
-        root = tk.Tk()
-        root.withdraw()
-        file_path = filedialog.askopenfilename()
-        widget.setText(file_path)
-
     def train_pressed(self):
 
         self.clear_feedback()
-
 
         epochs_widget = self.ui.inputEpoch3112
         epochs = str(epochs_widget.text())
@@ -103,7 +89,7 @@ class TrainNewsModelWinController(TrainModelWinController):
 
                 from model.fake_news_tasks import FakeNewsTask2
                 self.task = FakeNewsTask2(real_file_path, fakes_file_path, text_col_name, int(batch_size), int(epochs))
-                self.next()
+                self.open_progress_win()
         else:
             file_path_widget = self.ui.inputPath1211
             file_path = str(file_path_widget.text())
@@ -147,7 +133,17 @@ class TrainNewsModelWinController(TrainModelWinController):
                 from model.fake_news_tasks import FakeNewsTask1
                 self.task = FakeNewsTask1(file_path, text_col_name, label_col_name, real_label_val, fakes_label_val,
                                           int(batch_size), int(epochs))
-                self.next()
+                self.open_progress_win()
+
+    @staticmethod
+    def upload_file_pressed(widget):
+        import tkinter as tk
+        from tkinter import filedialog
+
+        root = tk.Tk()
+        root.withdraw()
+        file_path = filedialog.askopenfilename()
+        widget.setText(file_path)
 
 
 if __name__ == "__main__":

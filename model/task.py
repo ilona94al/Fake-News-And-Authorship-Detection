@@ -5,7 +5,9 @@ from sklearn.model_selection import train_test_split
 from tensorflow.python.keras.utils import np_utils
 import numpy as np
 import tensorflow as tf
-from multiprocessing import Process
+from constants import PLOTS_PATH, TRAINED_MODELS_PATH
+import matplotlib.pyplot as plt
+
 
 class Task():
     def __init__(self, batch_size, epochs):
@@ -13,6 +15,9 @@ class Task():
         self.model = FakeBERTModel()
         self.max_text_len = self.model.config['max_seq_len']
         self.batch_size, self.epochs = batch_size, epochs
+        self.acc_path = PLOTS_PATH + "ModelAcc.png"
+        self.loss_path = PLOTS_PATH + "ModelLoss.png"
+        self.model_path = TRAINED_MODELS_PATH + "Undefined/"
 
     #   gets array with texts
     #   returns an array with preprocessed texts
@@ -55,21 +60,17 @@ class Task():
         self.model.fit_model \
             (x_train=tf.constant(self.x_train), y_train_prob=self.y_train_prob,
              x_valid=tf.constant(self.x_valid), y_valid_prob=self.y_valid_prob,
-             batch_size=self.batch_size, epochs=self.epochs, progress_bar=self.progress_bar)
+             batch_size=self.batch_size, epochs=self.epochs)
         self.running = False
 
-    def start_train_model(self, progress_bar):
+    def start_train_model(self):
         self.running = True
-        self.progress_bar = progress_bar
         self.current_epoch = 0
         self.t = threading.Thread(target=self.run_train_model)
         self.t.start()
 
-
-    def save_model(self, dir_name,model_name):
-
-        from constants import TRAINED_MODELS_PATH
-        self.model.save_model("../"+TRAINED_MODELS_PATH+dir_name+"/"+model_name)
+    def save_model(self,  model_name):
+        self.model.save_model("../" + self.model_path + model_name)
         # todo: show error popup if name exists
 
     def test_model(self):
@@ -77,10 +78,28 @@ class Task():
 
     # get a number of real texts and number of all texts in the dataset
     # returns labels array with label 0 for real texts, and 1 for fake texts.
-
     @staticmethod
     def define_expected_classification(real_texts_count, total_texts_count):
         expected_classification = np.empty(total_texts_count, int)
         expected_classification[0:real_texts_count] = 0
         expected_classification[real_texts_count:total_texts_count] = 1
         return expected_classification
+
+    def create_accuracy_graph(self):
+        plt.plot(self.model.history.history['accuracy'])
+        plt.plot(self.model.history.history['val_accuracy'])
+        plt.title('Model accuracy in epoch')
+        plt.ylabel('Accuracy')
+        plt.xlabel('Epoch')
+        plt.legend(['Train', 'Validation'], loc='upper left')
+        plt.savefig("../" + self.acc_path)
+
+    def create_loss_graph(self):
+        plt.figure()
+        plt.plot(self.model.history.history['loss'])
+        plt.plot(self.model.history.history['val_loss'])
+        plt.title('Model loss in epoch')
+        plt.ylabel('Loss')
+        plt.xlabel('Epoch')
+        plt.legend(['Train', 'Validation'], loc='upper left')
+        plt.savefig("../" + self.loss_path)

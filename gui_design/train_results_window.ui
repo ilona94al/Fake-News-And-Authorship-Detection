@@ -6,12 +6,12 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1230</width>
-    <height>830</height>
+    <width>1400</width>
+    <height>930</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Train Results</string>
+   <string>Train model Results</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QLabel" name="backgroundImg">
@@ -19,15 +19,15 @@
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>1230</width>
-      <height>830</height>
+      <width>1400</width>
+      <height>930</height>
      </rect>
     </property>
     <property name="text">
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>../RESOURCES/background.jpg</pixmap>
+     <pixmap>../RESOURCES/background2.jpg</pixmap>
     </property>
     <property name="scaledContents">
      <bool>true</bool>
@@ -41,8 +41,8 @@
      <rect>
       <x>30</x>
       <y>0</y>
-      <width>1170</width>
-      <height>800</height>
+      <width>1340</width>
+      <height>900</height>
      </rect>
     </property>
     <property name="palette">
@@ -51,9 +51,9 @@
        <colorrole role="WindowText">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>255</red>
-          <green>255</green>
-          <blue>255</blue>
+          <red>0</red>
+          <green>0</green>
+          <blue>0</blue>
          </color>
         </brush>
        </colorrole>
@@ -69,18 +69,18 @@
        <colorrole role="Text">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>255</red>
-          <green>255</green>
-          <blue>255</blue>
+          <red>0</red>
+          <green>0</green>
+          <blue>0</blue>
          </color>
         </brush>
        </colorrole>
        <colorrole role="ButtonText">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>255</red>
-          <green>255</green>
-          <blue>255</blue>
+          <red>0</red>
+          <green>0</green>
+          <blue>0</blue>
          </color>
         </brush>
        </colorrole>
@@ -107,9 +107,9 @@
        <colorrole role="WindowText">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>255</red>
-          <green>255</green>
-          <blue>255</blue>
+          <red>0</red>
+          <green>0</green>
+          <blue>0</blue>
          </color>
         </brush>
        </colorrole>
@@ -125,18 +125,18 @@
        <colorrole role="Text">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>255</red>
-          <green>255</green>
-          <blue>255</blue>
+          <red>0</red>
+          <green>0</green>
+          <blue>0</blue>
          </color>
         </brush>
        </colorrole>
        <colorrole role="ButtonText">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>255</red>
-          <green>255</green>
-          <blue>255</blue>
+          <red>0</red>
+          <green>0</green>
+          <blue>0</blue>
          </color>
         </brush>
        </colorrole>
@@ -163,9 +163,9 @@
        <colorrole role="WindowText">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>255</red>
-          <green>255</green>
-          <blue>255</blue>
+          <red>0</red>
+          <green>0</green>
+          <blue>0</blue>
          </color>
         </brush>
        </colorrole>
@@ -181,18 +181,18 @@
        <colorrole role="Text">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>255</red>
-          <green>255</green>
-          <blue>255</blue>
+          <red>0</red>
+          <green>0</green>
+          <blue>0</blue>
          </color>
         </brush>
        </colorrole>
        <colorrole role="ButtonText">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>255</red>
-          <green>255</green>
-          <blue>255</blue>
+          <red>0</red>
+          <green>0</green>
+          <blue>0</blue>
          </color>
         </brush>
        </colorrole>
@@ -227,7 +227,7 @@
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">color: rgb(255, 255, 255);</string>
+     <string notr="true">color: rgb(0, 0, 0);</string>
     </property>
     <property name="title">
      <string>Train Results</string>
@@ -235,26 +235,78 @@
     <property name="alignment">
      <set>Qt::AlignCenter</set>
     </property>
-    <widget class="QFrame" name="verticalFrame">
+    <widget class="QPushButton" name="backBtn">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
      <property name="geometry">
       <rect>
-       <x>40</x>
-       <y>114</y>
-       <width>540</width>
-       <height>540</height>
+       <x>30</x>
+       <y>809</y>
+       <width>240</width>
+       <height>60</height>
       </rect>
      </property>
      <property name="font">
       <font>
        <family>Sitka Small</family>
-       <pointsize>10</pointsize>
-       <weight>50</weight>
+       <pointsize>14</pointsize>
+       <weight>9</weight>
        <italic>false</italic>
        <bold>false</bold>
       </font>
      </property>
+     <property name="acceptDrops">
+      <bool>false</bool>
+     </property>
      <property name="autoFillBackground">
       <bool>false</bool>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">
+                            background-color: rgb(159, 0, 0);
+font: 75 14pt &quot;Sitka Small&quot;;
+color: rgb(0, 0, 0);
+border-width: 3px;
+border-radius: 30px;
+border-color: rgb(0, 0, 0);
+border-style: solid;
+                        </string>
+     </property>
+     <property name="text">
+      <string>Back</string>
+     </property>
+     <property name="icon">
+      <iconset>
+       <normaloff>../RESOURCES/left_icon.png</normaloff>../RESOURCES/left_icon.png</iconset>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>24</width>
+       <height>24</height>
+      </size>
+     </property>
+     <property name="checkable">
+      <bool>false</bool>
+     </property>
+     <property name="autoDefault">
+      <bool>false</bool>
+     </property>
+     <property name="default">
+      <bool>false</bool>
+     </property>
+     <property name="flat">
+      <bool>false</bool>
+     </property>
+    </widget>
+    <widget class="QGroupBox" name="verticalGroupBox1">
+     <property name="geometry">
+      <rect>
+       <x>300</x>
+       <y>769</y>
+       <width>740</width>
+       <height>121</height>
+      </rect>
      </property>
      <property name="styleSheet">
       <string notr="true">border-width: 3px;
@@ -263,28 +315,93 @@
                             border-style: solid;
                             font: 10pt &quot;Sitka Small&quot;;
                             color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
                             background-color: qlineargradient(spread:pad, x1:0.996, y1:0.0340909, x2:1, y2:0, stop:1
-                            rgba(0, 0, 32, 170));
-                        </string>
+                            rgba(100, 104, 108, 170));
+                        
+</string>
      </property>
-     <layout class="QVBoxLayout" name="verticalLayout">
+     <property name="title">
+      <string>Train results:</string>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_5" stretch="0">
       <property name="spacing">
-       <number>10</number>
+       <number>2</number>
       </property>
       <property name="leftMargin">
-       <number>18</number>
+       <number>6</number>
       </property>
       <property name="topMargin">
-       <number>18</number>
+       <number>24</number>
       </property>
       <property name="rightMargin">
-       <number>18</number>
+       <number>6</number>
       </property>
       <property name="bottomMargin">
-       <number>18</number>
+       <number>6</number>
       </property>
       <item>
-       <widget class="QLabel" name="accuracyGraph">
+       <widget class="QPlainTextEdit" name="resultTextEdit">
+        <property name="styleSheet">
+         <string notr="true">border-width: 3px;
+border-radius: 5px;
+border-color: rgb(0, 0, 0);
+border-style: solid;
+background-color: rgb(188, 188, 188);
+color: rgb(0, 0, 0);
+                                                
+
+</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QGroupBox" name="verticalGroupBox2">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>114</y>
+       <width>640</width>
+       <height>640</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border-width: 3px;
+                            border-radius: 15px;
+                            border-color: rgb(0, 0, 0);
+                            border-style: solid;
+                            font: 14pt &quot;Sitka Small&quot;;
+ color: rgb(0, 0, 0);
+                            background-color: qlineargradient(spread:pad, x1:0.996, y1:0.0340909, x2:1, y2:0, stop:1
+                            rgba(100, 104, 108, 170));
+                        
+</string>
+     </property>
+     <property name="title">
+      <string>Accuracy graph:</string>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_6" stretch="0">
+      <property name="spacing">
+       <number>2</number>
+      </property>
+      <property name="leftMargin">
+       <number>6</number>
+      </property>
+      <property name="topMargin">
+       <number>40</number>
+      </property>
+      <property name="rightMargin">
+       <number>6</number>
+      </property>
+      <property name="bottomMargin">
+       <number>6</number>
+      </property>
+      <item>
+       <widget class="QLabel" name="accLabel">
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(255, 255, 255);</string>
+        </property>
         <property name="text">
          <string/>
         </property>
@@ -292,119 +409,51 @@
       </item>
      </layout>
     </widget>
-    <widget class="QFrame" name="verticalFrame3">
+    <widget class="QGroupBox" name="verticalGroupBox3">
      <property name="geometry">
       <rect>
-       <x>300</x>
-       <y>685</y>
-       <width>570</width>
-       <height>91</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>Sitka Small</family>
-       <pointsize>10</pointsize>
-       <weight>50</weight>
-       <italic>false</italic>
-       <bold>false</bold>
-      </font>
-     </property>
-     <property name="autoFillBackground">
-      <bool>false</bool>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">border-width: 3px;
-                            border-radius: 15px;
-                            border-color: rgb(0, 0, 0);
-                            border-style: solid;
-                            font: 10pt &quot;Sitka Small&quot;;
-                            color: rgb(255, 255, 255);
-                            background-color: qlineargradient(spread:pad, x1:0.996, y1:0.0340909, x2:1, y2:0, stop:1
-                            rgba(0, 0, 32, 170));
-                        </string>
-     </property>
-     <layout class="QVBoxLayout" name="verticalLayout_3">
-      <property name="spacing">
-       <number>10</number>
-      </property>
-      <property name="leftMargin">
-       <number>6</number>
-      </property>
-      <property name="topMargin">
-       <number>2</number>
-      </property>
-      <property name="rightMargin">
-       <number>6</number>
-      </property>
-      <property name="bottomMargin">
-       <number>2</number>
-      </property>
-      <item>
-       <widget class="QTextEdit" name="resultsTextEdit">
-        <property name="styleSheet">
-         <string notr="true">border-width: 3px;
-                                                            border-radius: 5px;
-                                                            border-color: rgb(0, 0, 0);
-                                                            border-style: solid;
-                                                            background-color: rgb(188, 188, 188);
-                                                            color: rgb(0, 0, 0);
-                                                        </string>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </widget>
-    <widget class="QFrame" name="verticalFrame2">
-     <property name="geometry">
-      <rect>
-       <x>600</x>
+       <x>680</x>
        <y>114</y>
-       <width>540</width>
-       <height>540</height>
+       <width>640</width>
+       <height>640</height>
       </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>Sitka Small</family>
-       <pointsize>10</pointsize>
-       <weight>50</weight>
-       <italic>false</italic>
-       <bold>false</bold>
-      </font>
-     </property>
-     <property name="autoFillBackground">
-      <bool>false</bool>
      </property>
      <property name="styleSheet">
       <string notr="true">border-width: 3px;
                             border-radius: 15px;
                             border-color: rgb(0, 0, 0);
                             border-style: solid;
-                            font: 10pt &quot;Sitka Small&quot;;
-                            color: rgb(255, 255, 255);
+                            font: 14pt &quot;Sitka Small&quot;;
+color: rgb(0, 0, 0);
                             background-color: qlineargradient(spread:pad, x1:0.996, y1:0.0340909, x2:1, y2:0, stop:1
-                            rgba(0, 0, 32, 170));
-                        </string>
+                            rgba(100, 104, 108, 170));
+                        
+</string>
      </property>
-     <layout class="QVBoxLayout" name="verticalLayout_2">
+     <property name="title">
+      <string>Loss graph:</string>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_7" stretch="0">
       <property name="spacing">
-       <number>10</number>
+       <number>2</number>
       </property>
       <property name="leftMargin">
-       <number>18</number>
+       <number>6</number>
       </property>
       <property name="topMargin">
-       <number>18</number>
+       <number>40</number>
       </property>
       <property name="rightMargin">
-       <number>18</number>
+       <number>6</number>
       </property>
       <property name="bottomMargin">
-       <number>18</number>
+       <number>6</number>
       </property>
       <item>
-       <widget class="QLabel" name="lossGraph">
+       <widget class="QLabel" name="lossLabel">
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(255, 255, 255);</string>
+        </property>
         <property name="text">
          <string/>
         </property>
@@ -418,8 +467,8 @@
      </property>
      <property name="geometry">
       <rect>
-       <x>900</x>
-       <y>710</y>
+       <x>1070</x>
+       <y>809</y>
        <width>240</width>
        <height>60</height>
       </rect>
@@ -443,76 +492,16 @@
       <string notr="true">background-color: rgb(0, 111, 0);
 
 font: 75 16pt &quot;Sitka Small&quot;;
-color: rgb(255, 255, 255);
+color: rgb(0, 0, 0);
 border-width: 3px;
 border-radius: 30px;
-border-color: rgb(255, 255, 255);
+border-color: rgb(0, 0, 0);
 border-style: solid;
 
 alternate-background-color: rgb(135, 135, 135);</string>
      </property>
      <property name="text">
       <string>Save Model</string>
-     </property>
-     <property name="iconSize">
-      <size>
-       <width>24</width>
-       <height>24</height>
-      </size>
-     </property>
-     <property name="checkable">
-      <bool>false</bool>
-     </property>
-     <property name="autoDefault">
-      <bool>false</bool>
-     </property>
-     <property name="default">
-      <bool>false</bool>
-     </property>
-     <property name="flat">
-      <bool>false</bool>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="trainAgainBtn">
-     <property name="enabled">
-      <bool>true</bool>
-     </property>
-     <property name="geometry">
-      <rect>
-       <x>30</x>
-       <y>710</y>
-       <width>240</width>
-       <height>60</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>Sitka Small</family>
-       <pointsize>16</pointsize>
-       <weight>9</weight>
-       <italic>false</italic>
-       <bold>false</bold>
-      </font>
-     </property>
-     <property name="acceptDrops">
-      <bool>false</bool>
-     </property>
-     <property name="autoFillBackground">
-      <bool>false</bool>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">
-                            background-color: rgb(159, 0, 0);
-                            font: 75 16pt &quot;Sitka Small&quot;;
-                            color: rgb(255, 255, 255);
-                            border-width: 3px;
-                            border-radius: 30px;
-                            border-color: rgb(255, 255, 255);
-                            border-style: solid;
-                        </string>
-     </property>
-     <property name="text">
-      <string>Train again</string>
      </property>
      <property name="iconSize">
       <size>

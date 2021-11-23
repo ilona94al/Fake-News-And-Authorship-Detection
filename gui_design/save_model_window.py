@@ -196,6 +196,17 @@ class Ui_SaveModelWindow(object):
         self.inputName.setObjectName("inputName")
         self.horizontalLayout.addWidget(self.inputName)
         self.verticalLayout.addWidget(self.horizontalGroupBox)
+        self.errorMsg = QtWidgets.QLabel(self.groupBox)
+        self.errorMsg.setGeometry(QtCore.QRect(290, 340, 81, 41))
+        self.errorMsg.setLayoutDirection(QtCore.Qt.RightToLeft)
+        self.errorMsg.setStyleSheet("background-color: qlineargradient(spread:pad, x1:0.983, y1:0.00568182, x2:0.996, y2:0, stop:1 rgba(48, 48, 48, 143));\n"
+"color: rgb(170, 0, 0);\n"
+"font: 75 8pt \"System\";\n"
+"border-radius: 10px;\n"
+"border-style: solid;\n"
+"border-width: 0px\n"
+"")
+        self.errorMsg.setObjectName("errorMsg")
         SaveModelWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(SaveModelWindow)
@@ -208,7 +219,8 @@ class Ui_SaveModelWindow(object):
         self.saveBtn.setText(_translate("SaveModelWindow", "Save"))
         self.backBtn.setText(_translate("SaveModelWindow", "Back"))
         self.horizontalGroupBox.setTitle(_translate("SaveModelWindow", "Give a name for your model :"))
-        self.inputName.setPlaceholderText(_translate("SaveModelWindow", "example: fake news model 8-11-2021"))
+        self.inputName.setPlaceholderText(_translate("SaveModelWindow", "for example: William Shakespeare"))
+        self.errorMsg.setText(_translate("SaveModelWindow", "warning"))
 
 
 if __name__ == "__main__":

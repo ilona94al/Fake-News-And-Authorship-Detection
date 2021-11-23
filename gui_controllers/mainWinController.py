@@ -12,17 +12,17 @@ class MainWinController(QMainWindow):
         self.set_buttons_handlers()
 
     def set_buttons_handlers(self):
-        self.ui.plagiarismBtn.clicked.connect(self.openPlagiarismWin)
-        self.ui.fakeNewsBtn.clicked.connect(self.openFakeNewsWin)
+        self.ui.plagiarismBtn.clicked.connect(self.open_plagiarism_win)
+        self.ui.fakeNewsBtn.clicked.connect(self.open_fake_news_win)
         self.ui.trainBtn.clicked.connect(self.train_pressed)
 
-    def openPlagiarismWin(self):
+    def open_plagiarism_win(self):
         self.close()
         from gui_controllers.plagiarismWinController import PlagiarismWinController
         self.window = PlagiarismWinController()
         self.window.show()
 
-    def openFakeNewsWin(self):
+    def open_fake_news_win(self):
         self.close()
         from gui_controllers.fakeNewsWinController import FakeNewsWinController
         self.window = FakeNewsWinController()

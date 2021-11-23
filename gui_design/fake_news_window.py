@@ -183,7 +183,8 @@ class Ui_FakeNewsWindow(object):
         self.trainedModelsComboBox.setStyleSheet("border-width: 2px;\n"
 "border-radius: 5px;\n"
 "border-color: rgb(0, 0, 0);\n"
-"border-style: solid;")
+"border-style: solid;\n"
+"background-color: rgb(181, 181, 181);")
         self.trainedModelsComboBox.setObjectName("trainedModelsComboBox")
         self.verticalLayout_2.addWidget(self.trainedModelsComboBox)
         self.verticalLayout.addWidget(self.verticalGroupBox)
