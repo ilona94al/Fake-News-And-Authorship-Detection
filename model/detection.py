@@ -26,6 +26,10 @@ class Detection():
 
         self.real_percent, self.fake_percent = self.get_distribution()
 
+
+
+
+
     @staticmethod
     def get_preprocessed_text(input, max_text_len):
         input_texts = []

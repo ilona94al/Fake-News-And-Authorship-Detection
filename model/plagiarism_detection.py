@@ -7,11 +7,12 @@ import matplotlib.pyplot as plt
 class PlagiarismDetection(Detection):
     def __init__(self, input, model_name, author_name, book_name):
         super().__init__(input=input, model_name=model_name, model_type="Plagiarism")
-        # todo:
-        # self.author_name = author_name
-        # delete:
-        self.author_name = 'Shakespeare'
+
+        self.author_name = author_name
         self.book_name = book_name
+
+        self.results_csv_path = 'detection results.csv'
+        self.write_results_to_file(file_path=self.results_csv_path, author_name=author_name, book_name=book_name, percent=self.real_percent)
 
     def create_distribution_plot(self):
         # Creating dataset
@@ -64,7 +65,8 @@ class PlagiarismDetection(Detection):
         plt.bar(X_axis + 0.2, self.probabilities[:, 1], 0.4, label='Others', color="salmon")
         plt.xlabel("Book chunks", weight="bold")
         plt.ylabel("Probability", weight="bold")
-        plt.title("Probabilities for each chunk to be written by " + self.author_name + " / other writers", weight="bold")
+        plt.title("Probabilities for each chunk to be written by " + self.author_name + " / other writers",
+                  weight="bold")
         plt.legend()
         plt.savefig("../" + self.plot_path1)
 
@@ -77,3 +79,20 @@ class PlagiarismDetection(Detection):
         else:
             text += "It seems like the book wasn't written by Shakespeare"
         return text
+
+    @staticmethod
+    def write_results_to_file(file_path, author_name, book_name, percent):
+        import csv
+        from pathlib import Path
+
+        my_file = Path(file_path)
+
+        file_exist = my_file.exists()
+
+        with open(file_path, 'a', encoding='UTF8') as f:
+            writer = csv.writer(f)
+            if not file_exist:
+                header = ['author name', 'book name', 'percent that written by author']
+                writer.writerow(header)
+            data = [author_name, book_name, percent]
+            writer.writerow(data)

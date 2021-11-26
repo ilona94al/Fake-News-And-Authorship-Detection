@@ -22,14 +22,14 @@ class FakeBERTModel():
 
     def build_model(self, num_classes):
         input_layer = tf.keras.layers.Input(shape=(), dtype=tf.string, name='text')
-        os.chdir("../BERT/")
-        preprocessing_layer = hub.KerasLayer('preprocessor', name='preprocessing')
+        os.chdir("../")
+        preprocessing_layer = hub.KerasLayer('BERT/preprocessor', name='preprocessing')
         bert_encoder_inputs = preprocessing_layer(input_layer)
 
-        bert_encoder = hub.KerasLayer('encoder', trainable=True, name='BERT_encoder')
+        bert_encoder = hub.KerasLayer('BERT/encoder', trainable=True, name='BERT_encoder')
         bert_outputs = bert_encoder(bert_encoder_inputs)
         embeddings = bert_outputs["sequence_output"]  # [batch_size, seq_length, 768]
-        os.chdir("../gui_controllers")
+        os.chdir("gui_controllers")
         cnn_parallel_block_1 = tf.keras.layers.Conv1D \
             (filters=128, kernel_size=3, activation='relu', input_shape=(self.config['max_seq_len'], 768))(embeddings)
         cnn_parallel_block_1 = tf.keras.layers.MaxPooling1D \
