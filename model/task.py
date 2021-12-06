@@ -37,6 +37,8 @@ class Task():
         text_blocks = separate_text_to_blocks(preprocessed_text, self.max_text_len)
         return text_blocks
 
+
+
     #   gets texts and corresponding labels
     #   split data to train set, validation set and test set
     def prepare_train_validation_test_sets(self, texts, y_expected):
@@ -65,7 +67,6 @@ class Task():
 
     def start_train_model(self):
         self.running = True
-        self.current_epoch = 0
         self.t = threading.Thread(target=self.run_train_model)
         self.t.start()
 

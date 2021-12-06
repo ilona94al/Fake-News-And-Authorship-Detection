@@ -102,10 +102,6 @@ class FakeBERTModel():
         self.count_well_predicted = np.count_nonzero([y_test == Y_predicted])
         self.count_false_predicted = Y_predicted.shape[0] - self.count_well_predicted
 
-
-
-
-
     def load_model(self, model_path):
         os.chdir("../")
         self.model = tf.keras.models.load_model(model_path, custom_objects={'KerasLayer': hub.KerasLayer})

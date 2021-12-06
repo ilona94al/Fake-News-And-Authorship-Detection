@@ -50,13 +50,13 @@ class PlagiarismTask(Task):
         name_to_ignore_lower = name_to_ignore.lower()
         for author_name in os.listdir(books_dir_path):
             author_name_lower = author_name.lower()
-            if not self.same_names(author_name_lower, name_to_ignore_lower):
+            if not self.is_same_names(author_name_lower, name_to_ignore_lower):
                 author_books = self.read_books_of_specific_author(books_dir_path + '/' + author_name)
                 books.extend(book for book in author_books)
         return books
 
     @staticmethod
-    def same_names(author_name, name_to_ignore):
+    def is_same_names(author_name, name_to_ignore):
         return (author_name == name_to_ignore) \
                or (author_name in name_to_ignore) \
                or (name_to_ignore in author_name)

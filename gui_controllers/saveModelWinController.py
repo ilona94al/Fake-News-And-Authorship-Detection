@@ -10,6 +10,12 @@ class SaveModelWinController(FormCheckerWinController):
         from gui_design.save_model_window import Ui_SaveModelWindow
         self.ui = Ui_SaveModelWindow()
         self.ui.setupUi(self)
+
+        from model.plagiarism_task import PlagiarismTask
+        if isinstance(task, PlagiarismTask):
+            self.ui.inputName.setText(task.author)
+        else:
+            self.ui.inputName.setPlaceholderText("for example: Fake news 1")
         self.set_buttons_handlers()
         self.clear_feedback()
 
@@ -23,13 +29,12 @@ class SaveModelWinController(FormCheckerWinController):
         self.window = TrainResultsWinController(self.task)
         self.window.show()
 
-
     def save_pressed(self):
         name_widget = self.ui.inputName
-        name_widget_str=name_widget.text()
+        name_widget_str = name_widget.text()
 
-        if name_widget_str=="":
-            self.invalid_input("No name, please give a name for your model",name_widget)
+        if name_widget_str == "":
+            self.invalid_input("No name, please give a name for your model", name_widget)
         else:
             self.set_normal_style(name_widget)
             self.task.save_model(name_widget_str)
@@ -37,6 +42,3 @@ class SaveModelWinController(FormCheckerWinController):
             from gui_controllers.mainWinController import MainWinController
             self.window = MainWinController()
             self.window.show()
-
-
-

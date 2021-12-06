@@ -35,6 +35,7 @@ class DetectionResultsWinController(QMainWindow):
     def set_buttons_handlers(self):
         self.ui.backBtn.clicked.connect(self.back_pressed)
 
+
     def back_pressed(self):
         self.close()
         from model.fake_news_detection import FakeNewsDetection

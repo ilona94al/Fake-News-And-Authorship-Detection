@@ -85,14 +85,14 @@ class PlagiarismDetection(Detection):
         import csv
         from pathlib import Path
 
-        my_file = Path(file_path)
+        my_file = Path("../"+file_path)
 
         file_exist = my_file.exists()
 
-        with open(file_path, 'a', encoding='UTF8') as f:
+        with open("../"+file_path, 'a', encoding='UTF8') as f:
             writer = csv.writer(f)
             if not file_exist:
                 header = ['author name', 'book name', 'percent that written by author']
                 writer.writerow(header)
-            data = [author_name, book_name, percent]
+            data = [author_name, book_name, "{:.1f}%".format(percent)]
             writer.writerow(data)

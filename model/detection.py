@@ -11,6 +11,7 @@ class Detection():
     def __init__(self, input, model_name, model_type):
         self.model = FakeBERTModel()
 
+
         #   loads the relevant model according to name and type
         from constants import TRAINED_MODELS_PATH
         self.model.load_model(TRAINED_MODELS_PATH + model_type + "/" + model_name)
