@@ -96,31 +96,6 @@ class Ui_MainWindow(object):
         self.fakeNewsBtn.setDefault(False)
         self.fakeNewsBtn.setFlat(False)
         self.fakeNewsBtn.setObjectName("fakeNewsBtn")
-        self.helpBtn = QtWidgets.QPushButton(self.groupBox)
-        self.helpBtn.setEnabled(True)
-        self.helpBtn.setGeometry(QtCore.QRect(30, 479, 61, 61))
-        font = QtGui.QFont()
-        font.setFamily("Sitka Small")
-        font.setPointSize(18)
-        font.setBold(False)
-        font.setItalic(False)
-        font.setWeight(9)
-        self.helpBtn.setFont(font)
-        self.helpBtn.setAcceptDrops(False)
-        self.helpBtn.setAutoFillBackground(False)
-        self.helpBtn.setStyleSheet("background-color: rgb(100, 104, 108);\n"
-"background-color: rgb(133, 138, 144);\n"
-"font: 75 18pt \"Sitka Small\";\n"
-"color: rgb(0, 0, 0);\n"
-"border-width: 3px;\n"
-"border-radius: 30px;\n"
-"border-color: rgb(0, 0, 0);\n"
-"border-style: solid;")
-        self.helpBtn.setCheckable(False)
-        self.helpBtn.setAutoDefault(False)
-        self.helpBtn.setDefault(False)
-        self.helpBtn.setFlat(False)
-        self.helpBtn.setObjectName("helpBtn")
         self.trainBtn = QtWidgets.QPushButton(self.groupBox)
         self.trainBtn.setEnabled(True)
         self.trainBtn.setGeometry(QtCore.QRect(250, 400, 280, 70))
@@ -156,7 +131,6 @@ class Ui_MainWindow(object):
         self.groupBox.setTitle(_translate("MainWindow", "Fake Texts Detector"))
         self.plagiarismBtn.setText(_translate("MainWindow", "Plagiarism"))
         self.fakeNewsBtn.setText(_translate("MainWindow", "Fake News"))
-        self.helpBtn.setText(_translate("MainWindow", "?"))
         self.trainBtn.setText(_translate("MainWindow", "Train Model"))
 
 

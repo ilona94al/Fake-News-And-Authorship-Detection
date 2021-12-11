@@ -23,7 +23,7 @@ class PlagiarismDetection(Detection):
         # Creating color parameters
         colors = ("limegreen", "lightcoral")
         # Wedge properties
-        wp = {'linewidth': 1, 'edgecolor': "black"}
+        wp = {'linewidth': 0.5, 'edgecolor': "grey"}
 
         # Creating autocpt arguments
         def func(pct):
@@ -47,7 +47,7 @@ class PlagiarismDetection(Detection):
                   loc="upper right",
                   bbox_to_anchor=(0.1, 1, 0, 0))
         plt.setp(autotexts, size=10, weight="bold")
-        ax.set_title("Pie chart of book author classification:", size=10)
+        ax.set_title("Pie chart of book author classification:", size=10,weight="bold")
         plt.savefig("../" + self.plot_path2)
 
     def get_distribution(self):
@@ -65,7 +65,7 @@ class PlagiarismDetection(Detection):
         plt.bar(X_axis + 0.2, self.probabilities[:, 1], 0.4, label='Others', color="salmon")
         plt.xlabel("Book chunks", weight="bold")
         plt.ylabel("Probability", weight="bold")
-        plt.title("Probabilities for each chunk to be written by " + self.author_name + " / other writers",
+        plt.title("Probabilities chart for book chunks writer",
                   weight="bold")
         plt.legend()
         plt.savefig("../" + self.plot_path1)

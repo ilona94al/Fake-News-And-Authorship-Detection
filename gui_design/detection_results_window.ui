@@ -389,7 +389,7 @@ color: rgb(0, 0, 0);
        <number>6</number>
       </property>
       <property name="topMargin">
-       <number>30</number>
+       <number>40</number>
       </property>
       <property name="rightMargin">
        <number>6</number>
@@ -438,7 +438,7 @@ color: rgb(0, 0, 0);
        <number>6</number>
       </property>
       <property name="topMargin">
-       <number>30</number>
+       <number>40</number>
       </property>
       <property name="rightMargin">
        <number>6</number>

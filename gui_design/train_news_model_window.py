@@ -320,23 +320,6 @@ class Ui_TrainNewsModelWindow(object):
 "                                                        ")
         self.inputTextColumnName1221.setObjectName("inputTextColumnName1221")
         self.horizontalLayout122.addWidget(self.inputTextColumnName1221)
-        self.questionBtn1222 = QtWidgets.QToolButton(self.verticalGroupBox12)
-        self.questionBtn1222.setMinimumSize(QtCore.QSize(0, 0))
-        self.questionBtn1222.setMouseTracking(False)
-        self.questionBtn1222.setAutoFillBackground(False)
-        self.questionBtn1222.setStyleSheet("background-color: rgb(0, 0, 127);\n"
-"                                                            background-color: rgb(0, 0, 50);\n"
-"                                                            border-width: 1px;\n"
-"                                                            border-radius: 14px;\n"
-"                                                            border-color: rgb(255, 255, 255);\n"
-"                                                            border-style: solid;\n"
-"                                                        ")
-        self.questionBtn1222.setText("")
-        icon2 = QtGui.QIcon()
-        icon2.addPixmap(QtGui.QPixmap("../RESOURCES/question_icon2.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.questionBtn1222.setIcon(icon2)
-        self.questionBtn1222.setObjectName("questionBtn1222")
-        self.horizontalLayout122.addWidget(self.questionBtn1222)
         self.verticalLayout_5.addLayout(self.horizontalLayout122)
         self.label127 = QtWidgets.QLabel(self.verticalGroupBox12)
         self.label127.setStyleSheet("border-width: 0px;\n"
@@ -356,21 +339,6 @@ class Ui_TrainNewsModelWindow(object):
 "                                                        ")
         self.inputLabelColumnName1231.setObjectName("inputLabelColumnName1231")
         self.horizontalLayout123.addWidget(self.inputLabelColumnName1231)
-        self.questionBtn1232 = QtWidgets.QToolButton(self.verticalGroupBox12)
-        self.questionBtn1232.setMinimumSize(QtCore.QSize(0, 0))
-        self.questionBtn1232.setMouseTracking(False)
-        self.questionBtn1232.setAutoFillBackground(False)
-        self.questionBtn1232.setStyleSheet("background-color: rgb(0, 0, 127);\n"
-"                                                            background-color: rgb(0, 0, 50);\n"
-"                                                            border-width: 1px;\n"
-"                                                            border-radius: 14px;\n"
-"                                                            border-color: rgb(255, 255, 255);\n"
-"                                                            border-style: solid;\n"
-"                                                        ")
-        self.questionBtn1232.setText("")
-        self.questionBtn1232.setIcon(icon2)
-        self.questionBtn1232.setObjectName("questionBtn1232")
-        self.horizontalLayout123.addWidget(self.questionBtn1232)
         self.verticalLayout_5.addLayout(self.horizontalLayout123)
         self.horizontalLayout124 = QtWidgets.QHBoxLayout()
         self.horizontalLayout124.setContentsMargins(-1, 0, 40, 0)

@@ -700,38 +700,6 @@ font: 8pt &quot;Sitka Small&quot;;</string>
              </property>
             </widget>
            </item>
-           <item>
-            <widget class="QToolButton" name="questionBtn1222">
-             <property name="minimumSize">
-              <size>
-               <width>0</width>
-               <height>0</height>
-              </size>
-             </property>
-             <property name="mouseTracking">
-              <bool>false</bool>
-             </property>
-             <property name="autoFillBackground">
-              <bool>false</bool>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">background-color: rgb(0, 0, 127);
-                                                            background-color: rgb(0, 0, 50);
-                                                            border-width: 1px;
-                                                            border-radius: 14px;
-                                                            border-color: rgb(255, 255, 255);
-                                                            border-style: solid;
-                                                        </string>
-             </property>
-             <property name="text">
-              <string/>
-             </property>
-             <property name="icon">
-              <iconset>
-               <normaloff>../RESOURCES/question_icon2.png</normaloff>../RESOURCES/question_icon2.png</iconset>
-             </property>
-            </widget>
-           </item>
           </layout>
          </item>
          <item>
@@ -763,38 +731,6 @@ font: 8pt &quot;Sitka Small&quot;;</string>
                                                             background-color: rgb(188, 188, 188);
                                                             color: rgb(0, 0, 0);
                                                         </string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QToolButton" name="questionBtn1232">
-             <property name="minimumSize">
-              <size>
-               <width>0</width>
-               <height>0</height>
-              </size>
-             </property>
-             <property name="mouseTracking">
-              <bool>false</bool>
-             </property>
-             <property name="autoFillBackground">
-              <bool>false</bool>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">background-color: rgb(0, 0, 127);
-                                                            background-color: rgb(0, 0, 50);
-                                                            border-width: 1px;
-                                                            border-radius: 14px;
-                                                            border-color: rgb(255, 255, 255);
-                                                            border-style: solid;
-                                                        </string>
-             </property>
-             <property name="text">
-              <string/>
-             </property>
-             <property name="icon">
-              <iconset>
-               <normaloff>../RESOURCES/question_icon2.png</normaloff>../RESOURCES/question_icon2.png</iconset>
              </property>
             </widget>
            </item>

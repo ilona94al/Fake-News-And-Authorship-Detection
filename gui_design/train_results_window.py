@@ -147,6 +147,7 @@ class Ui_TrainResultsWindow(object):
 "border-style: solid;\n"
 "background-color: rgb(188, 188, 188);\n"
 "color: rgb(0, 0, 0);\n"
+"font: 8pt \"MS Shell Dlg 2\";\n"
 "                                                \n"
 "\n"
 "")
@@ -235,6 +236,11 @@ class Ui_TrainResultsWindow(object):
         self.groupBox.setTitle(_translate("TrainResultsWindow", "Train Results"))
         self.backBtn.setText(_translate("TrainResultsWindow", "Back"))
         self.verticalGroupBox1.setTitle(_translate("TrainResultsWindow", "Train results:"))
+        self.resultTextEdit.setPlainText(_translate("TrainResultsWindow", "\"Number of true predicts: \"\n"
+" \"Number of false predicts: \" \n"
+" \"Total test set accuracy is \" \n"
+"\"Train accuracy is\n"
+"\"Validation accuracy is:"))
         self.verticalGroupBox2.setTitle(_translate("TrainResultsWindow", "Accuracy graph:"))
         self.verticalGroupBox3.setTitle(_translate("TrainResultsWindow", "Loss graph:"))
         self.saveBtn.setText(_translate("TrainResultsWindow", "Save Model"))

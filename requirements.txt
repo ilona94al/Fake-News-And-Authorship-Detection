@@ -1,0 +1,6 @@
+--upgrade pip
+tensorflow==2.6.0
+-q -U tensorflow-text==2.6.0
+PyQt5==5.15.4
+
+

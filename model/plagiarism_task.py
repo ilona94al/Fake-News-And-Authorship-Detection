@@ -10,7 +10,7 @@ class PlagiarismTask(Task):
 
         #   read books
         author_books = self.read_books_of_specific_author(books_dir_path=dir_path)
-        different_books = self.read_books_of_various_authors(books_dir_path="../DATABASE/books_for_train2",
+        different_books = self.read_books_of_various_authors(books_dir_path="../DATABASE/books_for_train1",
                                                              name_to_ignore=author_name)
 
         #   preprocessing

@@ -21,10 +21,7 @@ class TrainPlagModelWinController(TrainModelWinController):
 
     def train_pressed(self):
         self.clear_feedback()
-        # todo: open training process window (need to create gui_design,py,controller)
-        # todo***: results=TRAIN MODEL (author name, path)
-        # todo***: results window and load the results from training
-        # todo***:option to train again, or save the model
+
 
         folder_path_widget = self.ui.inputPath1131
         author_name_widget = self.ui.inputAuthorName111
