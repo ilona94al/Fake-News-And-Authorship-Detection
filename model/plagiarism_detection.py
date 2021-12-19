@@ -12,7 +12,8 @@ class PlagiarismDetection(Detection):
         self.book_name = book_name
 
         self.results_csv_path = 'detection results.csv'
-        self.write_results_to_file(file_path=self.results_csv_path, author_name=author_name, book_name=book_name, percent=self.real_percent)
+        self.write_results_to_file(file_path=self.results_csv_path, author_name=author_name, book_name=book_name,
+                                   percent=self.real_percent)
 
     def create_distribution_plot(self):
         # Creating dataset
@@ -47,7 +48,7 @@ class PlagiarismDetection(Detection):
                   loc="upper right",
                   bbox_to_anchor=(0.1, 1, 0, 0))
         plt.setp(autotexts, size=10, weight="bold")
-        ax.set_title("Pie chart of book author classification:", size=10,weight="bold")
+        ax.set_title("Pie chart of book author classification:", size=10, weight="bold")
         plt.savefig("../" + self.plot_path2)
 
     def get_distribution(self):
@@ -85,11 +86,13 @@ class PlagiarismDetection(Detection):
         import csv
         from pathlib import Path
 
-        my_file = Path("../"+file_path)
+        # my_file = Path("../"+file_path)
+        my_file = Path(file_path)
 
         file_exist = my_file.exists()
 
-        with open("../"+file_path, 'a', encoding='UTF8') as f:
+        #  with open("../"+file_path, 'a', encoding='UTF8') as f:
+        with open( file_path, 'a', encoding='UTF8') as f:
             writer = csv.writer(f)
             if not file_exist:
                 header = ['author name', 'book name', 'percent that written by author']

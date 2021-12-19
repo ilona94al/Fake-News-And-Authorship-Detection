@@ -103,9 +103,9 @@ class FakeBERTModel():
         self.count_false_predicted = Y_predicted.shape[0] - self.count_well_predicted
 
     def load_model(self, model_path):
-        os.chdir("../")
+        #os.chdir("../")
         self.model = tf.keras.models.load_model(model_path, custom_objects={'KerasLayer': hub.KerasLayer})
-        os.chdir("gui_controllers")
+        #os.chdir("gui_controllers")
 
     def predict(self, input):
         return self.model.predict(x=input)

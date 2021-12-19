@@ -10,7 +10,7 @@ class PlagiarismTask(Task):
 
         #   read books
         author_books = self.read_books_of_specific_author(books_dir_path=dir_path)
-        different_books = self.read_books_of_various_authors(books_dir_path="../DATABASE/books_for_train1",
+        different_books = self.read_books_of_various_authors(books_dir_path="../DATABASE/plagiarism/books_for_train2",
                                                              name_to_ignore=author_name)
 
         #   preprocessing
@@ -38,7 +38,7 @@ class PlagiarismTask(Task):
     def read_books_of_specific_author(self, books_dir_path):
         books = []
         for book_name in os.listdir(books_dir_path):
-            if book_name.split('.')[1] == 'txt':
+            if book_name.split('.')[1] == 'txt' or book_name.split('.')[1] == 'TXT':
                 book = self.read_book(books_dir_path, book_name)
                 books.append(book)
         return books
