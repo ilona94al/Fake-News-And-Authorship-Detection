@@ -297,7 +297,7 @@ def read_book(books_dir_path, writer_name, book_name):
 
 
 
-books_dir_path = 'DATABASE/books_for_train1'
+books_dir_path = 'DATABASE/plagiarism/books_for_train1'
 
 author_books = read_books_of_specific_author(books_dir_path,author_name='Shakespeare')
 different_books = read_books_of_various_authors(books_dir_path,name_to_ignore='Shakespeare')

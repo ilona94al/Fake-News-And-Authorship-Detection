@@ -10,8 +10,15 @@ class PlagiarismTask(Task):
 
         #   read books
         author_books = self.read_books_of_specific_author(books_dir_path=dir_path)
-        different_books = self.read_books_of_various_authors(books_dir_path="../DATABASE/plagiarism/books_for_train2",
+        different_books = self.read_books_of_various_authors(books_dir_path="../DATABASE/plagiarism/books_for_train1",
                                                              name_to_ignore=author_name)
+        if (len(author_books) == 0):
+            self.error = True
+            self.error_msg = "Directory is empty, choose another."
+            return
+        else:
+            self.error = False
+
 
         #   preprocessing
         author_texts = self.get_preprocessed_texts(author_books)
@@ -37,10 +44,11 @@ class PlagiarismTask(Task):
     #   returns an array with books written by a specified author
     def read_books_of_specific_author(self, books_dir_path):
         books = []
-        for book_name in os.listdir(books_dir_path):
-            if book_name.split('.')[1] == 'txt' or book_name.split('.')[1] == 'TXT':
-                book = self.read_book(books_dir_path, book_name)
-                books.append(book)
+        if len(os.listdir(books_dir_path)) != 0:
+            for book_name in os.listdir(books_dir_path):
+                if book_name.split('.')[1] == 'txt' or book_name.split('.')[1] == 'TXT':
+                    book = self.read_book(books_dir_path, book_name)
+                    books.append(book)
         return books
 
     #   gets author name and path to dir with books
