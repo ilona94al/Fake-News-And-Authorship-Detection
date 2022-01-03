@@ -70,9 +70,17 @@ class Task():
         self.t = threading.Thread(target=self.run_train_model)
         self.t.start()
 
-    def save_model(self,  model_name):
-        self.model.save_model("../" + self.model_path + model_name)
-        # todo: show error popup if name exists
+    def save_model(self,  model_name,replace=False):
+
+        path="../" + self.model_path + model_name+self.model.model_suffix
+
+        if os.path.exists(path) and not replace:
+            return False
+        else:
+            self.model.save_model(path)
+            return True
+
+
 
     def test_model(self):
         self.model.test_model(x_test=tf.constant(self.x_test), y_test_prob=self.y_test_prob, y_test=self.y_test)

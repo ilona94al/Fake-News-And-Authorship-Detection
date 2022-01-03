@@ -1,4 +1,5 @@
 from PyQt5 import QtWidgets
+from PyQt5.QtWidgets import QMessageBox
 
 from gui_controllers.formCheckerWinController import FormCheckerWinController
 
@@ -31,14 +32,42 @@ class SaveModelWinController(FormCheckerWinController):
 
     def save_pressed(self):
         name_widget = self.ui.inputName
-        name_widget_str = name_widget.text()
+        self.name_widget_str = name_widget.text()
 
-        if name_widget_str == "":
+        if self.name_widget_str == "":
             self.invalid_input("No name, please give a name for your model", name_widget)
         else:
             self.set_normal_style(name_widget)
-            self.task.save_model(name_widget_str)
-            self.close()
-            from gui_controllers.mainWinController import MainWinController
-            self.window = MainWinController()
-            self.window.show()
+            if self.task.save_model(self.name_widget_str):
+                self.back_to_main_win()
+            else:
+                msg = QMessageBox()
+                msg.setWindowTitle("Save model")
+                msg.setText("Do you want replace model with name '" + self.name_widget_str + "' ?")
+                msg.setIcon(QMessageBox.Warning)
+                msg.setStandardButtons(QMessageBox.No | QMessageBox.Yes)
+                msg.setDefaultButton(QMessageBox.No)
+                msg.setInformativeText("There is already a model with the same name in this location.")
+                msg.buttonClicked.connect(self.pop_up_action)
+                x = msg.exec_()
+
+    def pop_up_action(self, i):
+        if i.text() == '&Yes':
+            if self.task.save_model(model_name=self.name_widget_str, replace=True):
+                self.back_to_main_win()
+            else:
+                msg = QMessageBox()
+                msg.setWindowTitle("Save model")
+                msg.setText("Error occur during save model process")
+                msg.setIcon(QMessageBox.Warning)
+                msg.setStandardButtons(QMessageBox.Ok)
+                msg.setDefaultButton(QMessageBox.Ok)
+                msg.setInformativeText("Try Again")
+                msg.buttonClicked.connect(lambda i: None)
+                x = msg.exec_()
+
+    def back_to_main_win(self):
+        self.close()
+        from gui_controllers.mainWinController import MainWinController
+        self.window = MainWinController()
+        self.window.show()

@@ -16,13 +16,16 @@ class FormCheckerWinController(QMainWindow):
         self.setFeedback(msg, widget)
 
     def setFeedback(self, msg, widget):
+        self.show_error_msg(msg)
+        self.set_error_style(widget)
+
+    def show_error_msg(self, msg):
         curr_msg = self.ui.errorMsg.text()
         if curr_msg != "":
             curr_msg += "\n"
         self.ui.errorMsg.setText(curr_msg + msg)
         self.ui.errorMsg.adjustSize()
         self.ui.errorMsg.setHidden(False)
-        self.set_error_style(widget)
 
     # ☻ ☺ ☻ ♥ ♠ ♣ ♦ • ◘ ○
     def set_normal_style(self, widget):

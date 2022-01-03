@@ -22,7 +22,6 @@ class TrainPlagModelWinController(TrainModelWinController):
     def train_pressed(self):
         self.clear_feedback()
 
-
         folder_path_widget = self.ui.inputPath1131
         author_name_widget = self.ui.inputAuthorName111
         epochs_widget = self.ui.inputEpoch1152
@@ -52,9 +51,10 @@ class TrainPlagModelWinController(TrainModelWinController):
         if self.allOk == True:
             from model.plagiarism_task import PlagiarismTask
             self.task = PlagiarismTask(author_name, folder_path, int(batch_size), int(epochs))
-            if(self.task.error) :
-                self.invalid_input(self.task.error_msg,folder_path_widget)
-            else :self.open_progress_win()
+            if (self.task.error):
+                self.invalid_input(self.task.error_msg, folder_path_widget)
+            else:
+                self.open_progress_win()
 
     @staticmethod
     def upload_folder_pressed(widget):  # Folder uploader

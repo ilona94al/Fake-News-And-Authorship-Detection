@@ -10,15 +10,14 @@ class PlagiarismTask(Task):
 
         #   read books
         author_books = self.read_books_of_specific_author(books_dir_path=dir_path)
-        different_books = self.read_books_of_various_authors(books_dir_path="../DATABASE/plagiarism/books_for_train1",
+        different_books = self.read_books_of_various_authors(books_dir_path="../DATABASE/plagiarism/books_for_train_RS",
                                                              name_to_ignore=author_name)
-        if (len(author_books) == 0):
+        if len(author_books) == 0:
             self.error = True
             self.error_msg = "Directory is empty, choose another."
             return
         else:
             self.error = False
-
 
         #   preprocessing
         author_texts = self.get_preprocessed_texts(author_books)
@@ -46,21 +45,27 @@ class PlagiarismTask(Task):
         books = []
         if len(os.listdir(books_dir_path)) != 0:
             for book_name in os.listdir(books_dir_path):
-                if book_name.split('.')[1] == 'txt' or book_name.split('.')[1] == 'TXT':
-                    book = self.read_book(books_dir_path, book_name)
-                    books.append(book)
+                parts = book_name.lower().split('.');
+                if parts[len(parts) - 1].lower() == 'txt':
+                    book_path = books_dir_path + '/' + book_name;
+                    try:
+                        book = self.read_book(book_path)
+                        books.append(book)
+                    except:
+                        print(book_path)
+
         return books
 
     #   gets author name and path to dir with books
     #   returns an array with books written by the different authors except for the specified author
     def read_books_of_various_authors(self, books_dir_path, name_to_ignore):
         books = []
-        name_to_ignore_lower = name_to_ignore.lower()
         for author_name in os.listdir(books_dir_path):
-            author_name_lower = author_name.lower()
-            if not self.is_same_names(author_name_lower, name_to_ignore_lower):
+            if not self.is_same_names(author_name.lower(), name_to_ignore.lower()):
                 author_books = self.read_books_of_specific_author(books_dir_path + '/' + author_name)
                 books.extend(book for book in author_books)
+                # if(len(books)>number_of_books and books.__sizeof__())
+                #     ret
         return books
 
     @staticmethod
@@ -71,7 +76,7 @@ class PlagiarismTask(Task):
 
     #   gets book name, author name, and path to dir with books
     #   returns book content as a string
-    def read_book(self, books_dir_path, book_name):
-        with open(books_dir_path + '/' + book_name, 'r', encoding='UTF-8') as book_file:
+    def read_book(self, book_path, ):
+        with open(book_path, 'r', encoding='UTF-8') as book_file:
             book_string = book_file.read()
             return book_string

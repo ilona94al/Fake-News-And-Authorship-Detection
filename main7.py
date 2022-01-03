@@ -2,7 +2,6 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
-
 # y=np.arange(1,Y_predicted_prob.shape[0]+1)
 
 # # plt.plot(Y_predicted_prob[0])
@@ -15,23 +14,23 @@ import numpy as np
 # plt.legend(['Real', 'Fake'], loc='upper left')
 # plt.show()
 from constants import PLOTS_PATH
-
-Y_predicted_prob=np.random.rand(10,10)
-
-X_axis = np.arange(Y_predicted_prob.shape[0])+1
-
-plt.bar(X_axis-0.2,Y_predicted_prob[:,0], 0.4, label='Real',color="lightblue")
-plt.bar(X_axis+0.2,Y_predicted_prob[:,1], 0.4, label='Fake',color="salmon")
-
-plt.xlabel("Book parts")
-plt.ylabel("Prob")
-plt.title("---")
-
-
-plt.legend()
-
-
-plt.savefig(PLOTS_PATH+"test2.PNG")
+#
+# Y_predicted_prob=np.random.rand(10,10)
+#
+# X_axis = np.arange(Y_predicted_prob.shape[0])+1
+#
+# plt.bar(X_axis-0.2,Y_predicted_prob[:,0], 0.4, label='Real',color="lightblue")
+# plt.bar(X_axis+0.2,Y_predicted_prob[:,1], 0.4, label='Fake',color="salmon")
+#
+# plt.xlabel("Book parts")
+# plt.ylabel("Prob")
+# plt.title("---")
+#
+#
+# plt.legend()
+#
+#
+# plt.savefig(PLOTS_PATH+"test2.PNG")
 #
 #
 #
@@ -69,9 +68,9 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # Creating dataset
-authors = ['Shakespeare', 'Other']
+authors = ['Shakespeare1234556789871116', 'Other11']
 
-data = [3,97]
+data = [3, 97]
 
 # Creating explode data
 explode = (0.2, 0.2)
@@ -89,7 +88,7 @@ def func(pct):
 
 
 # Creating plot
-fig, ax = plt.subplots(figsize=(5, 3))
+fig, ax = plt.subplots(figsize=(7, 5))
 wedges, texts, autotexts = ax.pie(data,
                                   autopct=lambda pct: func(pct),
                                   explode=explode,
@@ -102,32 +101,32 @@ wedges, texts, autotexts = ax.pie(data,
                                   )
 
 # Adding legend
-ax.legend(wedges, authors,
-          title="Authors",
-          loc="upper right",
-          bbox_to_anchor=(0.1, 1, 0, 0))
-
+ax.legend(authors,
+          title="Authorss",
+          ncol=2,bbox_to_anchor =(0.5, 0.02,0.5,0))
 plt.setp(autotexts, size=8, weight="bold")
-ax.set_title("Distribution Graph")
+ax.set_title("Distribution Graphh")
 
 # show plot
-plt.savefig(PLOTS_PATH+"test.PNG")
+plt.savefig(PLOTS_PATH + "test.PNG")
 
-
-
-Y_predicted_prob=np.random.rand(10,10)
-
-X_axis = np.arange(Y_predicted_prob.shape[0])+1
-
-plt.bar(X_axis-0.2,Y_predicted_prob[:,0], 0.4, label='Real',color="lightblue")
-plt.bar(X_axis+0.2,Y_predicted_prob[:,1], 0.4, label='Fake',color="salmon")
-
-plt.xlabel("Book parts")
-plt.ylabel("Prob")
-plt.title("---")
-
-
-plt.legend()
-
-
-plt.savefig(PLOTS_PATH+"test2.PNG")
+plt.show()
+#
+#
+# Y_predicted_prob=np.random.rand(10,10)
+#
+# X_axis = np.arange(Y_predicted_prob.shape[0])+1
+#
+# plt.bar(X_axis-0.2,Y_predicted_prob[:,0], 0.4, label='Real',color="lightblue")
+# plt.bar(X_axis+0.2,Y_predicted_prob[:,1], 0.4, label='Fake',color="salmon")
+#
+# plt.xlabel("Book parts")
+# plt.ylabel("Prob")
+# plt.title("---")
+#
+#
+# plt.legend()
+# plt.show()
+#
+#
+# plt.savefig(PLOTS_PATH+"test2.PNG")

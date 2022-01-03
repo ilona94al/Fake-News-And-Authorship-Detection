@@ -19,7 +19,7 @@ from nltk.corpus import stopwords
 class FakeBERTModel():
     def __init__(self):
         self.config = config_128tokens
-
+        self.model_suffix= ".h5"
     def build_model(self, num_classes):
         input_layer = tf.keras.layers.Input(shape=(), dtype=tf.string, name='text')
         os.chdir("../")
@@ -92,8 +92,8 @@ class FakeBERTModel():
         _, self.train_accuracy = self.model.evaluate(x_train, y_train_prob, verbose=0)
         _, self.valid_accuracy = self.model.evaluate(x_valid, y_valid_prob, verbose=0)
 
-    def save_model(self, model_name):
-        self.model.save(model_name+".h5")
+    def save_model(self, model_path):
+        self.model.save(model_path)
 
     def test_model(self, x_test, y_test_prob, y_test):
         _, self.test_accuracy = self.model.evaluate(x_test, y_test_prob, verbose=0)

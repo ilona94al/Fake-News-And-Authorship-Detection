@@ -447,13 +447,17 @@ font: 8pt &quot;Sitka Small&quot;;</string>
                                                             border-style: solid;
                                                             background-color: rgb(188, 188, 188);
                                                             color: rgb(0, 0, 0);
+font: 8pt &quot;Sitka Small&quot;;
                                                         </string>
              </property>
              <property name="text">
-              <string>C:/Users/Ilona Aliyev/PycharmProjects/Fake-News-And-Authorship-Detection/DATABASE/fakenews/db1/true50.csv</string>
+              <string/>
              </property>
              <property name="readOnly">
               <bool>true</bool>
+             </property>
+             <property name="placeholderText">
+              <string>/../..</string>
              </property>
             </widget>
            </item>
@@ -512,13 +516,16 @@ font: 8pt &quot;Sitka Small&quot;;</string>
                                                             border-style: solid;
                                                             background-color: rgb(188, 188, 188);
                                                             color: rgb(0, 0, 0);
-                                                        </string>
+font: 8pt &quot;Sitka Small&quot;;                                                     </string>
              </property>
              <property name="text">
-              <string>C:/Users/Ilona Aliyev/PycharmProjects/Fake-News-And-Authorship-Detection/DATABASE/fakenews/db1/fake50.csv</string>
+              <string/>
              </property>
              <property name="readOnly">
               <bool>true</bool>
+             </property>
+             <property name="placeholderText">
+              <string>/../..</string>
              </property>
             </widget>
            </item>
@@ -582,10 +589,13 @@ font: 8pt &quot;Sitka Small&quot;;</string>
                                                             background-color: rgb(188, 188, 188);
                                                             color: rgb(0, 0, 0);
                                                         
-</string>
+font: 8pt &quot;Sitka Small&quot;;</string>
            </property>
            <property name="text">
-            <string>text</string>
+            <string/>
+           </property>
+           <property name="placeholderText">
+            <string>for example: 'tweet'</string>
            </property>
           </widget>
          </item>
@@ -628,10 +638,13 @@ font: 10pt &quot;Sitka Small&quot;;</string>
                                                             border-style: solid;
                                                             background-color: rgb(188, 188, 188);
                                                             color: rgb(0, 0, 0);
-                                                        </string>
+font: 8pt &quot;Sitka Small&quot;;</string>
              </property>
              <property name="readOnly">
               <bool>true</bool>
+             </property>
+             <property name="placeholderText">
+              <string>/../..</string>
              </property>
             </widget>
            </item>
@@ -696,7 +709,11 @@ font: 8pt &quot;Sitka Small&quot;;</string>
                                                             border-style: solid;
                                                             background-color: rgb(188, 188, 188);
                                                             color: rgb(0, 0, 0);
+font: 8pt &quot;Sitka Small&quot;;
                                                         </string>
+             </property>
+             <property name="placeholderText">
+              <string>for example: 'text'</string>
              </property>
             </widget>
            </item>
@@ -730,7 +747,11 @@ font: 8pt &quot;Sitka Small&quot;;</string>
                                                             border-style: solid;
                                                             background-color: rgb(188, 188, 188);
                                                             color: rgb(0, 0, 0);
+font: 8pt &quot;Sitka Small&quot;;
                                                         </string>
+             </property>
+             <property name="placeholderText">
+              <string>for example: 'classification'</string>
              </property>
             </widget>
            </item>
@@ -771,10 +792,14 @@ font: 8pt &quot;Sitka Small&quot;;
                                                             border-style: solid;
                                                             background-color: rgb(188, 188, 188);
                                                             color: rgb(0, 0, 0);
+font: 8pt &quot;Sitka Small&quot;;
                                                         </string>
              </property>
              <property name="alignment">
               <set>Qt::AlignCenter</set>
+             </property>
+             <property name="placeholderText">
+              <string>0</string>
              </property>
             </widget>
            </item>
@@ -811,6 +836,7 @@ font: 8pt &quot;Sitka Small&quot;;</string>
                                                             border-style: solid;
                                                             background-color: rgb(188, 188, 188);
                                                             color: rgb(0, 0, 0);
+font: 8pt &quot;Sitka Small&quot;;
                                                         
 </string>
              </property>
@@ -819,6 +845,9 @@ font: 8pt &quot;Sitka Small&quot;;</string>
              </property>
              <property name="dragEnabled">
               <bool>false</bool>
+             </property>
+             <property name="placeholderText">
+              <string>1</string>
              </property>
             </widget>
            </item>
@@ -1055,10 +1084,11 @@ font: 8pt &quot;Sitka Small&quot;;</string>
                                                             border-style: solid;
                                                             background-color: rgb(188, 188, 188);
                                                             color: rgb(0, 0, 0);
+font: 8pt &quot;Sitka Small&quot;;
                                                         </string>
              </property>
              <property name="text">
-              <string>2</string>
+              <string/>
              </property>
              <property name="placeholderText">
               <string>15</string>
@@ -1085,10 +1115,11 @@ font: 8pt &quot;Sitka Small&quot;;</string>
                                                             border-style: solid;
                                                             background-color: rgb(188, 188, 188);
                                                             color: rgb(0, 0, 0);
+font: 8pt &quot;Sitka Small&quot;;
                                                         </string>
              </property>
              <property name="text">
-              <string>2</string>
+              <string/>
              </property>
              <property name="placeholderText">
               <string>10</string>

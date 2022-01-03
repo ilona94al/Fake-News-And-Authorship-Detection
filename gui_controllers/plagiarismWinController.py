@@ -67,11 +67,14 @@ class PlagiarismWinController(FormCheckerWinController):
             self.set_normal_style(path_widget)
 
             book_content, book_name = self.read_book(book_path)
-
-            self.close()
-            from gui_controllers.loadingPlagModelWinController import LoadingPlagModelWinController
-            self.window = LoadingPlagModelWinController(book_name=book_name, content=book_content, author=author_name)
-            self.window.show()
+            if len(book_content) == 0:
+                self.invalid_input("Empty file!\n please upload a book", path_widget)
+            else:
+                self.close()
+                from gui_controllers.loadingPlagModelWinController import LoadingPlagModelWinController
+                self.window = LoadingPlagModelWinController(book_name=book_name, content=book_content,
+                                                 author=author_name)
+                self.window.show()
 
     @staticmethod
     def read_book(book_dir_path):

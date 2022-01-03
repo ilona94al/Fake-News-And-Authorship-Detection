@@ -193,7 +193,9 @@ class Ui_TrainNewsModelWindow(object):
 "                                                            border-style: solid;\n"
 "                                                            background-color: rgb(188, 188, 188);\n"
 "                                                            color: rgb(0, 0, 0);\n"
+"font: 8pt \"Sitka Small\";\n"
 "                                                        ")
+        self.inputPath1111.setText("")
         self.inputPath1111.setReadOnly(True)
         self.inputPath1111.setObjectName("inputPath1111")
         self.horizontalLayout111.addWidget(self.inputPath1111)
@@ -228,7 +230,8 @@ class Ui_TrainNewsModelWindow(object):
 "                                                            border-style: solid;\n"
 "                                                            background-color: rgb(188, 188, 188);\n"
 "                                                            color: rgb(0, 0, 0);\n"
-"                                                        ")
+"font: 8pt \"Sitka Small\";                                                     ")
+        self.inputPath1121.setText("")
         self.inputPath1121.setReadOnly(True)
         self.inputPath1121.setObjectName("inputPath1121")
         self.horizontalLayout112.addWidget(self.inputPath1121)
@@ -262,7 +265,8 @@ class Ui_TrainNewsModelWindow(object):
 "                                                            background-color: rgb(188, 188, 188);\n"
 "                                                            color: rgb(0, 0, 0);\n"
 "                                                        \n"
-"")
+"font: 8pt \"Sitka Small\";")
+        self.inputTextColumnName113.setText("")
         self.inputTextColumnName113.setObjectName("inputTextColumnName113")
         self.verticalLayout_6.addWidget(self.inputTextColumnName113)
         self.verticalLayout.addWidget(self.verticalGroupBox11)
@@ -283,7 +287,7 @@ class Ui_TrainNewsModelWindow(object):
 "                                                            border-style: solid;\n"
 "                                                            background-color: rgb(188, 188, 188);\n"
 "                                                            color: rgb(0, 0, 0);\n"
-"                                                        ")
+"font: 8pt \"Sitka Small\";")
         self.inputPath1211.setReadOnly(True)
         self.inputPath1211.setObjectName("inputPath1211")
         self.horizontalLayout121.addWidget(self.inputPath1211)
@@ -317,6 +321,7 @@ class Ui_TrainNewsModelWindow(object):
 "                                                            border-style: solid;\n"
 "                                                            background-color: rgb(188, 188, 188);\n"
 "                                                            color: rgb(0, 0, 0);\n"
+"font: 8pt \"Sitka Small\";\n"
 "                                                        ")
         self.inputTextColumnName1221.setObjectName("inputTextColumnName1221")
         self.horizontalLayout122.addWidget(self.inputTextColumnName1221)
@@ -336,6 +341,7 @@ class Ui_TrainNewsModelWindow(object):
 "                                                            border-style: solid;\n"
 "                                                            background-color: rgb(188, 188, 188);\n"
 "                                                            color: rgb(0, 0, 0);\n"
+"font: 8pt \"Sitka Small\";\n"
 "                                                        ")
         self.inputLabelColumnName1231.setObjectName("inputLabelColumnName1231")
         self.horizontalLayout123.addWidget(self.inputLabelColumnName1231)
@@ -357,6 +363,7 @@ class Ui_TrainNewsModelWindow(object):
 "                                                            border-style: solid;\n"
 "                                                            background-color: rgb(188, 188, 188);\n"
 "                                                            color: rgb(0, 0, 0);\n"
+"font: 8pt \"Sitka Small\";\n"
 "                                                        ")
         self.inputRealLabel1242.setAlignment(QtCore.Qt.AlignCenter)
         self.inputRealLabel1242.setObjectName("inputRealLabel1242")
@@ -378,6 +385,7 @@ class Ui_TrainNewsModelWindow(object):
 "                                                            border-style: solid;\n"
 "                                                            background-color: rgb(188, 188, 188);\n"
 "                                                            color: rgb(0, 0, 0);\n"
+"font: 8pt \"Sitka Small\";\n"
 "                                                        \n"
 "")
         self.inputFakeLabel1252.setAlignment(QtCore.Qt.AlignCenter)
@@ -489,7 +497,9 @@ class Ui_TrainNewsModelWindow(object):
 "                                                            border-style: solid;\n"
 "                                                            background-color: rgb(188, 188, 188);\n"
 "                                                            color: rgb(0, 0, 0);\n"
+"font: 8pt \"Sitka Small\";\n"
 "                                                        ")
+        self.inputEpoch3112.setText("")
         self.inputEpoch3112.setObjectName("inputEpoch3112")
         self.horizontalLayout311.addWidget(self.inputEpoch3112)
         self.label3113 = QtWidgets.QLabel(self.verticalGroupBox31)
@@ -504,7 +514,9 @@ class Ui_TrainNewsModelWindow(object):
 "                                                            border-style: solid;\n"
 "                                                            background-color: rgb(188, 188, 188);\n"
 "                                                            color: rgb(0, 0, 0);\n"
+"font: 8pt \"Sitka Small\";\n"
 "                                                        ")
+        self.inputBatchSz3114.setText("")
         self.inputBatchSz3114.setObjectName("inputBatchSz3114")
         self.horizontalLayout311.addWidget(self.inputBatchSz3114)
         self.verticalLayout_7.addLayout(self.horizontalLayout311)
@@ -522,26 +534,29 @@ class Ui_TrainNewsModelWindow(object):
         self.backBtn.setText(_translate("TrainNewsModelWindow", "Back"))
         self.verticalGroupBox11.setTitle(_translate("TrainNewsModelWindow", "Upload two SCV files:"))
         self.label114.setText(_translate("TrainNewsModelWindow", "Real news file path:"))
-        self.inputPath1111.setText(_translate("TrainNewsModelWindow", "C:/Users/Ilona Aliyev/PycharmProjects/Fake-News-And-Authorship-Detection/DATABASE/fakenews/db1/true50.csv"))
+        self.inputPath1111.setPlaceholderText(_translate("TrainNewsModelWindow", "/../.."))
         self.label115.setText(_translate("TrainNewsModelWindow", "Fake news file path:"))
-        self.inputPath1121.setText(_translate("TrainNewsModelWindow", "C:/Users/Ilona Aliyev/PycharmProjects/Fake-News-And-Authorship-Detection/DATABASE/fakenews/db1/fake50.csv"))
+        self.inputPath1121.setPlaceholderText(_translate("TrainNewsModelWindow", "/../.."))
         self.label116.setText(_translate("TrainNewsModelWindow", "Text\'s column name:"))
-        self.inputTextColumnName113.setText(_translate("TrainNewsModelWindow", "text"))
+        self.inputTextColumnName113.setPlaceholderText(_translate("TrainNewsModelWindow", "for example: \'tweet\'"))
         self.verticalGroupBox12.setTitle(_translate("TrainNewsModelWindow", "Upload CSV file:"))
+        self.inputPath1211.setPlaceholderText(_translate("TrainNewsModelWindow", "/../.."))
         self.text126.setText(_translate("TrainNewsModelWindow", "Text\'s column name:"))
+        self.inputTextColumnName1221.setPlaceholderText(_translate("TrainNewsModelWindow", "for example: \'text\'"))
         self.label127.setText(_translate("TrainNewsModelWindow", "Label\'s column name:"))
+        self.inputLabelColumnName1231.setPlaceholderText(_translate("TrainNewsModelWindow", "for example: \'classification\'"))
         self.label1241.setText(_translate("TrainNewsModelWindow", "Label for real news: "))
+        self.inputRealLabel1242.setPlaceholderText(_translate("TrainNewsModelWindow", "0"))
         self.label1251.setText(_translate("TrainNewsModelWindow", "Label for fake news: "))
+        self.inputFakeLabel1252.setPlaceholderText(_translate("TrainNewsModelWindow", "1"))
         self.errorMsg.setText(_translate("TrainNewsModelWindow", "warning"))
         self.verticalGroupBox21.setTitle(_translate("TrainNewsModelWindow", "Choose a relevant format of your DB:"))
         self.radioButton2111.setText(_translate("TrainNewsModelWindow", "CSV File with column for label"))
         self.radioButton2121.setText(_translate("TrainNewsModelWindow", "Two seperated SCV files for each label"))
         self.verticalGroupBox31.setTitle(_translate("TrainNewsModelWindow", "Training Hyperparameters:"))
         self.label3111.setText(_translate("TrainNewsModelWindow", "Epoch:"))
-        self.inputEpoch3112.setText(_translate("TrainNewsModelWindow", "2"))
         self.inputEpoch3112.setPlaceholderText(_translate("TrainNewsModelWindow", "15"))
         self.label3113.setText(_translate("TrainNewsModelWindow", "Batch size:"))
-        self.inputBatchSz3114.setText(_translate("TrainNewsModelWindow", "2"))
         self.inputBatchSz3114.setPlaceholderText(_translate("TrainNewsModelWindow", "10"))
 
 

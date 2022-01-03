@@ -71,12 +71,12 @@ class TrainNewsModelWinController(TrainModelWinController):
             text_col_name_widget = self.ui.inputTextColumnName113
             text_col_name = str(text_col_name_widget.text())
 
-            if real_file_path == "":
-                self.invalid_input("path to 1st file is miss", real_file_path_widget)
+            if real_file_path == "" or real_file_path.split(".")[1] != "csv":
+                self.invalid_input("path to 1st file is miss or not in csv format", real_file_path_widget)
             else:
                 self.set_normal_style(real_file_path_widget)
-            if fakes_file_path == "":
-                self.invalid_input("path to 2nd file is miss", fakes_file_path_widget)
+            if fakes_file_path == ""or fakes_file_path.split(".")[1] != "csv":
+                self.invalid_input("path to 2nd file is miss or not in csv format", fakes_file_path_widget)
             else:
                 self.set_normal_style(fakes_file_path_widget)
             if text_col_name == "":
@@ -89,7 +89,10 @@ class TrainNewsModelWinController(TrainModelWinController):
 
                 from model.fake_news_tasks import FakeNewsTask2
                 self.task = FakeNewsTask2(real_file_path, fakes_file_path, text_col_name, int(batch_size), int(epochs))
-                self.open_progress_win()
+                if not self.task.error:
+                    self.open_progress_win()
+                else:
+                    self.show_error_msg("Something went wrong\nverify that fields corresponded to files")
         else:
             file_path_widget = self.ui.inputPath1211
             file_path = str(file_path_widget.text())
@@ -106,8 +109,8 @@ class TrainNewsModelWinController(TrainModelWinController):
             real_label_val_widget = self.ui.inputRealLabel1242
             real_label_val = str(real_label_val_widget.text())
 
-            if file_path == "":
-                self.invalid_input("path to file is miss", file_path_widget)
+            if file_path == "" or file_path.split(".")[1] != "csv":
+                self.invalid_input("path to file is miss or not in csv format", file_path_widget)
             else:
                 self.set_normal_style(file_path_widget)
             if text_col_name == "":
@@ -133,7 +136,10 @@ class TrainNewsModelWinController(TrainModelWinController):
                 from model.fake_news_tasks import FakeNewsTask1
                 self.task = FakeNewsTask1(file_path, text_col_name, label_col_name, real_label_val, fakes_label_val,
                                           int(batch_size), int(epochs))
-                self.open_progress_win()
+                if not self.task.error:
+                    self.open_progress_win()
+                else:
+                    self.show_error_msg("Something went wrong\nverify that fields corresponded to file")
 
     @staticmethod
     def upload_file_pressed(widget):

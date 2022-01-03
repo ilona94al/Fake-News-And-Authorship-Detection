@@ -11,8 +11,8 @@ class PlagiarismDetection(Detection):
         self.author_name = author_name
         self.book_name = book_name
 
-        self.results_csv_path = 'detection results.csv'
-        self.write_results_to_file(file_path=self.results_csv_path, author_name=author_name, book_name=book_name,
+        results_csv_path = author_name+'- Detection results.csv'
+        self.write_results_to_file(file_path=results_csv_path, author_name=author_name, book_name=book_name,
                                    percent=self.real_percent)
 
     def create_distribution_plot(self):
@@ -31,7 +31,7 @@ class PlagiarismDetection(Detection):
             return "{:.1f}%\n".format(pct)
 
         # Creating plot
-        fig, ax = plt.subplots(figsize=(5, 3))
+        fig, ax = plt.subplots(figsize=(7, 5))
         wedges, texts, autotexts = ax.pie(data,
                                           autopct=lambda pct: func(pct),
                                           explode=explode,
@@ -40,30 +40,29 @@ class PlagiarismDetection(Detection):
                                           colors=colors,
                                           startangle=40,
                                           wedgeprops=wp,
-                                          textprops=dict(color="black", size=10)
+                                          textprops=dict(color="black", size=12)
                                           )
         # Adding legend
         ax.legend(wedges, authors,
                   title="Authors",
-                  loc="upper right",
-                  bbox_to_anchor=(0.1, 1, 0, 0))
+                  ncol=2,bbox_to_anchor =(0.5, 0.02,0.5,0))
         plt.setp(autotexts, size=10, weight="bold")
-        ax.set_title("Pie chart of book author classification:", size=10, weight="bold")
+        ax.set_title("Pie chart of book author classification:", size=12, weight="bold")
         plt.savefig("../" + self.plot_path2)
 
-    def get_distribution(self):
-        real_numb = np.count_nonzero(self.predictions == 0)
-        fake_numb = np.count_nonzero(self.predictions == 1)
-        all = np.size(self.predictions)
-        real_percent = 100 * real_numb / all
-        fake_percent = 100 * fake_numb / all
-        return real_percent, fake_percent
+    # def get_distribution(self):
+    #     real_numb = np.count_nonzero(self.predictions == 0)
+    #     fake_numb = np.count_nonzero(self.predictions == 1)
+    #     all = np.size(self.predictions)
+    #     real_percent = 100 * real_numb / all
+    #     fake_percent = 100 * fake_numb / all
+    #     return real_percent, fake_percent
 
     def create_probabilities_plot(self):
         plt.figure()
-        X_axis = np.arange(self.number_of_chunks) + 1
-        plt.bar(X_axis - 0.2, self.probabilities[:, 0], 0.4, label=self.author_name, color="lightblue")
-        plt.bar(X_axis + 0.2, self.probabilities[:, 1], 0.4, label='Others', color="salmon")
+        X_axis = np.arange(self.number_of_chunks)
+        plt.bar(X_axis + 0.25, self.probabilities[:, 0], 0.5, label=self.author_name, color="lightblue")
+        plt.bar(X_axis + 0.75, self.probabilities[:, 1], 0.5, label='Others', color="salmon")
         plt.xlabel("Book chunks", weight="bold")
         plt.ylabel("Probability", weight="bold")
         plt.title("Probabilities chart for book chunks writer",
@@ -86,16 +85,15 @@ class PlagiarismDetection(Detection):
         import csv
         from pathlib import Path
 
-        # my_file = Path("../"+file_path)
-        my_file = Path(file_path)
+        my_file = Path("../"+file_path)
 
         file_exist = my_file.exists()
 
-        #  with open("../"+file_path, 'a', encoding='UTF8') as f:
-        with open( file_path, 'a', encoding='UTF8') as f:
+        with open("../"+file_path, 'a', encoding='UTF8') as f:
             writer = csv.writer(f)
             if not file_exist:
                 header = ['author name', 'book name', 'percent that written by author']
                 writer.writerow(header)
             data = [author_name, book_name, "{:.1f}%".format(percent)]
             writer.writerow(data)
+

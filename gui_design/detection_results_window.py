@@ -123,7 +123,7 @@ class Ui_DetectionResultsWindow(object):
         self.backBtn.setFlat(False)
         self.backBtn.setObjectName("backBtn")
         self.verticalGroupBox1 = QtWidgets.QGroupBox(self.groupBox)
-        self.verticalGroupBox1.setGeometry(QtCore.QRect(300, 769, 1021, 111))
+        self.verticalGroupBox1.setGeometry(QtCore.QRect(300, 769, 1021, 121))
         self.verticalGroupBox1.setStyleSheet("border-width: 3px;\n"
 "                            border-radius: 15px;\n"
 "                            border-color: rgb(0, 0, 0);\n"
@@ -149,7 +149,7 @@ class Ui_DetectionResultsWindow(object):
 "color: rgb(0, 0, 0);\n"
 "                                                \n"
 "\n"
-"")
+"font: 8pt \"Sitka Small\";")
         self.detectionTextEdit.setObjectName("detectionTextEdit")
         self.verticalLayout_5.addWidget(self.detectionTextEdit)
         self.verticalGroupBox2 = QtWidgets.QGroupBox(self.groupBox)

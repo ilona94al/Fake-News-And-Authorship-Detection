@@ -1,29 +1,113 @@
 import os
 
-from model.plagiarism_detection import PlagiarismDetection
+from constants import TRAINED_MODELS_PATH
+from model.fake_bert_model import FakeBERTModel
+import tensorflow as tf
+
+import numpy as np
 
 
 def read_book(book_dir_path):
-    path_parts = book_dir_path.split("/")
-    last_part_i = len(path_parts)
-    book_name = path_parts[last_part_i - 1].removesuffix(".txt")
     with open(book_dir_path, 'r', encoding='UTF-8') as book_file:
         book_string = book_file.read()
-        return book_string, book_name
+        return book_string
 
 
-author = "Isaac Asimov"
-books_dir_path = "DATABASE\plagiarism\Isaac Asimov_1\\test"
-for book_name in os.listdir(books_dir_path):
-    if (book_name.lower().__contains__(".txt")):
-        parts = book_name.lower().split('.');
-        if parts[len(parts) - 1] == 'txt':
-            book_path = books_dir_path + "/" + book_name;
-            try:
-                book_content, book_name = read_book(book_path)
-                PlagiarismDetection(input=book_content, model_name=author + ".h5", author_name=author,
-                                    book_name=book_name)
+def get_preprocessed_text(input, max_text_len):
+    from model.preprocessing import text_preprocessing
+    preprocessed_input = text_preprocessing(input)
+    from model.preprocessing import separate_text_to_blocks
+    input_blocks = separate_text_to_blocks(preprocessed_input, max_text_len)
+    return input_blocks
 
-            except:
-                print(book_path)
-                # break
+
+def get_distribution(probabilities):
+    all = np.size(probabilities)
+    if all == 1:
+        real_percent = 100.0 * probabilities[0][0]
+        fake_percent = 100.0 * probabilities[0][1]
+    else:
+        real_percent = 100.0 * sum(probabilities[:, 0]) / all
+        fake_percent = 100.0 * sum(probabilities[:, 1]) / all
+
+    return real_percent, fake_percent
+
+
+def write_results_to_file(file_path, author_name, book_name, percent):
+    import csv
+    from pathlib import Path
+
+    my_file = Path(file_path)
+
+    file_exist = my_file.exists()
+
+    with open(file_path, 'a', encoding='UTF8') as f:
+        writer = csv.writer(f)
+        if not file_exist:
+            header = ['author name', 'book name', 'percent that written by author']
+            writer.writerow(header)
+        data = [author_name, book_name, "{:.1f}%".format(percent)]
+        writer.writerow(data)
+
+
+def run_detection(author, books_dir_path):
+    model = FakeBERTModel()
+    #   loads the relevant model according to name and type
+    model.load_model(TRAINED_MODELS_PATH + "Plagiarism" + "/" + author + ".h5")
+    results_csv_path = author + '- Detection results.csv'
+    for book_name in os.listdir(books_dir_path):
+        if (book_name.lower().__contains__(".txt")):
+            parts = book_name.lower().split('.');
+            if parts[len(parts) - 1] == 'txt':
+                book_path = books_dir_path + "/" + book_name;
+                try:
+                    book_content = read_book(book_path)
+
+                    #   input preprocessing (separate input to chunks in size 128 tokens)
+                    input_texts = get_preprocessed_text(book_content, max_text_len=model.config['max_seq_len'])
+
+                    probabilities = model.predict(tf.constant(input_texts))
+
+                    real_percent, fake_percent = get_distribution(probabilities)
+
+                    write_results_to_file(file_path=results_csv_path, author_name=author,
+                                          book_name=book_name,
+                                          percent=real_percent)
+
+                except:
+                    print(book_path)
+                    # break
+
+
+# author_ = "Shakespeare"
+# books_dir_path_ = "DATABASE\plagiarism\Shakespeare_1\\test"
+# run_detection(author=author_, books_dir_path=books_dir_path_)
+
+# author_ = "William Shakespeare 2"
+# books_dir_path_ = "DATABASE\plagiarism\Shakespeare_2\\test"
+# run_detection(author=author_, books_dir_path=books_dir_path_)
+# author_ = "William Sheakspeare 3"
+# books_dir_path_ = "DATABASE\plagiarism\Shakespeare_3\\test"
+# run_detection(author=author_, books_dir_path=books_dir_path_)
+# author_ = "William Shakespeare 4"
+# books_dir_path_ = "DATABASE\plagiarism\Shakespeare_4\\test"
+# run_detection(author=author_, books_dir_path=books_dir_path_)
+
+# author_ = "Isaac Asimov"
+# books_dir_path_ = "DATABASE\plagiarism\Isaac Asimov_1\\test"
+# run_detection(author=author_, books_dir_path=books_dir_path_)
+
+
+author_ = "William Sheakspeare 3"
+books_dir_path_ = "DATABASE\plagiarism\Shakespeare_3\\another"
+run_detection(author=author_, books_dir_path=books_dir_path_)
+author_ = "William Shakespeare 4"
+books_dir_path_ = "DATABASE\plagiarism\Shakespeare_4\\another"
+run_detection(author=author_, books_dir_path=books_dir_path_)
+author_ = "Shakespeare"
+books_dir_path_ = "DATABASE\plagiarism\Shakespeare_1\\another"
+run_detection(author=author_, books_dir_path=books_dir_path_)
+
+author_ = "William Shakespeare 2"
+books_dir_path_ = "DATABASE\plagiarism\Shakespeare_2\\another"
+run_detection(author=author_, books_dir_path=books_dir_path_)

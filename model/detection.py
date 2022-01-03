@@ -1,4 +1,3 @@
-
 from constants import PLOTS_PATH
 from model.fake_bert_model import FakeBERTModel
 
@@ -10,7 +9,6 @@ import numpy as np
 class Detection():
     def __init__(self, input, model_name, model_type):
         self.model = FakeBERTModel()
-
 
         #   loads the relevant model according to name and type
         from constants import TRAINED_MODELS_PATH
@@ -26,10 +24,6 @@ class Detection():
         self.plot_path2 = PLOTS_PATH + "detection_plot_2.PNG"
 
         self.real_percent, self.fake_percent = self.get_distribution()
-
-
-
-
 
     @staticmethod
     def get_preprocessed_text(input, max_text_len):
@@ -59,17 +53,14 @@ class Detection():
         return predicted_probs, predictions_array
 
     def get_distribution(self):
-        real_numb = np.count_nonzero(self.predictions == 0)
-        fake_numb = np.count_nonzero(self.predictions == 1)
+        # real_numb = np.count_nonzero(self.predictions == 0)
+        # fake_numb = np.count_nonzero(self.predictions == 1)
         all = np.size(self.predictions)
-        if all==1:
-            real_percent=100*self.probabilities[0][0]
-            fake_percent=100*self.probabilities[0][1]
-        elif all<128:
-            real_percent=sum(self.probabilities[:, 0]) / all
-            fake_percent=sum(self.probabilities[:, 1]) / all
+        if all == 1:
+            real_percent = 100.0 * self.probabilities[0][0]
+            fake_percent = 100.0 * self.probabilities[0][1]
         else:
-            real_percent = 100 * real_numb / all
-            fake_percent = 100 * fake_numb / all
+            real_percent = 100.0 * sum(self.probabilities[:, 0]) / all
+            fake_percent = 100.0 * sum(self.probabilities[:, 1]) / all
 
         return real_percent, fake_percent
