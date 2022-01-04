@@ -22,7 +22,7 @@ def get_preprocessed_text(input, max_text_len):
 
 
 def get_distribution(probabilities):
-    all = np.size(probabilities)
+    all = probabilities.shape[0]
     if all == 1:
         real_percent = 100.0 * probabilities[0][0]
         fake_percent = 100.0 * probabilities[0][1]

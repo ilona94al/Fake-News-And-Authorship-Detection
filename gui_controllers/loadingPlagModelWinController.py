@@ -1,3 +1,4 @@
+import os
 import threading
 import time
 
@@ -24,7 +25,9 @@ class LoadingPlagModelWinController(LoadingWinController):
 
     def run_detection(self, book_name, content, author):
         from model.plagiarism_detection import PlagiarismDetection
+        os.chdir("../")
         self.detection = PlagiarismDetection(input=content, model_name=author + ".h5", author_name=author,book_name=book_name)
+        os.chdir("gui_controllers")
         self.loading = False
 
 

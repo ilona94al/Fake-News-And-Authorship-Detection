@@ -1,10 +1,6 @@
 from constants import TRAINED_MODELS_PATH
 from model.fake_bert_model import FakeBERTModel
-from model.fake_news_detection import FakeNewsDetection
-from run_books_detection import get_distribution
 import tensorflow as tf
-
-import numpy as np
 
 
 def get_preprocessed_text(text):
@@ -35,9 +31,11 @@ def get_preprocessed_texts_for_one_file(texts, labels, real_label_val, fakes_lab
             if label_is_integer:
                 if is_numeric(str(labels[i])) and is_one_of_labels(int(labels[i]), int(real_label_val),
                                                                    int(fakes_label_val)):
-                    j = update(clean_labels, clean_texts, j, labels[i], tweet)
+                    clean_labels.append(labels[i])
+                    clean_texts.append(tweet)
             elif is_one_of_labels(labels[i], real_label_val, fakes_label_val):
-                j = update(clean_labels, clean_texts, j, labels[i], tweet)
+                clean_labels.append(labels[i])
+                clean_texts.append(tweet)
 
     return clean_texts, clean_labels
 
@@ -50,12 +48,16 @@ def is_one_of_labels(label, real_label_val, fakes_label_val):
     return label == fakes_label_val or label == real_label_val
 
 
-def update(clean_labels, clean_texts, j, label, tweet):
-    tweet_blocks = get_preprocessed_text("" + tweet)
-    clean_texts.extend(block for block in tweet_blocks)
-    clean_labels.extend([label for x in range(j, j + len(tweet_blocks))])
-    j = j + len(tweet_blocks)
-    return j
+def get_distribution(probabilities):
+    all = probabilities.shape[0]
+    if all == 1:
+        real_percent = 100.0 * probabilities[0][0]
+        fake_percent = 100.0 * probabilities[0][1]
+    else:
+        real_percent = 100.0 * sum(probabilities[:, 0]) / all
+        fake_percent = 100.0 * sum(probabilities[:, 1]) / all
+
+    return real_percent, fake_percent
 
 
 def write_results_to_file(file_path, text, real_percent, real_class):
@@ -86,7 +88,7 @@ fakes_label_val_ = '1'
 news_, labels_ = read_csv_file_into_array(mixed_file_path, text_col_name, label_col_name)
 
 #   preprocessing
-texts_, clean_labels = get_preprocessed_texts_for_one_file(news_, labels_, real_label_val_, fakes_label_val_)
+texts_, clean_labels_ = get_preprocessed_texts_for_one_file(news_, labels_, real_label_val_, fakes_label_val_)
 tp = 0
 tn = 0
 fn = 0
@@ -97,19 +99,19 @@ model = FakeBERTModel()
 model.load_model(TRAINED_MODELS_PATH + "FakeNews" + "/" + model_name + ".h5")
 results_csv_path = model_name + "-db2- Detection results.csv"
 for i, tweet in enumerate(texts_):
-
-    probabilities = model.predict(tf.constant(tweet))
+    chunks = get_preprocessed_text("" + tweet)
+    probabilities = model.predict(tf.constant(chunks))
 
     real_percent, fake_percent = get_distribution(probabilities)
 
     write_results_to_file(model_name, tweet, real_percent,
-                          clean_labels[i])
+                          clean_labels_[i])
     if real_percent > fake_percent:
-        if int(clean_labels[i]) == int(real_label_val_):  # real
+        if int(clean_labels_[i]) == int(real_label_val_):  # real
             tp = tp + 1
         else:  # actually fake
             fp = fp + 1
-    elif int(clean_labels[i]) == int(fakes_label_val_):  # fake
+    elif int(clean_labels_[i]) == int(fakes_label_val_):  # fake
         tn = tn + 1
     else:  # actually true
         fn = fn + 1

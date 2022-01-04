@@ -1,3 +1,4 @@
+from constants import RESULTS
 from model.detection import Detection
 import numpy as np
 import matplotlib.pyplot as plt
@@ -7,7 +8,7 @@ class FakeNewsDetection(Detection):
     def __init__(self, input, model_name):
         super().__init__(input=input, model_name=model_name, model_type="FakeNews")
 
-        results_csv_path = str(model_name).removesuffix('.h5')+'- Detection results.csv'
+        results_csv_path =RESULTS+ str(model_name).removesuffix('.h5')+'- Detection results.csv'
         self.write_results_to_file(file_path=results_csv_path, text=input, real_percent=self.real_percent)
 
     def create_distribution_plot(self):
@@ -75,14 +76,14 @@ class FakeNewsDetection(Detection):
         import csv
         from pathlib import Path
 
-        my_file = Path("../"+file_path)
+        my_file = Path(file_path)
 
         file_exist = my_file.exists()
 
-        with open("../"+file_path, 'a', encoding='UTF8') as f:
+        with open(file_path, 'a', encoding='UTF8') as f:
             writer = csv.writer(f)
             if not file_exist:
                 header = ['text', 'reliable news percent', 'real classification (if exist)']
                 writer.writerow(header)
-            data = [text, "{:.1f}%".format(real_percent),real_class]
+            data = [text, "{:.1f}%".format(real_percent)]
             writer.writerow(data)

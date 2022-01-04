@@ -12,6 +12,7 @@ class Detection():
 
         #   loads the relevant model according to name and type
         from constants import TRAINED_MODELS_PATH
+
         self.model.load_model(TRAINED_MODELS_PATH + model_type + "/" + model_name)
 
         #   input preprocessing (separate input to chunks in size 128 tokens)

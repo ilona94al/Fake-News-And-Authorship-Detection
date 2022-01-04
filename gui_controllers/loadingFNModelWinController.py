@@ -1,3 +1,4 @@
+import os
 import threading
 
 from gui_controllers.loadingWinController import LoadingWinController
@@ -19,7 +20,9 @@ class LoadingFNModelWinController(LoadingWinController):
 
     def run_detection(self, content, model_name):
         from model.fake_news_detection import FakeNewsDetection
+        os.chdir("../")
         self.detection = FakeNewsDetection(input=content, model_name=model_name + ".h5")
+        os.chdir("gui_controllers")
         self.loading = False
 
 

@@ -1,4 +1,4 @@
-from constants import PLOTS_PATH
+from constants import PLOTS_PATH, RESULTS
 from model.detection import Detection
 import numpy as np
 import matplotlib.pyplot as plt
@@ -11,7 +11,7 @@ class PlagiarismDetection(Detection):
         self.author_name = author_name
         self.book_name = book_name
 
-        results_csv_path = author_name+'- Detection results.csv'
+        results_csv_path = RESULTS+author_name+'- Detection results.csv'
         self.write_results_to_file(file_path=results_csv_path, author_name=author_name, book_name=book_name,
                                    percent=self.real_percent)
 
@@ -77,7 +77,7 @@ class PlagiarismDetection(Detection):
         if self.real_percent > self.fake_percent:
             text += "It seems like the book was written by " + self.author_name + "."
         else:
-            text += "It seems like the book wasn't written by Shakespeare"
+            text += "It seems like the book wasn't written by " + self.author_name + "."
         return text
 
     @staticmethod
@@ -85,11 +85,11 @@ class PlagiarismDetection(Detection):
         import csv
         from pathlib import Path
 
-        my_file = Path("../"+file_path)
+        my_file = Path(file_path)
 
         file_exist = my_file.exists()
 
-        with open("../"+file_path, 'a', encoding='UTF8') as f:
+        with open(file_path, 'a', encoding='UTF8') as f:
             writer = csv.writer(f)
             if not file_exist:
                 header = ['author name', 'book name', 'percent that written by author']
