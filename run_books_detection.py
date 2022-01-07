@@ -54,7 +54,7 @@ def run_detection(author, books_dir_path):
     model = FakeBERTModel()
     #   loads the relevant model according to name and type
     model.load_model(TRAINED_MODELS_PATH + "Plagiarism" + "/" + author + ".h5")
-    results_csv_path = author + '- Detection results.csv'
+    results_csv_path = author + '- Detection results_others.csv'
     for book_name in os.listdir(books_dir_path):
         if (book_name.lower().__contains__(".txt")):
             parts = book_name.lower().split('.');
@@ -97,17 +97,50 @@ def run_detection(author, books_dir_path):
 # books_dir_path_ = "DATABASE\plagiarism\Isaac Asimov_1\\test"
 # run_detection(author=author_, books_dir_path=books_dir_path_)
 
+#
+# author_ = "William Sheakspeare 3"
+# books_dir_path_ = "DATABASE\plagiarism\Shakespeare_3\\test\Others"
+# run_detection(author=author_, books_dir_path=books_dir_path_)
+# books_dir_path_ = "DATABASE\plagiarism\Shakespeare_1\\test\Others"
+# run_detection(author=author_, books_dir_path=books_dir_path_)
+#
+# author_ = "William Shakespeare 4"
+# books_dir_path_ = "DATABASE\plagiarism\Shakespeare_4\\test\Others"
+# run_detection(author=author_, books_dir_path=books_dir_path_)
+# author_ = "Shakespeare"
+# books_dir_path_ = "DATABASE\plagiarism\Shakespeare_1\\test\Others"
+# run_detection(author=author_, books_dir_path=books_dir_path_)
+#
+# author_ = "William Shakespeare 2"
+# books_dir_path_ = "DATABASE\plagiarism\Shakespeare_2\\test\Others"
+# run_detection(author=author_, books_dir_path=books_dir_path_)
 
-author_ = "William Sheakspeare 3"
-books_dir_path_ = "DATABASE\plagiarism\Shakespeare_3\\another"
-run_detection(author=author_, books_dir_path=books_dir_path_)
-author_ = "William Shakespeare 4"
-books_dir_path_ = "DATABASE\plagiarism\Shakespeare_4\\another"
-run_detection(author=author_, books_dir_path=books_dir_path_)
-author_ = "Shakespeare"
-books_dir_path_ = "DATABASE\plagiarism\Shakespeare_1\\another"
-run_detection(author=author_, books_dir_path=books_dir_path_)
 
-author_ = "William Shakespeare 2"
-books_dir_path_ = "DATABASE\plagiarism\Shakespeare_2\\another"
+# author_ = "Robert Sheckley 2"
+# books_dir_path_ = "DATABASE\plagiarism\RS\\test\\Others"
+# run_detection(author=author_, books_dir_path=books_dir_path_)
+author_ = "Robert Sheckley"
+books_dir_path_ = "DATABASE\plagiarism\RS"
+run_detection(author=author_, books_dir_path=books_dir_path_)
+author_ = "Robert Sheckley 2"
+books_dir_path_ = "DATABASE\plagiarism\RS"
+run_detection(author=author_, books_dir_path=books_dir_path_)
+#
+# author_ = "Isaac Asimov"
+# books_dir_path_ = "DATABASE\plagiarism\Isaac Asimov_1\\test"
+# run_detection(author=author_, books_dir_path=books_dir_path_)
+author_ = "Isaac Asimov"
+books_dir_path_ = "DATABASE\plagiarism\Isaac Asimov_1\\test\\Others\\Benjamin Jonson"
+run_detection(author=author_, books_dir_path=books_dir_path_)
+books_dir_path_ = "DATABASE\plagiarism\Isaac Asimov_1\\test\\Others\\Christopher Marlowe"
+run_detection(author=author_, books_dir_path=books_dir_path_)
+books_dir_path_ = "DATABASE\plagiarism\Isaac Asimov_1\\test\\Others\\Francis Bacon"
+run_detection(author=author_, books_dir_path=books_dir_path_)
+books_dir_path_ = "DATABASE\plagiarism\Isaac Asimov_1\\test\\Others\\Jean-Baptiste Poquelin"
+run_detection(author=author_, books_dir_path=books_dir_path_)
+books_dir_path_ = "DATABASE\plagiarism\Isaac Asimov_1\\test\\Others\\Miguel de Cervantes Saavedra"
+run_detection(author=author_, books_dir_path=books_dir_path_)
+books_dir_path_ = "DATABASE\plagiarism\Isaac Asimov_1\\test\\Others\\Niccolo Machiavelli"
+run_detection(author=author_, books_dir_path=books_dir_path_)
+books_dir_path_ = "DATABASE\plagiarism\Isaac Asimov_1\\test\\Others\\Robert Sheckley"
 run_detection(author=author_, books_dir_path=books_dir_path_)

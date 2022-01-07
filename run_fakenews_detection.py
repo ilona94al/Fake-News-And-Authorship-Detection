@@ -104,7 +104,7 @@ for i, tweet in enumerate(texts_):
 
     real_percent, fake_percent = get_distribution(probabilities)
 
-    write_results_to_file(model_name, tweet, real_percent,
+    write_results_to_file(results_csv_path, tweet, real_percent,
                           clean_labels_[i])
     if real_percent > fake_percent:
         if int(clean_labels_[i]) == int(real_label_val_):  # real
@@ -117,6 +117,6 @@ for i, tweet in enumerate(texts_):
         fn = fn + 1
 
 acc = (tp + tn) / (tp + tn + fp + fn)
-print("acc is: " + acc)
-print("True predicts: " + tp + tn)
-print("False predicts: " + fp + fn)
+print("acc is: " + str(acc))
+print("True predicts: " + str(tp + tn))
+print("False predicts: " + str(fp + fn))

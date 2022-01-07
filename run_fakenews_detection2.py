@@ -65,14 +65,15 @@ def write_results_to_file(file_path, text, real_percent, real_class):
         writer.writerow(data)
 
 
-real_file_path = "DATABASE\\fakenews\db1\\real_test2.csv"
-fakes_file_path = "DATABASE\\fakenews\db1\\fake_test2.csv"
+real_file_path = "DATABASE\\fakenews\db1\\True.csv"
+fakes_file_path = "DATABASE\\fakenews\db1\\Fake.csv"
 text_col_name = 'text'
 
 #   read tweets
 fake_news = read_csv_file_into_array(fakes_file_path, text_col_name)
 real_news = read_csv_file_into_array(real_file_path, text_col_name)
-
+fake_news=fake_news[1000:6000]
+real_news=real_news[1000:6000]
 #   preprocessing
 # real_texts = get_preprocessed_texts(real_news)
 # fake_texts = get_preprocessed_texts(fake_news)
@@ -89,6 +90,7 @@ model = FakeBERTModel()
 model.load_model(TRAINED_MODELS_PATH + "FakeNews" + "/" + model_name + ".h5")
 results_csv_path = model_name + "-db1- Detection results.csv"
 for i, tweet in enumerate(texts):
+
     chunks = get_preprocessed_text(tweet)
     probabilities = model.predict(tf.constant(chunks))
 
@@ -107,6 +109,6 @@ for i, tweet in enumerate(texts):
         fn = fn + 1
 
 acc = (tp + tn) / (tp + tn + fp + fn)
-print("acc is: " + acc)
-print("True predicts: " + tp + tn)
-print("False predicts: " + fp + fn)
+print("acc is: " + str(acc))
+print("True predicts: " + str(tp + tn))
+print("False predicts: " + str(fp + fn))
