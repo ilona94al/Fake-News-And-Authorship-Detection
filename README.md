@@ -17,8 +17,6 @@ https://user-images.githubusercontent.com/57364429/149624237-d4f89f5a-ba25-4514-
 
 ### Deep learning model architecture 
 <img src="https://user-images.githubusercontent.com/57364429/149625170-2b72b8c4-a544-412c-93b7-fa9eb395ed4b.png" width="700" hight="500">
-<img src="https://user-images.githubusercontent.com/57364429/149635335-92ccc12b-317a-4e6f-893f-303cec26b2db.png" width="500" hight="800">
-<img src="https://user-images.githubusercontent.com/57364429/149625922-86692c07-2726-43a2-bf40-0ad10cab7e28.png" width="500" hight="300">
 
 ### Program architecture
 <img src="https://user-images.githubusercontent.com/57364429/149635621-49915628-11f5-40e9-bdab-d4d0ac78251f.jpg" width="700" hight="1000">
