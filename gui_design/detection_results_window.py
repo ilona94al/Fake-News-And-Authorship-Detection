@@ -206,7 +206,7 @@ class Ui_DetectionResultsWindow(object):
         self.backBtn.setText(_translate("DetectionResultsWindow", "Back"))
         self.verticalGroupBox1.setTitle(_translate("DetectionResultsWindow", "Model detects that:"))
         self.verticalGroupBox2.setTitle(_translate("DetectionResultsWindow", "Probabilities graph:"))
-        self.verticalGroupBox3.setTitle(_translate("DetectionResultsWindow", "Distebution graph:"))
+        self.verticalGroupBox3.setTitle(_translate("DetectionResultsWindow", "Distribution graph:"))
 
 
 if __name__ == "__main__":

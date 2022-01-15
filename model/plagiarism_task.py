@@ -10,8 +10,9 @@ class PlagiarismTask(Task):
 
         #   read books
         author_books = self.read_books_of_specific_author(books_dir_path=dir_path)
-        different_books = self.read_books_of_various_authors(books_dir_path="../DATABASE/plagiarism/books_for_train_ISC2",
-                                                             name_to_ignore=author_name)
+        #   preprocessing
+        author_texts = self.get_preprocessed_texts(author_books)
+
         if len(author_books) == 0:
             self.error = True
             self.error_msg = "Directory is empty, choose another."
@@ -19,9 +20,19 @@ class PlagiarismTask(Task):
         else:
             self.error = False
 
+        different_books = self.read_books_of_various_authors(
+            books_dir_path="../DATABASE/plagiarism/books",
+            name_to_ignore=author_name)
+
         #   preprocessing
-        author_texts = self.get_preprocessed_texts(author_books)
         diff_texts = self.get_preprocessed_texts(different_books)
+
+        # shuffle all chunks
+        import random
+        random.shuffle(diff_texts)
+
+        # make different authors chunks to be in size of a specific author chunks
+        diff_texts = diff_texts[:len(author_texts)]
 
         #   union
         texts = author_texts + diff_texts
@@ -61,11 +72,10 @@ class PlagiarismTask(Task):
     def read_books_of_various_authors(self, books_dir_path, name_to_ignore):
         books = []
         for author_name in os.listdir(books_dir_path):
-            if not self.is_same_names(author_name.lower(), name_to_ignore.lower()):
+            if not self.is_same_names(author_name.lower(), name_to_ignore.lower()) :
                 author_books = self.read_books_of_specific_author(books_dir_path + '/' + author_name)
                 books.extend(book for book in author_books)
-                # if(len(books)>number_of_books and books.__sizeof__())
-                #     ret
+
         return books
 
     @staticmethod

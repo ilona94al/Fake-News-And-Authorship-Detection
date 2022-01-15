@@ -428,7 +428,7 @@ color: rgb(0, 0, 0);
 </string>
      </property>
      <property name="title">
-      <string>Distebution graph:</string>
+      <string>Distribution graph:</string>
      </property>
      <layout class="QVBoxLayout" name="verticalLayout_7" stretch="0">
       <property name="spacing">

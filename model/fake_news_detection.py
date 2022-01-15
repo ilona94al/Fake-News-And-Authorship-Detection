@@ -64,7 +64,7 @@ class FakeNewsDetection(Detection):
         plt.savefig("../" + self.plot_path1)
 
     def get_result(self):
-        text = "The tweet represents fake news with an accuracy of " + "{:.1f}%".format(self.real_percent) + ". " + "\n"
+        text = "The tweet represents real news with an accuracy of " + "{:.1f}%".format(self.real_percent) + ". " + "\n"
         if self.real_percent > self.fake_percent:
             text += "It seems like the tweet is reliable and does not represent fake news."
         else:

@@ -37,8 +37,6 @@ class Task():
         text_blocks = separate_text_to_blocks(preprocessed_text, self.max_text_len)
         return text_blocks
 
-
-
     #   gets texts and corresponding labels
     #   split data to train set, validation set and test set
     def prepare_train_validation_test_sets(self, texts, y_expected):
@@ -70,17 +68,15 @@ class Task():
         self.t = threading.Thread(target=self.run_train_model)
         self.t.start()
 
-    def save_model(self,  model_name,replace=False):
+    def save_model(self, model_name, replace=False):
 
-        path="../" + self.model_path + model_name+self.model.model_suffix
+        path = "../" + self.model_path + model_name + self.model.model_suffix
 
         if os.path.exists(path) and not replace:
             return False
         else:
             self.model.save_model(path)
             return True
-
-
 
     def test_model(self):
         self.model.test_model(x_test=tf.constant(self.x_test), y_test_prob=self.y_test_prob, y_test=self.y_test)
