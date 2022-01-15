@@ -42,5 +42,10 @@ Run: pip install requirements.txt
 ## How to use
 Run: mainWinController.py which is located in the "gui_controllers" package.
 
+## Authors
+
+* **Ilona Aliev** - [Ilona's github](https://github.com/ilona94al)
+* **Vladislav Platunov** - [Vlad's github](https://github.com/Vladplat12)
+
 
 
