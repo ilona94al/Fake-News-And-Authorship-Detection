@@ -19,7 +19,7 @@ https://user-images.githubusercontent.com/57364429/149624237-d4f89f5a-ba25-4514-
 <img src="https://user-images.githubusercontent.com/57364429/149625170-2b72b8c4-a544-412c-93b7-fa9eb395ed4b.png" width="700" hight="500">
 
 ### Program architecture
-<img src="https://user-images.githubusercontent.com/57364429/149635621-49915628-11f5-40e9-bdab-d4d0ac78251f.jpg" width="700" hight="1000">
+<img src="https://user-images.githubusercontent.com/57364429/149635959-14ea9339-1d51-4ccf-a5f5-2a1fcb22940c.jpg" hight="1000">
 
 ## Requirements
 Run: pip install requirements.txt
