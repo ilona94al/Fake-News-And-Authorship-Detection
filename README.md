@@ -1,6 +1,20 @@
 # Fake-News-And-Authorship-Detection
 
-Download 
+
+
+## **BERT installation**
+‎●‎	Download BERT encoder from:‎
+https://tfhub.dev/tensorflow/bert_en_cased_L-12_H-768_A-12/3 ‎
+‎●‎	Download BERT preprocessor from:‎
+https://tfhub.dev/tensorflow/bert_en_cased_preprocess/3‎
+‎●‎	Create in the project root directory a new folder "BERT" and inside create two ‎folders "encoder" and "preprocessor".‎
+‎●‎	Unzip and paste enсoder files into BERT/encoder directory.‎
+‎●‎	Unzip and paste preprocessor files into BERT/preprocessor directory.‎
+
+GUI Running ‎
+‎●‎	Run the python file: mainWinController.py which located in the "gui_controllers" ‎package.‎
+
+
 
 if TensorFlow-text installation was failed try:
 pip install -q -U tensorflow-text
