@@ -1,4 +1,16 @@
-# Fake-News-And-Authorship-Detection
+# Fake-News-And-Plagiarism-Detection
+This program was made as a final project in the degree of Software Engineering. 
+The project-based on a deep learning approach and performs two tasks:
+1) Fake news detection
+2) Plagiarism detection
+
+https://user-images.githubusercontent.com/57364429/149624231-74ebd269-df8a-4c13-9da7-b9e4eaa46e9c.mp4
+
+
+
+https://user-images.githubusercontent.com/57364429/149624237-d4f89f5a-ba25-4514-8cb0-c91126f2388c.mp4
+
+
 
 
 
