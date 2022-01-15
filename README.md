@@ -16,10 +16,10 @@ https://user-images.githubusercontent.com/57364429/149624237-d4f89f5a-ba25-4514-
 -  CNN
 
 ### Deep learning model architecture 
-<img src="https://user-images.githubusercontent.com/57364429/149625170-2b72b8c4-a544-412c-93b7-fa9eb395ed4b.png" width="700" hight="500">
+<img src="https://user-images.githubusercontent.com/57364429/149625170-2b72b8c4-a544-412c-93b7-fa9eb395ed4b.png" width="650" hight="400">
 
 ### Program architecture
-<img src="https://user-images.githubusercontent.com/57364429/149635959-14ea9339-1d51-4ccf-a5f5-2a1fcb22940c.jpg" hight="1000">
+<img src="https://user-images.githubusercontent.com/57364429/149635959-14ea9339-1d51-4ccf-a5f5-2a1fcb22940c.jpg"  width="500" hight="750">
 
 ## Requirements
 Run: pip install requirements.txt
