@@ -13,7 +13,7 @@ https://user-images.githubusercontent.com/57364429/149624237-d4f89f5a-ba25-4514-
 
 ### Used algorithms:
 -  BERT for NLP
--  CNN
+-  CNN for feature extraction
 
 ### Deep learning model architecture 
 <img src="https://user-images.githubusercontent.com/57364429/149625170-2b72b8c4-a544-412c-93b7-fa9eb395ed4b.png" width="650" hight="400">
@@ -54,12 +54,16 @@ Run: mainWinController.py which is located in the "gui_controllers" package.
 
 ## Database
 ### Fake news
-[Single csv file with column for label](https://www.kaggle.com/c/fake-news/data)
+Supported formats examples:
 
-[Two csv files - one file for each label](https://www.kaggle.com/clmentbisaillon/fake-and-real-news-dataset)
+📰 [A single CSV file with a column for label](https://www.kaggle.com/c/fake-news/data)
 
-<img width="350" alt="9 train_fake_news" src="https://user-images.githubusercontent.com/57364429/150197062-ae3c9a96-4e77-4ba3-85a2-efcd741ab5d3.png">
-<img width="350" alt="10 train_fake_news2" src="https://user-images.githubusercontent.com/57364429/150197075-047ff546-05fb-4cba-aa4f-e86c4781fa44.png">
+📰 [Two separated CSV files - one file for each label](https://www.kaggle.com/clmentbisaillon/fake-and-real-news-dataset)
+
+### Plagiarism
+*Pay attention: only books in TXT format are supported.*
+
+before training make sure that the DATABASE\plagiarism\books directory includes folders with authors' names and their books inside.
 
 ## Authors
 * **Ilona Aliev** - [Ilona's github](https://github.com/ilona94al)
