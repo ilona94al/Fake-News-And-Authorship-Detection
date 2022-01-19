@@ -1,12 +1,12 @@
-
+tensorflow==2.6.0
 PyQt5==5.15.4
-tensorflow-text==2.6.0
-tf-models-official==2.6.0
-tensorflow-hub==0.12.0
 numpy=1.19.5
 matplotlib==3.4.3
 nltk==3.6.3
 scikit-learn==1.0
 pandas==1.3.3
+-q -U tensorflow-text==2.6.0
+-q tf-models-official==2.6.0
+tensorflow-hub==0.12.0
 
 
