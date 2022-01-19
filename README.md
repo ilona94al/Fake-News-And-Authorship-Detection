@@ -26,8 +26,6 @@ https://user-images.githubusercontent.com/57364429/149624237-d4f89f5a-ba25-4514-
 
 ● TensorFlow 2.6.0
 
-● TensorFlow-hub 0.12.0
-
 ● PyQt5
 
 **Run**: 
